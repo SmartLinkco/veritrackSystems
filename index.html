@@ -343,40 +343,6 @@ URI     : https://colorlib.com
     <!-- // end .section -->
 
 
-    <div class="section">
-        <div class="container">
-            <div class="section-title">
-                <small>TESTIMONIALS</small>
-                <h3>What our Customers Says</h3>
-            </div>
-
-            <div class="testimonials owl-carousel">
-                <div class="testimonials-single">
-                    <!-- <img src="images/client.png" alt="client" class="client-img"> -->
-                    <blockquote class="blockquote">VeriTrack has completely transformed how we manage attendance. The real-time updates and QR code check-ins are a game changer for our HR team.</blockquote>
-                    <h5 class="mt-4 mb-2">Shola Oluwa</h5>
-                    <p class="text-primary">MD (REXDELIVERY GHANA LTD) - Teshie, Ghana</p>
-                </div>
-                <div class="testimonials-single">
-                    <!-- <img src="images/client.png" alt="client" class="client-img"> -->
-                    <blockquote class="blockquote">The daily growth tips keep our staff motivated and engaged. We’ve seen a noticeable improvement in punctuality and morale since switching to VeriTrack.</blockquote>
-                    <h5 class="mt-4 mb-2">Ama Boateng</h5>
-                    <p class="text-primary">Kumasi, Ghana</p>
-                </div>
-                <div class="testimonials-single">
-                    <!-- <img src="images/client.png" alt="client" class="client-img"> -->
-                    <blockquote class="blockquote">I love how easy it is to track both employees and visitors. The support team is always responsive and helpful whenever we need assistance.</blockquote>
-                    <h5 class="mt-4 mb-2">Samuel Owusu</h5>
-                    <p class="text-primary">Takoradi, Ghana</p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-    <!-- // end .section -->
-
-
     <div class="section light-bg" id="gallery">
         <div class="container">
             <div class="section-title">
@@ -468,6 +434,185 @@ URI     : https://colorlib.com
     </div>
     <!-- // end .section -->
 
+    <!-- Request Form Section Start -->
+    <section id="check-In" class="request section light-bg section-padding prelative mobile-padding" data-scroll-index='7' style="padding-top: 60px; padding-bottom: 60px;">
+        <div class="container form-container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="gradient-bg text-center" style="background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%); color: #fff; padding: 32px 16px 24px 16px; border-radius: 8px; margin-bottom: 24px;">
+                        <h3 style="font-weight: 500;">Request an Attendance System</h3>
+                        <span class="line" style="display:block;width:60px;height:3px;background:#fff;margin:16px auto 24px auto;border-radius:2px;"></span>
+                        <p style="color: #e3e3e3;">Let us know your requirements, and we'll tailor a solution to meet your needs.</p>
+                    </div>
+                    <div class="section-content">
+                        <form id="custom_request_form" class="form-body" action="https://script.google.com/macros/s/AKfycbyI-hKzQfM_wfM3_gzCnu6L8_6rSTOBkYeNozh9POLO_5-1ABnzhqyz4570TLLxAcy-/exec" method="POST" style="background: #fff; padding: 32px 24px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.07);">
+                            <!-- Client Basics -->
+                            <h5 class="mb-3" style="color:#007bff;">1. Client Basics</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" id="full_name" class="form-input w-100 mb-3" name="full-name" placeholder="Full Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" id="company_name" class="form-input w-100 mb-3" name="company-name" placeholder="Company/Organization Name" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="email" id="email" class="form-input w-100 mb-3" name="email" placeholder="Email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" id="phone" class="form-input w-100 mb-3" name="phone" placeholder="Phone Number" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select id="industry" class="form-input w-100 mb-3" name="industry" required>
+                                        <option value="" disabled selected>Industry</option>
+                                        <option value="Education">Education</option>
+                                        <option value="Corporate">Corporate</option>
+                                        <option value="Healthcare">Healthcare</option>
+                                        <option value="Events">Events</option>
+                                        <option value="Construction">Construction</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- System Requirements -->
+                            <h5 class="mb-3" style="color:#007bff;">2. System Requirements</h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label style="font-weight: bold;">Use Case:</label>
+                                    <select id="use_case" class="form-input w-100 mb-3" name="use-case" required>
+                                        <option value="" disabled selected>Select Use Case</option>
+                                        <option value="Employee Attendance">Employee Attendance</option>
+                                        <option value="Student/Class Tracking">Student/Class Tracking</option>
+                                        <option value="Event Check-In">Event Check-In</option>
+                                        <option value="Remote Workforce">Remote Workforce</option>
+                                        <option value="Visitor Management">Visitor Management</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label style="font-weight: bold;">Key Features Needed:</label>
+                                    <div class="mb-3">
+                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="QR Code Scanning"> QR Code Scanning</label>
+                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="GPS/Geofencing"> GPS/Geofencing</label>
+                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="Automated Reports"> Automated Reports</label>
+                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="Payroll Sync"> Payroll Sync</label>
+                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="Multi-location Support"> Multi-location Support</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Technical Preferences -->
+                            <h5 class="mb-3" style="color:#007bff;">3. Technical Preferences</h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label style="font-weight: bold;">Platform:</label>
+                                    <select id="platform" class="form-input w-100 mb-3" name="platform" required>
+                                        <option value="" disabled selected>Select Platform</option>
+                                        <option value="Web-Based">Web-Based</option>
+                                        <option value="Kiosk/Hardware Setup">Kiosk/Hardware Setup</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <textarea class="form-input w-100 mb-3" id="integration_needs" name="integration-needs" placeholder="List any existing software (e.g., HR tools like BambooHR, Slack, Zoom) you’d like to integrate with." style="height: 100px;"></textarea>
+                                </div>
+                            </div>
+                            <!-- Scale & Timeline -->
+                            <h5 class="mb-3" style="color:#007bff;">4. Scale & Timeline</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <select id="number_of_users" class="form-input w-100 mb-3" name="number-of-users" required>
+                                        <option value="" disabled selected>Number of Users</option>
+                                        <option value="1–50">1–50</option>
+                                        <option value="51–200">51–200</option>
+                                        <option value="201–500">201–500</option>
+                                        <option value="500+">500+</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: bold;">Preferred Deployment Timeline:</label><br>
+                                    <label class="mr-2"><input type="radio" name="deployment-timeline" value="Immediate"> Immediate</label>
+                                    <label class="mr-2"><input type="radio" name="deployment-timeline" value="1–3 Months"> 1–3 Months</label>
+                                    <label class="mr-2"><input type="radio" name="deployment-timeline" value="Flexible"> Flexible</label>
+                                </div>
+                            </div>
+                            <!-- Subscriptions -->
+                            <h5 class="mb-3" style="color:#007bff;">5. Subscription Plan</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <select id="budget_range" class="form-input w-100 mb-3" name="budget-range" required>
+                                        <option value="" disabled selected>Subscription Range</option>
+                                        <option value="Monthly (₵120 per Month)">Monthly (₵120 per Month)</option>
+                                        <option value="Quarterly (₵342 per 3 Months)">Quarterly (₵342 per 3 Months) - 5% Discount</option>
+                                        <option value="Semiannually (₵648 per 6 Months)">Semiannually (₵648 per 6 Months) - 10% Discount</option>
+                                        <option value="Annually (₵1200 per Year)">Annually (₵1200 per Year) - 2 Months Free</option>
+                                        <option value="20 Days Free Trial">20 Days Free Trial</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <textarea class="form-input w-100 mb-3" id="additional_requests" name="additional-requests" placeholder="Specify branding needs (e.g., white-labeling, custom colors/logo)." style="height: 100px;"></textarea>
+                                </div>
+                            </div>
+                            <!-- Submission & Follow-Up -->
+                            <h5 class="mb-3" style="color:#007bff;">6. Submission & Follow-Up</h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button id="submission" class="btn btn-primary btn-lg btn-block text-uppercase" type="submit" name="submit" style="background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%); border: none;">Get My Custom Proposal</button>
+                                    <p id="alert" style="margin-top: 10px; text-align: center; border-radius: 3px; padding: 10px; font-size: 14px;"></p>
+                                    <p style="margin-top: 10px; font-size: 12px; text-align: center; color: #555;">Disclaimer: We’ll contact you within 24 hours to discuss your requirements!</p>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Confirmation Message (hidden initially) -->
+                        <div id="confirmation-message" class="confirmation-message" style="display:none; text-align:center; padding:32px 0;">
+                            <div class="confirmation-icon" style="font-size:48px; color:#28a745; margin-bottom:16px;">✓</div>
+                            <h3>Request Submitted Successfully!</h3>
+                            <p>We've sent a confirmation email with your request details. Kindly check your inbox / spam box.</p>
+                            <p>Our team will contact you within <strong>24 hours</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            #custom_request_form .form-input {
+                padding: 10px;
+                border: 1px solid #e0e0e0;
+                border-radius: 4px;
+                background: #f9f9f9;
+                font-size: 1em;
+                transition: border-color 0.2s;
+            }
+            #custom_request_form .form-input:focus {
+                border-color: #007bff;
+                background: #fff;
+                outline: none;
+            }
+            #custom_request_form label {
+                margin-bottom: 0.3em;
+                color: #222;
+            }
+            #custom_request_form h5 {
+                margin-top: 1.5em;
+                margin-bottom: 0.7em;
+                font-weight: 500;
+            }
+            #custom_request_form .btn-primary {
+                background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+                border: none;
+            }
+            #custom_request_form .btn-primary:disabled {
+                background: #b3d7ff;
+            }
+            #custom_request_form .confirmation-message {
+                display: none;
+            }
+        </style>
+    </section>
+    <!-- Request Form Section End -->
 
     <div class="section pt-0">
         <div class="container">
@@ -540,6 +685,39 @@ URI     : https://colorlib.com
     </div>
     <!-- Team Section End -->
 
+    <div class="section">
+        <div class="container">
+            <div class="section-title">
+                <small>TESTIMONIALS</small>
+                <h3>What our Customers Says</h3>
+            </div>
+
+            <div class="testimonials owl-carousel">
+                <div class="testimonials-single">
+                    <!-- <img src="images/client.png" alt="client" class="client-img"> -->
+                    <blockquote class="blockquote">VeriTrack has completely transformed how we manage attendance. The real-time updates and QR code check-ins are a game changer for our HR team.</blockquote>
+                    <h5 class="mt-4 mb-2">Shola Oluwa</h5>
+                    <p class="text-primary">MD (REXDELIVERY GHANA LTD) - Teshie, Ghana</p>
+                </div>
+                <div class="testimonials-single">
+                    <!-- <img src="images/client.png" alt="client" class="client-img"> -->
+                    <blockquote class="blockquote">The daily growth tips keep our staff motivated and engaged. We’ve seen a noticeable improvement in punctuality and morale since switching to VeriTrack.</blockquote>
+                    <h5 class="mt-4 mb-2">Ama Boateng</h5>
+                    <p class="text-primary">Kumasi, Ghana</p>
+                </div>
+                <div class="testimonials-single">
+                    <!-- <img src="images/client.png" alt="client" class="client-img"> -->
+                    <blockquote class="blockquote">I love how easy it is to track both employees and visitors. The support team is always responsive and helpful whenever we need assistance.</blockquote>
+                    <h5 class="mt-4 mb-2">Samuel Owusu</h5>
+                    <p class="text-primary">Takoradi, Ghana</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- // end .section -->
+
     <div class="section bg-gradient">
         <div class="container">
             <div class="call-to-action">
@@ -607,6 +785,98 @@ URI     : https://colorlib.com
     <script src="js/owl.carousel.min.js"></script>
     <!-- Custom JS -->
     <script src="js/script.js"></script>
+    <script>
+        document.getElementById('custom_request_form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const submitBtn = document.getElementById('submission');
+        const alertBtn = document.getElementById('alert');
+        const email = formData.get('email'); // Assuming your form has an email field
+        
+        // Disable button during submission
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        
+        try {
+            // First check if email exists
+            const emailCheckResponse = await checkEmailExists(email);
+            
+            if (emailCheckResponse.exists) {
+            alertBtn.textContent = 'This email is already associated with an existing company. Please use a different email or contact support.';
+            alertBtn.style.backgroundColor = '#f81212';
+            alertBtn.style.color = '#fff';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Get My Custom Proposal';
+            return;
+            }
+
+            // Proceed with form submission if email is new
+            const jsonData = {};
+            formData.forEach((value, key) => {
+            if (key.endsWith('[]')) {
+                const cleanKey = key.replace('[]', '');
+                if (!jsonData[cleanKey]) jsonData[cleanKey] = [];
+                jsonData[cleanKey].push(value);
+            } else {
+                jsonData[key] = value;
+            }
+            });
+
+            const script = document.createElement('script');
+            const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+            
+            window[callbackName] = function(data) {
+            delete window[callbackName];
+            document.body.removeChild(script);
+            
+            if (data.result === "success") {
+                form.style.display = 'none';
+                document.getElementById('confirmation-message').style.display = 'block';
+            } else {
+                alert("Error: " + (data.error || "Submission failed"));
+            }
+            };
+
+            const url = new URL(form.action);
+            url.searchParams.set('callback', callbackName);
+            url.searchParams.set('data', JSON.stringify(jsonData));
+            
+            script.src = url.toString();
+            document.body.appendChild(script);
+
+        } catch (error) {
+            console.error("Submission error:", error);
+            alert("Error submitting form. Please try again.");
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Get My Custom Proposal';
+        }
+        });
+
+        // Helper function to check email existence
+        function checkEmailExists(email) {
+        return new Promise((resolve, reject) => {
+            const callbackName = 'email_check_callback_' + Math.round(100000 * Math.random());
+            
+            window[callbackName] = function(data) {
+            delete window[callbackName];
+            document.body.removeChild(script);
+            resolve(data);
+            };
+
+            const script = document.createElement('script');
+            const url = new URL('https://script.google.com/macros/s/AKfycbyI-hKzQfM_wfM3_gzCnu6L8_6rSTOBkYeNozh9POLO_5-1ABnzhqyz4570TLLxAcy-/exec');
+            url.searchParams.set('callback', callbackName);
+            url.searchParams.set('action', 'checkEmail');
+            url.searchParams.set('email', email);
+            
+            script.src = url.toString();
+            script.onerror = () => reject(new Error('Email check failed'));
+            document.body.appendChild(script);
+        });
+        }
+    </script>
 
 </body>
 
