@@ -47,8 +47,11 @@ URI     : https://colorlib.com
                                 <li class="nav-item"> <a class="nav-link" href="#features">FEATURES</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#gallery">GALLERY</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#pricing">PRICING</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="#check-In">SYSTEM REQUEST</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="#faqs">FAQs</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="#team">OUR TEAM</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#contact">CONTACT</a> </li>
-                                <li class="nav-item"><a href="#" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Free Trial</a></li>
+                                <li class="nav-item"><a href="#check-In" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Free Trial</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -271,17 +274,17 @@ URI     : https://colorlib.com
                 <div class="col-md-6">
                     <img src="images/dualphone.png" alt="dual phone" class="img-fluid">
                 </div>
-                <div class="col-md-6 d-flex align-items-center">
+                <div class="col-md-5 d-flex align-items-center">
                     <div>
                         <div class="box-icon mb-3"><span class="ti-rocket gradient-fill ti-3x"></span></div>
                         <h2>Request Your Custom App</h2>
                         <p class="mb-3">Ready to streamline your organization's attendance and workforce management? Get a custom VeriTrack app tailored to your needs.</p>
                         <div class="mb-3">
                             <strong>System Setup Fee:</strong>
-                            <span style="font-size:1.3em; color:#ffd700;">&#8373;500 + 30 days free trial</span>
-                            <span class="badge badge-success ml-2" style="font-size:1em;">Special Offer for Startups: <span style="text-decoration:line-through;">&#8373;500</span> <span style="color:#fff;">&#8373;250</span> <small>(50% OFF!)</small></span>
+                            <span style="font-size:1.3em; color:#aa9938;">&#8373;500 + 30 days free trial</span>
+                            <span class="badge badge-success ml-2" style="font-size:1em;">Special Offer for Startups: <span style="text-decoration:line-through;">&#8373;500</span> <span style="color:#fff;">&#8373;250</span><br> <small>(50% OFF!)</small></span>
                         </div>
-                        <a href="#contact" class="btn btn-light btn-lg mt-2">Request Now</a>
+                        <a href="#check-In" class="btn btn-light btn-lg mt-2">Request Now</a>
                     </div>
                 </div>
             </div>
@@ -326,9 +329,22 @@ URI     : https://colorlib.com
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-4">
-                    <img src="images/ipad veritrack.png" alt="ipad veritrack" class="img-fluid">
+                <div class="col-md-4 d-flex align-items-center justify-content-center" style="position: relative; min-height: 320px;">
+                    <img src="images/system access white.png" alt="ipad veritrack" class="img-fluid system-fade-img" style="position: absolute; left: 0; top: 0; width: 100%; transition: opacity 0.8s; opacity: 1;">
+                    <img src="images/system access black.png" alt="ipad veritrack 2" class="img-fluid system-fade-img" style="position: absolute; left: 0; top: 0; width: 100%; transition: opacity 0.8s; opacity: 0;">
                 </div>
+                <script>
+                    // Simple fade slideshow for the two images
+                    (function() {
+                        const imgs = document.querySelectorAll('.system-fade-img');
+                        let idx = 0;
+                        setInterval(() => {
+                            imgs[idx].style.opacity = 0;
+                            idx = (idx + 1) % imgs.length;
+                            imgs[idx].style.opacity = 1;
+                        }, 2500);
+                    })();
+                </script>
             </div>
             <div class="row mt-4">
                 <div class="col-12">
@@ -379,50 +395,62 @@ URI     : https://colorlib.com
             <div class="card-deck">
                 <div class="card pricing">
                     <div class="card-head">
-                        <small class="text-primary">PERSONAL</small>
-                        <span class="price">$14<sub>/m</sub></span>
+                        <small class="text-primary">MONTHLY <h4 style="color: red;"><del>&#8373;200</del></h4></small>
+                        <span class="price">&#8373;120<sub>/m</sub></span>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <div class="list-group-item">10 Projects</div>
-                        <div class="list-group-item">5 GB Storage</div>
-                        <div class="list-group-item">Basic Support</div>
-                        <div class="list-group-item"><del>Collaboration</del></div>
-                        <div class="list-group-item"><del>Reports and analytics</del></div>
+                        <li class="list-group-item">Custom Branding</li>
+                        <li class="list-group-item">QR Code Scanning</li>
+                        <li class="list-group-item">Liveliness Check</li>
+                        <li class="list-group-item">GPS/Geofencing</li>
+                        <li class="list-group-item">Automated Reports</li>
+                        <li class="list-group-item">Payroll Sync</li>
+                        <li class="list-group-item">Multi-location Support</li>
+                        <li class="list-group-item">Daily Career & Growth Tips</li>
+                        <li class="list-group-item">Unlimited Users</li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary btn-lg btn-block">Choose this Plan</a>
+                        <a href="#check-In" class="btn btn-primary btn-lg btn-block">Choose this Plan</a>
                     </div>
                 </div>
                 <div class="card pricing popular">
                     <div class="card-head">
-                        <small class="text-primary">FOR TEAMS</small>
-                        <span class="price">$29<sub>/m</sub></span>
+                        <small class="text-primary">SEMIANNUALLY<h4 style="color: red;"><del>&#8373;1000</del></h4></small>
+                        <span class="price">&#8373;648<sub>/6m</sub></span>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <div class="list-group-item">Unlimited Projects</div>
-                        <div class="list-group-item">100 GB Storage</div>
-                        <div class="list-group-item">Priority Support</div>
-                        <div class="list-group-item">Collaboration</div>
-                        <div class="list-group-item">Reports and analytics</div>
+                        <li class="list-group-item">Custom Branding</li>
+                        <li class="list-group-item">QR Code Scanning</li>
+                        <li class="list-group-item">Liveliness Check</li>
+                        <li class="list-group-item">GPS/Geofencing</li>
+                        <li class="list-group-item">Automated Reports</li>
+                        <li class="list-group-item">Payroll Sync</li>
+                        <li class="list-group-item">Multi-location Support</li>
+                        <li class="list-group-item">Daily Career & Growth Tips</li>
+                        <li class="list-group-item">Unlimited Users</li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary btn-lg btn-block">Choose this Plan</a>
+                        <a href="#check-In" class="btn btn-primary btn-lg btn-block">Choose this Plan</a>
                     </div>
                 </div>
                 <div class="card pricing">
                     <div class="card-head">
-                        <small class="text-primary">ENTERPRISE</small>
-                        <span class="price">$249<sub>/m</sub></span>
+                        <small class="text-primary">ANNUALLY<h4 style="color: red;"><del>&#8373;1800</del></h4></small>
+                        <span class="price">&#8373;1200<sub>/yr</sub></span>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <div class="list-group-item">Unlimited Projects</div>
-                        <div class="list-group-item">Unlimited Storage</div>
-                        <div class="list-group-item">Collaboration</div>
-                        <div class="list-group-item">Reports and analytics</div>
-                        <div class="list-group-item">Web hooks</div>
+                        <li class="list-group-item">Custom Branding</li>
+                        <li class="list-group-item">QR Code Scanning</li>
+                        <li class="list-group-item">Liveliness Check</li>
+                        <li class="list-group-item">GPS/Geofencing</li>
+                        <li class="list-group-item">Automated Reports</li>
+                        <li class="list-group-item">Payroll Sync</li>
+                        <li class="list-group-item">Multi-location Support</li>
+                        <li class="list-group-item">Daily Career & Growth Tips</li>
+                        <li class="list-group-item">Unlimited Users</li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary btn-lg btn-block">Choose this Plan</a>
+                        <a href="#check-In" class="btn btn-primary btn-lg btn-block">Choose this Plan</a>
                     </div>
                 </div>
             </div>
@@ -433,6 +461,16 @@ URI     : https://colorlib.com
 
     </div>
     <!-- // end .section -->
+
+    <div class="renew-section" style=" color: #110101; text-align: center; padding: 24px 0; border-radius: 8px; margin: 40px 0;">
+        <p style="font-size: 1.15em; margin: 0;">
+            Already have a subscription?
+            <a href="https://script.google.com/macros/s/AKfycbzxYFbw6O6sNjipmUWRYvlamGV0vuG9GPVNH8X9GyNZbYJYfMknjDPnt_hwmu4VCKg/exec"
+               style="color: #fff; background: linear-gradient(135deg, #4a0d8f 0%, #fa2a8f 100%); padding: 6px 18px; border-radius: 20px; text-decoration: none; font-weight: 500; margin-left: 8px; transition: background 0.2s;">
+                Renew Now
+            </a>
+        </p>
+    </div>
 
     <!-- Request Form Section Start -->
     <section id="check-In" class="request section light-bg section-padding prelative mobile-padding" data-scroll-index='7' style="padding-top: 60px; padding-bottom: 60px;">
@@ -626,7 +664,7 @@ URI     : https://colorlib.com
     </section>
     <!-- Request Form Section End -->
 
-    <div class="section pt-0">
+    <div id="faqs" class="section pt-0">
         <div class="container">
             <div class="section-title">
                 <small>FAQ</small>
@@ -739,8 +777,8 @@ URI     : https://colorlib.com
                     VeriTrack works instantly on any device—no downloads or special hardware required. Access your system from anywhere, anytime, with zero setup hassle.
                 </p>
                 <div class="my-4">
-                    <a href="#contact" class="btn btn-light">Request Today</a>
-                    <a href="#contact" class="btn btn-light">Book a Free Online Meeting</a>
+                    <a href="#check-In" class="btn btn-light">Request Today</a>
+                    <a href="https://calendly.com/info-veritrack/30min" class="btn btn-light">Book a Free Online Meeting</a>
                 </div>
                 <p class="text-primary"><small><i>*No installation needed. Works on all modern browsers and devices.</i></small></p>
             </div>

@@ -567,7 +567,7 @@ header {
     border: 0;
     text-align: center;
     color: #959094;
-    padding: 1.05rem 1.25rem;
+    /* padding: 1.05rem 1.25rem; */
 }
 
 .card.pricing .list-group-item del {
