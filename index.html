@@ -304,7 +304,23 @@ URI     : https://colorlib.com
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="images/dualphone.png" alt="dual phone" class="img-fluid">
+                    <div style="position: relative; min-height: 320px;">
+                        <img src="images/system form.png" alt="dual phone 1" class="img-fluid triple-fade-img" style="position: absolute; left: 0; top: -100px; width: 80%; transition: opacity 0.8s; opacity: 1;">
+                        <img src="images/system form 2.png" alt="dual phone 2" class="img-fluid triple-fade-img" style="position: absolute; left: 0; top: -100px; width: 80%; transition: opacity 0.8s; opacity: 0;">
+                        <img src="images/system form 3.png" alt="dual phone 3" class="img-fluid triple-fade-img" style="position: absolute; left: 0; top: -100px; width: 80%; transition: opacity 0.8s; opacity: 0;">
+                    </div>
+                    <script>
+                        // Fade slideshow for three images
+                        (function() {
+                            const imgs = document.querySelectorAll('.triple-fade-img');
+                            let idx = 0;
+                            setInterval(() => {
+                                imgs[idx].style.opacity = 0;
+                                idx = (idx + 1) % imgs.length;
+                                imgs[idx].style.opacity = 1;
+                            }, 2500);
+                        })();
+                    </script>
                 </div>
                 <div class="col-md-5 d-flex align-items-center">
                     <div>
@@ -314,7 +330,27 @@ URI     : https://colorlib.com
                         <div class="mb-3">
                             <strong>System Setup Fee:<br></strong>
                             <span style="font-size:1.3em; color:#aa9938;">&#8373;500 + 30 days free trial</span><br>
-                            <span class="badge badge-success ml-2" style="font-size:1em;">Special Offer for Startups: <span style="text-decoration:line-through;">&#8373;500</span> <span style="color:#fff;">&#8373;250</span><br> <small>(50% OFF!)</small></span>
+                            <div class="startup-offer my-3" style="background: linear-gradient(90deg, #ffb347 0%, #ffcc33 100%); border-radius: 8px; padding: 14px 18px; box-shadow: 0 2px 8px rgba(255, 204, 51, 0.15); display: flex; align-items: center; gap: 16px; animation: pulse-offer 1.5s infinite;">
+                                <span style="font-size:1.3em; font-weight:600; color:#fff; background: #fa2a8f; border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; margin-right: 10px; box-shadow: 0 0 0 4px #fff3cd;">🔥</span>
+                                <span style="font-size:1.1em; color:#200557;">
+                                    <strong>Startup Special:</strong>
+                                    <span style="text-decoration:line-through; color:#b71c1c;">&#8373;500</span>
+                                    <span style="color:#fff; background:#43a047; border-radius:6px; padding:2px 10px; margin-left:6px; font-size:1.2em;">&#8373;250</span>
+                                    <span style="color:#b71c1c; font-weight:500; margin-left:8px;">(50% OFF!)</span>
+                                </span>
+                            </div>
+                            <style>
+                            @keyframes pulse-offer {
+                                0% { box-shadow: 0 0 0 0 #ffecb3; }
+                                70% { box-shadow: 0 0 0 10px #ffecb300; }
+                                100% { box-shadow: 0 0 0 0 #ffecb3; }
+                            }
+                            .startup-offer:hover {
+                                background: linear-gradient(90deg, #fa2a8f 0%, #ffcc33 100%);
+                                transform: scale(1.03);
+                                transition: all 0.2s;
+                            }
+                            </style>
                         </div>
                         <a href="#check-In" class="btn btn-light btn-lg mt-2">Request Now</a>
                     </div>
