@@ -645,4 +645,10 @@ header {
         text-align: center;
         margin-top: 2rem;
     }
+    .alert-info{
+        margin-top: 400px;
+    }
+    #gallery {
+        padding: 0;
+    }
 }

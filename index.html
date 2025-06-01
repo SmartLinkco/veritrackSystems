@@ -60,6 +60,7 @@ URI     : https://colorlib.com
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <!-- Main css -->
     <link href="css/style.css" rel="stylesheet">
+    <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cmbcz1zad0001oelvity1313j"></script>
 </head>
 
 <body data-spy="scroll" data-target="#navbar" data-offset="30">
@@ -311,8 +312,8 @@ URI     : https://colorlib.com
                         <h2>Request Your Custom App</h2>
                         <p class="mb-3">Ready to streamline your organization's attendance and workforce management? Get a custom VeriTrack app tailored to your needs.</p>
                         <div class="mb-3">
-                            <strong>System Setup Fee:</strong>
-                            <span style="font-size:1.3em; color:#aa9938;">&#8373;500 + 30 days free trial</span>
+                            <strong>System Setup Fee:<br></strong>
+                            <span style="font-size:1.3em; color:#aa9938;">&#8373;500 + 30 days free trial</span><br>
                             <span class="badge badge-success ml-2" style="font-size:1em;">Special Offer for Startups: <span style="text-decoration:line-through;">&#8373;500</span> <span style="color:#fff;">&#8373;250</span><br> <small>(50% OFF!)</small></span>
                         </div>
                         <a href="#check-In" class="btn btn-light btn-lg mt-2">Request Now</a>
@@ -421,6 +422,23 @@ URI     : https://colorlib.com
             <div class="section-title">
                 <small>PRICING</small>
                 <h3>Upgrade to Pro</h3>
+                <div id="setup-fee-notice" class="alert alert-warning alert-dismissible fade show" role="alert" style="font-size:1.15em; background: linear-gradient(90deg,#ffe082,#ffd54f); color: #6d4c00; border: none; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 28px;">
+                    <strong>Special Setup Offer!</strong> Get started with a one-time system setup fee of <span style="color:#aa9938; font-weight:600;">&#8373;500</span>(50% OFF for startups)<br>
+                    <span style="margin-left:8px; color:#388e3c; font-weight:500;">+ <span style="background:#fffbe7; border-radius:6px; padding:2px 10px;">30 days FREE trial of our premium features.</span></span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="outline:none;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <script>
+                    // Optional: highlight notice on page load
+                    window.addEventListener('DOMContentLoaded', function() {
+                        const notice = document.getElementById('setup-fee-notice');
+                        if(notice){
+                            notice.style.boxShadow = '0 0 0 4px #ffe08280';
+                            setTimeout(() => { notice.style.boxShadow = ''; }, 1500);
+                        }
+                    });
+                </script>
             </div>
 
             <div class="card-deck">
