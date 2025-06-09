@@ -144,7 +144,7 @@ p.lead {
 }
 
 .navbar-brand img {
-    width: 80px;
+    width: 150px;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
 }
@@ -232,6 +232,9 @@ p.lead {
     }
     .navbar-nav .nav-item {
         text-align: center;
+    }
+    .navbar-brand img {
+        width: 120px;
     }
 }
 
