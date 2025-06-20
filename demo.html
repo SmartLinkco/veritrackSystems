@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<!--
+
+Page    : index / MobApp
+Version : 1.0
+Author  : Colorlib
+URI     : https://colorlib.com
+
+ -->
+
+<head>
+    <title>VeriTrack Systems ✓✓</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VeriTrack Systems: Attendance Management, Real-time Tracking, QR Code Scanning, GPS Geofencing, Payroll Integration, Automated Reports, Multi-location Support, Live Photo Capture, Secure and Efficient Attendance System.">
+    <meta name="keywords" content="Attendance Management, Real-time Tracking, QR Code Scanning, GPS Geofencing, Payroll Integration, Automated Reports, Multi-location Support, Live Photo Capture, Secure Attendance, Efficient Attendance System">
+    <meta name="author" content="VeriTrack Systems">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="yandex" content="index, follow">
+    <meta name="msnbot" content="index, follow">
+    <meta name="search engines" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    <meta name="language" content="English">
+    <meta name="geo.placename" content="Accra, Ghana">
+    <meta name="geo.region" content="GH">
+    <meta name="geo.position" content="5.6037;-0.1870">
+    <meta name="ICBM" content="5.6037, -0.1870">
+    <meta property="og:title" content="VeriTrack Attendance System">
+    <meta property="og:description" content="Revolutionizing Attendance Management with Real-time Tracking and QR Code Scanning">
+    <meta property="og:image" content="images/veritrack-logo.png">
+    <meta property="og:url" content="https://veritrack.cloud">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VeriTrack Systems">
+    <meta name="twitter:title" content="VeriTrack Attendance System">
+    <meta name="twitter:description" content="Revolutionizing Attendance Management with Real-time Tracking and QR Code Scanning">
+    <meta name="twitter:image" content="images/veritrack-logo.png">
+    <meta name="twitter:url" content="https://veritrack.cloud">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://veritrack.cloud">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/veritrack final bg  logo.jpg">
+    <link rel="icon" type="image/jpg" sizes="16x16" href="images/veritrack final bg  logo.jpg">
+    <meta name="theme-color" content="#200557">
+
+    <!-- Font -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Themify Icons -->
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <!-- Owl carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- Main css -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        :root {
+          --primary-dark: #200557;
+          --primary-mid: #341179;
+          --primary-light: #4a1d9f;
+          --accent: #7a3aff;
+        }
+        .form-container {
+          max-width: 800px;
+          margin: 0 auto;
+          background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+          border-radius: 12px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+          overflow: hidden;
+        }
+        .gradient-bg {
+          background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+          color: white;
+          padding: 25px;
+          text-align: center;
+        }
+        .form-body {
+          padding: 30px;
+          font-family: 'Poppins', sans-serif;
+        }
+        .form-input {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          margin-bottom: 15px;
+          transition: all 0.3s;
+        }
+        .mobile-padding {
+          margin: 0 15px;
+        }
+        .form-input:focus {
+          border-color: var(--primary-mid);
+          box-shadow: 0 0 0 3px rgba(58, 28, 159, 0.2);
+        }
+        .demo-live {
+            background-image: -moz-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
+            background-image: -webkit-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
+            background-image: -ms-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
+            background-image: linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
+        }
+        .btn-submit {
+          background: linear-gradient(to right, var(--primary-dark), var(--accent));
+          color: white;
+          border: none;
+          padding: 14px 28px;
+          border-radius: 6px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: all 0.3s;
+        }
+        .btn-submit:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(58, 28, 159, 0.2);
+        }
+        .centre {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          text-align: center;
+        }
+        .centre p {
+          font-size: 14px;
+          color: #555;
+        }
+        .confirmation-message {
+          display: none;
+          text-align: center;
+          padding: 40px;
+        }
+        .confirmation-icon {
+          font-size: 60px;
+          color: #4BB543;
+          margin-bottom: 20px;
+        }
+        .pricing-container {
+          padding: 120px;
+          background: linear-gradient(to left, #7a60ff, #cd9ffa);
+          border: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .pricing-header {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .pricing-header h1 {
+          font-size: 2.5rem;
+          color: #fff;
+        }
+        .plan-selector {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 20px;
+        }
+        .plan-option {
+          flex: 1 1 calc(25% - 20px);
+          background: #f0f8ff;
+          border: 2px solid #200557;
+          border-radius: 8px;
+          text-align: center;
+          padding: 20px;
+          cursor: pointer;
+          transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .plan-option:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 15px rgba(32, 5, 87, 0.15);
+        }
+        .plan-option h3 {
+          font-size: 1.5rem;
+          color: #341179;
+        }
+        .price {
+          font-size: 2rem;
+          color: #333;
+          margin: 10px 0;
+        }
+        .period {
+          font-size: 1rem;
+          color: #666;
+        }
+        .sectioner-header h3{
+            color: #fff;
+        }
+        .renew-section {
+          margin-top: 40px;
+          text-align: center;
+        }
+        .renew-section a {
+          display: inline-block;
+          padding: 10px 20px;
+          background: #341179;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 5px;
+          font-size: 1rem;
+          transition: background 0.3s;
+        }
+        .renew-section a:hover {
+          background: #200557;
+        }
+        .plan-option ul.features {
+          list-style: none;
+          padding: 5px;
+          margin: 15px 0 0;
+          text-align: center;
+          background: linear-gradient(to left, #7a60ff, #cd9ffa);
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+        .plan-option ul.features li {
+          font-size: 0.9rem;
+          color: #fff;
+          margin-bottom: 8px;
+        }
+        .free-plan {
+          background: #f8f9fa;
+          border: 2px dashed #6c757d;
+        }
+        .free-plan:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 15px rgba(108, 117, 125, 0.15);
+        }
+        .free-plan h3 {
+          color: #6c757d;
+        }
+        .free-plan .price {
+          color: #6c757d;
+        }
+        @media (max-width: 768px) {
+          .pricing-container {
+            padding: 40px 10px;
+          }
+          .plan-selector {
+            flex-direction: column;
+            gap: 15px;
+          }
+          .plan-option {
+            flex: 1 1 100%;
+          }
+          .pricing-header h1 {
+            font-size: 1.8rem;
+          }
+          .renew-section a {
+            font-size: 0.9rem;
+            padding: 8px 16px;
+          }
+        }
+        @media (max-width: 480px) {
+          .pricing-header h1 {
+            font-size: 1.5rem;
+          }
+          .plan-option h3 {
+            font-size: 1.2rem;
+          }
+          .price {
+            font-size: 1.5rem;
+          }
+          .period {
+            font-size: 0.8rem;
+          }
+          .plan-option ul.features li {
+            font-size: 0.8rem;
+          }
+          .renew-section a {
+            font-size: 0.8rem;
+          }
+        }
+     </style>   
+    <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cmbcz1zad0001oelvity1313j"></script>
+</head>
+
+<body data-spy="scroll" data-target="#navbar" data-offset="30">
+
+    <!-- Nav Menu -->
+
+    <div class="nav-menu fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-dark navbar-expand-lg">
+                        <a class="navbar-brand" href="index.html"><img src="images/veritrack final logo.png" class="img-fluid" alt="logo"></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                        <div class="collapse navbar-collapse" id="navbar">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item"> <a class="nav-link active" href="index.html">HOME <span class="sr-only">(current)</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="index.html?#features">FEATURES</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="index.html?#gallery">GALLERY</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="index.html?#pricing">PRICING</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="index.html?#check-In">SYSTEM REQUEST</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="index.html?#faqs">FAQs</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="index.html?#team">OUR TEAM</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="#contact">CONTACT</a> </li>
+                                <li class="nav-item"><a href="index.html?#check-In" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Free Trial</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Demo Live Presentation & Pricing Section Start -->
+
+    <section class="demo-live section-padding" style="padding: 150px 0 60px 0;">
+      <div class="container">
+        <div class="sectioner-header text-center">
+          <h3>Live Demo Preview</h3>
+          <span class="line"></span>
+          <p>Experience VeriTrack's Attendance System in action. Submit a demo check-in, view real-time attendance data, and access the check-in/checkout portal.</p>
+        </div>
+        <div class="text-center mt-4" style="margin-bottom: 30px;">
+          <a href="https://script.google.com/macros/s/AKfycbwJf7bKfwGAZc_Az2VJMngvkwC8-uRCGgEo0CZLQTU72F3iUmlxhJarDDvsnwhgFiip/exec" class="btn btn-submit" style="font-size:1.1rem;">Go to Check-In/Checkout Portal</a>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px;">
+              <h5 class="text-center mb-3">Demo Check-In Form</h5>
+              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSekuQBil3CAS35SPBn4BvfQ2tZKH_qElvgzTUa56W9kdvizSg/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="border:none;">Loading…</iframe>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px;">
+              <h5 class="text-center mb-3">Registered Staff Members</h5>
+              <div class="alert alert-warning text-center mb-3" role="alert" style="font-size: 0.98rem;">
+                <strong>Disclaimer:</strong> Certain credentials such as <b>Email Address</b> and <b>Phone Number</b> have been hidden for privacy and security reasons.
+              </div>
+              <div id="staff-table" style="overflow-x:auto;">
+                <table class="table table-bordered table-striped" id="staffMembersTable">
+                  <thead>
+                    <tr>
+                      <th>Staff ID</th>
+                      <th>Name</th>
+                      <th>Department</th>
+                      <th>Office Branch</th>
+                      <th>Timestamp</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td colspan="5" class="text-center">Loading data...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px; margin-top: 30px;">
+              <h5 class="text-center mb-3">Live Attendance Data</h5>
+              <div class="alert alert-warning text-center mb-3" role="alert" style="font-size: 0.98rem;">
+                <strong>Disclaimer:</strong> Certain credentials such as <b>IP Address</b>, <b>Latitude</b>, <b>Longitude</b>, and <b>Photo ID</b> have been hidden for privacy and security reasons.
+              </div>
+              <div id="sheet-table" style="overflow-x:auto;">
+                <table class="table table-bordered table-striped" id="attendanceTable">
+                  <thead>
+                    <tr>
+                      <th>Timestamp</th>
+                      <th>Staff ID</th>
+                      <th>Name</th>
+                      <th>Department</th>
+                      <th>Remarks</th>
+                      <th>Branch</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td colspan="6" class="text-center">Loading data...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <div id="Pricing" class="Pricing pricing-container" data-scroll-nav="5">
+      <div class="pricing-header">
+        <h1>Our Subscription Model</h1>
+      </div>
+      <div class="plan-selector">
+        <div class="plan-option" data-plan="Monthly" data-amount="120" onclick="selectPlan('Monthly', 120)">
+          <h3>Monthly</h3>
+          <div class="price">₵120</div>
+          <div class="period">per month</div>
+          <ul class="features">
+            <li>QR Code Scanning</li>
+            <li>GPS/Geofencing</li>
+            <li>Automated Reports</li>
+            <li>Payroll Sync</li>
+            <li>Multi-location Support</li>
+            <li>Live Photo Capture</li>
+            <li>Unlimited Users</li>
+          </ul>
+        </div>
+        <div class="plan-option" data-plan="Quarterly" data-amount="342" onclick="selectPlan('Quarterly', 342)">
+          <h3>Quarterly</h3>
+          <div class="price">₵342</div>
+          <div class="period">3 months (15% Discount)</div>
+          <ul class="features">
+            <li>QR Code Scanning</li>
+            <li>GPS/Geofencing</li>
+            <li>Automated Reports</li>
+            <li>Payroll Sync</li>
+            <li>Multi-location Support</li>
+            <li>Live Photo Capture</li>
+            <li>Unlimited Users</li>
+          </ul>
+        </div>
+        <div class="plan-option" data-plan="Semiannually" data-amount="648" onclick="selectPlan('Semiannually', 648)">
+          <h3>Semiannually</h3>
+          <div class="price">₵648</div>
+          <div class="period">6 months (20% Discount)</div>
+          <ul class="features">
+            <li>QR Code Scanning</li>
+            <li>GPS/Geofencing</li>
+            <li>Automated Reports</li>
+            <li>Payroll Sync</li>
+            <li>Multi-location Support</li>
+            <li>Live Photo Capture</li>
+            <li>Unlimited Users</li>
+          </ul>
+        </div>
+        <div class="plan-option" data-plan="Annual" data-amount="1200" onclick="selectPlan('Annual', 1200)">
+          <h3>Annual</h3>
+          <div class="price">₵1,200</div>
+          <div class="period">per year (2 months free)</div>
+          <ul class="features">
+            <li>QR Code Scanning</li>
+            <li>GPS/Geofencing</li>
+            <li>Automated Reports</li>
+            <li>Payroll Sync</li>
+            <li>Multi-location Support</li>
+            <li>Live Photo Capture</li>
+            <li>Unlimited Users</li>
+          </ul>
+        </div>
+        <div class="plan-option free-plan" data-plan="Free" data-amount="0" onclick="selectPlan('Free', 0)">
+          <h3>30 Days Free Trial</h3>
+          <div class="price">₵0</div>
+          <div class="period">Limited Features</div>
+          <ul class="features">
+            <li>QR Code Scanning</li>
+            <li>GPS/Geofencing</li>
+            <li>Automated Reports</li>
+            <li>Limited to 10 Users</li>
+          </ul>
+        </div>
+      </div>
+      <div class="renew-section">
+        <p>Already have a subscription? <a href="index.html">Renew Now</a></p>
+      </div>
+    </div>
+    Demo Live Presentation & Pricing Section End -->
+    
+
+    <div class="section bg-gradient">
+        <div class="container">
+            <div class="call-to-action">
+                <div class="box-icon"><span class="ti-mobile gradient-fill ti-3x"></span></div>
+                <h2>Accessible Everywhere</h2>
+                <p class="tagline">
+                    VeriTrack works instantly on any device—no downloads or special hardware required. Access your system from anywhere, anytime, with zero setup hassle.
+                </p>
+                <div class="my-4">
+                    <a href="#check-In" class="btn btn-light">Request Today</a>
+                    <a href="https://calendly.com/info-veritrack/30min" class="btn btn-light">Book a Free Online Meeting</a>
+                </div>
+                <p class="text-primary"><small><i>*No installation needed. Works on all modern browsers and devices.</i></small></p>
+            </div>
+        </div>
+
+    </div>
+    <!-- // end .section -->
+
+    <div class="light-bg py-5" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center text-lg-left">
+                    <p class="mb-2"> <span class="ti-location-pin mr-2"></span> Accra, Ghana</p>
+                    <div class=" d-block d-sm-inline-block">
+                        <p class="mb-2">
+                            <span class="ti-email mr-2"></span> <a class="mr-4" href="mailto:support@veritrack.cloud">support@veritrack.cloud</a>
+                        </p>
+                    </div>
+                    <div class="d-block d-sm-inline-block">
+                        <p class="mb-0">
+                            <span class="ti-headphone-alt mr-2"></span> <a href="tel:+233592548849">233-59-254-8849</a>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="social-icons">
+                        <a href="#"><span class="ti-linkedin"></span></a>
+                        <a href="#"><span class="ti-facebook"></span></a>
+                        <a href="#"><span class="ti-twitter-alt"></span></a>
+                        <a href="#"><span class="ti-instagram"></span></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- // end .section -->
+    <footer class="my-5 text-center">
+        <p class="mb-2"><small>COPYRIGHT © 2017. ALL RIGHTS RESERVED. DEVELOPED BY BY <a href="">SMARTLINKCO</a></small></p>
+
+        <small>
+            <a href="#" class="m-2">MANUAL</a>
+            <a href="#" class="m-2">TERMS</a>
+            <a href="#" class="m-2">PRIVACY</a>
+        </small>
+    </footer>
+
+    <!-- jQuery and Bootstrap -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script>
+    const CSV_URL = 'https://docs.google.com/spreadsheets/d/1lrhRI49jJ_GzT2mHWbHkvpbBBmeMkMhmQT48vcdRol4/gviz/tq?tqx=out:csv&sheet=Attendance Logs';
+    const STAFF_CSV_URL = 'https://docs.google.com/spreadsheets/d/1lrhRI49jJ_GzT2mHWbHkvpbBBmeMkMhmQT48vcdRol4/gviz/tq?tqx=out:csv&sheet=Staff Members';
+    function csvToArray(str, delimiter = ",") {
+      const rows = str.trim().split("\n");
+      return rows.map(row => {
+        const re = /(".*?"|[^",\s]+)(?=\s*,|\s*$)/g;
+        return [...row.matchAll(re)].map(x => x[0].replace(/^"|"$/g, ""));
+      });
+    }
+    $(function() {
+      $.ajax({
+        url: CSV_URL,
+        dataType: "text",
+        success: function(data) {
+          const arr = csvToArray(data);
+          let html = "";
+          if (arr.length > 1) {
+            for (let i = 1; i < arr.length; i++) {
+                html += `<tr>
+                <td>${arr[i][0] || ''}</td>
+                <td>${arr[i][1] || ''}</td>
+                <td>${arr[i][2] || ''}</td>
+                <td>${arr[i][3] || ''}</td>
+                <td>${arr[i][4] || ''}</td>
+                <td>${arr[i][9] || ''}</td>
+                </tr>`;
+            }
+          } else {
+            html = `<tr><td colspan="6" class="text-center">No data available.</td></tr>`;
+          }
+          $("#attendanceTable tbody").html(html);
+        },
+        error: function() {
+          $("#attendanceTable tbody").html('<tr><td colspan="6" class="text-center">Unable to load data.</td></tr>');
+        }
+      });
+      $.ajax({
+        url: STAFF_CSV_URL,
+        dataType: "text",
+        success: function(data) {
+          const arr = csvToArray(data);
+          let html = "";
+          if (arr.length > 1) {
+            for (let i = 1; i < arr.length; i++) {
+                html += `<tr>
+                <td>${arr[i][0] || ''}</td>
+                <td>${arr[i][1] || ''}</td>
+                <td>${arr[i][2] || ''}</td>
+                <td>${arr[i][4] || ''}</td>
+                <td>${arr[i][5] || ''}</td>
+                </tr>`;
+            }
+          } else {
+            html = `<tr><td colspan="5" class="text-center">No data available.</td></tr>`;
+          }
+          $("#staffMembersTable tbody").html(html);
+        },
+        error: function() {
+          $("#staffMembersTable tbody").html('<tr><td colspan="5" class="text-center">Unable to load data.</td></tr>');
+        }
+      });
+    });
+    function selectPlan(plan, amount) {
+      window.location.href = "index.html?#check-In";
+    }
+    </script>
+
+</body>
+
+</html>
