@@ -309,6 +309,42 @@ URI     : https://colorlib.com
     </div>
     <!-- Demo Live Presentation & Pricing Section Start -->
 
+    <!-- How to Test the System Popup -->
+    <div id="howToTestPopup" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(61, 53, 77, 0.85);">
+        <div style="background:linear-gradient(135deg, var(--primary-dark), var(--primary-light));color:#fff;max-width:420px;width:90%;border-radius:16px;box-shadow:0 8px 32px rgba(32,5,87,0.25);padding:36px 28px 28px 28px;position:relative;text-align:left;">
+            <button id="closeHowToTest" aria-label="Close" style="position:absolute;top:18px;right:18px;background:none;border:none;color:#fff;font-size:1.7rem;cursor:pointer;opacity:0.7;transition:opacity 0.2s;"><span aria-hidden="true">&times;</span></button>
+            <div style="text-align:center;margin-bottom:18px;">
+                <span class="ti-light-bulb" style="font-size:2.5rem;color:var(--accent);"></span>
+            </div>
+            <h4 style="font-weight:600;margin-bottom:10px;text-align:center;">How to Test the System</h4>
+            <ol style="padding-left:18px;font-size:1.08rem;line-height:1.7;">
+                <li>Fill out the <b>Demo Check-In Form</b> with sample details(NB:Choose "DEMO OFFICE").</li>
+                <li>Submit your entry, then check your mail(inbox & spam) for you Unique ID.</li>
+                <li>Refresh and Explore the <b>Registered Staff Members</b> list for sample data.</li>
+                <li>Tap on the <b>Check-In/Checkout Portal</b> for a real-time experience using your Unique ID.</li>
+                <li>See your check-in appear instantly in the <b>Live Attendance Data</b> table.</li>
+            </ol>
+            <div style="margin-top:18px;text-align:center;">
+                <span style="font-size:0.98rem;color:#e0e0e0;">All demo data is for testing only. Sensitive info is hidden for privacy.</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var popup = document.getElementById('howToTestPopup');
+            var closeBtn = document.getElementById('closeHowToTest');
+            closeBtn.onclick = function() {
+                popup.style.display = 'none';
+            };
+            // Optional: close popup on ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === "Escape" && popup.style.display !== 'none') {
+                    popup.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
     <section class="demo-live section-padding" style="padding: 150px 0 60px 0;">
       <div class="container">
         <div class="sectioner-header text-center">
