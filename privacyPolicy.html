@@ -309,208 +309,146 @@ URI     : https://colorlib.com
     </div>
     <!-- Demo Live Presentation & Pricing Section Start -->
 
-    <!-- How to Test the System Popup -->
-    <div id="howToTestPopup" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(62, 51, 85, 0.85);">
-        <div style="background:linear-gradient(135deg, var(--primary-dark), var(--primary-light));color:#fff;max-width:420px;width:90%;border-radius:16px;box-shadow:0 8px 32px rgba(32,5,87,0.25);padding:36px 28px 28px 28px;position:relative;text-align:left;">
-            <button id="closeHowToTest" aria-label="Close" style="position:absolute;top:18px;right:18px;background:none;border:none;color:#fff;font-size:1.7rem;cursor:pointer;opacity:0.7;transition:opacity 0.2s;"><span aria-hidden="true">&times;</span></button>
-            <div style="text-align:center;margin-bottom:18px;">
-                <span class="ti-light-bulb" style="font-size:2.5rem;color:var(--accent);"></span>
+    <section class="privacy-section" id="privacy" style="background: linear-gradient(135deg, #200557 60%, #4a1d9f 100%); padding: 60px 0;">
+        <div class="container" style="max-width: 900px;">
+            <div class="privacy-header text-center mb-4">
+                <p style=" margin: 50px; color: #d1c4e9; font-size: 1.1rem;">Last Updated: <span style="color: #fff;">23rd June, 2025</span></p>
             </div>
-            <h4 style="font-weight:600;margin-bottom:10px;text-align:center;">How to Test the System</h4>
-            <ol style="padding-left:18px;font-size:1.08rem;line-height:1.7;">
-                <li>Fill out the <b>Demo Check-In Form</b> with sample details(NB:Choose "DEMO OFFICE").</li>
-                <li>Submit your entry, then check your mail(inbox & spam) for you Unique ID.</li>
-                <li>Refresh and Explore the <b>Registered Staff Members</b> list for sample data.</li>
-                <li>Tap on the <b>Check-In/Checkout Portal</b> for a real-time experience using your Unique ID.</li>
-                <li>See your check-in appear instantly in the <b>Live Attendance Data</b> table.</li>
-            </ol>
-            <div style="margin-top:18px;text-align:center;">
-                <span style="font-size:0.98rem;color:#e0e0e0;">All demo data is for testing only. Sensitive info is hidden for privacy.</span>
-            </div>
-        </div>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var popup = document.getElementById('howToTestPopup');
-            var closeBtn = document.getElementById('closeHowToTest');
-            closeBtn.onclick = function() {
-                popup.style.display = 'none';
-            };
-            // Optional: close popup on ESC key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === "Escape" && popup.style.display !== 'none') {
-                    popup.style.display = 'none';
-                }
-            });
-        });
-    </script>
-
-    <section class="demo-live section-padding" style="padding: 150px 0 60px 0;">
-      <div class="container">
-        <div class="sectioner-header text-center">
-          <h3>Live Demo Preview</h3>
-          <span class="line"></span>
-          <!-- <p style="color: #fff;">Experience VeriTrack's Attendance System in action. Submit a demo check-in, view real-time attendance data, and access the check-in/checkout portal.</p> -->
-        </div>
-        <div class="text-center mt-4" style="margin-bottom: 30px;">
-          <a href="https://script.google.com/macros/s/AKfycbyG-udGfyW26uUFV43wt2RfGxEK2rQWoAg8QsFnKU2svQTMBRbVEbFC1TgX-DdO6yAI/exec" class="btn btn-submit" style="font-size:1.1rem;">Go to Check-In/Check-out Portal</a>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-4">
-            <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px;">
-              <h5 class="text-center mb-3">Demo Check-In Form</h5>
-              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSekuQBil3CAS35SPBn4BvfQ2tZKH_qElvgzTUa56W9kdvizSg/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="border:none;">Loading…</iframe>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4">
-            <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px;">
-              <h5 class="text-center mb-3">Registered Staff Members</h5>
-              <div class="alert alert-warning text-center mb-3" role="alert" style="font-size: 0.98rem;">
-                <strong>Disclaimer:</strong> Certain credentials such as <b>Email Address</b> and <b>Phone Number</b> have been hidden for privacy and security reasons.
-              </div>
-              <div id="staff-table" style="overflow-x:auto;">
-                <table class="table table-bordered table-striped" id="staffMembersTable">
-                  <thead>
-                    <tr>
-                      <th>Staff ID</th>
-                      <th>Name</th>
-                      <th>Department</th>
-                      <th>Office Branch</th>
-                      <th>Timestamp</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr><td colspan="5" class="text-center">Loading data...</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px; margin-top: 30px;">
-              <h5 class="text-center mb-3">Live Attendance Data</h5>
-              <div class="alert alert-warning text-center mb-3" role="alert" style="font-size: 0.98rem;">
-                <strong>Disclaimer:</strong> Certain credentials such as <b>IP Address</b>, <b>Latitude</b>, <b>Longitude</b>, and <b>Photo ID</b> have been hidden for privacy and security reasons.
-              </div>
-              <div id="sheet-table" style="overflow-x:auto;">
-                <table class="table table-bordered table-striped" id="attendanceTable">
-                  <thead>
-                    <tr>
-                      <th>Timestamp</th>
-                      <th>Staff ID</th>
-                      <th>Name</th>
-                      <th>Department</th>
-                      <th>Remarks</th>
-                      <th>Branch</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr><td colspan="6" class="text-center">Loading data...</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- <div id="Pricing" class="Pricing pricing-container" data-scroll-nav="5">
-      <div class="pricing-header">
-        <h1>Our Subscription Model</h1>
-      </div>
-      <div class="plan-selector">
-        <div class="plan-option" data-plan="Monthly" data-amount="120" onclick="selectPlan('Monthly', 120)">
-          <h3>Monthly</h3>
-          <div class="price">₵120</div>
-          <div class="period">per month</div>
-          <ul class="features">
-            <li>QR Code Scanning</li>
-            <li>GPS/Geofencing</li>
-            <li>Automated Reports</li>
-            <li>Payroll Sync</li>
-            <li>Multi-location Support</li>
-            <li>Live Photo Capture</li>
-            <li>Unlimited Users</li>
-          </ul>
-        </div>
-        <div class="plan-option" data-plan="Quarterly" data-amount="342" onclick="selectPlan('Quarterly', 342)">
-          <h3>Quarterly</h3>
-          <div class="price">₵342</div>
-          <div class="period">3 months (15% Discount)</div>
-          <ul class="features">
-            <li>QR Code Scanning</li>
-            <li>GPS/Geofencing</li>
-            <li>Automated Reports</li>
-            <li>Payroll Sync</li>
-            <li>Multi-location Support</li>
-            <li>Live Photo Capture</li>
-            <li>Unlimited Users</li>
-          </ul>
-        </div>
-        <div class="plan-option" data-plan="Semiannually" data-amount="648" onclick="selectPlan('Semiannually', 648)">
-          <h3>Semiannually</h3>
-          <div class="price">₵648</div>
-          <div class="period">6 months (20% Discount)</div>
-          <ul class="features">
-            <li>QR Code Scanning</li>
-            <li>GPS/Geofencing</li>
-            <li>Automated Reports</li>
-            <li>Payroll Sync</li>
-            <li>Multi-location Support</li>
-            <li>Live Photo Capture</li>
-            <li>Unlimited Users</li>
-          </ul>
-        </div>
-        <div class="plan-option" data-plan="Annual" data-amount="1200" onclick="selectPlan('Annual', 1200)">
-          <h3>Annual</h3>
-          <div class="price">₵1,200</div>
-          <div class="period">per year (2 months free)</div>
-          <ul class="features">
-            <li>QR Code Scanning</li>
-            <li>GPS/Geofencing</li>
-            <li>Automated Reports</li>
-            <li>Payroll Sync</li>
-            <li>Multi-location Support</li>
-            <li>Live Photo Capture</li>
-            <li>Unlimited Users</li>
-          </ul>
-        </div>
-        <div class="plan-option free-plan" data-plan="Free" data-amount="0" onclick="selectPlan('Free', 0)">
-          <h3>30 Days Free Trial</h3>
-          <div class="price">₵0</div>
-          <div class="period">Limited Features</div>
-          <ul class="features">
-            <li>QR Code Scanning</li>
-            <li>GPS/Geofencing</li>
-            <li>Automated Reports</li>
-            <li>Limited to 10 Users</li>
-          </ul>
-        </div>
-      </div>
-      <div class="renew-section">
-        <p>Already have a subscription? <a href="index.html">Renew Now</a></p>
-      </div>
-    </div>
-    Demo Live Presentation & Pricing Section End -->
-    
-
-    <div class="section bg-gradient">
-        <div class="container">
-            <div class="call-to-action">
-                <div class="box-icon"><span class="ti-mobile gradient-fill ti-3x"></span></div>
-                <h2>Accessible Everywhere</h2>
-                <p class="tagline">
-                    VeriTrack works instantly on any device—no downloads or special hardware required. Access your system from anywhere, anytime, with zero setup hassle.
-                </p>
-                <div class="my-4">
-                    <a href="#check-In" class="btn btn-light">Request Today</a>
-                    <a href="https://calendly.com/info-veritrack/30min" class="btn btn-light">Book a Free Online Meeting</a>
+            <div class="privacy-body" style="background: #fff; border-radius: 14px; box-shadow: 0 6px 32px rgba(32,5,87,0.10); padding: 40px 30px; color: #222; font-size: 1.08rem; line-height: 1.7;">
+                <h3 style="color: #200557; font-size: 1.5rem; margin-bottom: 20px;">Privacy Policy Overview</h3>
+                <ol style="padding-left: 1.3em; margin-bottom: 0;">
+                    <li style="margin-bottom: 18px;">
+                        <strong>Introduction</strong><br>
+                        VeriTrack Systems ("we," "our," or "us") respects your privacy. This Privacy Policy explains how we collect, use, and protect your personal data in compliance with applicable African data protection laws (Ghana’s Data Protection Act, Nigeria’s NDPR, Kenya’s Data Protection Act).
+                    </li>
+                    <li style="margin-bottom: 18px;">
+                        <strong>Data We Collect</strong>
+                        <ul style="list-style: disc; margin-left: 1.2em; margin-top: 8px;">
+                            <li>
+                                <strong>Personal Data</strong>
+                                <ul style="list-style: circle; margin-left: 1.2em;">
+                                    <li>Employee Information: Name, Staff ID, department, email.</li>
+                                    <li>Live Photo Data: Liveliness check scans (processed for verification, not stored).</li>
+                                    <li>Location Data: GPS coordinates during check-in/out to verify attendance.</li>
+                                    <li>Device Data: IP address, browser type, operating system.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Attendance &amp; Performance Data</strong>
+                                <ul style="list-style: circle; margin-left: 1.2em;">
+                                    <li>Check-in/out timestamps.</li>
+                                    <li>Overtime hours, punctuality records.</li>
+                                    <li>Recognition awards (e.g., "Perfect Attendance").</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 18px;">
+                        <strong>How We Use Data</strong>
+                        <table style="width:100%; margin-top:10px; margin-bottom:10px; border-collapse: collapse;">
+                            <thead>
+                                <tr>
+                                    <th style="border-bottom:1px solid #ccc; text-align:left; padding:4px;">Purpose</th>
+                                    <th style="border-bottom:1px solid #ccc; text-align:left; padding:4px;">Legal Basis</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding:4px;">Workforce attendance tracking</td>
+                                    <td style="padding:4px;">Contractual necessity</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:4px;">Payroll processing</td>
+                                    <td style="padding:4px;">Legal obligation (labor laws)</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:4px;">Fraud prevention</td>
+                                    <td style="padding:4px;">Legitimate interest</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:4px;">Employee recognition programs</td>
+                                    <td style="padding:4px;">Consent (where required)</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:4px;">System improvements</td>
+                                    <td style="padding:4px;">Legitimate interest</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                    <li style="margin-bottom: 18px;">
+                        <strong>Data Sharing &amp; Third Parties</strong>
+                        <ul style="list-style: disc; margin-left: 1.2em; margin-top: 8px;">
+                            <li><strong>Employers/HR:</strong> Access attendance records for workforce management.</li>
+                            <li><strong>Service Providers:</strong> Google Cloud (data hosting), Paystack (payments).</li>
+                            <li><strong>Legal Compliance:</strong> Disclosed only if required by law.</li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 18px;">
+                        <strong>Data Security</strong>
+                        <ul style="list-style: disc; margin-left: 1.2em; margin-top: 8px;">
+                            <li><strong>Encryption:</strong> Data transmitted via TLS 1.2+.</li>
+                            <li><strong>Access Controls:</strong> Role-based permissions restrict data access.</li>
+                            <li><strong>Photo Protection:</strong> Facial data is processed in real-time; stored photos are secured.</li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 18px;">
+                        <strong>Data Retention</strong>
+                        <table style="width:100%; margin-top:10px; margin-bottom:10px; border-collapse: collapse;">
+                            <thead>
+                                <tr>
+                                    <th style="border-bottom:1px solid #ccc; text-align:left; padding:4px;">Data Type</th>
+                                    <th style="border-bottom:1px solid #ccc; text-align:left; padding:4px;">Retention Period</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding:4px;">Attendance records</td>
+                                    <td style="padding:4px;">5 years (labor law compliance)</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:4px;">Liveliness check photos</td>
+                                    <td style="padding:4px;">30 days (archived unless needed for disputes)</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:4px;">System logs</td>
+                                    <td style="padding:4px;">1 year</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                    <li style="margin-bottom: 18px;">
+                        <strong>Your Rights (Employees)</strong>
+                        <ul style="list-style: disc; margin-left: 1.2em; margin-top: 8px;">
+                            <li><strong>Access:</strong> Request a copy of your data.</li>
+                            <li><strong>Correction:</strong> Update inaccurate records.</li>
+                            <li><strong>Deletion:</strong> Request removal (subject to legal retention requirements).</li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 18px;">
+                        <strong>Cross-Border Data Transfers</strong><br>
+                        Data is stored in secure cloud servers (location specified in contracts).<br>
+                        For international transfers, we use Standard Contractual Clauses (SCCs) or equivalent safeguards.
+                    </li>
+                    <li style="margin-bottom: 18px;">
+                        <strong>Cookies &amp; Tracking</strong><br>
+                        We use session cookies for login security. No third-party advertising trackers.
+                    </li>
+                    <li style="margin-bottom: 18px;">
+                        <strong>Policy Updates</strong><br>
+                        Changes will be communicated via email or System notifications.
+                    </li>
+                </ol>
+                <div class="mt-4">
+                    <h4>Contact Information</h4>
+                    <p>If you have any questions or concerns about our privacy practices, please contact us:</p>
+                    <p>📧 Email: <a href="mailto:info@veritrack.com">info@veritrack.com</a></p>
+                    <p>📞 Phone: +233-59-254-8849</p>
+                    <p>📍 Address: Accra, Ghana</p>
                 </div>
-                <p class="text-primary"><small><i>*No installation needed. Works on all modern browsers and devices.</i></small></p>
             </div>
         </div>
-
-    </div>
-    <!-- // end .section -->
+    </section>
 
     <div class="light-bg py-5" id="contact">
         <div class="container">
@@ -560,73 +498,6 @@ URI     : https://colorlib.com
     <script src="js/owl.carousel.min.js"></script>
     <!-- Custom JS -->
     <script src="js/script.js"></script>
-    <script>
-    const CSV_URL = 'https://docs.google.com/spreadsheets/d/1lrhRI49jJ_GzT2mHWbHkvpbBBmeMkMhmQT48vcdRol4/gviz/tq?tqx=out:csv&sheet=Attendance Logs';
-    const STAFF_CSV_URL = 'https://docs.google.com/spreadsheets/d/1lrhRI49jJ_GzT2mHWbHkvpbBBmeMkMhmQT48vcdRol4/gviz/tq?tqx=out:csv&sheet=Staff Members';
-    function csvToArray(str, delimiter = ",") {
-      const rows = str.trim().split("\n");
-      return rows.map(row => {
-        const re = /(".*?"|[^",\s]+)(?=\s*,|\s*$)/g;
-        return [...row.matchAll(re)].map(x => x[0].replace(/^"|"$/g, ""));
-      });
-    }
-    $(function() {
-      $.ajax({
-        url: CSV_URL,
-        dataType: "text",
-        success: function(data) {
-          const arr = csvToArray(data);
-          let html = "";
-          if (arr.length > 1) {
-            for (let i = 1; i < arr.length; i++) {
-                html += `<tr>
-                <td>${arr[i][0] || ''}</td>
-                <td>${arr[i][1] || ''}</td>
-                <td>${arr[i][2] || ''}</td>
-                <td>${arr[i][3] || ''}</td>
-                <td>${arr[i][4] || ''}</td>
-                <td>${arr[i][9] || ''}</td>
-                </tr>`;
-            }
-          } else {
-            html = `<tr><td colspan="6" class="text-center">No data available.</td></tr>`;
-          }
-          $("#attendanceTable tbody").html(html);
-        },
-        error: function() {
-          $("#attendanceTable tbody").html('<tr><td colspan="6" class="text-center">Unable to load data.</td></tr>');
-        }
-      });
-      $.ajax({
-        url: STAFF_CSV_URL,
-        dataType: "text",
-        success: function(data) {
-          const arr = csvToArray(data);
-          let html = "";
-          if (arr.length > 1) {
-            for (let i = 1; i < arr.length; i++) {
-                html += `<tr>
-                <td>${arr[i][0] || ''}</td>
-                <td>${arr[i][1] || ''}</td>
-                <td>${arr[i][2] || ''}</td>
-                <td>${arr[i][4] || ''}</td>
-                <td>${arr[i][5] || ''}</td>
-                </tr>`;
-            }
-          } else {
-            html = `<tr><td colspan="5" class="text-center">No data available.</td></tr>`;
-          }
-          $("#staffMembersTable tbody").html(html);
-        },
-        error: function() {
-          $("#staffMembersTable tbody").html('<tr><td colspan="5" class="text-center">Unable to load data.</td></tr>');
-        }
-      });
-    });
-    function selectPlan(plan, amount) {
-      window.location.href = "index.html?#check-In";
-    }
-    </script>
 
 </body>
 
