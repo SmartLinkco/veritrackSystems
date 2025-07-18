@@ -660,12 +660,35 @@ URI     : https://colorlib.com
                             <div class="row">
                                 <div class="col-md-12">
                                     <select id="industry" class="form-input w-100 mb-3" name="industry" required>
-                                        <option value="" disabled selected>Industry</option>
-                                        <option value="Education">Education</option>
-                                        <option value="Corporate">Corporate</option>
-                                        <option value="Healthcare">Healthcare</option>
-                                        <option value="Events">Events</option>
+                                        <option value="" disabled>Industry</option>
+                                        <option value="Agriculture">Agriculture</option>
+                                        <option value="Automotive">Automotive</option>
+                                        <option value="Banking & Finance">Banking & Finance</option>
                                         <option value="Construction">Construction</option>
+                                        <option value="Consulting">Consulting</option>
+                                        <option value="Corporate" selected>Corporate</option>
+                                        <option value="Education">Education</option>
+                                        <option value="Energy & Utilities">Energy & Utilities</option>
+                                        <option value="Engineering">Engineering</option>
+                                        <option value="Events">Events</option>
+                                        <option value="Government">Government</option>
+                                        <option value="Healthcare">Healthcare</option>
+                                        <option value="Hospitality">Hospitality</option>
+                                        <option value="IT & Software">IT & Software</option>
+                                        <option value="Legal">Legal</option>
+                                        <option value="Logistics & Transportation">Logistics & Transportation</option>
+                                        <option value="Manufacturing">Manufacturing</option>
+                                        <option value="Media & Entertainment">Media & Entertainment</option>
+                                        <option value="Mining">Mining</option>
+                                        <option value="NGO / Non-Profit">NGO / Non-Profit</option>
+                                        <option value="Pharmaceuticals">Pharmaceuticals</option>
+                                        <option value="Real Estate">Real Estate</option>
+                                        <option value="Retail & E-commerce">Retail & E-commerce</option>
+                                        <option value="Security">Security</option>
+                                        <option value="Sports & Recreation">Sports & Recreation</option>
+                                        <option value="Telecommunications">Telecommunications</option>
+                                        <option value="Travel & Tourism">Travel & Tourism</option>
+                                        <option value="Other">Other</option>
                                     </select>
                                 </div>
                             </div>
@@ -676,7 +699,7 @@ URI     : https://colorlib.com
                                     <label style="font-weight: bold;">Use Case:</label>
                                     <select id="use_case" class="form-input w-100 mb-3" name="use-case" required>
                                         <option value="" disabled selected>Select Use Case</option>
-                                        <option value="Employee Attendance">Employee Attendance</option>
+                                        <option value="Staff Attendance" selected>Staff Attendance</option>
                                         <option value="Student/Class Tracking">Student/Class Tracking</option>
                                         <option value="Event Check-In">Event Check-In</option>
                                         <option value="Remote Workforce">Remote Workforce</option>
@@ -688,23 +711,24 @@ URI     : https://colorlib.com
                                 <div class="col-md-12">
                                     <label style="font-weight: bold;">Key Features Needed:</label>
                                     <div class="mb-3">
-                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="QR Code Scanning"> QR Code Scanning</label>
-                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="GPS/Geofencing"> GPS/Geofencing</label>
-                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="Automated Reports"> Automated Reports</label>
-                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="Payroll Sync"> Payroll Sync</label>
-                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="Multi-location Support"> Multi-location Support</label>
+                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="QR Code Scanning" checked> QR Code Scanning</label>
+                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="Liveliness Check" checked> Liveliness Check</label>
+                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="GPS/Geofencing" checked> GPS/Geofencing</label>
+                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="Automated Reports" checked> Automated Reports</label>
+                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="Payroll Sync" checked> Payroll Sync</label>
+                                        <label class="mr-3"><input type="checkbox" name="key-features[]" value="Multi-location Support" checked> Multi-location Support</label>
                                     </div>
                                 </div>
                             </div>
                             <!-- Technical Preferences -->
-                            <h5 class="mb-3" style="color:#010911;">3. Technical Preferences</h5>
+                            <h5 class="mb-3" style="color:#010911;">3. Access Preferences</h5>
                             <div class="row">
                                 <div class="col-md-12">
                                     <label style="font-weight: bold;">Platform:</label>
                                     <select id="platform" class="form-input w-100 mb-3" name="platform" required>
                                         <option value="" disabled selected>Select Platform</option>
-                                        <option value="Web-Based">Web-Based</option>
-                                        <option value="Kiosk/Hardware Setup">Kiosk/Hardware Setup</option>
+                                        <option value="Web-Based" selected>Web-Based(recommended)</option>
+                                        <option value="Kiosk/Hardware Setup" disabled>Kiosk/Hardware Setup</option>
                                     </select>
                                 </div>
                             </div>
@@ -726,7 +750,7 @@ URI     : https://colorlib.com
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label style="font-weight: bold;">Preferred Deployment Timeline:</label><br>
+                                    <label style="font-weight: bold;">Preferred Delivery Timeline:</label><br>
                                     <label class="mr-2"><input type="radio" name="deployment-timeline" value="Immediate"> Immediate</label>
                                     <label class="mr-2"><input type="radio" name="deployment-timeline" value="1–3 Months"> 1–3 Months</label>
                                     <label class="mr-2"><input type="radio" name="deployment-timeline" value="Flexible"> Flexible</label>
@@ -957,7 +981,7 @@ URI     : https://colorlib.com
                 </div>
                 <div class="col-lg-6">
                     <div class="social-icons">
-                        <a href="#"><span class="ti-linkedin"></span></a>
+                        <a href="https://www.linkedin.com/company/veritrack-systems"><span class="ti-linkedin"></span></a>
                         <a href="#"><span class="ti-facebook"></span></a>
                         <a href="#"><span class="ti-twitter-alt"></span></a>
                         <a href="#"><span class="ti-instagram"></span></a>
@@ -970,7 +994,7 @@ URI     : https://colorlib.com
     </div>
     <!-- // end .section -->
     <footer class="my-5 text-center">
-        <p class="mb-2"><small>COPYRIGHT © 2017. ALL RIGHTS RESERVED. DEVELOPED BY BY <a href="">SMARTLINKCO</a></small></p>
+        <p class="mb-2"><small>COPYRIGHT © 2025. ALL RIGHTS RESERVED. DEVELOPED BY <a href="">SMARTLINKCO</a></small></p>
 
         <small>
             <a href="#" class="m-2">MANUAL</a>
