@@ -638,7 +638,7 @@ URI     : https://colorlib.com
                         <p style="color: #e3e3e3;">Let us know your requirements, and we'll tailor a solution to meet your needs.</p>
                     </div>
                     <div class="section-content">
-                        <form id="custom_request_form" class="form-body" action="https://script.google.com/macros/s/AKfycbxysUgf5XS8bkXNEg72F8g_zvVLsVRHI92yCKoa3sXpko3q8DpO2bDdeOZVRRyRC6cQ/exec" method="POST" style="background: #fff; padding: 32px 24px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.07);">
+                        <form id="custom_request_form" class="form-body" action="https://script.google.com/macros/s/AKfycbwEedg9gMzvn10DtIlvjSNpc5KmzWtuQ4me1wmyPHvdgCf6YM4hSVXe9NaR3ETGEa5Z/exec" method="POST" style="background: #fff; padding: 32px 24px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.07);">
                             <!-- Client Basics -->
                             <h5 class="mb-3" style="color:#010911;">1. Client Basics</h5>
                             <div class="row">
@@ -690,6 +690,12 @@ URI     : https://colorlib.com
                                         <option value="Travel & Tourism">Travel & Tourism</option>
                                         <option value="Other">Other</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" id="agent_id" class="form-input w-100 mb-3" 
+                                        name="agent-id" placeholder="Agent ID (if applicable)">
                                 </div>
                             </div>
                             <!-- System Requirements -->
@@ -1101,6 +1107,25 @@ URI     : https://colorlib.com
             document.body.appendChild(script);
         });
         }
+
+        // Add this to your existing script.js or <script> block
+        document.addEventListener('DOMContentLoaded', function() {
+            const agentIdField = document.getElementById('agent_id');
+            
+            if (agentIdField) {
+                // Uppercase conversion as user types
+                agentIdField.addEventListener('input', function() {
+                    this.value = this.value.toUpperCase();
+                });
+                
+                // Ensure uppercase on form submission too
+                document.getElementById('custom_request_form')?.addEventListener('submit', function() {
+                    if (agentIdField.value) {
+                        agentIdField.value = agentIdField.value.toUpperCase();
+                    }
+                });
+            }
+        });
     </script>
 
 </body>
