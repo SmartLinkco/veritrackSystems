@@ -69,8 +69,8 @@ URI     : https://colorlib.com
         }
         .form-container {
           max-width: 800px;
-          margin: 50px auto 0 auto;
-          padding: 50px 20px;
+          margin: 0 auto 0 auto;
+          padding: 20px 20px;
           /* background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); */
           border-radius: 12px;
           box-shadow: 0 4px 20px rgba(0,0,0,0.1);
@@ -312,7 +312,7 @@ URI     : https://colorlib.com
       </div>
     </div>
     <!-- Agent Info Section Start -->
-    <section class="agent-info-section gradient-bg" style="padding: 80px 0; margin-top: 80px;">
+    <section class="agent-info-section gradient-bg" style="padding: 80px 0; margin-top: 120px;">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 centre">
@@ -326,6 +326,16 @@ URI     : https://colorlib.com
               <li style="color: #fff; margin-bottom: 10px;"><span style="font-weight: bold; color: #7a3aff;">✓</span> Receive a unique Agent ID</li>
               <li style="color: #fff; margin-bottom: 10px;"><span style="font-weight: bold; color: #7a3aff;">✓</span> Get access to exclusive resources and support</li>
             </ul>
+            <div class="col-lg-4 d-flex justify-content-center align-items-center">
+              <button id="scrollToAgentForm" class="btn btn-submit" style="margin-bottom: 10px; font-size: 1.1rem;">
+                Register as Agent
+              </button>
+              <script>
+                document.getElementById('scrollToAgentForm').onclick = function() {
+                  document.getElementById('agent-registration').scrollIntoView({ behavior: 'smooth' });
+                };
+              </script>
+            </div>
             <p style="color: #e3e3e3; font-size: 1rem;">
               Join our agent network and be part of the digital transformation in attendance management across Africa and beyond!
             </p>
