@@ -51,7 +51,7 @@ URI     : https://colorlib.com
     <!-- Font -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Themify Icons -->
@@ -61,12 +61,16 @@ URI     : https://colorlib.com
     <!-- Main css -->
     <link href="css/style.css" rel="stylesheet">
     <style>
-        :root {
-          --primary-dark: #200557;
-          --primary-mid: #341179;
-          --primary-light: #4a1d9f;
-          --accent: #7a3aff;
-        }
+        /* :root {
+          --primary-dark: #16488F;
+          --primary-mid: #16488F;
+          --primary-light: #4DA3FF;
+          --accent: #1983DD;
+        } */
+         body {
+  font-family: "Newsreader", serif;
+
+}
         .form-container {
           max-width: 800px;
           margin: 0 auto 0 auto;
@@ -77,11 +81,12 @@ URI     : https://colorlib.com
           overflow: hidden;
         }
         .gradient-bg {
-          background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
-          color: white;
-          padding: 25px;
+         background: white;
+          color: #1983DD;
+          padding: 10px;
           text-align: center;
         }
+
         .form-body {
           padding: 30px;
           font-family: 'Poppins', sans-serif;
@@ -101,25 +106,21 @@ URI     : https://colorlib.com
           border-color: var(--primary-mid);
           box-shadow: 0 0 0 3px rgba(58, 28, 159, 0.2);
         }
-        .demo-live {
-            background-image: -moz-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
-            background-image: -webkit-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
-            background-image: -ms-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
-            background-image: linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
-        }
+        
         .btn-submit {
-          background: linear-gradient(to right, var(--primary-dark), var(--accent));
+         background: #16488F;
           color: white;
           border: none;
-          padding: 14px 28px;
+          padding: 10px 12px;
           border-radius: 6px;
           font-weight: bold;
           cursor: pointer;
           transition: all 0.3s;
         }
-        .btn-submit:hover {
+        .btn-submit:hover{
           transform: translateY(-2px);
           box-shadow: 0 6px 12px rgba(58, 28, 159, 0.2);
+         background: #4DA3FF;
         }
         .centre {
           display: flex;
@@ -312,19 +313,19 @@ URI     : https://colorlib.com
       </div>
     </div>
     <!-- Agent Info Section Start -->
-    <section class="agent-info-section gradient-bg" style="padding: 80px 0; margin-top: 120px;">
+    <section class="agent-info-section gradient-bg" style="padding: 80px 0; margin-top: 100px;">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 centre">
             <!-- <img src="images/agent-icon.png" alt="Agent Icon" style="width:80px; margin-bottom:24px;"> -->
-            <h2 style="color: #fff; font-weight: 600; margin-bottom: 18px;">Who is a VeriTrack Agent?</h2>
-            <p style="color: #e3e3e3; font-size: 1.15rem; margin-bottom: 16px;">
+            <h2 style="color: #1983DD; font-weight: 400; margin-bottom: 18px;">Who is a VeriTrack Agent?</h2>
+            <p style="color:#373838; font-size: 1.15rem; margin-bottom: 16px;">
               A VeriTrack Agent is a trusted partner who helps organizations discover and adopt our innovative attendance management solutions. Agents connect businesses, schools, and institutions to VeriTrack Systems, earning rewards for every successful referral and supporting clients throughout their onboarding journey.
             </p>
             <ul style="list-style: none; padding: 0; margin: 0 0 18px 0;">
-              <li style="color: #fff; margin-bottom: 10px;"><span style="font-weight: bold; color: #7a3aff;">✓</span> Refer clients and earn commissions</li>
-              <li style="color: #fff; margin-bottom: 10px;"><span style="font-weight: bold; color: #7a3aff;">✓</span> Receive a unique Agent ID</li>
-              <li style="color: #fff; margin-bottom: 10px;"><span style="font-weight: bold; color: #7a3aff;">✓</span> Get access to exclusive resources and support</li>
+              <li style="color: #16488F; margin-bottom: 10px;"><span style="font-weight: bold; color: black;">✓</span> Refer clients and earn commissions</li>
+              <li style="color: #16488F; margin-bottom: 10px;"><span style="font-weight: bold; color: black;">✓</span> Receive a unique Agent ID</li>
+              <li style="color: #16488F; margin-bottom: 10px;"><span style="font-weight: bold; color: black;">✓</span> Get access to exclusive resources and support</li>
             </ul>
             <div class="col-lg-4 d-flex justify-content-center align-items-center">
               <button id="scrollToAgentForm" class="btn btn-submit" style="margin-bottom: 10px; font-size: 1.1rem;">
@@ -336,7 +337,7 @@ URI     : https://colorlib.com
                 };
               </script>
             </div>
-            <p style="color: #e3e3e3; font-size: 1rem;">
+            <p style="color: #373838; font-size: 1rem;">
               Join our agent network and be part of the digital transformation in attendance management across Africa and beyond!
             </p>
           </div>
@@ -346,18 +347,19 @@ URI     : https://colorlib.com
     <!-- Agent Info Section End -->
     <!-- Agent Registration Form Section Start -->
     <section id="agent-registration" class="request section light-bg section-padding prelative mobile-padding" style="padding-top: 60px; padding-bottom: 60px;">
-        <div class="container form-container">
+        <div class="container form-container"
+>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="gradient-bg text-center" style="background: linear-gradient(135deg, rgb(74, 13, 143) 0%, rgb(250, 42, 143) 100%); box-shadow: 0px 5px 23px 0px rgba(0,0,0,0.1); color: #fff; padding: 32px 16px 24px 16px; border-radius: 8px; margin-bottom: 24px;">
+                    <div class="gradient-bg text-center" style="background: #16488F; box-shadow: 0px 5px 23px 0px rgba(0,0,0,0.1); color: #fff; padding: 32px 16px 24px 16px; border-radius: 8px; margin-bottom: 24px;">
                         <h4 style="font-weight: 500; color: white;">Agent Registration Form</h4>
                         <span class="line" style="display:block;width:60px;height:3px;background:#fff;margin:16px auto 24px auto;border-radius:2px;"></span>
-                        <p style="color: #e3e3e3;">Register as an agent, receive an Agent ID and earn on every referral you make.</p>
+                        <p style="color: #fff;">Register as an agent, receive an Agent ID and earn on every referral you make.</p>
                     </div>
                     <div class="section-content">
-                        <form id="agent_registration_form" class="form-body" action="https://script.google.com/macros/s/AKfycbzXdRvvTvuG2E0L49cIHnzrBpsDQJktsRfoVlqWi7V9tzQcMOpArqaeuNRSVnFr-aPI/exec" method="POST" style="background: #fff; padding: 32px 24px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.07);">
+                        <form id="agent_registration_form" class="form-body" action="https://script.google.com/macros/s/AKfycbzXdRvvTvuG2E0L49cIHnzrBpsDQJktsRfoVlqWi7V9tzQcMOpArqaeuNRSVnFr-aPI/exec" method="POST" style="background: #fff; padding: 32px 24px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.07); ">
                             <!-- Agent Details -->
-                            <h5 class="mb-3" style="color:#010911;">1. Agent Details</h5>
+                            <h5 class="mb-3" style="color:#1983DD";>1. Agent Details</h5>
                             <div class="row">
                                 <div class="col-md-6">
                                     <input type="text" id="agent_full_name" class="form-input w-100 mb-3" name="agent-full-name" placeholder="Full Name" required>
@@ -376,8 +378,8 @@ URI     : https://colorlib.com
                             </div>
                             <div class="row">
                               <div class="col-md-4">
-                                <select id="agent_country" class="form-input w-100 mb-3" name="agent-country" required>
-                                  <option value="" disabled selected>Country</option>
+                                <select id="agent_country" class="form-input w-100 mb-3" name="agent-country" style="color: black;" required>
+                                  <option value="" disabled selected >Country</option>
                                   <option value="Ghana">Ghana</option>
                                   <option value="Nigeria">Nigeria</option>
                                   <option value="Kenya">Kenya</option>
@@ -386,7 +388,7 @@ URI     : https://colorlib.com
                                 </select>
                               </div>
                               <div class="col-md-4">
-                                <select id="agent_region" class="form-input w-100 mb-3" name="agent-region" required>
+                                <select id="agent_region" class="form-input w-100 mb-3" name="agent-region" style="color: black;"  required>
                                   <option value="" disabled selected>Region/State</option>
                                 </select>
                               </div>
@@ -433,13 +435,13 @@ URI     : https://colorlib.com
                             });
                             </script>
                             <!-- Professional Details -->
-                            <h5 class="mb-3" style="color:#010911;">2. Professional Details</h5>
+                            <h5 class="mb-3" style="color:#1983DD;">2. Professional Details</h5>
                             <div class="row">
                               <div class="col-md-6">
                                 <input type="text" id="agent_company" class="form-input w-100 mb-3" name="agent-company" placeholder="Company/Organization Name" required>
                               </div>
                               <div class="col-md-6">
-                                <select id="agent_industry" class="form-input w-100 mb-3" name="agent-industry" required>
+                                <select id="agent_industry" class="form-input w-100 mb-3" name="agent-industry" style="color: black;"  required>
                                   <option value="" disabled selected>Industry</option>
                                   <option value="Corporate">Corporate</option>
                                   <option value="Education">Education</option>
@@ -456,10 +458,10 @@ URI     : https://colorlib.com
                               </div>
                             </div>
                             <!-- Payment Options -->
-                            <h5 class="mb-3" style="color:#010911;">3. Payment Options</h5>
+                            <h5 class="mb-3" style="color:#1983DD;">3. Payment Options</h5>
                             <div class="row">
                               <div class="col-md-6">
-                                <select id="agent_payment_method" class="form-input w-100 mb-3" name="agent-payment-method" required>
+                                <select id="agent_payment_method" class="form-input w-100 mb-3" name="agent-payment-method" style="color: black;" required>
                                   <option value="" disabled selected>Preferred Payment Method</option>
                                   <option value="Mobile Money">Mobile Money</option>
                                   <option value="Bank Transfer">Bank Transfer</option>
@@ -499,13 +501,13 @@ URI     : https://colorlib.com
                             <!-- Terms -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <label><input type="checkbox" name="agent-terms" required> I agree to the <a href="agentsTCs.html" target="_blank">Terms & Conditions</a></label>
+                                    <label><input type="checkbox" name="agent-terms" required> I agree to the <a href="agentsTCs.html" target="_blank" style="color: #1983DD;">Terms & Conditions</a></label>
                                 </div>
                             </div>
                             <!-- Submission -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button id="agent_submission" class="btn btn-primary btn-lg btn-block text-uppercase" type="submit" name="submit" style="background: linear-gradient(90deg, #010911 0%, rgb(250, 42, 143) 100%); border: none;">Register as Agent</button>
+                                    <button id="agent_submission" class="btn btn-primary btn-lg btn-block text-uppercase" type="submit" name="submit" style="background: #1983DD; border: none; border-radius: 5px;">Register as Agent</button>
                                     <p id="agent_alert" style="margin-top: 10px; text-align: center; border-radius: 3px; padding: 10px; font-size: 14px;"></p>
                                     <p style="margin-top: 10px; font-size: 12px; text-align: center; color: #555;">We’ll contact you within 24 hours to verify your registration!</p>
                                 </div>
@@ -513,7 +515,7 @@ URI     : https://colorlib.com
                         </form>
                         <!-- Confirmation Message (hidden initially) -->
                         <div id="agent_confirmation_message" class="confirmation-message" style="display:none; text-align:center; padding:32px 0;">
-                            <div class="confirmation-icon" style="font-size:48px; color:#28a745; margin-bottom:16px;">✓</div>
+                            <div class="confirmation-icon" style="font-size:48px; color:#16488F; margin-bottom:16px;">✓</div>
                             <h3>Registration Submitted Successfully!</h3>
                             <p>We've sent a confirmation email with your registration details. Kindly check your inbox / spam box.</p>
                             <p>
@@ -526,19 +528,22 @@ URI     : https://colorlib.com
             </div>
         </div>
         <style>
+             
+             .form-body{
+              font-family: "Newsreader", serif;
+             }
             #agent_registration_form .form-input {
                 padding: 10px;
                 border: 1px solid #e0e0e0;
-                border-radius: 4px;
-                background: linear-gradient(135deg, rgb(74, 13, 143) 0%, rgb(250, 42, 143) 100%);
-                box-shadow: 0px 5px 23px 0px rgba(0,0,0,0.1);
+                border-radius: 10px;
+              
                 font-size: 1em;
                 transition: border-color 0.2s;
-                color: #fff;
+                color: black;
             }
             #agent_registration_form .form-input:focus {
-                border-color: #007bff;
-                background: #fff;
+               box-shadow: 0px 5px 23px 0px rgba(0,0,0,0.1);
+                border-color: #b3d7ff;
                 color: #222;
                 outline: none;
             }
@@ -671,12 +676,12 @@ URI     : https://colorlib.com
                     <p class="mb-2"> <span class="ti-location-pin mr-2"></span> Accra, Ghana</p>
                     <div class=" d-block d-sm-inline-block">
                         <p class="mb-2">
-                            <span class="ti-email mr-2"></span> <a class="mr-4" href="mailto:info@veritrack.cloud">info@veritrack.cloud</a>
+                            <span class="ti-email mr-2"></span> <a class="mr-4" href="mailto:info@veritrack.cloud" style="color: #1983DD;">info@veritrack.cloud</a>
                         </p>
                     </div>
                     <div class="d-block d-sm-inline-block">
                         <p class="mb-0">
-                            <span class="ti-headphone-alt mr-2"></span> <a href="tel:+233592548849">233-59-254-8849</a>
+                            <span class="ti-headphone-alt mr-2"></span> <a href="tel:+233592548849" style="color: #1983DD;">233-59-254-8849</a>
                         </p>
                     </div>
 
@@ -696,12 +701,12 @@ URI     : https://colorlib.com
     </div>
     <!-- // end .section -->
     <footer class="my-5 text-center">
-        <p class="mb-2"><small>COPYRIGHT © 2025. ALL RIGHTS RESERVED. DEVELOPED BY BY <a href="">SMARTLINKCO</a></small></p>
+        <p class="mb-2"><small>COPYRIGHT © 2025. ALL RIGHTS RESERVED. DEVELOPED BY <a href="" style="color: #1983DD;">SMARTLINKCO</a></small></p>
 
         <small>
-            <a href="#" class="m-2">MANUAL</a>
-            <a href="termsAndConditions.html" class="m-2">TERMS</a>
-            <a href="privacyPolicy.html" class="m-2">PRIVACY</a>
+            <a href="#" class="m-2" style="color: #1983DD;" >MANUAL</a>
+            <a href="termsAndConditions.html" class="m-2" style="color: #1983DD;">TERMS</a>
+            <a href="privacyPolicy.html" class="m-2" style="color: #1983DD;">PRIVACY</a>
         </small>
     </footer>
 

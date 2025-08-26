@@ -32,7 +32,7 @@ Copyright © All rights Reserved
 ----------------------*/
 
 body {
-    font-family: 'Rubik', sans-serif;
+  font-family: "Newsreader", serif;
     position: relative;
 }
 
@@ -50,18 +50,19 @@ h1 {
     font-weight: 300;
     letter-spacing: -1px;
     margin-bottom: 1.5rem;
+    color: #1983DD;
 }
 
 h2 {
     font-size: 45px;
     font-weight: 300;
-    color: #633991;
+    color: #1983DD;
     letter-spacing: -1px;
     margin-bottom: 1rem;
 }
 
 h3 {
-    color: #633991;
+    color: #1983DD;
     font-size: 33px;
     font-weight: 500;
 }
@@ -69,27 +70,28 @@ h3 {
 h4 {
     font-size: 20px;
     font-weight: 500;
-    color: #633991;
+    color: #16488F;
 }
 
 h5 {
     font-size: 28px;
     font-weight: 300;
-    color: #f9f8fa;
+    color: #4DA3FF;
     margin-bottom: 0.7rem;
 }
 
 p {
-    color: #959094;
+    color: rgb(80, 80, 80);
 }
 
 p.lead {
-    color: #e38cb7;
+    color: #103371;
+    font-weight: 400;
     margin-bottom: 2rem;
 }
 
 .text-primary {
-    color: #e38cb7 !important;
+    color: #4DA3FF   !important;
 }
 
 .light-font {
@@ -98,22 +100,28 @@ p.lead {
 
 .btn {
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 700;
     text-transform: uppercase;
+   background:#16488F;
     padding: 0.375rem 1.35rem;
     transition: all 0.3s ease;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 
 .btn-outline-light:hover {
-    color: #d6619c;
+    color:white;
+   background: #16488F;
+    box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary {
     border-radius: 3px;
-    background-image: -moz-linear-gradient( 122deg, #e54595 0%, #fd378e 100%);
-    background-image: -webkit-linear-gradient( 122deg, #e54595 0%, #fd378e 100%);
-    background-image: -ms-linear-gradient( 122deg, #e54595 0%, #fd378e 100%);
-    background-image: linear-gradient( 122deg, #e54595 0%, #fd378e 100%);
+    background-image: -moz-linear-gradient( 122deg, #4DA3FF 0%, #4DA3FF 100%);
+    background-image: -webkit-linear-gradient( 122deg, #4DA3FF 0%, #4DA3FF 100%);
+    background-image: -ms-linear-gradient( 122deg, #4DA3FF 0%, #4DA3FF 100%);
+    background-image: linear-gradient( 122deg, #4DA3FF 0%, #4DA3FF 100%);
     box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.2);
     font-weight: 500;
     padding: 0.6rem 2rem;
@@ -126,7 +134,7 @@ p.lead {
 .btn-primary:not([disabled]):not(.disabled).active,
 .btn-primary:not([disabled]):not(.disabled):active,
 .show>.btn-primary.dropdown-toggle {
-    background-image: linear-gradient( 122deg, #fd378e 0%, #e54595 100%);
+    background-image: linear-gradient( 122deg, #4DA3FF 0%, #4DA3FF 100%);
     box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.3);
     color: #FFF;
 }
@@ -156,7 +164,7 @@ p.lead {
 }
 
 .light-bg {
-    background-color: #faf6fb;
+    background-color: #fafcfd;
 }
 
 .section {
@@ -192,14 +200,20 @@ p.lead {
 
 .nav-menu.is-scrolling,
 .nav-menu.menu-is-open {
-    background-color: rgb(74, 13, 143);
-    background: -moz-linear-gradient(135deg, rgb(74, 13, 143) 0%, rgb(250, 42, 143) 100%);
-    background: -webkit-linear-gradient(135deg, rgb(74, 13, 143) 0%, rgb(250, 42, 143) 100%);
-    background: linear-gradient(135deg, rgb(74, 13, 143) 0%, rgb(250, 42, 143) 100%);
+    backdrop-filter: blur(10px) saturate(180%);
+    background: white ;
+  /* background-image: -moz-linear-gradient( 135deg,#16488F 0%, #4DA3FF 100%);
+    background-image: -webkit-linear-gradient( 135deg, #16488F 0%,#4DA3FF 100%);
+    background-image: -ms-linear-gradient( 135deg,#16488F 0%, #4DA3FF    100%);
+    background-image: linear-gradient( 135deg, #16488F 0%, #4DA3FF   100%);
+    background: linear-gradient(135deg, #103371 0%, #4DA3FF 100%); 
+  */
     -webkit-box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 5px 23px 0px rgba(0, 0, 0, 0.1);
-}
+      border: 1px solid white; /* required, but no color */
+ 
+}    
 
 .nav-menu.is-scrolling {
     padding: 0;
@@ -207,22 +221,34 @@ p.lead {
 
 .navbar-nav .nav-link {
     position: relative;
+    color: #16488F;
 }
+
 
 @media (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 1rem;
         padding-left: 1rem;
         font-size: 14px;
+        color: #1983DD   ;
     }
+
+    .navbar-nav > .nav-item > .nav-link:hover{
+       color: #8fc4fd;
+    }
+.navbar-nav > .nav-item > .nav-link.active {
+    color: #16488F !important;  /* blue-black shade */
+    position: relative;         /* required for :after positioning */
+}
     .navbar-nav>.nav-item>.nav-link.active:after {
         content: "";
-        border-bottom: 2px solid #cd99d4;
+        border-bottom: 2px solid #16488F;
         left: 1rem;
         right: 1rem;
         bottom: 5px;
         height: 1px;
         position: absolute;
+   
     }
 }
 
@@ -249,16 +275,19 @@ header {
 }
 
 .bg-gradient {
-    background-image: -moz-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
-    background-image: -webkit-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
-    background-image: -ms-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
-    background-image: linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
+    /* background-image: -moz-linear-gradient( 135deg,#16488F 0%, #4DA3FF 100%);
+    background-image: -webkit-linear-gradient( 135deg, #16488F 0%,#4DA3FF 100%);
+    background-image: -ms-linear-gradient( 135deg,#16488F 0%, #4DA3FF    100%);
+    background-image: linear-gradient( 135deg, #16488F 0%, #4DA3FF   100%); */
+
+    background-color: white;
+   
 }
 
 .tagline {
     font-size: 23px;
     font-weight: 300;
-    color: #ffb8f6;
+    color:black;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -290,9 +319,9 @@ header {
 
 .gradient-fill:before {
     color: #fc73b4;
-    background: -moz-linear-gradient(top, #9477b4 0%, #fc73b4 100%);
-    background: -webkit-linear-gradient(top, #9477b4 0%, #fc73b4 100%);
-    background: linear-gradient(to bottom, #9477b4 0%, #fc73b4 100%);
+    background: -moz-linear-gradient(top, #1983DD 0%, #4DA3FF  100%);
+    background: -webkit-linear-gradient(top, #1983DD 0%, #4DA3FF  100%);
+    background: linear-gradient(to bottom, #1983DD 0%, #4DA3FF  100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -319,9 +348,9 @@ header {
     position: absolute;
     width: 3px;
     color: #fc73b4;
-    background: -moz-linear-gradient(top, #9477b4 0%, #fc73b4 100%);
-    background: -webkit-linear-gradient(top, #9477b4 0%, #fc73b4 100%);
-    background: linear-gradient(to bottom, #9477b4 0%, #fc73b4 100%);
+    background: -moz-linear-gradient(top, #16488F 0%, #4DA3FF 100%);
+    background: -webkit-linear-gradient(top, #16488F 0%, #4DA3FF  100%);
+    background: linear-gradient(to bottom, #16488F 0%, #4DA3FF  100%);
     top: 0;
     bottom: 0;
     left: 0;
@@ -355,7 +384,7 @@ header {
     border-radius: 50%;
     margin-bottom: 1.5rem;
     background-color: #FFF;
-    color: #f5378e;
+    color: #1983DD;
     font-size: 48px;
     text-align: center;
     line-height: 80px;
@@ -373,10 +402,10 @@ header {
 }
 
 .ui-steps li:hover .circle-icon {
-    background-image: -moz-linear-gradient( 122deg, #e6388e 0%, #fb378e 100%);
-    background-image: -webkit-linear-gradient( 122deg, #e6388e 0%, #fb378e 100%);
-    background-image: -ms-linear-gradient( 122deg, #e6388e 0%, #fb378e 100%);
-    background-image: linear-gradient( 122deg, #e6388e 0%, #fb378e 100%);
+    background-image: -moz-linear-gradient( 122deg, #1983DD 0%, #1983DD 100%);
+    background-image: -webkit-linear-gradient( 122deg, #1983DD 0%, #1983DD 100%);
+    background-image: -ms-linear-gradient( 122deg, #1983DD 0%, #1983DD 100%);
+    background-image: linear-gradient( 122deg, #1983DD 0%, #1983DD 100%);
     box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.09);
     color: #FFF;
 }
@@ -437,14 +466,14 @@ header {
     border-color: #faf6fb #faf6fb #FFF;
     font-size: 19px;
     color: #b5a4c8;
-    background: #f5eff7;
+    background: #e4f1ff;
 }
 
 .nav-tabs .nav-link.active {
     background: #FFF;
     border-top-width: 3px;
-    border-color: #ce75b4 #faf6fb #FFF;
-    color: #633991;
+    border-color: #16488F #faf6fb #FFF;
+    color: #1983DD;
 }
 
 
@@ -502,11 +531,11 @@ header {
 }
 
 .owl-theme .owl-dots .owl-dot:hover span {
-    background: #ff487e;
+    background:#16488F;
 }
 
 .owl-theme .owl-dots .owl-dot.active span {
-    background: #ff487e;
+    background: #16488F;
     box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.07);
 }
 
@@ -544,7 +573,7 @@ header {
 
 .card.pricing.popular {
     border-top-width: 3px;
-    border-color: #ce75b4 #faf6fb #FFF;
+    border-color:#16488F #faf6fb #FFF;
     box-shadow: 0px 12px 59px 0px rgba(36, 7, 31, 0.11);
     color: #633991;
 }
@@ -558,7 +587,7 @@ header {
     display: block;
     font-size: 45px;
     font-weight: 300;
-    color: #633991;
+    color: #1983DD;
 }
 
 .card.pricing .card-head .price sub {
@@ -605,8 +634,8 @@ header {
 
 .call-to-action .tagline {
     font-size: 16px;
-    font-weight: 300;
-    color: #ffb8f6;
+    font-weight: 400;
+    color: black;
     max-width: 650px;
     margin: 0 auto;
 }
@@ -634,13 +663,13 @@ header {
     line-height: 50px;
     margin: 0 0.3rem;
     border-radius: 5px;
-    color: #f4c9e2;
+    color: #1983DD;
     transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
     text-decoration: none;
-    color: #e38cb7;
+    color: #16488F;
 }
 
 @media (max-width:991px) {

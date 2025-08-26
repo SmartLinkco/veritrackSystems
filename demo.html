@@ -101,13 +101,10 @@ URI     : https://colorlib.com
           box-shadow: 0 0 0 3px rgba(58, 28, 159, 0.2);
         }
         .demo-live {
-            background-image: -moz-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
-            background-image: -webkit-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
-            background-image: -ms-linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
-            background-image: linear-gradient( 135deg, rgba(60, 8, 118, 0.8) 0%, rgba(250, 0, 118, 0.8) 100%);
+          background: white;
         }
         .btn-submit {
-          background: linear-gradient(to right, var(--primary-dark), var(--accent));
+          background: #103371;
           color: white;
           border: none;
           padding: 14px 28px;
@@ -119,6 +116,7 @@ URI     : https://colorlib.com
         .btn-submit:hover {
           transform: translateY(-2px);
           box-shadow: 0 6px 12px rgba(58, 28, 159, 0.2);
+          color: white;
         }
         .centre {
           display: flex;
@@ -311,12 +309,12 @@ URI     : https://colorlib.com
 
     <!-- How to Test the System Popup -->
     <div id="howToTestPopup" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(62, 51, 85, 0.85);">
-        <div style="background:linear-gradient(135deg, var(--primary-dark), var(--primary-light));color:#fff;max-width:420px;width:90%;border-radius:16px;box-shadow:0 8px 32px rgba(32,5,87,0.25);padding:36px 28px 28px 28px;position:relative;text-align:left;">
-            <button id="closeHowToTest" aria-label="Close" style="position:absolute;top:18px;right:18px;background:none;border:none;color:#fff;font-size:1.7rem;cursor:pointer;opacity:0.7;transition:opacity 0.2s;"><span aria-hidden="true">&times;</span></button>
+        <div style="background:white; color:black;max-width:420px;width:90%;border-radius:16px;box-shadow:0 8px 32px rgba(32,5,87,0.25);padding:36px 28px 28px 28px;position:relative;text-align:left;">
+            <button id="closeHowToTest" aria-label="Close" style="position:absolute;top:18px;right:18px;background:none;border:none;color:black;font-size:1.7rem;cursor:pointer;opacity:0.7;transition:opacity 0.2s;"><span aria-hidden="true">&times;</span></button>
             <div style="text-align:center;margin-bottom:18px;">
-                <span class="ti-light-bulb" style="font-size:2.5rem;color:var(--accent);"></span>
+                <span class="ti-light-bulb" style="font-size:2.5rem;color: #16488F;"></span>
             </div>
-            <h4 style="font-weight:600;margin-bottom:10px;text-align:center;">How to Test the System</h4>
+            <h4 style="font-weight:600;margin-bottom:10px;text-align:center; color: black;">How to Test the System</h4>
             <ol style="padding-left:18px;font-size:1.08rem;line-height:1.7;">
                 <li>Fill out the <b>Demo Check-In Form</b> with sample details(NB:Choose "DEMO OFFICE").</li>
                 <li>Submit your entry, and check your mail(inbox & spam) for you Unique ID.</li>
@@ -326,7 +324,7 @@ URI     : https://colorlib.com
                 <li>Simply refresh this page to bring back this <b>Pop-up</b> after it's closed.</li>
             </ol>
             <div style="margin-top:18px;text-align:center;">
-                <span style="font-size:0.98rem;color:#e0e0e0;">All demo data is for testing only. Sensitive info is hidden for privacy.</span>
+                <span style="font-size:0.98rem;color: rgb(44, 44, 44);">All demo data is for testing only. Sensitive info is hidden for privacy.</span>
             </div>
         </div>
     </div>
@@ -354,19 +352,19 @@ URI     : https://colorlib.com
           <!-- <p style="color: #fff;">Experience VeriTrack's Attendance System in action. Submit a demo check-in, view real-time attendance data, and access the check-in/checkout portal.</p> -->
         </div>
         <div class="text-center mt-4" style="margin-bottom: 30px;">
-          <a href="https://script.google.com/macros/s/AKfycbyWnrl16scOgNKySQN9YGGUjnUDFp-QJGDbkWgf-JTon4C2LYkfAl0-xDBRTPuzKC_f/exec" class="btn btn-submit" style="font-size:1.1rem;">Go to Check-In/Check-out Portal</a>
+          <a href="https://script.google.com/macros/s/AKfycbyWnrl16scOgNKySQN9YGGUjnUDFp-QJGDbkWgf-JTon4C2LYkfAl0-xDBRTPuzKC_f/exec" class="btn btn-submit" style="font-size:1rem;">Go to Check-In/Check-out Portal</a>
         </div>
         <div class="row">
           <div class="col-md-6 mb-4">
-            <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px;">
-              <h5 class="text-center mb-3">Demo Check-In Form</h5>
+            <div style="background: #16488F; color: white; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px;">
+              <h5 class="text-center mb-3" style="color: white;">Demo Check-In Form</h5>
               <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSekuQBil3CAS35SPBn4BvfQ2tZKH_qElvgzTUa56W9kdvizSg/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="border:none;">Loading…</iframe>
             </div>
           </div>
           <div class="col-md-6 mb-4">
-            <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px;">
-              <h5 class="text-center mb-3">Registered Staff Members</h5>
-              <div class="alert alert-warning text-center mb-3" role="alert" style="font-size: 0.98rem;">
+            <div style="background-color: #16488F; color: white; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px;">
+              <h5 class="text-center mb-3"style="color: white";>Registered Staff Members</h5>
+              <div class="alert alert-warning text-center mb-3" style="background: white;" role="alert" style="font-size: 0.98rem;">
                 <strong>Disclaimer:</strong> Certain credentials such as <b>Email Address</b> and <b>Phone Number</b> have been hidden for privacy and security reasons.
               </div>
               <div id="staff-table" style="overflow-x:auto;">
@@ -386,9 +384,9 @@ URI     : https://colorlib.com
                 </table>
               </div>
             </div>
-            <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px; margin-top: 30px;">
-              <h5 class="text-center mb-3">Live Attendance Data</h5>
-              <div class="alert alert-warning text-center mb-3" role="alert" style="font-size: 0.98rem;">
+            <div style="background: #16488F; color: white; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px; margin-top: 30px;">
+              <h5 class="text-center mb-3" style="color: white";>Live Attendance Data</h5>
+              <div class="alert alert-warning text-center mb-3 "style="background-color: white" role="alert" style="font-size: 0.98rem;">
                 <strong>Disclaimer:</strong> Certain credentials such as <b>IP Address</b>, <b>Latitude</b>, <b>Longitude</b>, and <b>Photo ID</b> have been hidden for privacy and security reasons.
               </div>
               <div id="sheet-table" style="overflow-x:auto;">
@@ -494,17 +492,17 @@ URI     : https://colorlib.com
     Demo Live Presentation & Pricing Section End -->
     
 
-    <div class="section bg-gradient">
-        <div class="container">
-            <div class="call-to-action">
+    <div class="section bg-gradient" >
+        <div class="container"   >
+            <div class="call-to-action" >
                 <div class="box-icon"><span class="ti-mobile gradient-fill ti-3x"></span></div>
-                <h2>Accessible Everywhere</h2>
+                <h2 style="color: #1983DD;">Accessible Everywhere</h2>
                 <p class="tagline">
                     VeriTrack works instantly on any device—no downloads or special hardware required. Access your system from anywhere, anytime, with zero setup hassle.
                 </p>
                 <div class="my-4">
-                    <a href="#check-In" class="btn btn-light">Request Today</a>
-                    <a href="https://calendly.com/info-veritrack/30min" class="btn btn-light">Book a Free Online Meeting</a>
+                    <a href="#check-In" class="btn btn-light" style="color:#1983DD;">Request Today</a>
+                    <a href="https://calendly.com/info-veritrack/30min" class="btn btn-light" style="color: #1983DD;">Book a Free Online Meeting</a>
                 </div>
                 <p class="text-primary"><small><i>*No installation needed. Works on all modern browsers and devices.</i></small></p>
             </div>
@@ -512,7 +510,7 @@ URI     : https://colorlib.com
 
     </div>
     <!-- // end .section -->
-
+ <div class="light-bg" style="height: 350px;">
     <div class="light-bg py-5" id="contact">
         <div class="container">
             <div class="row">
@@ -520,15 +518,17 @@ URI     : https://colorlib.com
                     <p class="mb-2"> <span class="ti-location-pin mr-2"></span> Accra, Ghana</p>
                     <div class=" d-block d-sm-inline-block">
                         <p class="mb-2">
-                            <span class="ti-email mr-2"></span> <a class="mr-4" href="mailto:info@veritrack.cloud">info@veritrack.cloud</a>
+                            <span class="ti-email mr-2"></span> <a class="mr-4" href="mailto:info@veritrack.cloud" style="color: #1983DD
+            ";>info@veritrack.cloud</a>
                         </p>
                     </div>
                     <div class="d-block d-sm-inline-block">
                         <p class="mb-0">
-                            <span class="ti-headphone-alt mr-2"></span> <a href="tel:+233592548849">233-59-254-8849</a>
+                            <span class="ti-headphone-alt mr-2"></span> <a href="tel:+233592548849" style="color: #1983DD
+            ";>233-59-254-8849</a>
                         </p>
                     </div>
-                    <a href="agent.html" class="btn btn-gradient" style="background: linear-gradient(90deg, #fa2a8f 0%, #4a0d8f 100%); color: #fff; font-weight: 600; padding: 10px 28px; border-radius: 24px; box-shadow: 0 2px 8px rgba(74,13,143,0.12); margin-top: 18px; display: inline-block; text-decoration: none; transition: background 0.2s, transform 0.15s;">
+                    <a href="agent.html" class="btn btn-gradient" style=" color: #fff; font-weight: 600; padding: 10px 28px; border-radius: 5px; box-shadow: 0 2px 8px rgba(74,13,143,0.12); margin-top: 18px; display: block; text-decoration: none; transition: background 0.2s, transform 0.15s; width: 170px;">
                         Become an Agent
                     </a>
                 </div>
@@ -547,15 +547,18 @@ URI     : https://colorlib.com
     </div>
     <!-- // end .section -->
     <footer class="my-5 text-center">
-        <p class="mb-2"><small>COPYRIGHT © 2025. ALL RIGHTS RESERVED. DEVELOPED BY BY <a href="">SMARTLINKCO</a></small></p>
+        <p class="mb-2"><small>COPYRIGHT © 2025. ALL RIGHTS RESERVED. DEVELOPED BY <a href="" style="color: #1983DD
+            ";>SMARTLINKCO</a></small></p>
 
         <small>
-            <a href="#" class="m-2">MANUAL</a>
-            <a href="termsAndConditions.html" class="m-2">TERMS</a>
-            <a href="privacyPolicy.html" class="m-2">PRIVACY</a>
+            <a href="#" class="m-2" style="color: #1983DD";>MANUAL</a>
+            <a href="termsAndConditions.html" class="m-2" style="color: #1983DD
+            ";>TERMS</a>
+            <a href="privacyPolicy.html" class="m-2" style="color: #1983DD
+            ";>PRIVACY</a>
         </small>
     </footer>
-
+</div>
     <!-- jQuery and Bootstrap -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
