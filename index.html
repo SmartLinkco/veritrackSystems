@@ -67,6 +67,7 @@ URI     : https://colorlib.com
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
 </head>
 
+
 <body data-spy="scroll" data-target="#navbar" data-offset="30">
 
     <!-- Nav Menu -->
@@ -97,24 +98,52 @@ URI     : https://colorlib.com
     </div>
 
 
-    <header class="bg-gradient" id="home" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; position: relative;">
-        <div class="container mt-5">
-            <h1 >The DNA of Digital Attendance Tracking.</h1>
-            <p class="tagline">
-                Ready to revolutionize your attendance management? Discover how VeriTrack’s AI-powered check can save you time, boost accuracy, and protect your business. <br><strong><a href="demo.html" style="color:#1983DD; text-decoration:underline;">See how it works &rarr;</a></strong>
-            </p>
-        </div>
-        <div class="img-holder mt-3 d-flex justify-content-center" id="slideshow-container" style="position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; width: 100%; max-width: 400px; min-height: 300px; margin-left: auto; margin-right: auto;">
-            <div>
-                <img src="images/macbook view.png" alt="slide 1" class="img-fluid slideshow-img active" style="position: absolute; left: 0; top: 0; width: 100%; transition: left 0.6s; margin: 0 auto;">
-            </div>
-            <div>
-                <img src="images/VeriTrack gif.png" alt="slide 2" class="img-fluid slideshow-img" style="position: absolute; left: 100%; top: 0; width: 52%; transition: left 0.6s; margin: 0 auto;">
-            </div>
-            <div>
-                <img src="images/ipad veritrack.png" alt="slide 3" class="img-fluid slideshow-img" style="position: absolute; left: 100%; top: 0; width: 80%; transition: left 0.6s; margin: 0 auto;">
-            </div>
-        </div>
+    <header class="bg-gradient" id="home" style="min-height:100vh;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;">
+
+        <div class="container mt-5" style="position:relative;z-index:2;">
+    <h2>The DNA of Digital Attendance Tracking.</h2>
+    <p class="tagline">
+      Ready to revolutionize your attendance management? Discover how VeriTrack’s AI-powered check can save you time, boost accuracy, and protect your business.
+      <br><strong><a href="demo.html" style="color:#1983DD; text-decoration:underline;">See how it works &rarr;</a></strong>
+    </p>
+  </div>
+
+   <div class="wave-divider">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/>
+      </defs>
+      <g class="parallax">
+        <!-- use modern href instead of xlink:href -->
+      <use href="#gentle-wave" x="48" y="0" fill="#D9E9F6"/>   <!-- Lightest -->
+<use href="#gentle-wave" x="48" y="3" fill="#BFD7ED"/>   <!-- Base -->
+<use href="#gentle-wave" x="48" y="5" fill="#A6C6E4"/>   <!-- Slightly darker -->
+<use href="#gentle-wave" x="48" y="7" fill="#8CB4DB"/>   <!-- Darker -->
+
+      </g>
+    </svg>
+  </div>
+  <div class=" img-holder mt-3 d-flex justify-content-center" id="slideshow-container" 
+       style="position:relative;z-index:2;display:flex;align-items:center;justify-content:center;overflow:hidden;width:100%;max-width:400px;min-height:200px;margin-left:auto;margin-right:auto;">
+    <div>
+      <img src="images/macbook view.png" alt="slide 1" class="img-fluid slideshow-img active"
+           style="position:absolute;left:0;top:0;width:100%;transition:left 0.6s;margin:0 auto; height: 250px;">
+    </div>
+    <div>
+      <img src="images/VeriTrack gif.png" alt="slide 2" class="img-fluid slideshow-img"
+           style="position:absolute;left:100%;top:0;width:52%;transition:left 0.6s;margin:0 auto; height: 310px;">
+    </div>
+    <div>
+      <img src="images/ipad veritrack.png" alt="slide 3" class="img-fluid slideshow-img"
+           style="position:absolute;left:100%;top:0;width:80%;transition:left 0.6s;margin:0 auto; height: 310px;">
+    </div>
+  </div>
+
+  <!-- Waves MUST be the LAST child inside header -->
+  
+  
+
+
         <script>
             // Slideshow logic
             const slides = document.querySelectorAll('#slideshow-container .slideshow-img');
@@ -139,6 +168,7 @@ URI     : https://colorlib.com
                 z-index: 1;
             }
         </style>
+                
     </header>
 
     <div class="client-logos my-5">
