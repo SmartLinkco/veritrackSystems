@@ -355,8 +355,9 @@ URI     : https://colorlib.com
                         <p style="color: #e3e3e3;">Register as an agent, receive an Agent ID and earn on every referral you make.</p>
                     </div>
                     <div class="section-content">
-                        <form id="agent_registration_form" class="form-body" action="https://script.google.com/macros/s/AKfycbzXdRvvTvuG2E0L49cIHnzrBpsDQJktsRfoVlqWi7V9tzQcMOpArqaeuNRSVnFr-aPI/exec" method="POST" style="background: #fff; padding: 32px 24px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.07);">
+                        <form id="agent_registration_form" class="form-body" action="https://script.google.com/macros/s/AKfycbxGBPG7De1kfeZjNljWSIqxSbCK-8EjhJLpJADCFBMyuo4NFBTquuxlpn-PPqj1zjPD/exec" method="POST" style="background: #fff; padding: 32px 24px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.07);">
                             <!-- Agent Details -->
+                            <input type="hidden" name="form-type" value="agent-registration">
                             <h5 class="mb-3" style="color:#010911;">1. Agent Details</h5>
                             <div class="row">
                                 <div class="col-md-6">
@@ -499,7 +500,13 @@ URI     : https://colorlib.com
                             <!-- Terms -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <label><input type="checkbox" name="agent-terms" required> I agree to the <a href="agentsTCs.html" target="_blank">Terms & Conditions</a></label>
+                                    <div class="form-group">
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="agent-terms" required>
+                                            <span class="checkmark"></span>
+                                            I agree to the <a href="agentsTCs.html" target="_blank">Terms & Conditions</a>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Submission -->
@@ -512,54 +519,453 @@ URI     : https://colorlib.com
                             </div>
                         </form>
                         <!-- Confirmation Message (hidden initially) -->
-                        <div id="agent_confirmation_message" class="confirmation-message" style="display:none; text-align:center; padding:32px 0;">
-                            <div class="confirmation-icon" style="font-size:48px; color:#28a745; margin-bottom:16px;">✓</div>
-                            <h3>Registration Submitted Successfully!</h3>
-                            <p>We've sent a confirmation email with your registration details. Kindly check your inbox / spam box.</p>
-                            <p>
-                                Your agent account will be activated within <strong>24 hours</strong> after verification.
-                            </p>
-                            <p>Our team will contact you soon.</p>
+                        <div id="agent_confirmation_message" class="confirmation-message" style="display:none;">
+                            <div class="confirmation-content">
+                                <div class="confirmation-icon">✓</div>
+                                <h3>Agent Registration Submitted Successfully!</h3>
+                                <p>We've sent a confirmation email with your registration details. Please check your inbox.</p>
+                                <div class="info-box">
+                                    <p><strong>Next Steps:</strong></p>
+                                    <ul>
+                                        <li>Check your email for the agent verification link</li>
+                                        <li>Your Agent ID will be assigned within <strong>24 hours</strong> after verification</li>
+                                        <li>Our team will contact you within <strong>24 hours</strong> with onboarding details</li>
+                                        <li>Start earning commissions immediately after approval</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <style>
+            /* Form Container */
+            #agent_registration_form {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                line-height: 1.6;
+            }
+
+            /* Form Sections */
+            .form-section {
+                margin-bottom: 40px;
+                padding-bottom: 32px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .form-section:last-of-type {
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+
+            .section-header {
+                display: flex;
+                align-items: center;
+                margin-bottom: 24px;
+                gap: 12px;
+            }
+
+            .section-number {
+                background: linear-gradient(135deg, #4a0d8f 0%, #fa2a8f 100%);
+                color: white;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+                font-size: 14px;
+            }
+
+            .section-header h5 {
+                margin: 0;
+                color: #2c3e50;
+                font-weight: 600;
+                font-size: 18px;
+            }
+
+            /* Form Groups */
+            .form-group {
+                margin-bottom: 24px;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                color: #34495e;
+                font-weight: 500;
+                font-size: 14px;
+            }
+
+            .form-text {
+                display: block;
+                margin-top: 4px;
+                font-size: 12px;
+                color: #7f8c8d;
+            }
+
+            /* Form Inputs */
             #agent_registration_form .form-input {
-                padding: 10px;
-                border: 1px solid #e0e0e0;
-                border-radius: 4px;
-                background: linear-gradient(135deg, rgb(74, 13, 143) 0%, rgb(250, 42, 143) 100%);
-                box-shadow: 0px 5px 23px 0px rgba(0,0,0,0.1);
-                font-size: 1em;
-                transition: border-color 0.2s;
-                color: #fff;
-            }
-            #agent_registration_form .form-input:focus {
-                border-color: #007bff;
+                width: 100%;
+                padding: 12px 16px;
+                border: 2px solid #e9ecef;
+                border-radius: 8px;
+                font-size: 14px;
                 background: #fff;
-                color: #222;
+                transition: all 0.3s ease;
+                box-sizing: border-box;
+                color: #495057;
+            }
+
+            #agent_registration_form .form-input:focus {
+                border-color: #4a0d8f;
+                box-shadow: 0 0 0 3px rgba(74, 13, 143, 0.1);
                 outline: none;
+                background: #fff;
             }
-            #agent_registration_form label {
-                margin-bottom: 0.3em;
-                color: #222;
+
+            #agent_registration_form .form-input::placeholder {
+                color: #adb5bd;
+                font-size: 14px;
             }
-            #agent_registration_form h5 {
-                margin-top: 1.5em;
-                margin-bottom: 0.7em;
+
+            textarea.form-input {
+                height: 100px;
+                resize: vertical;
+            }
+
+            /* Checkbox Styling */
+            .checkbox-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 12px;
+                margin-top: 8px;
+            }
+
+            .checkbox-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                cursor: pointer;
+                padding: 10px;
+                border-radius: 6px;
+                transition: background-color 0.2s;
+                margin: 0;
+                font-weight: 400;
+            }
+
+            .checkbox-item:hover {
+                background-color: #f8f9fa;
+            }
+
+            .checkbox-item input[type="checkbox"] {
+                display: none;
+            }
+
+            .checkmark {
+                width: 30px;
+                height: 30px;
+                border: 2.5px solid #dee2e6;
+                border-radius: 6px;
+                position: relative;
+                transition: all 0.2s;
+                flex-shrink: 0;
+            }
+
+            .checkbox-item input[type="checkbox"]:checked + .checkmark {
+                background: linear-gradient(135deg, #4a0d8f 0%, #fa2a8f 100%);
+                border-color: #4a0d8f;
+            }
+
+            .checkbox-item input[type="checkbox"]:checked + .checkmark::after {
+                content: '✓';
+                position: absolute;
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            /* Radio Button Styling */
+            .radio-group {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 8px;
+            }
+
+            .radio-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                cursor: pointer;
+                padding: 10px;
+                border-radius: 6px;
+                transition: background-color 0.2s;
+                margin: 0;
+                font-weight: 400;
+            }
+
+            .radio-item:hover {
+                background-color: #f8f9fa;
+            }
+
+            .radio-item input[type="radio"] {
+                display: none;
+            }
+
+            .radio-mark {
+                width: 30px;
+                height: 30px;
+                border: 2.5px solid #dee2e6;
+                border-radius: 50%;
+                position: relative;
+                transition: all 0.2s;
+                flex-shrink: 0;
+            }
+
+            .radio-item input[type="radio"]:checked + .radio-mark {
+                border-color: #4a0d8f;
+                background: linear-gradient(135deg, #4a0d8f 0%, #fa2a8f 100%);
+            }
+
+            .radio-item input[type="radio"]:checked + .radio-mark::after {
+                content: '';
+                position: absolute;
+                width: 14px;
+                height: 14px;
+                background: white;
+                border-radius: 50%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            /* Submit Button */
+            .btn-submit {
+                width: 100%;
+                background: linear-gradient(135deg, #4a0d8f 0%, #fa2a8f 100%);
+                color: white;
+                border: none;
+                padding: 16px 24px;
+                border-radius: 12px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                box-shadow: 0 4px 16px rgba(74, 13, 143, 0.2);
+            }
+
+            .btn-submit:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(74, 13, 143, 0.3);
+            }
+
+            .btn-submit:active {
+                transform: translateY(0);
+            }
+
+            .btn-submit:disabled {
+                background: #adb5bd;
+                cursor: not-allowed;
+                transform: none;
+                box-shadow: none;
+            }
+
+            .btn-loader {
+                width: 20px;
+                height: 20px;
+                border: 2px solid transparent;
+                border-top: 2px solid white;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+
+            /* Alert Message */
+            .alert-message {
+                margin-top: 16px;
+                padding: 12px;
+                border-radius: 8px;
+                text-align: center;
+                font-size: 14px;
+                display: none;
+            }
+
+            .alert-message.error {
+                background: #fee;
+                color: #c33;
+                border: 1px solid #fcc;
+                display: block;
+            }
+
+            .alert-message.success {
+                background: #efe;
+                color: #363;
+                border: 1px solid #cfc;
+                display: block;
+            }
+
+            /* Disclaimer */
+            .disclaimer {
+                margin-top: 16px;
+                text-align: center;
+                font-size: 12px;
+                color: #6c757d;
+                margin-bottom: 0;
+            }
+
+            /* Confirmation Message */
+            #agent_registration_form .confirmation-message {
+                background: #fff;
+                padding: 40px;
+                border-radius: 16px;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+                text-align: center;
+                display: none;
+            }
+
+            .confirmation-content {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .confirmation-icon {
+                width: 80px;
+                height: 80px;
+                background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 40px;
+                margin: 0 auto 24px;
+                animation: checkmark-pop 0.6s ease-out;
+            }
+
+            @keyframes checkmark-pop {
+                0% { transform: scale(0); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+
+            .confirmation-message h3 {
+                color: #2c3e50;
+                margin-bottom: 16px;
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            .confirmation-message p {
+                color: #6c757d;
+                margin-bottom: 24px;
+            }
+
+            .info-box {
+                background: #f8f9fa;
+                padding: 20px;
+                border-radius: 8px;
+                border-left: 4px solid #4a0d8f;
+                text-align: left;
+            }
+
+            .info-box p {
+                margin-bottom: 8px;
+                color: #2c3e50;
                 font-weight: 500;
             }
+
+            .info-box ul {
+                margin: 0;
+                padding-left: 20px;
+                color: #6c757d;
+            }
+
+            .info-box li {
+                margin-bottom: 4px;
+            }
+
+            /* Agent Form Specific Styling */
+            #agent_registration_form label {
+                margin-bottom: 8px;
+                color: #34495e;
+                font-weight: 500;
+                font-size: 14px;
+            }
+
+            #agent_registration_form h5 {
+                margin-top: 32px;
+                margin-bottom: 16px;
+                font-weight: 600;
+                color: #2c3e50;
+                font-size: 18px;
+                padding-bottom: 8px;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            #agent_registration_form h5:first-of-type {
+                margin-top: 0;
+            }
+
             #agent_registration_form .btn-primary {
-                background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+                background: linear-gradient(135deg, #4a0d8f 0%, #fa2a8f 100%);
                 border: none;
+                padding: 16px 24px;
+                border-radius: 12px;
+                font-size: 16px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                box-shadow: 0 4px 16px rgba(74, 13, 143, 0.2);
+                transition: all 0.3s ease;
             }
+
+            #agent_registration_form .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(74, 13, 143, 0.3);
+            }
+
             #agent_registration_form .btn-primary:disabled {
-                background: #b3d7ff;
+                background: #adb5bd;
+                cursor: not-allowed;
+                transform: none;
+                box-shadow: none;
             }
-            #agent_registration_form .confirmation-message {
-                display: none;
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                #agent_registration_form {
+                    padding: 24px 16px;
+                }
+
+                .checkbox-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .section-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 8px;
+                }
+
+                .radio-group {
+                    flex-direction: column;
+                }
             }
         </style>
     </section>
@@ -567,98 +973,140 @@ URI     : https://colorlib.com
 
     <script>
     document.getElementById('agent_registration_form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const formData = new FormData(form);
-      const submitBtn = document.getElementById('agent_submission');
-      const alertBtn = document.getElementById('agent_alert');
-      const email = formData.get('agent-email');
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const submitBtn = document.getElementById('agent_submission');
+        const alertDiv = document.getElementById('agent_alert');
+        const email = formData.get('agent-email');
 
-      // Disable button during submission
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
+        // Reset alert
+        alertDiv.textContent = '';
+        alertDiv.style.backgroundColor = '';
+        alertDiv.style.color = '';
+        
+        // Disable button during submission
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
 
-      try {
-        // First check if email exists
-        const emailCheckResponse = await checkEmailExists(email);
+        try {
+            // First check if email exists
+            const emailCheckResponse = await checkAgentEmailExists(email);
 
-        if (emailCheckResponse.exists) {
-          alertBtn.textContent = 'This email is already registered as an agent. Please use a different email or contact support.';
-          alertBtn.style.backgroundColor = '#f81212';
-          alertBtn.style.color = '#fff';
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Register as Agent';
-          return;
+            if (emailCheckResponse.exists) {
+                alertDiv.textContent = 'This email is already registered as an agent. Please use a different email or contact support.';
+                alertDiv.style.backgroundColor = '#f81212';
+                alertDiv.style.color = '#fff';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Register as Agent';
+                return;
+            }
+
+            // Proceed with form submission if email is new
+            const jsonData = {};
+            formData.forEach((value, key) => {
+                // Handle array fields if any
+                if (key.endsWith('[]')) {
+                    const cleanKey = key.replace('[]', '');
+                    if (!jsonData[cleanKey]) jsonData[cleanKey] = [];
+                    jsonData[cleanKey].push(value);
+                } else {
+                    jsonData[key] = value;
+                }
+            });
+
+            // Use a unique callback name
+            const callbackName = 'agent_jsonp_callback_' + Math.round(100000 * Math.random());
+            
+            // Set up the callback function
+            window[callbackName] = function(data) {
+                // Clean up
+                delete window[callbackName];
+                document.body.removeChild(script);
+                
+                if (data.result === "success") {
+                    form.style.display = 'none';
+                    document.getElementById('agent_confirmation_message').style.display = 'block';
+                } else {
+                    alertDiv.textContent = "Error: " + (data.error || "Submission failed");
+                    alertDiv.style.backgroundColor = '#f81212';
+                    alertDiv.style.color = '#fff';
+                }
+                
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Register as Agent';
+            };
+
+            // Create the script element
+            const script = document.createElement('script');
+            
+            // Build the URL with proper encoding
+            const url = new URL(form.action);
+            url.searchParams.set('callback', callbackName);
+            url.searchParams.set('data', encodeURIComponent(JSON.stringify(jsonData)));
+            
+            script.src = url.toString();
+            script.onerror = function() {
+                alertDiv.textContent = 'Network error. Please check your connection and try again.';
+                alertDiv.style.backgroundColor = '#f81212';
+                alertDiv.style.color = '#fff';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Register as Agent';
+                
+                // Clean up
+                delete window[callbackName];
+                document.body.removeChild(script);
+            };
+            
+            document.body.appendChild(script);
+
+        } catch (error) {
+            console.error("Submission error:", error);
+            alertDiv.textContent = "Error submitting form. Please try again.";
+            alertDiv.style.backgroundColor = '#f81212';
+            alertDiv.style.color = '#fff';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Register as Agent';
         }
-
-        // Proceed with form submission if email is new
-        const jsonData = {};
-        formData.forEach((value, key) => {
-          if (key.endsWith('[]')) {
-            const cleanKey = key.replace('[]', '');
-            if (!jsonData[cleanKey]) jsonData[cleanKey] = [];
-            jsonData[cleanKey].push(value);
-          } else {
-            jsonData[key] = value;
-          }
-        });
-
-        const script = document.createElement('script');
-        const callbackName = 'agent_jsonp_callback_' + Math.round(100000 * Math.random());
-
-        window[callbackName] = function(data) {
-          delete window[callbackName];
-          document.body.removeChild(script);
-
-          if (data.result === "success") {
-            form.style.display = 'none';
-            document.getElementById('agent_confirmation_message').style.display = 'block';
-          } else {
-            alertBtn.textContent = "Error: " + (data.error || "Submission failed");
-            alertBtn.style.backgroundColor = '#f81212';
-            alertBtn.style.color = '#fff';
-          }
-        };
-
-        const url = new URL(form.action);
-        url.searchParams.set('callback', callbackName);
-        url.searchParams.set('data', JSON.stringify(jsonData));
-
-        script.src = url.toString();
-        document.body.appendChild(script);
-
-      } catch (error) {
-        console.error("Submission error:", error);
-        alertBtn.textContent = "Error submitting form. Please try again.";
-        alertBtn.style.backgroundColor = '#f81212';
-        alertBtn.style.color = '#fff';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Register as Agent';
-      }
     });
 
-    // Helper function to check email existence
-    function checkEmailExists(email) {
-      return new Promise((resolve, reject) => {
-        const callbackName = 'agent_email_check_callback_' + Math.round(100000 * Math.random());
+    // Helper function to check agent email existence
+    function checkAgentEmailExists(email) {
+        return new Promise((resolve, reject) => {
+            const callbackName = 'agent_email_check_callback_' + Math.round(100000 * Math.random());
+            const script = document.createElement('script');
 
-        window[callbackName] = function(data) {
-          delete window[callbackName];
-          document.body.removeChild(script);
-          resolve(data);
-        };
+            // Build the check email URL
+            const url = new URL('https://script.google.com/macros/s/AKfycbxGBPG7De1kfeZjNljWSIqxSbCK-8EjhJLpJADCFBMyuo4NFBTquuxlpn-PPqj1zjPD/exec');
+            url.searchParams.set('callback', callbackName);
+            url.searchParams.set('action', 'checkAgentEmail');
+            url.searchParams.set('email', email);
 
-        const script = document.createElement('script');
-        const url = new URL('https://script.google.com/macros/s/AKfycbzXdRvvTvuG2E0L49cIHnzrBpsDQJktsRfoVlqWi7V9tzQcMOpArqaeuNRSVnFr-aPI/exec');
-        url.searchParams.set('callback', callbackName);
-        url.searchParams.set('action', 'checkEmail');
-        url.searchParams.set('email', email);
+            // Set up the callback
+            window[callbackName] = function(data) {
+                delete window[callbackName];
+                document.body.removeChild(script);
+                resolve(data);
+            };
 
-        script.src = url.toString();
-        script.onerror = () => reject(new Error('Email check failed'));
-        document.body.appendChild(script);
-      });
+            script.onerror = function() {
+                delete window[callbackName];
+                document.body.removeChild(script);
+                reject(new Error('Failed to check email'));
+            };
+
+            script.src = url.toString();
+            document.body.appendChild(script);
+            
+            // Add timeout for safety
+            setTimeout(() => {
+                if (window[callbackName]) {
+                    delete window[callbackName];
+                    document.body.removeChild(script);
+                    reject(new Error('Email check timeout'));
+                }
+            }, 10000);
+        });
     }
     </script>
 
