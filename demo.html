@@ -46,7 +46,7 @@ URI     : https://colorlib.com
     <link rel="canonical" href="https://veritrack.cloud">
     <link rel="apple-touch-icon" sizes="180x180" href="images/VT linkedin.jpg">
     <link rel="icon" type="image/jpg" sizes="16x16" href="images/VT linkedin.jpg">
-    <meta name="theme-color" content="#200557">
+    <meta name="theme-color" content="#1e3c72">
 
     <!-- Font -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -62,10 +62,10 @@ URI     : https://colorlib.com
     <link href="css/style.css" rel="stylesheet">
     <style>
         :root {
-          --primary-dark: #200557;
-          --primary-mid: #341179;
-          --primary-light: #4a1d9f;
-          --accent: #7a3aff;
+          --primary-dark: #1e3c72;
+          --primary-mid: #2a5298;
+          --primary-light: #3498db;
+          --accent: #4a90e2;
         }
         .form-container {
           max-width: 800px;
@@ -275,7 +275,20 @@ URI     : https://colorlib.com
             font-size: 0.8rem;
           }
         }
-     </style>   
+     </style>
+     
+    <style>
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+      
+      @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(74, 144, 226, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
+      }
+    </style>   
     <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cmbcz1zad0001oelvity1313j"></script>
 </head>
 
@@ -283,7 +296,7 @@ URI     : https://colorlib.com
 
     <!-- Nav Menu -->
 
-    <div class="nav-menu fixed-top">
+    <div class="nav-menu fixed-top gradient-bg">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -346,11 +359,49 @@ URI     : https://colorlib.com
         });
     </script>
 
-    <section class="demo-live section-padding" style="padding: 150px 0 60px 0;">
+    <!-- Demo Interactive Section -->
+    <section class="terms-interaction gradient-bg" style="padding: 60px 0; background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(52, 152, 219, 0.95) 100%); position: relative; overflow: hidden; margin-top: 80px;">
+      <!-- Animated Background Elements -->
+      <div class="floating-elements">
+        <div class="floating-icon" style="position: absolute; top: 20%; left: 10%; animation: float 6s ease-in-out infinite;">
+          <i class="ti-desktop" style="font-size: 24px; color: rgba(255,255,255,0.2);"></i>
+        </div>
+        <div class="floating-icon" style="position: absolute; top: 70%; right: 15%; animation: float 8s ease-in-out infinite reverse;">
+          <i class="ti-mobile" style="font-size: 28px; color: rgba(255,255,255,0.15);"></i>
+        </div>
+        <div class="floating-icon" style="position: absolute; top: 40%; right: 5%; animation: float 7s ease-in-out infinite;">
+          <i class="ti-star" style="font-size: 20px; color: rgba(255,255,255,0.2);"></i>
+        </div>
+      </div>
+
       <div class="container">
-        <div class="sectioner-header text-center">
-          <h3>Live Demo Preview</h3>
-          <span class="line"></span>
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="terms-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
+              
+              <!-- Interactive Header -->
+              <div class="terms-header text-center" style="margin-bottom: 30px;">
+                <div class="pulse-icon" style="width: 80px; height: 80px; background: linear-gradient(45deg, #4a90e2, #74b9ff); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; animation: pulse 2s infinite;">
+                  <i class="ti-desktop" style="font-size: 32px; color: white;"></i>
+                </div>
+                <h3 style="color: #fff; font-weight: 600; margin-bottom: 15px; font-size: 1.8rem;">
+                  VeriTrack Live Demo
+                </h3>
+                <p style="color: #e3e3e3; font-size: 1.1rem; margin-bottom: 0; line-height: 1.6;">
+                  Experience our attendance management system in action
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-live section-padding" style="padding: 60px 0; background: #f8f9fa;">
+      <div class="container">
+        <div class="sectioner-header text-center" style="margin-bottom: 40px;">
+          <h3 style="color: #1e3c72;">Live Demo Preview</h3>
+          <span class="line" style="background: #4a90e2;"></span>
           <!-- <p style="color: #fff;">Experience VeriTrack's Attendance System in action. Submit a demo check-in, view real-time attendance data, and access the check-in/checkout portal.</p> -->
         </div>
         <div class="text-center mt-4" style="margin-bottom: 30px;">
