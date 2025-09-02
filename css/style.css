@@ -295,7 +295,6 @@ header {
 
 /* FEATURES
 ----------------------*/
-linear-gradient(135deg, rgb(52, 152, 219) 0%, #2980b9 100%);
 
 .gradient-fill:before {
     color: #2980b9;
