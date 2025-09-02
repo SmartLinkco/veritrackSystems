@@ -323,7 +323,7 @@ URI     : https://colorlib.com
     <!-- Demo Live Presentation & Pricing Section Start -->
 
     <!-- How to Test the System Popup -->
-    <div id="howToTestPopup" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(62, 51, 85, 0.85);">
+    <div id="howToTestPopup" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(51, 60, 85, 0.85);">
         <div style="background:linear-gradient(135deg, var(--primary-dark), var(--primary-light));color:#fff;max-width:420px;width:90%;border-radius:16px;box-shadow:0 8px 32px rgba(32,5,87,0.25);padding:36px 28px 28px 28px;position:relative;text-align:left;">
             <button id="closeHowToTest" aria-label="Close" style="position:absolute;top:18px;right:18px;background:none;border:none;color:#fff;font-size:1.7rem;cursor:pointer;opacity:0.7;transition:opacity 0.2s;"><span aria-hidden="true">&times;</span></button>
             <div style="text-align:center;margin-bottom:18px;">
@@ -360,7 +360,7 @@ URI     : https://colorlib.com
     </script>
 
     <!-- Demo Interactive Section -->
-    <section class="terms-interaction gradient-bg" style="padding: 60px 0; background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(52, 152, 219, 0.95) 100%); position: relative; overflow: hidden; margin-top: 80px;">
+    <section class="terms-interaction gradient-bg" style="padding: 60px 0; background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(52, 152, 219, 0.95) 100%); position: relative; overflow: hidden; margin-top: 100px;">
       <!-- Animated Background Elements -->
       <div class="floating-elements">
         <div class="floating-icon" style="position: absolute; top: 20%; left: 10%; animation: float 6s ease-in-out infinite;">
@@ -413,6 +413,29 @@ URI     : https://colorlib.com
               <h5 class="text-center mb-3">Demo Check-In Form</h5>
               <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSekuQBil3CAS35SPBn4BvfQ2tZKH_qElvgzTUa56W9kdvizSg/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="border:none;">Loading…</iframe>
             </div>
+            <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px; margin-top: 30px;">
+              <h5 class="text-center mb-3">Live Attendance Data</h5>
+              <div class="alert alert-warning text-center mb-3" role="alert" style="font-size: 0.98rem;">
+                <strong>Disclaimer:</strong> Certain credentials such as <b>IP Address</b>, <b>Latitude</b>, <b>Longitude</b>, and <b>Photo ID</b> have been hidden for privacy and security reasons.
+              </div>
+              <div id="sheet-table" style="overflow-x:auto;">
+                <table class="table table-bordered table-striped" id="attendanceTable">
+                  <thead>
+                    <tr>
+                      <th>Timestamp</th>
+                      <th>Staff ID</th>
+                      <th>Name</th>
+                      <th>Department</th>
+                      <th>Remarks</th>
+                      <th>Branch</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td colspan="6" class="text-center">Loading data...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
           <div class="col-md-6 mb-4">
             <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px;">
@@ -433,29 +456,6 @@ URI     : https://colorlib.com
                   </thead>
                   <tbody>
                     <tr><td colspan="5" class="text-center">Loading data...</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px; margin-top: 30px;">
-              <h5 class="text-center mb-3">Live Attendance Data</h5>
-              <div class="alert alert-warning text-center mb-3" role="alert" style="font-size: 0.98rem;">
-                <strong>Disclaimer:</strong> Certain credentials such as <b>IP Address</b>, <b>Latitude</b>, <b>Longitude</b>, and <b>Photo ID</b> have been hidden for privacy and security reasons.
-              </div>
-              <div id="sheet-table" style="overflow-x:auto;">
-                <table class="table table-bordered table-striped" id="attendanceTable">
-                  <thead>
-                    <tr>
-                      <th>Timestamp</th>
-                      <th>Staff ID</th>
-                      <th>Name</th>
-                      <th>Department</th>
-                      <th>Remarks</th>
-                      <th>Branch</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr><td colspan="6" class="text-center">Loading data...</td></tr>
                   </tbody>
                 </table>
               </div>
