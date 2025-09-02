@@ -104,6 +104,14 @@ p.lead {
     transition: all 0.3s ease;
 }
 
+.btn-gradient:hover, .btn-gradient:focus {
+    background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
+    color: #fff;
+    transform: scale(1.04);
+    box-shadow: 0 8px 24px rgba(42,82,152,0.18);
+    text-decoration: none;
+}
+
 .btn-outline-light:hover {
     color: #357abd;
 }
