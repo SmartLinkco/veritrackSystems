@@ -1962,23 +1962,15 @@ URI     : https://colorlib.com
             // Show subtle notification on first visit (mobile only)
             if (isMobile() && !localStorage.getItem('socialSidebarNotified')) {
                 setTimeout(function() {
-                    if (tapIndicator) {
-                        tapIndicator.style.animation = 'pulseIndicator 1s infinite';
-                        
-                        // Show brief notification
-                        const notification = document.createElement('div');
-                        notification.innerHTML = '<small style="position: fixed; bottom: 20px; right: 20px; background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(52, 152, 219, 0.95) 100%); color: white; padding: 8px 12px; border-radius: 20px; font-size: 11px; z-index: 1000; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); animation: slideUp 0.5s ease;">📱 Tap to follow us on social media</small>';
-                        document.body.appendChild(notification);
-                        
-                        setTimeout(function() {
-                            if (notification.parentNode) {
-                                notification.remove();
-                            }
-                        }, 4000);
-                        
+                    // Show sidebar for 3 seconds to create awareness
+                    socialSidebar.classList.add('mobile-open');
+                    
+                    // Auto-hide after 3 seconds
+                    setTimeout(function() {
+                        socialSidebar.classList.remove('mobile-open');
                         localStorage.setItem('socialSidebarNotified', 'true');
-                    }
-                }, 2000);
+                    }, 3000);
+                }, 1500); // Show after 1.5 seconds of page load
             }
         }
         
