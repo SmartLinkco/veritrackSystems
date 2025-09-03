@@ -60,10 +60,269 @@ URI     : https://colorlib.com
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <!-- Main css -->
     <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Social Sidebar Styles -->
+    <style>
+        /* Social Sidebar Animation */
+        @keyframes socialFloat {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(-3px); }
+        }
+        
+        @keyframes pulseIndicator {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
+        /* Desktop behavior */
+        @media (min-width: 992px) {
+            .social-sidebar {
+                animation: socialFloat 4s ease-in-out infinite;
+            }
+            
+            .social-sidebar:hover {
+                animation-play-state: paused;
+                transform: translateY(-50%) translateX(-8px) !important;
+            }
+            
+            .mobile-tap-indicator {
+                display: none !important;
+            }
+        }
+        
+        /* Mobile behavior */
+        @media (max-width: 991px) {
+            .social-sidebar {
+                right: -70px !important; /* Mostly hidden */
+                padding: 15px 12px !important;
+                transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+                border-radius: 20px 0 0 20px !important;
+            }
+            
+            .social-sidebar.mobile-open {
+                right: 0 !important; /* Slide in */
+            }
+            
+            .mobile-tap-indicator {
+                display: flex !important;
+                left: -20px !important;
+            }
+            
+            .social-sidebar .social-link {
+                width: 38px !important;
+                height: 38px !important;
+            }
+            
+            .social-sidebar .social-link i {
+                font-size: 16px !important;
+            }
+            
+            .follow-label {
+                font-size: 9px !important;
+                margin-top: 8px !important;
+            }
+            
+            /* Remove desktop animations on mobile */
+            .social-sidebar {
+                animation: none !important;
+            }
+        }
+        
+        /* Tablet adjustments */
+        @media (max-width: 1200px) and (min-width: 992px) {
+            .social-sidebar {
+                right: -2px;
+                padding: 18px 12px;
+            }
+            .social-sidebar .social-link {
+                width: 42px !important;
+                height: 42px !important;
+            }
+            .social-sidebar .social-link i {
+                font-size: 18px !important;
+            }
+        }
+        
+        /* Ensure proper layering */
+        .social-sidebar {
+            pointer-events: auto;
+        }
+        
+        .social-sidebar * {
+            pointer-events: auto;
+        }
+        
+        /* Mobile overlay for closing */
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 998;
+            display: none;
+        }
+        
+        .mobile-overlay.active {
+            display: block;
+        }
+    </style>
+    
     <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cmbcz1zad0001oelvity1313j"></script>
 </head>
 
 <body data-spy="scroll" data-target="#navbar" data-offset="30">
+
+    <!-- Vertical Social Media Sidebar -->
+    <div class="social-sidebar" id="socialSidebar" style="
+        position: fixed;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        z-index: 999;
+        background: linear-gradient(135deg, rgba(30, 60, 114, 0.9) 0%, rgba(52, 152, 219, 0.85) 100%);
+        backdrop-filter: blur(10px);
+        border-radius: 25px 0 0 25px;
+        padding: 20px 15px;
+        box-shadow: -5px 0 20px rgba(30, 60, 114, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-right: none;
+        transition: all 0.3s ease;
+    ">
+        <!-- Mobile Tap Indicator -->
+        <div class="mobile-tap-indicator" style="
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.8) 0%, rgba(30, 60, 114, 0.9) 100%);
+            border-radius: 10px 0 0 10px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            animation: pulseIndicator 2s infinite;
+            cursor: pointer;
+        ">
+            <div style="
+                width: 3px;
+                height: 3px;
+                background: rgba(255, 255, 255, 0.8);
+                border-radius: 50%;
+                margin: 1px 0;
+            "></div>
+            <div style="
+                width: 3px;
+                height: 3px;
+                background: rgba(255, 255, 255, 0.8);
+                border-radius: 50%;
+                margin: 1px 0;
+            "></div>
+            <div style="
+                width: 3px;
+                height: 3px;
+                background: rgba(255, 255, 255, 0.8);
+                border-radius: 50%;
+                margin: 1px 0;
+            "></div>
+        </div>
+
+        <div class="social-items" style="
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: center;
+        ">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/company/veritrack-systems" target="_blank" rel="noopener noreferrer" class="social-link" style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 45px;
+                height: 45px;
+                background: rgba(255, 255, 255, 0.15);
+                border-radius: 50%;
+                color: #fff;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            " onmouseover="this.style.background='rgba(255,255,255,0.25)'; this.style.transform='scale(1.1)'; this.style.boxShadow='0 5px 15px rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='scale(1)'; this.style.boxShadow='none'">
+                <i class="ti-linkedin" style="font-size: 20px;"></i>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/profile.php?id=61580288907388" target="_blank" rel="noopener noreferrer" class="social-link" style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 45px;
+                height: 45px;
+                background: rgba(255, 255, 255, 0.15);
+                border-radius: 50%;
+                color: #fff;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            " onmouseover="this.style.background='rgba(255,255,255,0.25)'; this.style.transform='scale(1.1)'; this.style.boxShadow='0 5px 15px rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='scale(1)'; this.style.boxShadow='none'">
+                <i class="ti-facebook" style="font-size: 20px;"></i>
+            </a>
+
+            <!-- Twitter/X -->
+            <a href="https://x.com/Veritracks" target="_blank" rel="noopener noreferrer" class="social-link" style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 45px;
+                height: 45px;
+                background: rgba(255, 255, 255, 0.15);
+                border-radius: 50%;
+                color: #fff;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            " onmouseover="this.style.background='rgba(255,255,255,0.25)'; this.style.transform='scale(1.1)'; this.style.boxShadow='0 5px 15px rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='scale(1)'; this.style.boxShadow='none'">
+                <i class="ti-twitter-alt" style="font-size: 20px;"></i>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/veritrack_systems?" target="_blank" rel="noopener noreferrer" class="social-link" style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 45px;
+                height: 45px;
+                background: rgba(255, 255, 255, 0.15);
+                border-radius: 50%;
+                color: #fff;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            " onmouseover="this.style.background='rgba(255,255,255,0.25)'; this.style.transform='scale(1.1)'; this.style.boxShadow='0 5px 15px rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='scale(1)'; this.style.boxShadow='none'">
+                <i class="ti-instagram" style="font-size: 20px;"></i>
+            </a>
+
+            <!-- VeriTrack Label -->
+            <div class="follow-label" style="
+                writing-mode: vertical-rl;
+                text-orientation: mixed;
+                font-size: 11px;
+                color: rgba(255, 255, 255, 0.8);
+                font-weight: 500;
+                margin-top: 10px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            ">Follow Us</div>
+        </div>
+    </div>
+
+    <!-- Mobile Overlay for closing sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
 
     <!-- Nav Menu -->
 
@@ -1463,9 +1722,9 @@ URI     : https://colorlib.com
                 <div class="col-lg-6">
                     <div class="social-icons">
                         <a href="https://www.linkedin.com/company/veritrack-systems"><span class="ti-linkedin"></span></a>
-                        <a href="#"><span class="ti-facebook"></span></a>
-                        <a href="#"><span class="ti-twitter-alt"></span></a>
-                        <a href="#"><span class="ti-instagram"></span></a>
+                        <a href="https://www.facebook.com/profile.php?id=61580288907388"><span class="ti-facebook"></span></a>
+                        <a href="https://x.com/Veritracks"><span class="ti-twitter-alt"></span></a>
+                        <a href="https://www.instagram.com/veritrack_systems?"><span class="ti-instagram"></span></a>
                     </div>
                 </div>
             </div>
@@ -1633,6 +1892,106 @@ URI     : https://colorlib.com
             }, 10000);
         });
     }
+    </script>
+
+    <!-- Social Sidebar Mobile Functionality -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const socialSidebar = document.getElementById('socialSidebar');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const tapIndicator = document.querySelector('.mobile-tap-indicator');
+        
+        // Function to check if device is mobile
+        function isMobile() {
+            return window.innerWidth <= 991;
+        }
+        
+        // Function to open sidebar on mobile
+        function openSidebar() {
+            if (isMobile()) {
+                socialSidebar.classList.add('mobile-open');
+                mobileOverlay.classList.add('active');
+            }
+        }
+        
+        // Function to close sidebar on mobile
+        function closeSidebar() {
+            if (isMobile()) {
+                socialSidebar.classList.remove('mobile-open');
+                mobileOverlay.classList.remove('active');
+            }
+        }
+        
+        // Event listeners
+        if (socialSidebar && tapIndicator) {
+            // Tap on indicator or sidebar to open
+            tapIndicator.addEventListener('click', openSidebar);
+            tapIndicator.addEventListener('touchstart', openSidebar);
+            
+            // Tap on sidebar when closed to open
+            socialSidebar.addEventListener('click', function(e) {
+                if (isMobile() && !socialSidebar.classList.contains('mobile-open')) {
+                    e.preventDefault();
+                    openSidebar();
+                }
+            });
+            
+            // Tap on overlay to close
+            mobileOverlay.addEventListener('click', closeSidebar);
+            mobileOverlay.addEventListener('touchstart', closeSidebar);
+            
+            // Close when tapping anywhere on the page (except sidebar)
+            document.addEventListener('click', function(e) {
+                if (isMobile() && socialSidebar.classList.contains('mobile-open')) {
+                    const isClickInsideSidebar = socialSidebar.contains(e.target);
+                    if (!isClickInsideSidebar) {
+                        closeSidebar();
+                    }
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (!isMobile()) {
+                    // Remove mobile classes when switching to desktop
+                    socialSidebar.classList.remove('mobile-open');
+                    mobileOverlay.classList.remove('active');
+                }
+            });
+            
+            // Show subtle notification on first visit (mobile only)
+            if (isMobile() && !localStorage.getItem('socialSidebarNotified')) {
+                setTimeout(function() {
+                    if (tapIndicator) {
+                        tapIndicator.style.animation = 'pulseIndicator 1s infinite';
+                        
+                        // Show brief notification
+                        const notification = document.createElement('div');
+                        notification.innerHTML = '<small style="position: fixed; bottom: 20px; right: 20px; background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(52, 152, 219, 0.95) 100%); color: white; padding: 8px 12px; border-radius: 20px; font-size: 11px; z-index: 1000; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); animation: slideUp 0.5s ease;">📱 Tap to follow us on social media</small>';
+                        document.body.appendChild(notification);
+                        
+                        setTimeout(function() {
+                            if (notification.parentNode) {
+                                notification.remove();
+                            }
+                        }, 4000);
+                        
+                        localStorage.setItem('socialSidebarNotified', 'true');
+                    }
+                }, 2000);
+            }
+        }
+        
+        // Add slideUp animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateY(30px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    });
     </script>
 
 </body>
