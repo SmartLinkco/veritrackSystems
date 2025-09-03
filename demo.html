@@ -323,23 +323,203 @@ URI     : https://colorlib.com
     <!-- Demo Live Presentation & Pricing Section Start -->
 
     <!-- How to Test the System Popup -->
-    <div id="howToTestPopup" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(51, 60, 85, 0.85);">
-        <div style="background:linear-gradient(135deg, var(--primary-dark), var(--primary-light));color:#fff;max-width:420px;width:90%;border-radius:16px;box-shadow:0 8px 32px rgba(32,5,87,0.25);padding:36px 28px 28px 28px;position:relative;text-align:left;">
-            <button id="closeHowToTest" aria-label="Close" style="position:absolute;top:18px;right:18px;background:none;border:none;color:#fff;font-size:1.7rem;cursor:pointer;opacity:0.7;transition:opacity 0.2s;"><span aria-hidden="true">&times;</span></button>
-            <div style="text-align:center;margin-bottom:18px;">
-                <span class="ti-light-bulb" style="font-size:2.5rem;color:var(--accent);"></span>
+    <div id="howToTestPopup" style="
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      background: rgba(0,0,0,0.8); 
+      z-index: 10000; 
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    ">
+        <div class="modal-content" style="
+          position: relative; 
+          background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(52, 152, 219, 0.95) 100%); 
+          border-radius: 20px; 
+          padding: 40px; 
+          max-width: 500px; 
+          width: 90%; 
+          max-height: 80vh; 
+          overflow-y: auto;
+          box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+          border: 2px solid rgba(74, 144, 226, 0.3);
+        ">
+            <button id="closeHowToTest" aria-label="Close" style="
+              position: absolute;
+              top: 15px;
+              right: 15px;
+              background: rgba(255,255,255,0.2); 
+              color: white; 
+              border: 2px solid rgba(255,255,255,0.3);
+              border-radius: 50%;
+              width: 35px;
+              height: 35px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer; 
+              transition: all 0.3s ease;
+              backdrop-filter: blur(10px);
+              font-size: 18px;
+              font-weight: bold;
+            "><span aria-hidden="true">&times;</span></button>
+            
+            <div class="modal-header" style="text-align: center; margin-bottom: 30px;">
+                <div style="
+                  width: 60px; 
+                  height: 60px; 
+                  background: linear-gradient(45deg, #4a90e2, #74b9ff); 
+                  border-radius: 50%; 
+                  margin: 0 auto 15px; 
+                  display: flex; 
+                  align-items: center; 
+                  justify-content: center;
+                  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+                ">
+                    <i class="ti-light-bulb" style="font-size: 28px; color: white;"></i>
+                </div>
+                <h4 style="color: #fff; margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); font-weight: 600;">How to Test the System</h4>
+                <p style="color: #e3e3e3; margin-bottom: 0; font-size: 0.9rem;">Follow these steps to explore the demo</p>
             </div>
-            <h4 style="font-weight:600;margin-bottom:10px;text-align:center;">How to Test the System</h4>
-            <ol style="padding-left:18px;font-size:1.08rem;line-height:1.7;">
-                <li>Fill out the <b>Demo Check-In Form</b> with sample details(NB:Choose "DEMO OFFICE").</li>
-                <li>Submit your entry, and check your mail(inbox & spam) for you Unique ID.</li>
-                <li>Refresh and Explore the <b>Registered Staff Members</b> list for sample data.</li>
-                <li>Tap on the <b>Check-In/Checkout Portal</b> for a real-time experience using your Unique ID.</li>
-                <li>See your check-in appear instantly in the <b>Live Attendance Data</b> table.</li>
-                <li>Simply refresh this page to bring back this <b>Pop-up</b> after it's closed.</li>
-            </ol>
-            <div style="margin-top:18px;text-align:center;">
-                <span style="font-size:0.98rem;color:#e0e0e0;">All demo data is for testing only. Sensitive info is hidden for privacy.</span>
+            
+            <div class="tips-content" style="color: #f0f8ff; line-height: 1.6;">
+                <div class="tip-item" style="margin-bottom: 18px; padding: 15px; background: rgba(74, 144, 226, 0.2); border-radius: 8px; border-left: 4px solid #74b9ff; box-shadow: 0 2px 8px rgba(74, 144, 226, 0.1);">
+                    <div style="display: flex; align-items: flex-start; gap: 12px;">
+                        <span style="
+                          width: 24px; 
+                          height: 24px; 
+                          background: linear-gradient(45deg, #4a90e2, #74b9ff); 
+                          border-radius: 50%; 
+                          color: white; 
+                          display: flex; 
+                          align-items: center; 
+                          justify-content: center; 
+                          font-weight: bold; 
+                          font-size: 12px;
+                          flex-shrink: 0;
+                          margin-top: 2px;
+                        ">1</span>
+                        <p style="margin: 0; font-size: 0.9rem; color: #f0f8ff;">Fill out the <strong style="color: #74b9ff;">Demo Check-In Form</strong> with sample details (NB: Choose "DEMO OFFICE").</p>
+                    </div>
+                </div>
+                
+                <div class="tip-item" style="margin-bottom: 18px; padding: 15px; background: rgba(74, 144, 226, 0.2); border-radius: 8px; border-left: 4px solid #4a90e2; box-shadow: 0 2px 8px rgba(74, 144, 226, 0.1);">
+                    <div style="display: flex; align-items: flex-start; gap: 12px;">
+                        <span style="
+                          width: 24px; 
+                          height: 24px; 
+                          background: linear-gradient(45deg, #4a90e2, #74b9ff); 
+                          border-radius: 50%; 
+                          color: white; 
+                          display: flex; 
+                          align-items: center; 
+                          justify-content: center; 
+                          font-weight: bold; 
+                          font-size: 12px;
+                          flex-shrink: 0;
+                          margin-top: 2px;
+                        ">2</span>
+                        <p style="margin: 0; font-size: 0.9rem; color: #f0f8ff;">Submit your entry, and check your mail (inbox & spam) for your <strong style="color: #74b9ff;">Unique ID</strong>.</p>
+                    </div>
+                </div>
+                
+                <div class="tip-item" style="margin-bottom: 18px; padding: 15px; background: rgba(74, 144, 226, 0.2); border-radius: 8px; border-left: 4px solid #74b9ff; box-shadow: 0 2px 8px rgba(74, 144, 226, 0.1);">
+                    <div style="display: flex; align-items: flex-start; gap: 12px;">
+                        <span style="
+                          width: 24px; 
+                          height: 24px; 
+                          background: linear-gradient(45deg, #4a90e2, #74b9ff); 
+                          border-radius: 50%; 
+                          color: white; 
+                          display: flex; 
+                          align-items: center; 
+                          justify-content: center; 
+                          font-weight: bold; 
+                          font-size: 12px;
+                          flex-shrink: 0;
+                          margin-top: 2px;
+                        ">3</span>
+                        <p style="margin: 0; font-size: 0.9rem; color: #f0f8ff;">Refresh and explore the <strong style="color: #74b9ff;">Registered Staff Members</strong> list for sample data.</p>
+                    </div>
+                </div>
+                
+                <div class="tip-item" style="margin-bottom: 18px; padding: 15px; background: rgba(74, 144, 226, 0.2); border-radius: 8px; border-left: 4px solid #4a90e2; box-shadow: 0 2px 8px rgba(74, 144, 226, 0.1);">
+                    <div style="display: flex; align-items: flex-start; gap: 12px;">
+                        <span style="
+                          width: 24px; 
+                          height: 24px; 
+                          background: linear-gradient(45deg, #4a90e2, #74b9ff); 
+                          border-radius: 50%; 
+                          color: white; 
+                          display: flex; 
+                          align-items: center; 
+                          justify-content: center; 
+                          font-weight: bold; 
+                          font-size: 12px;
+                          flex-shrink: 0;
+                          margin-top: 2px;
+                        ">4</span>
+                        <p style="margin: 0; font-size: 0.9rem; color: #f0f8ff;">Tap on the <strong style="color: #74b9ff;">Check-In/Checkout Portal</strong> for a real-time experience using your Unique ID.</p>
+                    </div>
+                </div>
+                
+                <div class="tip-item" style="margin-bottom: 18px; padding: 15px; background: rgba(74, 144, 226, 0.2); border-radius: 8px; border-left: 4px solid #74b9ff; box-shadow: 0 2px 8px rgba(74, 144, 226, 0.1);">
+                    <div style="display: flex; align-items: flex-start; gap: 12px;">
+                        <span style="
+                          width: 24px; 
+                          height: 24px; 
+                          background: linear-gradient(45deg, #4a90e2, #74b9ff); 
+                          border-radius: 50%; 
+                          color: white; 
+                          display: flex; 
+                          align-items: center; 
+                          justify-content: center; 
+                          font-weight: bold; 
+                          font-size: 12px;
+                          flex-shrink: 0;
+                          margin-top: 2px;
+                        ">5</span>
+                        <p style="margin: 0; font-size: 0.9rem; color: #f0f8ff;">See your check-in appear instantly in the <strong style="color: #74b9ff;">Live Attendance Data</strong> table.</p>
+                    </div>
+                </div>
+                
+                <div class="tip-item" style="margin-bottom: 20px; padding: 15px; background: rgba(74, 144, 226, 0.2); border-radius: 8px; border-left: 4px solid #4a90e2; box-shadow: 0 2px 8px rgba(74, 144, 226, 0.1);">
+                    <div style="display: flex; align-items: flex-start; gap: 12px;">
+                        <span style="
+                          width: 24px; 
+                          height: 24px; 
+                          background: linear-gradient(45deg, #4a90e2, #74b9ff); 
+                          border-radius: 50%; 
+                          color: white; 
+                          display: flex; 
+                          align-items: center; 
+                          justify-content: center; 
+                          font-weight: bold; 
+                          font-size: 12px;
+                          flex-shrink: 0;
+                          margin-top: 2px;
+                        ">6</span>
+                        <p style="margin: 0; font-size: 0.9rem; color: #f0f8ff;">Simply refresh this page to bring back this <strong style="color: #74b9ff;">Pop-up</strong> after it's closed.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="
+              margin-top: 25px;
+              text-align: center;
+              padding: 15px;
+              background: rgba(255,255,255,0.1);
+              border-radius: 8px;
+              border: 1px solid rgba(255,255,255,0.2);
+            ">
+                <p style="margin: 0; font-size: 0.85rem; color: #e3e3e3; line-height: 1.4;">
+                    <i class="ti-info-alt" style="margin-right: 6px; color: #74b9ff;"></i>
+                    All demo data is for testing only. Sensitive info is hidden for privacy.
+                </p>
             </div>
         </div>
     </div>
@@ -347,15 +527,47 @@ URI     : https://colorlib.com
         document.addEventListener('DOMContentLoaded', function() {
             var popup = document.getElementById('howToTestPopup');
             var closeBtn = document.getElementById('closeHowToTest');
+            
             closeBtn.onclick = function() {
                 popup.style.display = 'none';
+                document.body.style.overflow = 'auto';
             };
+            
+            // Enhanced hover effects for close button
+            closeBtn.addEventListener('mouseenter', function() {
+                this.style.background = 'rgba(255,255,255,0.3)';
+                this.style.borderColor = 'rgba(255,255,255,0.5)';
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 4px 15px rgba(255,255,255,0.2)';
+            });
+            
+            closeBtn.addEventListener('mouseleave', function() {
+                this.style.background = 'rgba(255,255,255,0.2)';
+                this.style.borderColor = 'rgba(255,255,255,0.3)';
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+            
+            // Close popup on clicking outside
+            popup.addEventListener('click', function(e) {
+                if (e.target === popup) {
+                    popup.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
             // Optional: close popup on ESC key
             document.addEventListener('keydown', function(e) {
                 if (e.key === "Escape" && popup.style.display !== 'none') {
                     popup.style.display = 'none';
+                    document.body.style.overflow = 'auto';
                 }
             });
+            
+            // Prevent body scroll when modal is open
+            if (popup.style.display !== 'none') {
+                document.body.style.overflow = 'hidden';
+            }
         });
     </script>
 
