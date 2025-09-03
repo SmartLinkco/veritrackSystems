@@ -898,7 +898,7 @@ URI     : https://colorlib.com
                                           </span>
                                         </span>
                                       </label>
-                                      <div id="terms-error-message" style="display: none; color: #dc3545; font-size: 14px; margin-top: 8px; padding: 8px; background-color: #f8d7da; border-radius: 4px; border-left: 4px solid #dc3545;">
+                                      <div id="terms-error-message" class="alert-message error" style="display: none;">
                                         <i class="ti-alert" style="margin-right: 6px;"></i>
                                         Please accept the Terms & Conditions to proceed with your registration.
                                       </div>
@@ -952,7 +952,7 @@ URI     : https://colorlib.com
                             <div class="row">
                                 <div class="col-md-12">
                                     <button id="agent_submission" class="btn btn-primary btn-lg btn-block text-uppercase" type="submit" name="submit" style="background: linear-gradient(90deg, #1e3c72 0%, rgb(42, 82, 152) 100%); border: none;">Register as Agent</button>
-                                    <p id="agent_alert" style="margin-top: 10px; text-align: center; border-radius: 3px; padding: 10px; font-size: 14px;"></p>
+                                    <div id="agent_alert" class="alert-message"></div>
                                     <p style="margin-top: 10px; font-size: 12px; text-align: center; color: #555;">We’ll contact you within 24 hours to verify your registration!</p>
                                 </div>
                             </div>
@@ -1421,8 +1421,7 @@ URI     : https://colorlib.com
 
         // Reset alert
         alertDiv.textContent = '';
-        alertDiv.style.backgroundColor = '';
-        alertDiv.style.color = '';
+        alertDiv.className = 'alert-message';
         
         // Disable button during submission
         submitBtn.disabled = true;
@@ -1434,8 +1433,7 @@ URI     : https://colorlib.com
 
             if (emailCheckResponse.exists) {
                 alertDiv.textContent = 'This email is already registered as an agent. Please use a different email or contact support.';
-                alertDiv.style.backgroundColor = '#f81212';
-                alertDiv.style.color = '#fff';
+                alertDiv.className = 'alert-message error';
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Register as Agent';
                 return;
@@ -1468,8 +1466,7 @@ URI     : https://colorlib.com
                     document.getElementById('agent_confirmation_message').style.display = 'block';
                 } else {
                     alertDiv.textContent = "Error: " + (data.error || "Submission failed");
-                    alertDiv.style.backgroundColor = '#f81212';
-                    alertDiv.style.color = '#fff';
+                    alertDiv.className = 'alert-message error';
                 }
                 
                 submitBtn.disabled = false;
@@ -1487,8 +1484,7 @@ URI     : https://colorlib.com
             script.src = url.toString();
             script.onerror = function() {
                 alertDiv.textContent = 'Network error. Please check your connection and try again.';
-                alertDiv.style.backgroundColor = '#f81212';
-                alertDiv.style.color = '#fff';
+                alertDiv.className = 'alert-message error';
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Register as Agent';
                 
@@ -1502,8 +1498,7 @@ URI     : https://colorlib.com
         } catch (error) {
             console.error("Submission error:", error);
             alertDiv.textContent = "Error submitting form. Please try again.";
-            alertDiv.style.backgroundColor = '#f81212';
-            alertDiv.style.color = '#fff';
+            alertDiv.className = 'alert-message error';
             submitBtn.disabled = false;
             submitBtn.textContent = 'Register as Agent';
         }
