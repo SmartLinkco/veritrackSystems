@@ -112,7 +112,7 @@ URI     : https://colorlib.com
           color: white;
           border: none;
           padding: 14px 28px;
-          border-radius: 6px;
+          border-radius: 25px;
           font-weight: bold;
           cursor: pointer;
           transition: all 0.3s;
@@ -413,7 +413,7 @@ URI     : https://colorlib.com
                     background: linear-gradient(45deg, #4a90e2, #74b9ff); 
                     color: white; 
                     padding: 15px 25px; 
-                    border-radius: 50px; 
+                    border-radius: 25px; 
                     text-decoration: none; 
                     font-weight: 600; 
                     font-size: 1rem; 
@@ -434,7 +434,7 @@ URI     : https://colorlib.com
                     background: rgba(255,255,255,0.1); 
                     color: white; 
                     padding: 15px 25px; 
-                    border-radius: 50px; 
+                    border-radius: 25px; 
                     border: 2px solid rgba(255,255,255,0.3); 
                     font-weight: 600; 
                     font-size: 1rem; 
@@ -743,7 +743,7 @@ URI     : https://colorlib.com
         <div class="container form-container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="gradient-bg text-center" style="background: linear-gradient(135deg, rgb(30, 60, 114) 0%, rgb(42, 82, 152) 100%); box-shadow: 0px 5px 23px 0px rgba(0,0,0,0.1); color: #fff; padding: 32px 16px 24px 16px; border-radius: 8px; margin-bottom: 24px;">
+                    <div class="gradient-bg text-center" style="box-shadow: 0px 5px 23px 0px rgba(0,0,0,0.1); color: #fff; padding: 32px 16px 24px 16px; border-radius: 8px; margin-bottom: 24px;">
                         <h4 style="font-weight: 500; color: white;">Agent Registration Form</h4>
                         <span class="line" style="display:block;width:60px;height:3px;background:#fff;margin:16px auto 24px auto;border-radius:2px;"></span>
                         <p style="color: #e3e3e3;">Register as an agent, receive an Agent ID and earn on every referral you make.</p>
@@ -897,13 +897,15 @@ URI     : https://colorlib.com
                                     <div class="form-group">
                                       <label class="checkbox-item" style="border: 2px solid #dc3545; padding: 15px; border-radius: 8px; background-color: #fff5f5; margin-bottom: 20px;">
                                         <input type="checkbox" name="agent-terms" id="agent-terms-checkbox" required>
-                                        <span class="checkmark"></span>
-                                        <span style="font-weight: 600; color: #dc3545;">
-                                          * I agree to the <a href="agentsTCs.html" target="_blank" style="color: #007bff; text-decoration: underline; font-weight: 600;">Terms & Conditions</a>
-                                          <span style="display: block; font-size: 12px; margin-top: 4px; color: #6c757d; font-weight: normal;">
-                                            (Required: You must accept the terms to complete registration)
+                                        <div class="checkbox-content">
+                                          <span style="font-weight: 600; color: #dc3545;">
+                                            * I agree to the <a href="agentsTCs.html" target="_blank" style="color: #007bff; text-decoration: underline; font-weight: 600;">Terms & Conditions</a>
+                                            <span style="display: block; font-size: 12px; margin-top: 4px; color: #6c757d; font-weight: normal;">
+                                              (Required: You must accept the terms to complete registration)
+                                            </span>
                                           </span>
-                                        </span>
+                                        </div>
+                                        <span class="checkmark"></span>
                                       </label>
                                       <div id="terms-error-message" class="alert-message error" style="display: none;">
                                         <i class="ti-alert" style="margin-right: 6px;"></i>
@@ -1081,113 +1083,250 @@ URI     : https://colorlib.com
                 resize: vertical;
             }
 
-            /* Checkbox Styling */
+            /* Enhanced Checkbox Design for Agent Form */
             .checkbox-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 12px;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 16px;
                 margin-top: 8px;
             }
 
             .checkbox-item {
                 display: flex;
                 align-items: center;
-                gap: 12px;
+                justify-content: space-between;
                 cursor: pointer;
-                padding: 10px;
-                border-radius: 6px;
-                transition: background-color 0.2s;
+                padding: 16px 20px;
+                border-radius: 12px;
+                transition: all 0.3s ease;
                 margin: 0;
-                font-weight: 400;
+                font-weight: 500;
+                background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+                border: 2px solid #e8ecf7;
+                position: relative;
+                overflow: hidden;
+                min-height: 60px;
+            }
+
+            .checkbox-item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 4px;
+                height: 100%;
+                background: transparent;
+                transition: all 0.3s ease;
             }
 
             .checkbox-item:hover {
-                background-color: #f8f9fa;
+                background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+                border-color: #c8d3f0;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(30, 60, 114, 0.1);
             }
 
             .checkbox-item input[type="checkbox"] {
                 display: none;
             }
 
-            .checkmark {
-                width: 60px;
-                height: 30px;
-                border: 2.5px solid #dee2e6;
-                border-radius: 6px;
-                position: relative;
-                transition: all 0.2s;
-                flex-shrink: 0;
-            }
-
-            .checkbox-item input[type="checkbox"]:checked + .checkmark {
-                background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-                border-color: #1e3c72;
-            }
-
-            .checkbox-item input[type="checkbox"]:checked + .checkmark::after {
-                /* content: '✓'; */
-                position: absolute;
-                color: white;
-                font-size: 20px;
-                font-weight: bold;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-
-            /* Radio Button Styling */
-            .radio-group {
+            .checkbox-content {
                 display: flex;
-                flex-direction: column;
-                gap: 10px;
+                align-items: center;
+                gap: 12px;
+                flex: 1;
+                min-width: 0;
+            }
+
+            /* Modern Toggle Switch for Terms */
+            .checkmark {
+                width: 52px;
+                height: 26px;
+                background: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%);
+                border-radius: 20px;
+                position: relative;
+                transition: all 0.3s ease;
+                flex-shrink: 0;
+                border: 2px solid #dadce0;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                margin-left: 16px;
+                cursor: pointer;
+            }
+
+            .checkmark::after {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+                border-radius: 50%;
+                top: 1px;
+                left: 2px;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
+                border: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            /* Hover State */
+            .checkmark:hover {
+                background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+                border-color: #28a745;
+                box-shadow: inset 0 1px 3px rgba(40, 167, 69, 0.1);
+            }
+
+            /* Active/Checked State */
+            .checkbox-item input[type="checkbox"]:checked ~ .checkmark {
+                background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+                border-color: #28a745;
+                box-shadow: inset 0 1px 3px rgba(40, 167, 69, 0.2);
+            }
+
+            .checkbox-item input[type="checkbox"]:checked ~ .checkmark::after {
+                transform: translateX(24px);
+                background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+                box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+
+            .checkbox-item.checked .checkmark {
+                background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+                border-color: #28a745;
+                box-shadow: inset 0 1px 3px rgba(40, 167, 69, 0.2);
+            }
+
+            .checkbox-item.checked .checkmark::after {
+                transform: translateX(24px);
+                background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+                box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+
+            .checkbox-item.checked {
+                background: linear-gradient(135deg, #e8f5e8 0%, #f0fff0 100%);
+                border-color: #28a745;
+            }
+
+            .checkbox-item.checked::before {
+                background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            }
+
+            /* Terms checkbox specific styling */
+            .checkbox-item[style*="border: 2px solid #dc3545"] {
+                border: 2px solid #dc3545 !important;
+                background: #fff5f5 !important;
+            }
+
+            .checkbox-item[style*="border: 2px solid #dc3545"]:hover {
+                border-color: #c82333 !important;
+                background: #ffebee !important;
+            }
+
+            /* Modern Radio Button Design for Agent Form */
+            .radio-group {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 16px;
                 margin-top: 8px;
             }
 
             .radio-item {
                 display: flex;
                 align-items: center;
-                gap: 12px;
+                justify-content: space-between;
                 cursor: pointer;
-                padding: 10px;
-                border-radius: 6px;
-                transition: background-color 0.2s;
+                padding: 18px 24px;
+                border-radius: 12px;
+                transition: all 0.3s ease;
                 margin: 0;
-                font-weight: 400;
+                font-weight: 500;
+                background: white;
+                border: 2px solid #e8ecf7;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .radio-content {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                flex: 1;
+            }
+
+            .radio-item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 4px;
+                background: transparent;
+                transition: all 0.3s ease;
             }
 
             .radio-item:hover {
-                background-color: #f8f9fa;
+                background: #f8faff;
+                border-color: #c8d3f0;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(30, 60, 114, 0.1);
             }
 
             .radio-item input[type="radio"] {
                 display: none;
             }
 
+            /* Enhanced Radio Button Design */
             .radio-mark {
-                width: 30px;
-                height: 30px;
-                border: 2.5px solid #dee2e6;
+                width: 24px;
+                height: 24px;
+                border: 3px solid #dee2e6;
                 border-radius: 50%;
                 position: relative;
-                transition: all 0.2s;
+                transition: all 0.3s ease;
                 flex-shrink: 0;
+                background: white;
             }
 
-            .radio-item input[type="radio"]:checked + .radio-mark {
-                border-color: #1e3c72;
-                background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            }
-
-            .radio-item input[type="radio"]:checked + .radio-mark::after {
+            .radio-mark::before {
                 content: '';
                 position: absolute;
-                width: 14px;
-                height: 14px;
-                background: white;
+                width: 10px;
+                height: 10px;
+                background: transparent;
                 border-radius: 50%;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%) scale(0);
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .radio-item input[type="radio"]:checked ~ .radio-content .radio-mark {
+                border-color: #1e3c72;
+                background: white;
+                box-shadow: 0 0 0 2px rgba(30, 60, 114, 0.2);
+            }
+
+            .radio-item input[type="radio"]:checked ~ .radio-content .radio-mark::before {
+                background: linear-gradient(135deg, #1e3c72 0%, #4a90e2 100%);
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            .radio-item.selected .radio-mark {
+                border-color: #1e3c72;
+                background: white;
+                box-shadow: 0 0 0 2px rgba(30, 60, 114, 0.2);
+            }
+
+            .radio-item.selected .radio-mark::before {
+                background: linear-gradient(135deg, #1e3c72 0%, #4a90e2 100%);
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            .radio-item.selected {
+                background: linear-gradient(135deg, #e8f2ff 0%, #f0f8ff 100%);
+                border-color: #4a90e2;
+                color: #1e3c72;
+            }
+
+            .radio-item.selected::before {
+                background: linear-gradient(135deg, #1e3c72 0%, #4a90e2 100%);
             }
 
             /* Submit Button */
@@ -1197,7 +1336,7 @@ URI     : https://colorlib.com
                 color: white;
                 border: none;
                 padding: 16px 24px;
-                border-radius: 12px;
+                border-radius: 25px;
                 font-size: 16px;
                 font-weight: 600;
                 cursor: pointer;
@@ -1372,7 +1511,7 @@ URI     : https://colorlib.com
                 background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
                 border: none;
                 padding: 16px 24px;
-                border-radius: 12px;
+                border-radius: 25px;
                 font-size: 16px;
                 font-weight: 600;
                 text-transform: uppercase;
@@ -1549,6 +1688,47 @@ URI     : https://colorlib.com
             }, 10000);
         });
     }
+    </script>
+
+    <!-- Enhanced Form Interactions Script for Agent Form -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle checkbox state changes for visual feedback
+        const checkboxes = document.querySelectorAll('.checkbox-item input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            const item = checkbox.closest('.checkbox-item');
+            
+            // Set initial state
+            if (checkbox.checked) {
+                item.classList.add('checked');
+            }
+            
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    item.classList.add('checked');
+                } else {
+                    item.classList.remove('checked');
+                }
+            });
+        });
+
+        // Handle radio button state changes for visual feedback
+        const radioButtons = document.querySelectorAll('.radio-item input[type="radio"]');
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Remove selected class from all radio items in the same group
+                const group = document.querySelectorAll(`input[name="${this.name}"]`);
+                group.forEach(r => {
+                    r.closest('.radio-item').classList.remove('selected');
+                });
+                
+                // Add selected class to this item
+                if (this.checked) {
+                    this.closest('.radio-item').classList.add('selected');
+                }
+            });
+        });
+    });
     </script>
 
     

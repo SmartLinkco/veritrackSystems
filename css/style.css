@@ -75,7 +75,7 @@ h4 {
 h5 {
     font-size: 28px;
     font-weight: 300;
-    color: #f9f8fa;
+    color: #4a90e2;
     margin-bottom: 0.7rem;
 }
 
@@ -102,6 +102,7 @@ p.lead {
     text-transform: uppercase;
     padding: 0.375rem 1.35rem;
     transition: all 0.3s ease;
+    border-radius: 25px;
 }
 
 .btn-gradient:hover, .btn-gradient:focus {
@@ -117,7 +118,7 @@ p.lead {
 }
 
 .btn-primary {
-    border-radius: 3px;
+    border-radius: 25px;
     background-image: -moz-linear-gradient( 122deg, #3498db 0%, #2980b9 100%);
     background-image: -webkit-linear-gradient( 122deg, #3498db 0%, #2980b9 100%);
     background-image: -ms-linear-gradient( 122deg, #3498db 0%, #2980b9 100%);
@@ -140,7 +141,7 @@ p.lead {
 }
 
 .btn-light {
-    border-radius: 3px;
+    border-radius: 25px;
     background: #FFF;
     box-shadow: 0px 9px 32px 0px rgba(0, 0, 0, 0.26);
     font-size: 14px;
