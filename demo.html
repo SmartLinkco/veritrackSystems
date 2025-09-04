@@ -371,7 +371,7 @@ URI     : https://colorlib.com
             <div class="modal-header" style="text-align: center; margin-bottom: 30px;">
                 <div style="
                   width: 60px; 
-                  height: 60px; 
+                  height: 40px; 
                   background: linear-gradient(45deg, #4a90e2, #74b9ff); 
                   border-radius: 50%; 
                   margin: 0 auto 15px; 
@@ -380,7 +380,7 @@ URI     : https://colorlib.com
                   justify-content: center;
                   box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
                 ">
-                    <i class="ti-light-bulb" style="font-size: 28px; color: white;"></i>
+                    <i class="ti-light-bulb" style="font-size: 20px; color: white;"></i>
                 </div>
                 <h4 style="color: #fff; margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); font-weight: 600;">How to Test the System</h4>
                 <p style="color: #e3e3e3; margin-bottom: 0; font-size: 0.9rem;">Follow these steps to explore the demo</p>
@@ -403,7 +403,7 @@ URI     : https://colorlib.com
                           flex-shrink: 0;
                           margin-top: 2px;
                         ">1</span>
-                        <p style="margin: 0; font-size: 0.9rem; color: #f0f8ff;">Fill out the <strong style="color: #74b9ff;">Demo Check-In Form</strong> with sample details (NB: Choose "DEMO OFFICE").</p>
+                        <p style="margin: 0; font-size: 0.9rem; color: #f0f8ff;">Fill out the <strong style="color: #74b9ff;">Demo Registration Form</strong> with sample details (NB: Choose "TEST AREA").</p>
                     </div>
                 </div>
                 
@@ -635,15 +635,39 @@ URI     : https://colorlib.com
           <!-- <p style="color: #fff;">Experience VeriTrack's Attendance System in action. Submit a demo check-in, view real-time attendance data, and access the check-in/checkout portal.</p> -->
         </div>
         <div class="text-center mt-4" style="margin-bottom: 30px;">
-          <a href="https://script.google.com/macros/s/AKfycbyWnrl16scOgNKySQN9YGGUjnUDFp-QJGDbkWgf-JTon4C2LYkfAl0-xDBRTPuzKC_f/exec" class="btn btn-submit" style="font-size:1.1rem;">Go to Check-In/Check-out Portal</a>
+          <a href="https://script.google.com/macros/s/AKfycbwPCyXO-FU9eJuMYv4IJfx6DHBP78nUarRcYL2Zf170pPZQUh986Vhe3gMzWxpmBbxH/exec" class="btn btn-submit" style="font-size:1.1rem;">Go to Check-In/Check-out Portal</a>
         </div>
         <div class="row">
           <div class="col-md-6 mb-4">
             <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px;">
-              <h5 class="text-center mb-3">Demo Check-In Form</h5>
-              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSekuQBil3CAS35SPBn4BvfQ2tZKH_qElvgzTUa56W9kdvizSg/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="border:none;">Loading…</iframe>
+              <h5 class="text-center mb-3">Demo Registration Form</h5>
+              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfiz3pweUJXoEX4ZszphM5TqDBUy7s55K4b2kxyU2mgoIfN1g/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="border:none;">Loading…</iframe>
             </div>
             <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px; margin-top: 30px;">
+              <h5 class="text-center mb-3">Registered Staff Members</h5>
+              <div class="alert alert-warning text-center mb-3" role="alert" style="font-size: 0.98rem;">
+                <strong>Disclaimer:</strong> Certain credentials such as <b>Email Address</b> and <b>Phone Number</b> have been hidden for privacy and security reasons.
+              </div>
+              <div id="staff-table" style="overflow-x:auto;">
+                <table class="table table-bordered table-striped" id="staffMembersTable">
+                  <thead>
+                    <tr>
+                      <th>Staff ID</th>
+                      <th>Name</th>
+                      <th>Department</th>
+                      <th>Office Branch</th>
+                      <th>Timestamp</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td colspan="5" class="text-center">Loading data...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px;">
               <h5 class="text-center mb-3">Live Attendance Data</h5>
               <div class="alert alert-warning text-center mb-3" role="alert" style="font-size: 0.98rem;">
                 <strong>Disclaimer:</strong> Certain credentials such as <b>IP Address</b>, <b>Latitude</b>, <b>Longitude</b>, and <b>Photo ID</b> have been hidden for privacy and security reasons.
@@ -667,113 +691,9 @@ URI     : https://colorlib.com
               </div>
             </div>
           </div>
-          <div class="col-md-6 mb-4">
-            <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px;">
-              <h5 class="text-center mb-3">Registered Staff Members</h5>
-              <div class="alert alert-warning text-center mb-3" role="alert" style="font-size: 0.98rem;">
-                <strong>Disclaimer:</strong> Certain credentials such as <b>Email Address</b> and <b>Phone Number</b> have been hidden for privacy and security reasons.
-              </div>
-              <div id="staff-table" style="overflow-x:auto;">
-                <table class="table table-bordered table-striped" id="staffMembersTable">
-                  <thead>
-                    <tr>
-                      <th>Staff ID</th>
-                      <th>Name</th>
-                      <th>Department</th>
-                      <th>Office Branch</th>
-                      <th>Timestamp</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr><td colspan="5" class="text-center">Loading data...</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
-
-    <!-- <div id="Pricing" class="Pricing pricing-container" data-scroll-nav="5">
-      <div class="pricing-header">
-        <h1>Our Subscription Model</h1>
-      </div>
-      <div class="plan-selector">
-        <div class="plan-option" data-plan="Monthly" data-amount="120" onclick="selectPlan('Monthly', 120)">
-          <h3>Monthly</h3>
-          <div class="price">₵120</div>
-          <div class="period">per month</div>
-          <ul class="features">
-            <li>QR Code Scanning</li>
-            <li>GPS/Geofencing</li>
-            <li>Automated Reports</li>
-            <li>Payroll Sync</li>
-            <li>Multi-location Support</li>
-            <li>Live Photo Capture</li>
-            <li>Unlimited Users</li>
-          </ul>
-        </div>
-        <div class="plan-option" data-plan="Quarterly" data-amount="342" onclick="selectPlan('Quarterly', 342)">
-          <h3>Quarterly</h3>
-          <div class="price">₵342</div>
-          <div class="period">3 months (15% Discount)</div>
-          <ul class="features">
-            <li>QR Code Scanning</li>
-            <li>GPS/Geofencing</li>
-            <li>Automated Reports</li>
-            <li>Payroll Sync</li>
-            <li>Multi-location Support</li>
-            <li>Live Photo Capture</li>
-            <li>Unlimited Users</li>
-          </ul>
-        </div>
-        <div class="plan-option" data-plan="Semiannually" data-amount="648" onclick="selectPlan('Semiannually', 648)">
-          <h3>Semiannually</h3>
-          <div class="price">₵648</div>
-          <div class="period">6 months (20% Discount)</div>
-          <ul class="features">
-            <li>QR Code Scanning</li>
-            <li>GPS/Geofencing</li>
-            <li>Automated Reports</li>
-            <li>Payroll Sync</li>
-            <li>Multi-location Support</li>
-            <li>Live Photo Capture</li>
-            <li>Unlimited Users</li>
-          </ul>
-        </div>
-        <div class="plan-option" data-plan="Annual" data-amount="1200" onclick="selectPlan('Annual', 1200)">
-          <h3>Annual</h3>
-          <div class="price">₵1,200</div>
-          <div class="period">per year (2 months free)</div>
-          <ul class="features">
-            <li>QR Code Scanning</li>
-            <li>GPS/Geofencing</li>
-            <li>Automated Reports</li>
-            <li>Payroll Sync</li>
-            <li>Multi-location Support</li>
-            <li>Live Photo Capture</li>
-            <li>Unlimited Users</li>
-          </ul>
-        </div>
-        <div class="plan-option free-plan" data-plan="Free" data-amount="0" onclick="selectPlan('Free', 0)">
-          <h3>30 Days Free Trial</h3>
-          <div class="price">₵0</div>
-          <div class="period">Limited Features</div>
-          <ul class="features">
-            <li>QR Code Scanning</li>
-            <li>GPS/Geofencing</li>
-            <li>Automated Reports</li>
-            <li>Limited to 10 Users</li>
-          </ul>
-        </div>
-      </div>
-      <div class="renew-section">
-        <p>Already have a subscription? <a href="index.html">Renew Now</a></p>
-      </div>
-    </div>
-    Demo Live Presentation & Pricing Section End -->
-    
 
     <div class="section bg-gradient">
         <div class="container">
@@ -845,8 +765,8 @@ URI     : https://colorlib.com
     <!-- Custom JS -->
     <script src="js/script.js"></script>
     <script>
-    const CSV_URL = 'https://docs.google.com/spreadsheets/d/1lrhRI49jJ_GzT2mHWbHkvpbBBmeMkMhmQT48vcdRol4/gviz/tq?tqx=out:csv&sheet=Attendance Logs';
-    const STAFF_CSV_URL = 'https://docs.google.com/spreadsheets/d/1lrhRI49jJ_GzT2mHWbHkvpbBBmeMkMhmQT48vcdRol4/gviz/tq?tqx=out:csv&sheet=Staff Members';
+    const CSV_URL = 'https://docs.google.com/spreadsheets/d/1hsf_qZxCKIAJVy2HZ0IhzEWT4xod555gS8ODtpCgQMY/gviz/tq?tqx=out:csv&sheet=Attendance Logs';
+    const STAFF_CSV_URL = 'https://docs.google.com/spreadsheets/d/1hsf_qZxCKIAJVy2HZ0IhzEWT4xod555gS8ODtpCgQMY/gviz/tq?tqx=out:csv&sheet=Staff Members';
     function csvToArray(str, delimiter = ",") {
       const rows = str.trim().split("\n");
       return rows.map(row => {
