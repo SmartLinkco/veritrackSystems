@@ -345,9 +345,9 @@ URI     : https://colorlib.com
                                 <li class="nav-item"> <a class="nav-link active" href="#home">HOME <span class="sr-only">(current)</span></a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#features">FEATURES</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#gallery">GALLERY</a> </li>
+                                <li class="nav-item"> <a class="nav-link" href="demo.html">TRY DEMO</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#pricing">PRICING</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#check-In">SYSTEM REQUEST</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="#faqs">FAQs</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#team">OUR TEAM</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#contact">CONTACT</a> </li>
                                 <li class="nav-item"><a href="#check-In" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Free Trial</a></li>
@@ -912,7 +912,7 @@ URI     : https://colorlib.com
                         <p style="color: #f0f0f0; font-size: 16px; margin: 0;">Let us know your requirements, and we'll tailor a solution to meet your needs.</p>
                     </div>
                     <div class="section-content">
-                        <form id="custom_request_form" class="form-body" action="https://script.google.com/macros/s/AKfycbxGBPG7De1kfeZjNljWSIqxSbCK-8EjhJLpJADCFBMyuo4NFBTquuxlpn-PPqj1zjPD/exec" method="POST" style="background: #fff; padding: 40px 32px; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); border: 1px solid #f0f0f0;">
+                        <form id="custom_request_form" class="form-body" action="https://script.google.com/macros/s/AKfycbzdIVwLVLXH7l67rKQCc2u57R4DQEjS4mbx74FX9fnj0u1UJm8S5Jg8a9OEPkXxFkEB/exec" method="POST" style="background: #fff; padding: 40px 32px; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); border: 1px solid #f0f0f0;">
                             <input type="hidden" name="form-type" value="company-request">
                             <!-- Client Basics -->
                             <div class="form-section">
@@ -1007,7 +1007,7 @@ URI     : https://colorlib.com
                                             <label for="use_case">Primary Use Case *</label>
                                             <select id="use_case" class="form-input" name="use-case" required>
                                                 <option value="" disabled selected>Select your main use case</option>
-                                                <option value="Staff Attendance">Staff Attendance</option>
+                                                <option value="Staff Attendance" selected>Staff Attendance</option>
                                                 <option value="Student/Class Tracking">Student/Class Tracking</option>
                                                 <option value="Event Check-In">Event Check-In</option>
                                                 <option value="Remote Workforce">Remote Workforce</option>
@@ -1053,8 +1053,8 @@ URI     : https://colorlib.com
                                                     </div>
                                                     <span class="checkmark"></span>
                                                 </label>
-                                                <label class="checkbox-item">
-                                                    <input type="checkbox" name="key-features[]" value="Payroll Sync" checked>
+                                                <label class="checkbox-item" style="opacity: 0.5; pointer-events: none;">
+                                                    <input type="checkbox" name="key-features[]" value="Payroll Sync" checked disabled>
                                                     <div class="checkbox-content">
                                                         <i class="ti-credit-card feature-icon"></i>
                                                         <span>Payroll Sync</span>
@@ -2086,7 +2086,7 @@ URI     : https://colorlib.com
             const script = document.createElement('script');
 
             // Build the check email URL
-            const url = new URL('https://script.google.com/macros/s/AKfycbxGBPG7De1kfeZjNljWSIqxSbCK-8EjhJLpJADCFBMyuo4NFBTquuxlpn-PPqj1zjPD/exec');
+            const url = new URL('https://script.google.com/macros/s/AKfycbzdIVwLVLXH7l67rKQCc2u57R4DQEjS4mbx74FX9fnj0u1UJm8S5Jg8a9OEPkXxFkEB/exec');
             url.searchParams.set('callback', callbackName);
             url.searchParams.set('action', 'checkCompanyEmail');
             url.searchParams.set('email', email);
