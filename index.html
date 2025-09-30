@@ -455,6 +455,155 @@ URI     : https://colorlib.com
             color: #1e3c72;
         }
 
+        /* Yearly Pricing Options Styling */
+        .yearly-option {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #dee2e6;
+            border-radius: 15px;
+            padding: 1rem 1.5rem;
+            margin-top: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .yearly-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .yearly-option:hover::before {
+            left: 100%;
+        }
+
+        .yearly-option:hover {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            border-color: #28a745;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(40, 167, 69, 0.15);
+        }
+
+        .yearly-badge {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+            animation: saveBadgePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes saveBadgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .yearly-price {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.2rem;
+            margin: 0.5rem 0;
+        }
+
+        .yearly-currency {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #28a745;
+        }
+
+        .yearly-amount {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #28a745;
+            line-height: 1;
+        }
+
+        .yearly-period {
+            font-size: 0.8rem;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .yearly-breakdown {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #28a745;
+            font-weight: 600;
+            background: rgba(40, 167, 69, 0.1);
+            padding: 4px 8px;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+        }
+
+        /* Professional plan yearly styling (most popular) */
+        .popular-yearly {
+            background: linear-gradient(135deg, #e8f2ff 0%, #f0f8ff 100%);
+            border-color: #4a90e2;
+        }
+
+        .popular-yearly:hover {
+            background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+            border-color: #1e3c72;
+            box-shadow: 0 5px 20px rgba(30, 60, 114, 0.2);
+        }
+
+        .popular-badge {
+            background: linear-gradient(135deg, #1e3c72 0%, #4a90e2 100%);
+            box-shadow: 0 2px 8px rgba(30, 60, 114, 0.3);
+        }
+
+        .popular-yearly .yearly-currency,
+        .popular-yearly .yearly-amount {
+            color: #1e3c72;
+        }
+
+        .popular-yearly .yearly-breakdown {
+            color: #1e3c72;
+            background: rgba(30, 60, 114, 0.1);
+        }
+
+        /* Enterprise Plus yearly styling */
+        .premium-yearly {
+            background: linear-gradient(135deg, #fff8e1 0%, #fffbf0 100%);
+            border-color: #feca57;
+        }
+
+        .premium-yearly:hover {
+            background: linear-gradient(135deg, #fff3c4 0%, #fff8e1 100%);
+            border-color: #ff9ff3;
+            box-shadow: 0 5px 20px rgba(254, 202, 87, 0.2);
+        }
+
+        .premium-badge {
+            background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
+            color: #2c3e50;
+            box-shadow: 0 2px 8px rgba(254, 202, 87, 0.3);
+        }
+
+        .premium-yearly .yearly-currency,
+        .premium-yearly .yearly-amount {
+            color: #f39c12;
+        }
+
+        .premium-yearly .yearly-breakdown {
+            color: #f39c12;
+            background: rgba(243, 156, 18, 0.1);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .modern-pricing-container {
@@ -1228,6 +1377,16 @@ URI     : https://colorlib.com
                                 <span class="amount">200</span>
                                 <span class="period">/month</span>
                             </div>
+                            <!-- Yearly Option -->
+                            <div class="yearly-option">
+                                <div class="yearly-badge">Save 17%</div>
+                                <div class="yearly-price">
+                                    <span class="yearly-currency">&#8373;</span>
+                                    <span class="yearly-amount">2,000</span>
+                                    <span class="yearly-period">/year</span>
+                                </div>
+                                <div class="yearly-breakdown">Only &#8373;167/month</div>
+                            </div>
                         </div>
                         <p class="plan-description">Perfect for small teams getting started</p>
                     </div>
@@ -1282,6 +1441,16 @@ URI     : https://colorlib.com
                                 <span class="currency">&#8373;</span>
                                 <span class="amount">800</span>
                                 <span class="period">/month</span>
+                            </div>
+                            <!-- Yearly Option -->
+                            <div class="yearly-option popular-yearly">
+                                <div class="yearly-badge popular-badge">Save 17%</div>
+                                <div class="yearly-price">
+                                    <span class="yearly-currency">&#8373;</span>
+                                    <span class="yearly-amount">8,000</span>
+                                    <span class="yearly-period">/year</span>
+                                </div>
+                                <div class="yearly-breakdown">Only &#8373;667/month</div>
                             </div>
                         </div>
                         <p class="plan-description">Ideal for growing businesses</p>
@@ -1338,6 +1507,16 @@ URI     : https://colorlib.com
                                 <span class="amount">1600</span>
                                 <span class="period">/month</span>
                             </div>
+                            <!-- Yearly Option -->
+                            <div class="yearly-option">
+                                <div class="yearly-badge">Save 17%</div>
+                                <div class="yearly-price">
+                                    <span class="yearly-currency">&#8373;</span>
+                                    <span class="yearly-amount">16,000</span>
+                                    <span class="yearly-period">/year</span>
+                                </div>
+                                <div class="yearly-breakdown">Only &#8373;1,333/month</div>
+                            </div>
                         </div>
                         <p class="plan-description">Advanced features for large teams</p>
                     </div>
@@ -1392,6 +1571,16 @@ URI     : https://colorlib.com
                                 <span class="currency">&#8373;</span>
                                 <span class="amount">2400</span>
                                 <span class="period">/month</span>
+                            </div>
+                            <!-- Yearly Option -->
+                            <div class="yearly-option premium-yearly">
+                                <div class="yearly-badge premium-badge">Save 17%</div>
+                                <div class="yearly-price">
+                                    <span class="yearly-currency">&#8373;</span>
+                                    <span class="yearly-amount">24,000</span>
+                                    <span class="yearly-period">/year</span>
+                                </div>
+                                <div class="yearly-breakdown">Only &#8373;2,000/month</div>
                             </div>
                         </div>
                         <p class="plan-description">Ultimate solution for enterprises</p>
