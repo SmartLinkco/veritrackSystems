@@ -173,6 +173,341 @@ URI     : https://colorlib.com
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
+
+        /* Modern Pricing Cards Styling */
+        .modern-pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 0 1rem;
+        }
+
+        .pricing-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(30, 60, 114, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            height: fit-content;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(30, 60, 114, 0.2);
+        }
+
+        .pricing-card.popular-card {
+            transform: scale(1.05);
+            border: 2px solid #4a90e2;
+            box-shadow: 0 15px 50px rgba(74, 144, 226, 0.2);
+        }
+
+        .pricing-card.popular-card:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 25px 70px rgba(74, 144, 226, 0.3);
+        }
+
+        .card-ribbon {
+            position: absolute;
+            top: 20px;
+            right: -15px;
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+            padding: 8px 25px 8px 15px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);
+            z-index: 10;
+        }
+
+        .card-ribbon.popular-ribbon {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .card-ribbon.premium-ribbon {
+            background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .pricing-header {
+            padding: 2.5rem 2rem 1.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            position: relative;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .price-section {
+            margin: 1.5rem 0;
+        }
+
+        .old-price {
+            font-size: 0.9rem;
+            color: #e74c3c;
+            text-decoration: line-through;
+            margin-bottom: 0.5rem;
+            opacity: 0.7;
+        }
+
+        .current-price {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .currency {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e3c72;
+        }
+
+        .amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1e3c72;
+            line-height: 1;
+        }
+
+        .period {
+            font-size: 1rem;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .plan-description {
+            color: #6c757d;
+            font-size: 0.95rem;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .features-list {
+            padding: 1.5rem 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f1f3f4;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-item:hover {
+            background: #f8f9fa;
+            margin: 0 -1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-radius: 8px;
+        }
+
+        .feature-item i {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            flex-shrink: 0;
+        }
+
+        .feature-item span {
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .pricing-footer {
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .pricing-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .pricing-btn:hover::before {
+            left: 100%;
+        }
+
+        .pricing-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        .basic-btn {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .basic-btn:hover {
+            background: linear-gradient(135deg, #495057 0%, #343a40 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+        }
+
+        .professional-btn {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .professional-btn:hover {
+            background: linear-gradient(135deg, #2a5298 0%, #3498db 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 60, 114, 0.4);
+        }
+
+        .enterprise-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .enterprise-btn:hover {
+            background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        .enterprise-plus-btn {
+            background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
+            color: #2c3e50;
+            border: 2px solid transparent;
+        }
+
+        .enterprise-plus-btn:hover {
+            background: linear-gradient(135deg, #ff9ff3 0%, #a8e6cf 100%);
+            color: #2c3e50;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(254, 202, 87, 0.4);
+        }
+
+        /* Professional card specific styling */
+        .professional-card .pricing-header {
+            background: linear-gradient(135deg, #e8f2ff 0%, #f0f8ff 100%);
+        }
+
+        .professional-card .plan-name {
+            color: #1e3c72;
+        }
+
+        .professional-card .current-price .currency,
+        .professional-card .current-price .amount {
+            color: #1e3c72;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .modern-pricing-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 0.5rem;
+            }
+            
+            .pricing-card.popular-card {
+                transform: none;
+            }
+            
+            .pricing-card.popular-card:hover {
+                transform: translateY(-5px);
+            }
+            
+            .amount {
+                font-size: 2.5rem !important;
+            }
+            
+            .pricing-header {
+                padding: 2rem 1.5rem 1.5rem;
+            }
+            
+            .features-list {
+                padding: 1rem 1.5rem;
+            }
+            
+            .pricing-footer {
+                padding: 1rem 1.5rem 1.5rem;
+            }
+        }
+
+        /* Animation for cards on scroll */
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pricing-card {
+            animation: slideUpFade 0.6s ease-out;
+        }
+
+        .pricing-card:nth-child(1) { animation-delay: 0.1s; }
+        .pricing-card:nth-child(2) { animation-delay: 0.2s; }
+        .pricing-card:nth-child(3) { animation-delay: 0.3s; }
+        .pricing-card:nth-child(4) { animation-delay: 0.4s; }
     </style>
     
     <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cmbcz1zad0001oelvity1313j"></script>
@@ -877,65 +1212,225 @@ URI     : https://colorlib.com
                 </script>
             </div>
 
-            <div class="card-deck">
-                <div class="card pricing">
-                    <div class="card-head">
-                        <small class="text-primary">BASIC <h4 style="color: red;"><del>&#8373;200/m</del></h4></small>
-                        <span class="price">&#8373;120<sub>/m</sub></span>
+            <!-- Modern Pricing Cards Container -->
+            <div class="modern-pricing-container">
+                <!-- Basic Plan -->
+                <div class="pricing-card basic-card">
+                    <div class="card-ribbon">
+                        <span>Starter</span>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Custom Branding</li>
-                        <li class="list-group-item">QR Code Scanning</li>
-                        <li class="list-group-item">Liveliness Check</li>
-                        <li class="list-group-item">Geofencing Precision(100m)</li>
-                        <li class="list-group-item">Automated Reports</li>
-                        <li class="list-group-item">Payroll Sync</li>
-                        <li class="list-group-item">Multi-location Support(5)</li>
-                        <li class="list-group-item">AI Productivity Tips</li>
-                        <li class="list-group-item">Max Users(50)</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#check-In" class="btn btn-primary btn-lg btn-block">Choose this Plan</a>
+                    <div class="pricing-header">
+                        <h3 class="plan-name">BASIC</h3>
+                        <div class="price-section">
+                            <div class="old-price">&#8373;333/m</div>
+                            <div class="current-price">
+                                <span class="currency">&#8373;</span>
+                                <span class="amount">200</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <p class="plan-description">Perfect for small teams getting started</p>
+                    </div>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="ti-check"></i>
+                            <span>Liveliness Check</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-location-pin"></i>
+                            <span>Geofencing Precision (50m)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-file"></i>
+                            <span>Automated Reports</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-money"></i>
+                            <span>Payroll Sync</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-home"></i>
+                            <span>Multi-location Support (3)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-lightbulb"></i>
+                            <span>AI Productivity Tips</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-user"></i>
+                            <span>Max Users (20)</span>
+                        </div>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="#check-In" class="pricing-btn basic-btn">
+                            <span>Choose Basic Plan</span>
+                            <i class="ti-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="card pricing popular">
-                    <div class="card-head">
-                        <small class="text-primary">PROFESSIONAL<h4 style="color: red;"><del>&#8373;800/m</del></h4></small>
-                        <span class="price">&#8373;480<sub>/m</sub></span>
+
+                <!-- Professional Plan - Popular -->
+                <div class="pricing-card professional-card popular-card">
+                    <div class="card-ribbon popular-ribbon">
+                        <span>Most Popular</span>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Custom Branding</li>
-                        <li class="list-group-item">QR Code Scanning</li>
-                        <li class="list-group-item">Liveliness Check</li>
-                        <li class="list-group-item">Geofencing Precision(50m)</li>
-                        <li class="list-group-item">Automated Reports</li>
-                        <li class="list-group-item">Payroll Sync</li>
-                        <li class="list-group-item">Multi-location Support(30)</li>
-                        <li class="list-group-item">AI Productivity Tips</li>
-                        <li class="list-group-item">Max Users(200)</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#check-In" class="btn btn-primary btn-lg btn-block">Choose this Plan</a>
+                    <div class="pricing-header">
+                        <h3 class="plan-name">PROFESSIONAL</h3>
+                        <div class="price-section">
+                            <div class="old-price">&#8373;1333/m</div>
+                            <div class="current-price">
+                                <span class="currency">&#8373;</span>
+                                <span class="amount">800</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <p class="plan-description">Ideal for growing businesses</p>
+                    </div>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="ti-check"></i>
+                            <span>Liveliness Check</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-location-pin"></i>
+                            <span>Geofencing Precision (50m)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-file"></i>
+                            <span>Automated Reports</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-money"></i>
+                            <span>Payroll Sync</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-home"></i>
+                            <span>Multi-location Support (10)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-lightbulb"></i>
+                            <span>AI Productivity Tips</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-user"></i>
+                            <span>Max Users (50)</span>
+                        </div>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="#check-In" class="pricing-btn professional-btn">
+                            <span>Choose Professional</span>
+                            <i class="ti-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="card pricing">
-                    <div class="card-head">
-                        <small class="text-primary">ENTERPRISE<h4 style="color: red;"><del>&#8373;1600/m</del></h4></small>
-                        <span class="price">&#8373;960<sub>/m</sub></span>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card enterprise-card">
+                    <div class="card-ribbon">
+                        <span>Business</span>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Custom Branding</li>
-                        <li class="list-group-item">QR Code Scanning</li>
-                        <li class="list-group-item">Liveliness Check</li>
-                        <li class="list-group-item">Geofencing Precision(10m)</li>
-                        <li class="list-group-item">Automated Reports</li>
-                        <li class="list-group-item">Payroll Sync</li>
-                        <li class="list-group-item">Multi-location Support(31+)</li>
-                        <li class="list-group-item">AI Productivity Tips</li>
-                        <li class="list-group-item">201+ Users</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#check-In" class="btn btn-primary btn-lg btn-block">Choose this Plan</a>
+                    <div class="pricing-header">
+                        <h3 class="plan-name">ENTERPRISE</h3>
+                        <div class="price-section">
+                            <div class="old-price">&#8373;2667/m</div>
+                            <div class="current-price">
+                                <span class="currency">&#8373;</span>
+                                <span class="amount">1600</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <p class="plan-description">Advanced features for large teams</p>
+                    </div>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="ti-check"></i>
+                            <span>Liveliness Check</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-location-pin"></i>
+                            <span>Geofencing Precision (50m)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-file"></i>
+                            <span>Automated Reports</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-money"></i>
+                            <span>Payroll Sync</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-home"></i>
+                            <span>Multi-location Support (30)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-lightbulb"></i>
+                            <span>AI Productivity Tips</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-user"></i>
+                            <span>Max Users (100)</span>
+                        </div>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="#check-In" class="pricing-btn enterprise-btn">
+                            <span>Choose Enterprise</span>
+                            <i class="ti-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plus Plan -->
+                <div class="pricing-card enterprise-plus-card">
+                    <div class="card-ribbon premium-ribbon">
+                        <span>Premium</span>
+                    </div>
+                    <div class="pricing-header">
+                        <h3 class="plan-name">ENTERPRISE PLUS</h3>
+                        <div class="price-section">
+                            <div class="old-price">&#8373;4000/m</div>
+                            <div class="current-price">
+                                <span class="currency">&#8373;</span>
+                                <span class="amount">2400</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <p class="plan-description">Ultimate solution for enterprises</p>
+                    </div>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="ti-check"></i>
+                            <span>Liveliness Check</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-location-pin"></i>
+                            <span>Geofencing Precision (50m)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-file"></i>
+                            <span>Automated Reports</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-money"></i>
+                            <span>Payroll Sync</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-home"></i>
+                            <span>Multi-location Support (31+)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-lightbulb"></i>
+                            <span>AI Productivity Tips</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-user"></i>
+                            <span>100+ Users</span>
+                        </div>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="#check-In" class="pricing-btn enterprise-plus-btn">
+                            <span>Choose Enterprise Plus</span>
+                            <i class="ti-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1228,23 +1723,29 @@ URI     : https://colorlib.com
                                             <label for="budget_range">Subscription Range *</label>
                                             <select id="budget_range" class="form-input" name="budget-range" required>
                                                 <option value="" disabled selected>Select subscription plan</option>
-                                                <!-- Basic Plan Options -->
-                                                <option value="BASIC MONTHLY (₵120)">BASIC MONTHLY - ₵120/month + 30 days FREE trial</option>
-                                                <option value="BASIC QUARTERLY (₵342)">BASIC QUARTERLY - ₵342/3 months + 30 days FREE trial</option>
-                                                <option value="BASIC SEMIANNUALLY (₵648)">BASIC SEMIANNUALLY - ₵648/6 months + 30 days FREE trial</option>
-                                                <option value="BASIC ANNUAL (₵1,200)">BASIC ANNUAL - ₵1,200/year + 30 days FREE trial</option>
+                                                <!-- Basic Plan Options - ₵200/month -->
+                                                <option value="BASIC MONTHLY (₵200)">BASIC MONTHLY - ₵200/month + 30 days FREE trial</option>
+                                                <option value="BASIC QUARTERLY (₵570)">BASIC QUARTERLY - ₵570/3 months + 30 days FREE trial</option>
+                                                <option value="BASIC SEMIANNUALLY (₵1,080)">BASIC SEMIANNUALLY - ₵1,080/6 months + 30 days FREE trial</option>
+                                                <option value="BASIC ANNUAL (₵2,000)">BASIC ANNUAL - ₵2,000/year + 30 days FREE trial</option>
                                                 
-                                                <!-- Professional Plan Options -->
-                                                <option value="PROFESSIONAL MONTHLY (₵480)">PROFESSIONAL MONTHLY - ₵480/month + 30 days FREE trial</option>
-                                                <option value="PROFESSIONAL QUARTERLY (₵1,368)">PROFESSIONAL QUARTERLY - ₵1,368/3 months + 30 days FREE trial</option>
-                                                <option value="PROFESSIONAL SEMIANNUALLY (₵2,592)">PROFESSIONAL SEMIANNUALLY - ₵2,592/6 months + 30 days FREE trial</option>
-                                                <option value="PROFESSIONAL ANNUAL (₵4,800)">PROFESSIONAL ANNUAL - ₵4,800/year + 30 days FREE trial</option>
+                                                <!-- Professional Plan Options - ₵800/month -->
+                                                <option value="PROFESSIONAL MONTHLY (₵800)">PROFESSIONAL MONTHLY - ₵800/month + 30 days FREE trial</option>
+                                                <option value="PROFESSIONAL QUARTERLY (₵2,280)">PROFESSIONAL QUARTERLY - ₵2,280/3 months + 30 days FREE trial</option>
+                                                <option value="PROFESSIONAL SEMIANNUALLY (₵4,320)">PROFESSIONAL SEMIANNUALLY - ₵4,320/6 months + 30 days FREE trial</option>
+                                                <option value="PROFESSIONAL ANNUAL (₵8,000)">PROFESSIONAL ANNUAL - ₵8,000/year + 30 days FREE trial</option>
                                                 
-                                                <!-- Enterprise Plan Options -->
-                                                <option value="ENTERPRISE MONTHLY (₵960)">ENTERPRISE MONTHLY - ₵960/month + 30 days FREE trial</option>
-                                                <option value="ENTERPRISE QUARTERLY (₵2,736)">ENTERPRISE QUARTERLY - ₵2,736/3 months + 30 days FREE trial</option>
-                                                <option value="ENTERPRISE SEMIANNUALLY (₵5,184)">ENTERPRISE SEMIANNUALLY - ₵5,184/6 months + 30 days FREE trial</option>
-                                                <option value="ENTERPRISE ANNUAL (₵9,600)">ENTERPRISE ANNUAL - ₵9,600/year + 30 days FREE trial</option>
+                                                <!-- Enterprise Plan Options - ₵1600/month -->
+                                                <option value="ENTERPRISE MONTHLY (₵1,600)">ENTERPRISE MONTHLY - ₵1,600/month + 30 days FREE trial</option>
+                                                <option value="ENTERPRISE QUARTERLY (₵4,560)">ENTERPRISE QUARTERLY - ₵4,560/3 months + 30 days FREE trial</option>
+                                                <option value="ENTERPRISE SEMIANNUALLY (₵8,640)">ENTERPRISE SEMIANNUALLY - ₵8,640/6 months + 30 days FREE trial</option>
+                                                <option value="ENTERPRISE ANNUAL (₵16,000)">ENTERPRISE ANNUAL - ₵16,000/year + 30 days FREE trial</option>
+                                                
+                                                <!-- Enterprise Plus Plan Options - ₵2400/month -->
+                                                <option value="ENTERPRISE PLUS MONTHLY (₵2,400)">ENTERPRISE PLUS MONTHLY - ₵2,400/month + 30 days FREE trial</option>
+                                                <option value="ENTERPRISE PLUS QUARTERLY (₵6,840)">ENTERPRISE PLUS QUARTERLY - ₵6,840/3 months + 30 days FREE trial</option>
+                                                <option value="ENTERPRISE PLUS SEMIANNUALLY (₵12,960)">ENTERPRISE PLUS SEMIANNUALLY - ₵12,960/6 months + 30 days FREE trial</option>
+                                                <option value="ENTERPRISE PLUS ANNUAL (₵24,000)">ENTERPRISE PLUS ANNUAL - ₵24,000/year + 30 days FREE trial</option>
                                             </select>
                                         </div>
                                     </div>
