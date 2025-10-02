@@ -604,6 +604,36 @@ URI     : https://colorlib.com
             background: rgba(243, 156, 18, 0.1);
         }
 
+        /* Plan Selection Notification */
+        .plan-selected-notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: linear-gradient(135deg, #284aa7 0%, #2023c9 100%);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(89, 40, 167, 0.3);
+            z-index: 10000;
+            opacity: 0;
+            transform: translateX(400px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .plan-selected-notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .plan-selected-notification i {
+            font-size: 20px;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .modern-pricing-container {
@@ -634,6 +664,14 @@ URI     : https://colorlib.com
             
             .pricing-footer {
                 padding: 1rem 1.5rem 1.5rem;
+            }
+            
+            .plan-selected-notification {
+                top: 80px;
+                right: 10px;
+                left: 10px;
+                font-size: 13px;
+                padding: 14px 18px;
             }
         }
 
@@ -1421,7 +1459,7 @@ URI     : https://colorlib.com
                         </div>
                     </div>
                     <div class="pricing-footer">
-                        <a href="#check-In" class="pricing-btn basic-btn">
+                        <a href="#check-In" class="pricing-btn basic-btn" data-plan="basic" data-users="1–10" data-subscription="BASIC ANNUAL (₵5,000)">
                             <span>Choose Basic Plan</span>
                             <i class="ti-arrow-right"></i>
                         </a>
@@ -1474,7 +1512,7 @@ URI     : https://colorlib.com
                         </div>
                         <div class="feature-item">
                             <i class="ti-home"></i>
-                            <span>Multi-location Support (6)</span>
+                            <span>Multi-location Support (20)</span>
                         </div>
                         <div class="feature-item">
                             <i class="ti-lightbulb"></i>
@@ -1482,12 +1520,12 @@ URI     : https://colorlib.com
                         </div>
                         <div class="feature-item">
                             <i class="ti-user"></i>
-                            <span>Max Users (11-18)</span>
+                            <span>Max Users (19-50)</span>
                         </div>
                     </div>
                     <div class="pricing-footer">
-                        <a href="#check-In" class="pricing-btn professional-btn">
-                            <span>Choose Enterprise</span>
+                        <a href="#check-In" class="pricing-btn enterprise-btn" data-plan="enterprise" data-users="19–50" data-subscription="ENTERPRISE ANNUAL (₵20,000)">
+                            <span>Choose Enterprise Plan</span>
                             <i class="ti-arrow-right"></i>
                         </a>
                     </div>
@@ -1539,7 +1577,7 @@ URI     : https://colorlib.com
                         </div>
                         <div class="feature-item">
                             <i class="ti-home"></i>
-                            <span>Multi-location Support (20)</span>
+                            <span>Multi-location Support (6)</span>
                         </div>
                         <div class="feature-item">
                             <i class="ti-lightbulb"></i>
@@ -1547,12 +1585,12 @@ URI     : https://colorlib.com
                         </div>
                         <div class="feature-item">
                             <i class="ti-user"></i>
-                            <span>Max Users (19-50)</span>
+                            <span>Max Users (11-18)</span>
                         </div>
                     </div>
                     <div class="pricing-footer">
-                        <a href="#check-In" class="pricing-btn enterprise-btn">
-                            <span>Choose Professional</span>
+                        <a href="#check-In" class="pricing-btn professional-btn" data-plan="professional" data-users="11–18" data-subscription="PROFESSIONAL ANNUAL (₵12,000)">
+                            <span>Choose Professional Plan</span>
                             <i class="ti-arrow-right"></i>
                         </a>
                     </div>
@@ -1616,7 +1654,7 @@ URI     : https://colorlib.com
                         </div>
                     </div>
                     <div class="pricing-footer">
-                        <a href="#check-In" class="pricing-btn enterprise-plus-btn">
+                        <a href="#check-In" class="pricing-btn enterprise-plus-btn" data-plan="enterprise-plus" data-users="51+" data-subscription="ENTERPRISE PLUS ANNUAL (₵50,000)">
                             <span>Choose Enterprise Plus</span>
                             <i class="ti-arrow-right"></i>
                         </a>
@@ -2954,6 +2992,112 @@ URI     : https://colorlib.com
                 }
             });
         });
+    });
+    </script>
+
+    <!-- Pricing Plan Auto-Fill Form Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all pricing plan buttons
+        const pricingButtons = document.querySelectorAll('.pricing-btn');
+        
+        // Get form fields
+        const userSelectField = document.getElementById('number_of_users');
+        const subscriptionSelectField = document.getElementById('budget_range');
+        
+        // Function to update form fields immediately
+        function updateFormFields(userRange, subscription) {
+            if (userSelectField) {
+                userSelectField.value = userRange;
+                
+                // Add visual feedback that field was updated
+                userSelectField.style.borderColor = '#28a745';
+                userSelectField.style.backgroundColor = '#f0fff4';
+                userSelectField.style.transition = 'all 0.3s ease';
+                
+                // Remove the highlight after a delay
+                setTimeout(() => {
+                    userSelectField.style.borderColor = '';
+                    userSelectField.style.backgroundColor = '';
+                }, 2000);
+            }
+            
+            if (subscriptionSelectField) {
+                subscriptionSelectField.value = subscription;
+                
+                // Add visual feedback that field was updated
+                subscriptionSelectField.style.borderColor = '#28a745';
+                subscriptionSelectField.style.backgroundColor = '#f0fff4';
+                subscriptionSelectField.style.transition = 'all 0.3s ease';
+                
+                // Remove the highlight after a delay
+                setTimeout(() => {
+                    subscriptionSelectField.style.borderColor = '';
+                    subscriptionSelectField.style.backgroundColor = '';
+                }, 2000);
+            }
+        }
+        
+        // Function to show notification
+        function showPlanSelectedNotification(planName) {
+            // Create notification element if it doesn't exist
+            let notification = document.getElementById('plan-notification');
+            if (!notification) {
+                notification = document.createElement('div');
+                notification.id = 'plan-notification';
+                notification.className = 'plan-selected-notification';
+                notification.innerHTML = '<i class="ti-check-box"></i><span></span>';
+                document.body.appendChild(notification);
+            }
+            
+            // Set the notification text
+            const planText = planName.replace('-', ' ').toUpperCase();
+            notification.querySelector('span').textContent = `${planText} selected! Form updated.`;
+            
+            // Show the notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3500);
+        }
+        
+        pricingButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Get the plan details from data attributes
+                const planType = this.getAttribute('data-plan');
+                const userRange = this.getAttribute('data-users');
+                const subscription = this.getAttribute('data-subscription');
+                
+                // Store the selection in sessionStorage (always update with new values)
+                if (planType && userRange && subscription) {
+                    sessionStorage.setItem('selectedPlan', planType);
+                    sessionStorage.setItem('selectedUsers', userRange);
+                    sessionStorage.setItem('selectedSubscription', subscription);
+                    
+                    // Update form fields immediately if they exist on the page
+                    updateFormFields(userRange, subscription);
+                    
+                    // Show notification
+                    showPlanSelectedNotification(planType);
+                }
+            });
+        });
+        
+        // Auto-populate form fields when the page loads (initial load or refresh)
+        if (userSelectField && subscriptionSelectField) {
+            // Check if there's a stored selection
+            const storedUsers = sessionStorage.getItem('selectedUsers');
+            const storedSubscription = sessionStorage.getItem('selectedSubscription');
+            
+            if (storedUsers && storedSubscription) {
+                // Initial population on page load
+                updateFormFields(storedUsers, storedSubscription);
+            }
+        }
     });
     </script>
 
