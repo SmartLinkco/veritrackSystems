@@ -1,2 +1,7 @@
 paymentPage.html
-code.gs
+systemRequestCode.gs
+.vscode/
+paymentPageCode.gs
+attendancePortalCode.gs
+AttendancePage.html
+VERITRACK_SYSTEM_FEATURES.md
