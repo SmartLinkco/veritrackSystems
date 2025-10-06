@@ -177,10 +177,16 @@ URI     : https://colorlib.com
         /* Modern Pricing Cards Styling */
         .modern-pricing-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin: 2rem 0;
             padding: 0 1rem;
+        }
+
+        @media (max-width: 1200px) {
+            .modern-pricing-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .pricing-card {
@@ -441,6 +447,60 @@ URI     : https://colorlib.com
             box-shadow: 0 5px 15px rgba(254, 202, 87, 0.4);
         }
 
+        /* Enterprise Plus Landscape Layout */
+        @media (min-width: 992px) {
+            .enterprise-plus-card {
+                grid-column: 1 / -1;
+                max-width: 100%;
+                margin-top: 2rem;
+                border: 3px solid transparent;
+                background: linear-gradient(white, white) padding-box,
+                            linear-gradient(135deg, #feca57 0%, #ff9ff3 50%, #a8e6cf 100%) border-box;
+                box-shadow: 0 15px 50px rgba(254, 202, 87, 0.25),
+                            0 0 0 1px rgba(254, 202, 87, 0.1) inset;
+            }
+
+            .enterprise-plus-card:hover {
+                box-shadow: 0 20px 60px rgba(254, 202, 87, 0.35),
+                            0 0 0 1px rgba(254, 202, 87, 0.2) inset;
+            }
+
+            .enterprise-plus-card .pricing-card-inner {
+                display: grid;
+                grid-template-columns: 300px 1fr 280px;
+                gap: 2rem;
+                align-items: start;
+            }
+
+            .enterprise-plus-card .pricing-header {
+                padding: 2rem 1.5rem;
+            }
+
+            .enterprise-plus-card .features-list {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem 1.5rem;
+                padding: 2rem 1.5rem;
+                border-left: 2px solid #f1f3f4;
+                border-right: 2px solid #f1f3f4;
+            }
+
+            .enterprise-plus-card .feature-item {
+                border-bottom: none;
+                padding: 0.5rem 0;
+            }
+
+            .enterprise-plus-card .pricing-footer {
+                display: flex;
+                align-items: center;
+                padding: 2rem 1.5rem;
+            }
+
+            .enterprise-plus-card .card-ribbon {
+                top: 50px;
+            }
+        }
+
         /* Professional card specific styling */
         .professional-card .pricing-header {
             background: linear-gradient(135deg, #e8f2ff 0%, #f0f8ff 100%);
@@ -635,12 +695,24 @@ URI     : https://colorlib.com
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 991px) {
             .modern-pricing-container {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
                 padding: 0 0.5rem;
             }
+
+            .enterprise-plus-card .pricing-card-inner {
+                display: block;
+            }
+
+            .enterprise-plus-card .features-list {
+                display: block;
+                border: none;
+            }
+        }
+
+        @media (max-width: 768px) {
             
             .pricing-card.popular-card {
                 transform: none;
@@ -1519,6 +1591,18 @@ URI     : https://colorlib.com
                             <span>AI Productivity Tips</span>
                         </div>
                         <div class="feature-item">
+                            <i class="ti-reload"></i>
+                            <span>Shift Rotation Management</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-clipboard"></i>
+                            <span>Automated Overall Daily Report</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="ti-medall"></i>
+                            <span>Leaderboard & Recognition System</span>
+                        </div>
+                        <div class="feature-item">
                             <i class="ti-user"></i>
                             <span>Max Users (19-50)</span>
                         </div>
@@ -1584,6 +1668,10 @@ URI     : https://colorlib.com
                             <span>AI Productivity Tips</span>
                         </div>
                         <div class="feature-item">
+                            <i class="ti-reload"></i>
+                            <span>Shift Rotation Management</span>
+                        </div>
+                        <div class="feature-item">
                             <i class="ti-user"></i>
                             <span>Max Users (11-18)</span>
                         </div>
@@ -1601,63 +1689,81 @@ URI     : https://colorlib.com
                     <div class="card-ribbon premium-ribbon">
                         <span>Premium</span>
                     </div>
-                    <div class="pricing-header">
-                        <h3 class="plan-name">ENTERPRISE PLUS</h3>
-                        <div class="price-section">
-                            <div class="old-price">&#8373;8,333/m</div>
-                            <div class="current-price">
-                                <span class="currency">&#8373;</span>
-                                <span class="amount">5,000</span>
-                                <span class="period">/month</span>
-                            </div>
-                            <!-- Yearly Option -->
-                            <div class="yearly-option premium-yearly">
-                                <div class="yearly-badge premium-badge">Save 17%</div>
-                                <div class="yearly-price">
-                                    <span class="yearly-currency">&#8373;</span>
-                                    <span class="yearly-amount">50,000</span>
-                                    <span class="yearly-period">/year</span>
+                    <div class="pricing-card-inner">
+                        <div class="pricing-header">
+                            <h3 class="plan-name">ENTERPRISE PLUS</h3>
+                            <div class="price-section">
+                                <div class="old-price">&#8373;8,333/m</div>
+                                <div class="current-price">
+                                    <span class="currency">&#8373;</span>
+                                    <span class="amount">5,000</span>
+                                    <span class="period">/month</span>
                                 </div>
-                                <div class="yearly-breakdown">Only &#8373;4,167/month</div>
+                                <!-- Yearly Option -->
+                                <div class="yearly-option premium-yearly">
+                                    <div class="yearly-badge premium-badge">Save 17%</div>
+                                    <div class="yearly-price">
+                                        <span class="yearly-currency">&#8373;</span>
+                                        <span class="yearly-amount">50,000</span>
+                                        <span class="yearly-period">/year</span>
+                                    </div>
+                                    <div class="yearly-breakdown">Only &#8373;4,167/month</div>
+                                </div>
+                            </div>
+                            <p class="plan-description">Ultimate solution for enterprises (51+ users)</p>
+                        </div>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <i class="ti-check"></i>
+                                <span>Liveliness Check</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ti-location-pin"></i>
+                                <span>Geofencing Precision (50m)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ti-file"></i>
+                                <span>Automated Reports</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ti-money"></i>
+                                <span>Payroll Sync</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ti-home"></i>
+                                <span>Multi-location Support (21+)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ti-lightbulb"></i>
+                                <span>AI Productivity Tips</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ti-reload"></i>
+                                <span>Shift Rotation Management</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ti-clipboard"></i>
+                                <span>Automated Overall Daily Report</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ti-medall"></i>
+                                <span>Leaderboard & Recognition System</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ti-calendar"></i>
+                                <span>Event Management System</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ti-user"></i>
+                                <span>Max Users (51+)</span>
                             </div>
                         </div>
-                        <p class="plan-description">Ultimate solution for enterprises (51+ users)</p>
-                    </div>
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <i class="ti-check"></i>
-                            <span>Liveliness Check</span>
+                        <div class="pricing-footer">
+                            <a href="#check-In" class="pricing-btn enterprise-plus-btn" data-plan="enterprise-plus" data-users="51+" data-subscription="ENTERPRISE PLUS ANNUAL (₵50,000)">
+                                <span>Choose Enterprise Plus</span>
+                                <i class="ti-arrow-right"></i>
+                            </a>
                         </div>
-                        <div class="feature-item">
-                            <i class="ti-location-pin"></i>
-                            <span>Geofencing Precision (50m)</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="ti-file"></i>
-                            <span>Automated Reports</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="ti-money"></i>
-                            <span>Payroll Sync</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="ti-home"></i>
-                            <span>Multi-location Support (21+)</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="ti-lightbulb"></i>
-                            <span>AI Productivity Tips</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="ti-user"></i>
-                            <span>Max Users (51+)</span>
-                        </div>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#check-In" class="pricing-btn enterprise-plus-btn" data-plan="enterprise-plus" data-users="51+" data-subscription="ENTERPRISE PLUS ANNUAL (₵50,000)">
-                            <span>Choose Enterprise Plus</span>
-                            <i class="ti-arrow-right"></i>
-                        </a>
                     </div>
                 </div>
             </div>
