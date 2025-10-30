@@ -3,5 +3,8 @@ systemRequestCode.gs
 .vscode/
 paymentPageCode.gs
 attendancePortalCode.gs
+unsubscribeHandlerCode.gs
+.gitignore
 AttendancePage.html
 VERITRACK_SYSTEM_FEATURES.md
+docs
