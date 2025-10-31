@@ -288,6 +288,30 @@ URI     : https://colorlib.com
         70% { box-shadow: 0 0 0 10px rgba(74, 144, 226, 0); }
         100% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
       }
+      
+      #languageSelector:hover {
+        background: rgba(255,255,255,1) !important;
+        border-color: rgba(30, 60, 114, 0.6) !important;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      }
+      
+      #languageSelector:focus {
+        background: rgba(255,255,255,1) !important;
+        border-color: rgba(30, 60, 114, 0.8) !important;
+        box-shadow: 0 4px 15px rgba(30, 60, 114, 0.3);
+      }
+      
+      @media (max-width: 768px) {
+        #languageSelectorContainer {
+          bottom: 15px;
+          left: 15px;
+        }
+        #languageSelector {
+          padding: 10px 14px;
+          font-size: 0.85rem;
+        }
+      }
     </style>   
     <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cmbcz1zad0001oelvity1313j"></script>
 </head>
@@ -320,6 +344,21 @@ URI     : https://colorlib.com
             </div>
         </div>
     </div>
+    
+    <!-- Fixed Language Selector -->
+    <div id="languageSelectorContainer" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;">
+      <select id="languageSelector" style="padding: 12px 18px; border-radius: 25px; border: 2px solid rgba(30, 60, 114, 0.3); background: rgba(255,255,255,0.95); color: #1e3c72; font-size: 0.95rem; font-weight: 500; cursor: pointer; backdrop-filter: blur(10px); outline: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+        <option value="en" style="background: #fff; color: #1e3c72;">🌐 English</option>
+        <option value="fr" style="background: #fff; color: #1e3c72;">🇫🇷 Français</option>
+        <option value="es" style="background: #fff; color: #1e3c72;">🇪🇸 Español</option>
+        <option value="de" style="background: #fff; color: #1e3c72;">🇩🇪 Deutsch</option>
+        <option value="pt" style="background: #fff; color: #1e3c72;">🇵🇹 Português</option>
+        <option value="ar" style="background: #fff; color: #1e3c72;">🇸🇦 العربية</option>
+        <option value="zh" style="background: #fff; color: #1e3c72;">🇨🇳 中文</option>
+        <option value="ja" style="background: #fff; color: #1e3c72;">🇯🇵 日本語</option>
+      </select>
+    </div>
+    
     <!-- Demo Live Presentation & Pricing Section Start -->
 
     <!-- Agent Terms & Conditions Interactive Section -->
@@ -347,13 +386,13 @@ URI     : https://colorlib.com
                 <div class="pulse-icon" style="width: 80px; height: 80px; background: linear-gradient(45deg, #4a90e2, #74b9ff); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; animation: pulse 2s infinite;">
                   <i class="ti-info-alt" style="font-size: 32px; color: white;"></i>
                 </div>
-                <h3 style="color: #fff; font-weight: 600; margin-bottom: 15px; font-size: 1.8rem;">
+                <h3 id="agentTermsTitle" style="color: #fff; font-weight: 600; margin-bottom: 15px; font-size: 1.8rem;">
                   Agent Terms & Conditions
                 </h3>
-                <p style="color: #e3e3e3; font-size: 1.1rem; margin-bottom: 0; line-height: 1.6;">
+                <p id="agentTermsSubtitle" style="color: #e3e3e3; font-size: 1.1rem; margin-bottom: 0; line-height: 1.6;">
                   Complete terms and conditions for VeriTrack Agent Program
                 </p>
-                <p style="margin-top: 15px; color: #d1c4e9; font-size: 1.1rem;">Last Updated: <span style="color: #fff;">3rd August, 2025</span></p>
+                <p style="margin-top: 15px; color: #d1c4e9; font-size: 1.1rem;"><span id="lastUpdatedLabel">Last Updated:</span> <span style="color: #fff;">3rd August, 2025</span></p>
               </div>
             </div>
           </div>
@@ -378,7 +417,7 @@ URI     : https://colorlib.com
             </div>
         </div>
         <div class="container" style="max-width: 900px;">
-            <div class="terms-body" style="background: #fff; border-radius: 14px; box-shadow: 0 6px 32px rgba(30,60,114,0.10); padding: 40px 30px; color: #222; font-size: 1.08rem; line-height: 1.7;">
+            <div id="termsBody" class="terms-body" style="background: #fff; border-radius: 14px; box-shadow: 0 6px 32px rgba(30,60,114,0.10); padding: 40px 30px; color: #222; font-size: 1.08rem; line-height: 1.7;">
                 <h2 style="color: #1e3c72; font-size: 1.8rem; margin-bottom: 20px;">VeriTrack Agent Terms and Conditions</h2>
                 <p style="margin-bottom: 20px;">
                     These Agent Terms and Conditions ("Agreement") govern your engagement as an independent agent for VeriTrack Systems. By applying or acting as an agent, you agree to comply with these terms. If you do not agree, do not proceed.
@@ -557,6 +596,181 @@ URI     : https://colorlib.com
     <script src="js/owl.carousel.min.js"></script>
     <!-- Custom JS -->
     <script src="js/script.js"></script>
+    
+    <!-- Translation Script -->
+    <script>
+      // Store original content
+      let originalContent = {};
+      let currentLang = 'en';
+      let isTranslating = false;
+
+      // Save original content on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        originalContent = {
+          title: document.getElementById('agentTermsTitle').innerHTML,
+          subtitle: document.getElementById('agentTermsSubtitle').innerHTML,
+          lastUpdated: document.getElementById('lastUpdatedLabel').innerHTML,
+          body: document.getElementById('termsBody').innerHTML
+        };
+      });
+
+      document.getElementById('languageSelector').addEventListener('change', async function() {
+        const lang = this.value;
+        if (lang === currentLang || isTranslating) return;
+        
+        isTranslating = true;
+        const selector = document.getElementById('languageSelector');
+        selector.disabled = true;
+        selector.style.cursor = 'wait';
+        selector.style.opacity = '0.7';
+        
+        try {
+          if (lang === 'en') {
+            // Restore original English content
+            document.getElementById('agentTermsTitle').innerHTML = originalContent.title;
+            document.getElementById('agentTermsSubtitle').innerHTML = originalContent.subtitle;
+            document.getElementById('lastUpdatedLabel').innerHTML = originalContent.lastUpdated;
+            document.getElementById('termsBody').innerHTML = originalContent.body;
+            
+            // Reset RTL if previously Arabic
+            document.getElementById('termsBody').style.direction = 'ltr';
+            document.getElementById('termsBody').style.textAlign = 'left';
+          } else {
+            // Translate to selected language
+            const success = await translatePage(lang);
+            if (!success) {
+              // Quota exhausted - silently switch back to English
+              selector.value = 'en';
+              currentLang = 'en';
+              document.getElementById('agentTermsTitle').innerHTML = originalContent.title;
+              document.getElementById('agentTermsSubtitle').innerHTML = originalContent.subtitle;
+              document.getElementById('lastUpdatedLabel').innerHTML = originalContent.lastUpdated;
+              document.getElementById('termsBody').innerHTML = originalContent.body;
+              document.getElementById('termsBody').style.direction = 'ltr';
+              document.getElementById('termsBody').style.textAlign = 'left';
+              return;
+            }
+          }
+          currentLang = lang;
+        } catch (error) {
+          console.error('Translation error:', error);
+          // Silently revert to English
+          selector.value = 'en';
+          currentLang = 'en';
+          document.getElementById('agentTermsTitle').innerHTML = originalContent.title;
+          document.getElementById('agentTermsSubtitle').innerHTML = originalContent.subtitle;
+          document.getElementById('lastUpdatedLabel').innerHTML = originalContent.lastUpdated;
+          document.getElementById('termsBody').innerHTML = originalContent.body;
+          document.getElementById('termsBody').style.direction = 'ltr';
+          document.getElementById('termsBody').style.textAlign = 'left';
+        } finally {
+          selector.disabled = false;
+          selector.style.cursor = 'pointer';
+          selector.style.opacity = '1';
+          isTranslating = false;
+        }
+      });
+
+      async function translatePage(targetLang) {
+        const title = document.getElementById('agentTermsTitle');
+        const subtitle = document.getElementById('agentTermsSubtitle');
+        const lastUpdated = document.getElementById('lastUpdatedLabel');
+        const body = document.getElementById('termsBody');
+        
+        // Translate header elements
+        const success1 = await translateElement('agentTermsTitle', originalContent.title, targetLang);
+        if (!success1) return false;
+        
+        const success2 = await translateElement('agentTermsSubtitle', originalContent.subtitle, targetLang);
+        if (!success2) return false;
+        
+        const success3 = await translateElement('lastUpdatedLabel', originalContent.lastUpdated, targetLang);
+        if (!success3) return false;
+        
+        // Translate body content
+        const translatedBody = await translateHTML(originalContent.body, targetLang);
+        if (!translatedBody) return false;
+        
+        body.innerHTML = translatedBody;
+        
+        // Handle RTL for Arabic
+        if (targetLang === 'ar') {
+          body.style.direction = 'rtl';
+          body.style.textAlign = 'right';
+        } else {
+          body.style.direction = 'ltr';
+          body.style.textAlign = 'left';
+        }
+        
+        return true;
+      }
+
+      async function translateElement(elementId, text, targetLang) {
+        const translated = await translateText(text, targetLang);
+        if (!translated) return false;
+        document.getElementById(elementId).innerHTML = translated;
+        return true;
+      }
+
+      async function translateText(text, targetLang) {
+        try {
+          const cleanText = text.replace(/<[^>]*>/g, '').trim();
+          const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(cleanText)}&langpair=en|${targetLang}`);
+          const data = await response.json();
+          
+          // Check for quota exceeded error
+          if (data.responseStatus === 403 || data.responseStatus === 429 || 
+              (data.responseData && data.responseData.translatedText && 
+               data.responseData.translatedText.includes('MYMEMORY WARNING'))) {
+            console.log('Translation quota exhausted');
+            return null;
+          }
+          
+          return data.responseData.translatedText || text;
+        } catch (error) {
+          console.error('Translation API error:', error);
+          return null;
+        }
+      }
+
+      async function translateHTML(html, targetLang) {
+        const temp = document.createElement('div');
+        temp.innerHTML = html;
+        
+        // Walk through all text nodes
+        const walker = document.createTreeWalker(temp, NodeFilter.SHOW_TEXT, null, false);
+        const textNodes = [];
+        let node;
+        while (node = walker.nextNode()) {
+          if (node.nodeValue.trim().length > 0) {
+            textNodes.push(node);
+          }
+        }
+        
+        // Translate in batches of 5 for performance
+        const batchSize = 5;
+        for (let i = 0; i < textNodes.length; i += batchSize) {
+          const batch = textNodes.slice(i, i + batchSize);
+          const results = await Promise.all(batch.map(async (node) => {
+            const originalText = node.nodeValue.trim();
+            if (originalText && originalText.length > 0) {
+              const translated = await translateText(originalText, targetLang);
+              if (!translated) return false; // Quota exhausted
+              node.nodeValue = node.nodeValue.replace(originalText, translated);
+              return true;
+            }
+            return true;
+          }));
+          
+          // If any translation failed, return null to indicate failure
+          if (results.includes(false)) {
+            return null;
+          }
+        }
+        
+        return temp.innerHTML;
+      }
+    </script>
 
 </body>
 

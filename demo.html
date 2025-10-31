@@ -288,6 +288,30 @@ URI     : https://colorlib.com
         70% { box-shadow: 0 0 0 10px rgba(74, 144, 226, 0); }
         100% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
       }
+      
+      #languageSelector:hover {
+        background: rgba(255,255,255,1) !important;
+        border-color: rgba(30, 60, 114, 0.6) !important;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      }
+      
+      #languageSelector:focus {
+        background: rgba(255,255,255,1) !important;
+        border-color: rgba(30, 60, 114, 0.8) !important;
+        box-shadow: 0 4px 15px rgba(30, 60, 114, 0.3);
+      }
+      
+      @media (max-width: 768px) {
+        #languageSelectorContainer {
+          bottom: 15px;
+          left: 15px;
+        }
+        #languageSelector {
+          padding: 10px 14px;
+          font-size: 0.85rem;
+        }
+      }
     </style>   
     <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cmbcz1zad0001oelvity1313j"></script>
 </head>
@@ -320,6 +344,21 @@ URI     : https://colorlib.com
             </div>
         </div>
     </div>
+    
+    <!-- Fixed Language Selector -->
+    <div id="languageSelectorContainer" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;">
+      <select id="languageSelector" style="padding: 12px 18px; border-radius: 25px; border: 2px solid rgba(30, 60, 114, 0.3); background: rgba(255,255,255,0.95); color: #1e3c72; font-size: 0.95rem; font-weight: 500; cursor: pointer; backdrop-filter: blur(10px); outline: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+        <option value="en" style="background: #fff; color: #1e3c72;">🌐 English</option>
+        <option value="fr" style="background: #fff; color: #1e3c72;">🇫🇷 Français</option>
+        <option value="es" style="background: #fff; color: #1e3c72;">🇪🇸 Español</option>
+        <option value="de" style="background: #fff; color: #1e3c72;">🇩🇪 Deutsch</option>
+        <option value="pt" style="background: #fff; color: #1e3c72;">🇵🇹 Português</option>
+        <option value="ar" style="background: #fff; color: #1e3c72;">🇸🇦 العربية</option>
+        <option value="zh" style="background: #fff; color: #1e3c72;">🇨🇳 中文</option>
+        <option value="ja" style="background: #fff; color: #1e3c72;">🇯🇵 日本語</option>
+      </select>
+    </div>
+    
     <!-- Demo Live Presentation & Pricing Section Start -->
 
     <!-- How to Test the System Popup -->
@@ -596,10 +635,10 @@ URI     : https://colorlib.com
                 <div class="pulse-icon" style="width: 80px; height: 80px; background: linear-gradient(45deg, #4a90e2, #74b9ff); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; animation: pulse 2s infinite;">
                   <i class="ti-desktop" style="font-size: 32px; color: white;"></i>
                 </div>
-                <h3 style="color: #fff; font-weight: 600; margin-bottom: 15px; font-size: 1.8rem;">
+                <h3 id="demoTitle" style="color: #fff; font-weight: 600; margin-bottom: 15px; font-size: 1.8rem;">
                   VeriTrack Live Demo
                 </h3>
-                <p style="color: #e3e3e3; font-size: 1.1rem; margin-bottom: 0; line-height: 1.6;">
+                <p id="demoSubtitle" style="color: #e3e3e3; font-size: 1.1rem; margin-bottom: 0; line-height: 1.6;">
                   Experience our attendance management system in action
                 </p>
               </div>
@@ -952,6 +991,117 @@ URI     : https://colorlib.com
     function selectPlan(plan, amount) {
       window.location.href = "index.html?#check-In";
     }
+    </script>
+    
+    <!-- Translation Script -->
+    <script>
+      let originalContent = {};
+      let currentLang = 'en';
+      let isTranslating = false;
+
+      document.addEventListener('DOMContentLoaded', function() {
+        originalContent = {
+          demoTitle: document.getElementById('demoTitle') ? document.getElementById('demoTitle').innerHTML : '',
+          demoSubtitle: document.getElementById('demoSubtitle') ? document.getElementById('demoSubtitle').innerHTML : ''
+        };
+      });
+
+      document.getElementById('languageSelector').addEventListener('change', async function() {
+        const lang = this.value;
+        if (lang === currentLang || isTranslating) return;
+        
+        isTranslating = true;
+        const selector = document.getElementById('languageSelector');
+        selector.disabled = true;
+        selector.style.cursor = 'wait';
+        selector.style.opacity = '0.7';
+        
+        try {
+          if (lang === 'en') {
+            if (document.getElementById('demoTitle')) {
+              document.getElementById('demoTitle').innerHTML = originalContent.demoTitle;
+            }
+            if (document.getElementById('demoSubtitle')) {
+              document.getElementById('demoSubtitle').innerHTML = originalContent.demoSubtitle;
+            }
+          } else {
+            const success = await translatePage(lang);
+            if (!success) {
+              // Quota exhausted - silently switch back to English
+              selector.value = 'en';
+              currentLang = 'en';
+              if (document.getElementById('demoTitle')) {
+                document.getElementById('demoTitle').innerHTML = originalContent.demoTitle;
+              }
+              if (document.getElementById('demoSubtitle')) {
+                document.getElementById('demoSubtitle').innerHTML = originalContent.demoSubtitle;
+              }
+              selector.disabled = false;
+              selector.style.cursor = 'pointer';
+              selector.style.opacity = '1';
+              isTranslating = false;
+              return;
+            }
+          }
+          currentLang = lang;
+        } catch (error) {
+          console.error('Translation error:', error);
+          // Silently revert to English
+          selector.value = 'en';
+          currentLang = 'en';
+          if (document.getElementById('demoTitle')) {
+            document.getElementById('demoTitle').innerHTML = originalContent.demoTitle;
+          }
+          if (document.getElementById('demoSubtitle')) {
+            document.getElementById('demoSubtitle').innerHTML = originalContent.demoSubtitle;
+          }
+        } finally {
+          selector.disabled = false;
+          selector.style.cursor = 'pointer';
+          selector.style.opacity = '1';
+          isTranslating = false;
+        }
+      });
+
+      async function translatePage(targetLang) {
+        if (document.getElementById('demoTitle')) {
+          const success1 = await translateElement('demoTitle', originalContent.demoTitle, targetLang);
+          if (!success1) return false;
+        }
+        if (document.getElementById('demoSubtitle')) {
+          const success2 = await translateElement('demoSubtitle', originalContent.demoSubtitle, targetLang);
+          if (!success2) return false;
+        }
+        return true;
+      }
+
+      async function translateElement(elementId, text, targetLang) {
+        const translated = await translateText(text, targetLang);
+        if (!translated) return false;
+        document.getElementById(elementId).innerHTML = translated;
+        return true;
+      }
+
+      async function translateText(text, targetLang) {
+        try {
+          const cleanText = text.replace(/<[^>]*>/g, '').trim();
+          const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(cleanText)}&langpair=en|${targetLang}`);
+          const data = await response.json();
+          
+          // Check for quota exceeded error
+          if (data.responseStatus === 403 || data.responseStatus === 429 || 
+              (data.responseData && data.responseData.translatedText && 
+               data.responseData.translatedText.includes('MYMEMORY WARNING'))) {
+            console.log('Translation quota exhausted');
+            return null;
+          }
+          
+          return data.responseData.translatedText || text;
+        } catch (error) {
+          console.error('Translation API error:', error);
+          return null;
+        }
+      }
     </script>
 
 </body>
