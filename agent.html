@@ -328,18 +328,6 @@ URI     : https://colorlib.com
                   <li class="nav-item"> <a class="nav-link" href="index.html?#team">OUR TEAM</a> </li>
                   <li class="nav-item"> <a class="nav-link" href="#contact">CONTACT</a> </li>
                   <li class="nav-item"><a href="index.html?#check-In" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Free Trial</a></li>
-                  <li class="nav-item ml-lg-2">
-                    <select id="languageSelector" style="padding: 8px 15px; border-radius: 20px; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.15); color: #fff; font-size: 0.9rem; cursor: pointer; backdrop-filter: blur(5px); outline: none; transition: all 0.3s ease;">
-                      <option value="en" style="background: #1e3c72; color: #fff;">English</option>
-                      <option value="fr" style="background: #1e3c72; color: #fff;">Français</option>
-                      <option value="es" style="background: #1e3c72; color: #fff;">Español</option>
-                      <option value="de" style="background: #1e3c72; color: #fff;">Deutsch</option>
-                      <option value="pt" style="background: #1e3c72; color: #fff;">Português</option>
-                      <option value="ar" style="background: #1e3c72; color: #fff;">العربية</option>
-                      <option value="zh" style="background: #1e3c72; color: #fff;">中文</option>
-                      <option value="ja" style="background: #1e3c72; color: #fff;">日本語</option>
-                    </select>
-                  </li>
                 </ul>
               </div>
             </nav>
@@ -800,7 +788,7 @@ URI     : https://colorlib.com
                         <p style="color: #e3e3e3;">Register as an agent, receive an Agent ID and earn on every referral you make.</p>
                     </div>
                     <div class="section-content">
-                        <form id="agent_registration_form" class="form-body" action="https://script.google.com/macros/s/AKfycbw2CCCEg3GNYQeHodM8amzfjzhEhznSlRmJqq-tnpc6iV5LPh9Tk7VQlMKlTSxE7bZS/exec" method="POST" style="background: #fff; padding: 32px 24px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.07);">
+                        <form id="agent_registration_form" class="form-body" action="https://script.google.com/macros/s/AKfycbzQGL7Y3FhfaRD5LhN8KKaVqvBVNI0QGwdQI4I2S1CvkkO4ovrv5ZLEWGMQoFccFNKK/exec" method="POST" style="background: #fff; padding: 32px 24px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.07);">
                             <!-- Agent Details -->
                             <input type="hidden" name="form-type" value="agent-registration">
                             <h5 class="mb-3" style="color:#010911;">1. Agent Details</h5>
@@ -1708,7 +1696,7 @@ URI     : https://colorlib.com
             const script = document.createElement('script');
 
             // Build the check email URL
-            const url = new URL('https://script.google.com/macros/s/AKfycbw2CCCEg3GNYQeHodM8amzfjzhEhznSlRmJqq-tnpc6iV5LPh9Tk7VQlMKlTSxE7bZS/exec');
+            const url = new URL('https://script.google.com/macros/s/AKfycbzQGL7Y3FhfaRD5LhN8KKaVqvBVNI0QGwdQI4I2S1CvkkO4ovrv5ZLEWGMQoFccFNKK/exec');
             url.searchParams.set('callback', callbackName);
             url.searchParams.set('action', 'checkAgentEmail');
             url.searchParams.set('email', email);
