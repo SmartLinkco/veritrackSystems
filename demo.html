@@ -758,7 +758,7 @@ URI     : https://colorlib.com
             ">Real-time attendance tracking with GPS verification and instant data sync</p>
             
             <!-- Action Button -->
-            <a href="https://script.google.com/macros/s/AKfycbw7Dy42zXMgFd5Xz8yDO_i4TXDvI7lTsdDRUF-511SyUDd9SoNeyJPiorBZvlsa-jUT/exec" class="btn-portal" style="
+            <a href="https://portals.veritrack.cloud/yourcompany" class="btn-portal" style="
               background: linear-gradient(135deg, var(--primary-dark), var(--accent));
               color: white;
               border: none;
@@ -798,7 +798,7 @@ URI     : https://colorlib.com
           <div class="col-md-6 mb-4">
             <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px;">
               <h5 class="text-center mb-3">Demo Registration Form</h5>
-              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfiz3pweUJXoEX4ZszphM5TqDBUy7s55K4b2kxyU2mgoIfN1g/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="border:none;">Loading…</iframe>
+              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeocqzS0V9AX2x8sC8MfJC7Igxrml4pcjgy3AwkIlaqvRtvCQ/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
             <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 20px; margin-top: 30px;">
               <h5 class="text-center mb-3">Registered Staff Members</h5>
@@ -926,8 +926,8 @@ URI     : https://colorlib.com
     <!-- Custom JS -->
     <script src="js/script.js"></script>
     <script>
-    const CSV_URL = 'https://docs.google.com/spreadsheets/d/1hsf_qZxCKIAJVy2HZ0IhzEWT4xod555gS8ODtpCgQMY/gviz/tq?tqx=out:csv&sheet=Attendance Logs';
-    const STAFF_CSV_URL = 'https://docs.google.com/spreadsheets/d/1hsf_qZxCKIAJVy2HZ0IhzEWT4xod555gS8ODtpCgQMY/gviz/tq?tqx=out:csv&sheet=Staff Members';
+    const CSV_URL = 'https://docs.google.com/spreadsheets/d/1oQelaVnXickUDtQaOfZGUv3E8yR-BGQw9nza1Ijj-ns/gviz/tq?tqx=out:csv&sheet=Attendance Logs';
+    const STAFF_CSV_URL = 'https://docs.google.com/spreadsheets/d/1oQelaVnXickUDtQaOfZGUv3E8yR-BGQw9nza1Ijj-ns/gviz/tq?tqx=out:csv&sheet=Staff Members';
     function csvToArray(str, delimiter = ",") {
       const rows = str.trim().split("\n");
       return rows.map(row => {
@@ -950,7 +950,7 @@ URI     : https://colorlib.com
                 <td>${arr[i][2] || ''}</td>
                 <td>${arr[i][3] || ''}</td>
                 <td>${arr[i][4] || ''}</td>
-                <td>${arr[i][10] || ''}</td>
+                <td>${arr[i][11] || ''}</td>
                 </tr>`;
             }
           } else {
