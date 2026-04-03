@@ -528,7 +528,19 @@
     var foot =
       'Estimate only. Final pricing is subject to agreement with VeriTrack Systems.';
     var footLines = doc.splitTextToSize(foot, pageW - 2 * margin);
-    doc.text(footLines, margin, y);
+    var wrapLine = 3.6;
+    for (var fi = 0; fi < footLines.length; fi++) {
+      doc.text(footLines[fi], margin, y + fi * wrapLine);
+    }
+    y += footLines.length * wrapLine + 6;
+
+    doc.setTextColor(75, 85, 95);
+    var baselineRef =
+      'Baseline reference: GHS 400 covers 4 branches and 20 staff; GHS 100 per office or branch; 5 staff included per location; GHS 10 per additional staff.';
+    var baseLines = doc.splitTextToSize(baselineRef, pageW - 2 * margin);
+    for (var bi = 0; bi < baseLines.length; bi++) {
+      doc.text(baseLines[bi], margin, y + bi * wrapLine);
+    }
 
     doc.save('VeriTrack-Systems-Pricing-Quote.pdf');
   }
