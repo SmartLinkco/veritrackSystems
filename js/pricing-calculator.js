@@ -36,6 +36,80 @@
     return r ? r.value : 'avg';
   }
 
+  function getBillingPeriod() {
+    var r = form.querySelector('input[name="billingPeriod"]:checked');
+    return r ? r.value : 'monthly';
+  }
+
+  /**
+   * Long-term prepay pricing vs paying the monthly rate each month:
+   * - Quarterly: pay 2.5 months (save ½ month vs 3× monthly)
+   * - Semi-annual: pay 5 months (save 1 month vs 6× monthly)
+   * - Annual: pay 10 months (save 2 months vs 12× monthly)
+   */
+  function computeBillingPeriod(monthlyFee, period) {
+    var M = monthlyFee;
+    var key = period || 'monthly';
+    var months = 1;
+    var fullRollup = M;
+    var prepaid = M;
+
+    if (key === 'quarterly') {
+      months = 3;
+      fullRollup = M * 3;
+      prepaid = M * 2.5;
+    } else if (key === 'semi') {
+      months = 6;
+      fullRollup = M * 6;
+      prepaid = M * 5;
+    } else if (key === 'annual') {
+      months = 12;
+      fullRollup = M * 12;
+      prepaid = M * 10;
+    }
+
+    var savings = Math.round(fullRollup - prepaid);
+    var prepaidRounded = Math.round(prepaid);
+    var effectiveMonthly = months > 0 ? prepaidRounded / months : 0;
+
+    var meta = {
+      monthly: {
+        name: 'Monthly',
+        detail: 'Pay each month — standard monthly rate',
+        summaryLabel: 'Amount due (monthly)'
+      },
+      quarterly: {
+        name: 'Quarterly',
+        detail: 'Prepay 3 months at 2.5× monthly (save ½ month vs 3 separate months)',
+        summaryLabel: 'Amount due (quarterly)'
+      },
+      semi: {
+        name: 'Semi-annual',
+        detail: 'Prepay 6 months at 5× monthly (save 1 month vs 6 separate months)',
+        summaryLabel: 'Amount due (semi-annual)'
+      },
+      annual: {
+        name: 'Annual',
+        detail: 'Prepay 12 months at 10× monthly (save 2 months vs 12 separate months)',
+        summaryLabel: 'Amount due (annual)'
+      }
+    };
+
+    var m = meta[key] || meta.monthly;
+
+    return {
+      periodKey: key,
+      periodName: m.name,
+      periodDetail: m.detail,
+      summaryLabel: m.summaryLabel,
+      monthsCovered: months,
+      fullRollup: Math.round(fullRollup),
+      prepaidTotal: prepaidRounded,
+      savings: savings,
+      effectiveMonthly: Math.round(effectiveMonthly)
+    };
+  }
+
   function compute(branches, actualBranchStaff) {
     var baseBranchCost = branches * COST_PER_BRANCH;
     var coveredStaff = branches * STAFF_PER_BRANCH;
@@ -253,9 +327,19 @@
   }
 
   function render(r) {
+    var bill = r.billing;
+
     els.summaryBranches.textContent = String(r.branches);
     els.summaryStaff.textContent = String(r.totalStaff);
-    els.summaryPrice.textContent = formatGHS(r.finalMonthly);
+    els.summaryPeriodLabel.textContent = bill.summaryLabel;
+    els.summaryPrice.textContent = formatGHS(bill.prepaidTotal);
+    if (bill.savings > 0) {
+      els.summarySavings.textContent = 'Save ' + formatGHS(bill.savings) + ' vs paying month-by-month for this period';
+      els.summarySavings.classList.remove('d-none');
+    } else {
+      els.summarySavings.textContent = '';
+      els.summarySavings.classList.add('d-none');
+    }
 
     els.lineBaseBranch.textContent = formatGHS(r.baseBranchCost);
     els.lineExtraBranch.textContent = formatGHS(r.extraBranchStaffCost);
@@ -264,13 +348,35 @@
         ? '(' + r.extraBranchStaff + ' additional staff × ' + formatGHS(STAFF_EXTRA_COST) + ')'
         : 'No additional staff beyond included allowance per office or branch';
 
-    els.lineTotal.textContent = formatGHS(r.finalMonthly);
+    els.lineMonthlyBase.textContent = formatGHS(r.finalMonthly);
+    els.lineBillingName.textContent = bill.periodName;
+    els.lineBillingDetail.textContent = bill.periodDetail;
+    els.lineSavingsAmount.textContent = formatGHS(bill.savings);
+    els.lineSavingsDetail.textContent =
+      bill.savings > 0
+        ? 'Compared to ' + bill.monthsCovered + ' × ' + formatGHS(r.finalMonthly) + ' if billed monthly'
+        : 'No prepayment discount on monthly billing';
+    els.lineEffectiveMonthly.textContent = formatGHS(bill.effectiveMonthly);
+    els.lineEffectiveDetail.textContent =
+      bill.periodKey === 'monthly'
+        ? 'Same as base when billed monthly'
+        : 'Prepayment ÷ ' + bill.monthsCovered + ' months';
+
+    if (els.rowSavings) {
+      els.rowSavings.classList.toggle('pc-breakdown-row--savings', bill.savings > 0);
+    }
+
+    els.lineTotal.textContent = formatGHS(bill.prepaidTotal);
 
     els.pdfBranches.textContent = String(r.branches);
     els.pdfStaff.textContent = String(r.totalStaff);
-    els.pdfTotal.textContent = formatGHS(r.finalMonthly);
+    els.pdfTotal.textContent = formatGHS(bill.prepaidTotal);
     els.pdfBaseBranch.textContent = formatGHS(r.baseBranchCost);
     els.pdfExtraBranch.textContent = formatGHS(r.extraBranchStaffCost);
+    els.pdfMonthlyBase.textContent = formatGHS(r.finalMonthly);
+    els.pdfBillingPeriod.textContent = bill.periodName;
+    els.pdfSavings.textContent = formatGHS(bill.savings);
+    els.pdfEffective.textContent = formatGHS(bill.effectiveMonthly);
     els.pdfDate.textContent = new Date().toLocaleDateString('en-GB', {
       year: 'numeric',
       month: 'long',
@@ -284,7 +390,8 @@
       return;
     }
     var inputs = compute(v.branches, v.actualBranchStaff);
-    var out = Object.assign({ branches: v.branches }, inputs);
+    var billing = computeBillingPeriod(inputs.finalMonthly, getBillingPeriod());
+    var out = Object.assign({ branches: v.branches, billing: billing }, inputs);
     render(out);
   }
 
@@ -440,22 +547,42 @@
 
     els.summaryBranches = document.getElementById('summary-branches');
     els.summaryStaff = document.getElementById('summary-staff');
+    els.summaryPeriodLabel = document.getElementById('summary-period-label');
     els.summaryPrice = document.getElementById('summary-price');
+    els.summarySavings = document.getElementById('summary-savings');
 
     els.lineBaseBranch = document.getElementById('line-base-branch');
     els.lineExtraBranch = document.getElementById('line-extra-branch');
     els.lineExtraBranchDetail = document.getElementById('line-extra-branch-detail');
+    els.lineMonthlyBase = document.getElementById('line-monthly-base');
+    els.lineBillingName = document.getElementById('line-billing-name');
+    els.lineBillingDetail = document.getElementById('line-billing-detail');
+    els.lineSavingsAmount = document.getElementById('line-savings-amount');
+    els.lineSavingsDetail = document.getElementById('line-savings-detail');
+    els.lineEffectiveMonthly = document.getElementById('line-effective-monthly');
+    els.lineEffectiveDetail = document.getElementById('line-effective-detail');
     els.lineTotal = document.getElementById('line-total');
+    els.rowSavings = document.getElementById('row-savings');
 
     els.pdfBranches = document.getElementById('pdf-branches');
     els.pdfStaff = document.getElementById('pdf-staff');
     els.pdfTotal = document.getElementById('pdf-total');
     els.pdfBaseBranch = document.getElementById('pdf-base-branch');
     els.pdfExtraBranch = document.getElementById('pdf-extra-branch');
+    els.pdfMonthlyBase = document.getElementById('pdf-monthly-base');
+    els.pdfBillingPeriod = document.getElementById('pdf-billing-period');
+    els.pdfSavings = document.getElementById('pdf-savings');
+    els.pdfEffective = document.getElementById('pdf-effective');
     els.pdfDate = document.getElementById('pdf-date');
 
     form.querySelectorAll('input[name="staffEntryMode"]').forEach(function (radio) {
       radio.addEventListener('change', onStaffModeChange);
+    });
+
+    form.querySelectorAll('input[name="billingPeriod"]').forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        run(false);
+      });
     });
 
     els.branches.addEventListener('input', onBranchesChange);

@@ -339,6 +339,124 @@
             display: none !important;
         }
 
+        /* Billing period selector (compact cards) */
+        .pc-billing-mode {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 576px) {
+            .pc-billing-mode {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .pc-billing-mode__option {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .pc-billing-mode__input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .pc-billing-mode__card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0.65rem 0.4rem;
+            min-height: 4.5rem;
+            border-radius: 12px;
+            border: 2px solid #e2eaf3;
+            background: linear-gradient(180deg, #fff 0%, #f8fbff 100%);
+            box-shadow: 0 2px 6px rgba(30, 60, 114, 0.05);
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .pc-billing-mode__option:hover .pc-billing-mode__card {
+            border-color: rgba(74, 144, 226, 0.4);
+        }
+
+        .pc-billing-mode__input:focus-visible + .pc-billing-mode__card {
+            outline: 2px solid var(--pc-accent);
+            outline-offset: 2px;
+        }
+
+        .pc-billing-mode__input:checked + .pc-billing-mode__card {
+            border-color: var(--pc-primary-mid);
+            background: linear-gradient(180deg, rgba(42, 82, 152, 0.07) 0%, rgba(52, 152, 219, 0.09) 100%);
+            box-shadow: 0 4px 12px rgba(42, 82, 152, 0.12);
+        }
+
+        .pc-billing-mode__title {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--pc-primary-dark);
+            line-height: 1.2;
+        }
+
+        .pc-billing-mode__desc {
+            font-size: 0.68rem;
+            color: #8898a8;
+            margin-top: 0.2rem;
+            line-height: 1.25;
+        }
+
+        .pc-billing-mode__save {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #1a7f4c;
+            margin-top: 0.35rem;
+            padding: 0.15rem 0.35rem;
+            border-radius: 6px;
+            background: rgba(26, 127, 76, 0.12);
+        }
+
+        .pc-billing-mode__save.pc-billing-mode__save--none {
+            color: #8898a8;
+            background: rgba(136, 152, 168, 0.12);
+            font-weight: 500;
+        }
+
+        .pc-summary-save {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.95);
+            margin-top: 0.5rem;
+            padding: 0.35rem 0.65rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .pc-summary-save.d-none {
+            display: none !important;
+        }
+
+        .pc-breakdown-divider {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #8898a8;
+            margin: 1rem 0 0.5rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed #dde5ef;
+        }
+
+        .pc-breakdown-row--savings .pc-breakdown-detail {
+            color: #1a7f4c;
+        }
+
         .pc-btn-calc {
             border-radius: 25px;
             padding: 0.65rem 1.75rem;
@@ -573,8 +691,9 @@
                                     <div class="pc-stat-value" id="summary-staff">0</div>
                                 </div>
                                 <div class="col-12 pc-stat mt-3 pt-2" style="border-top: 1px solid rgba(255,255,255,0.2);">
-                                    <div class="pc-stat-label">Final monthly subscription</div>
+                                    <div class="pc-stat-label" id="summary-period-label">Amount due (monthly)</div>
                                     <div class="pc-stat-value pc-price" id="summary-price">GHS 0</div>
+                                    <div id="summary-savings" class="pc-summary-save d-none" role="status"></div>
                                 </div>
                             </div>
                         </div>
@@ -629,6 +748,44 @@
                                         <div id="per-branch-staff-list" class="pc-per-branch-list" aria-live="polite"></div>
                                         <small class="form-text text-muted">Enter the number of staff at each location. Totals feed into the same pricing rules as average mode.</small>
                                     </div>
+                                    <div class="form-group">
+                                        <span class="pc-form-label d-block mb-2">Billing period</span>
+                                        <div class="pc-billing-mode" role="radiogroup" aria-label="Billing period">
+                                            <label class="pc-billing-mode__option">
+                                                <input class="pc-billing-mode__input" type="radio" name="billingPeriod" id="bill-monthly" value="monthly" checked>
+                                                <span class="pc-billing-mode__card">
+                                                    <span class="pc-billing-mode__title">Monthly</span>
+                                                    <span class="pc-billing-mode__desc">Pay each month</span>
+                                                    <span class="pc-billing-mode__save pc-billing-mode__save--none">Standard rate</span>
+                                                </span>
+                                            </label>
+                                            <label class="pc-billing-mode__option">
+                                                <input class="pc-billing-mode__input" type="radio" name="billingPeriod" id="bill-quarterly" value="quarterly">
+                                                <span class="pc-billing-mode__card">
+                                                    <span class="pc-billing-mode__title">Quarterly</span>
+                                                    <span class="pc-billing-mode__desc">Every 3 months</span>
+                                                    <span class="pc-billing-mode__save">Save ½ mo</span>
+                                                </span>
+                                            </label>
+                                            <label class="pc-billing-mode__option">
+                                                <input class="pc-billing-mode__input" type="radio" name="billingPeriod" id="bill-semi" value="semi">
+                                                <span class="pc-billing-mode__card">
+                                                    <span class="pc-billing-mode__title">Semi-annual</span>
+                                                    <span class="pc-billing-mode__desc">Every 6 months</span>
+                                                    <span class="pc-billing-mode__save">Save 1 mo</span>
+                                                </span>
+                                            </label>
+                                            <label class="pc-billing-mode__option">
+                                                <input class="pc-billing-mode__input" type="radio" name="billingPeriod" id="bill-annual" value="annual">
+                                                <span class="pc-billing-mode__card">
+                                                    <span class="pc-billing-mode__title">Annual</span>
+                                                    <span class="pc-billing-mode__desc">12 months prepaid</span>
+                                                    <span class="pc-billing-mode__save">Save 2 mo</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                        <small class="form-text text-muted mt-2 d-block">Longer plans are priced below month-by-month totals. Annual billing saves the equivalent of <strong>two months</strong> of the monthly subscription.</small>
+                                    </div>
                                     <div class="d-flex flex-wrap align-items-center mt-4 pt-2 pc-no-print">
                                         <button type="button" class="btn btn-primary pc-btn-calc mr-2 mb-2" id="btn-calculate">Calculate price</button>
                                         <button type="button" class="btn pc-btn-outline mb-2" id="btn-download-pdf">
@@ -659,8 +816,37 @@
                                     </div>
                                     <span id="line-extra-branch">GHS 0</span>
                                 </div>
+                                <div class="pc-breakdown-divider">Subscription &amp; billing</div>
                                 <div class="pc-breakdown-row">
-                                    <span>Final monthly subscription</span>
+                                    <div>
+                                        Monthly subscription (base)
+                                        <div class="pc-breakdown-detail">Before long-term billing discounts</div>
+                                    </div>
+                                    <span id="line-monthly-base">GHS 0</span>
+                                </div>
+                                <div class="pc-breakdown-row">
+                                    <div>
+                                        Billing period
+                                        <div class="pc-breakdown-detail" id="line-billing-detail">Monthly — pay each month</div>
+                                    </div>
+                                    <span id="line-billing-name">Monthly</span>
+                                </div>
+                                <div class="pc-breakdown-row pc-breakdown-row--savings" id="row-savings">
+                                    <div>
+                                        Savings vs paying monthly
+                                        <div class="pc-breakdown-detail" id="line-savings-detail">No prepayment discount on monthly billing</div>
+                                    </div>
+                                    <span id="line-savings-amount">GHS 0</span>
+                                </div>
+                                <div class="pc-breakdown-row">
+                                    <div>
+                                        Effective monthly
+                                        <div class="pc-breakdown-detail" id="line-effective-detail">Same as base when billed monthly</div>
+                                    </div>
+                                    <span id="line-effective-monthly">GHS 0</span>
+                                </div>
+                                <div class="pc-breakdown-row">
+                                    <span>Amount due for selected period</span>
                                     <span id="line-total">GHS 0</span>
                                 </div>
                             </div>
@@ -691,8 +877,24 @@
                 <td>Additional staff (offices / branches)</td>
                 <td id="pdf-extra-branch">GHS 0</td>
             </tr>
+            <tr>
+                <td>Monthly subscription (base)</td>
+                <td id="pdf-monthly-base">GHS 0</td>
+            </tr>
+            <tr>
+                <td>Billing period</td>
+                <td id="pdf-billing-period">Monthly</td>
+            </tr>
+            <tr>
+                <td>Savings vs monthly billing</td>
+                <td id="pdf-savings">GHS 0</td>
+            </tr>
+            <tr>
+                <td>Effective monthly</td>
+                <td id="pdf-effective">GHS 0</td>
+            </tr>
             <tr class="pc-pdf-total">
-                <td>Final monthly subscription</td>
+                <td>Amount due (selected period)</td>
                 <td id="pdf-total">GHS 0</td>
             </tr>
         </table>
