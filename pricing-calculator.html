@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pricing Calculator | VeriTrack Systems</title>
+    <meta name="description" content="Estimate your VeriTrack Systems monthly subscription for multi-branch enterprise operations.">
+    <meta name="author" content="VeriTrack Systems">
+    <link rel="icon" type="image/jpg" sizes="16x16" href="images/VT linkedin.jpg">
+    <meta name="theme-color" content="#1e3c72">
+
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --pc-primary-dark: #1e3c72;
+            --pc-primary-mid: #2a5298;
+            --pc-primary-light: #3498db;
+            --pc-accent: #4a90e2;
+            --pc-card-shadow: 0 10px 40px rgba(30, 60, 114, 0.12);
+            --pc-radius: 16px;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3c72 0%, #3498db 100%);
+            color: #fff;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .pc-page {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #f0f6ff 0%, #f8fbff 40%, #eef4fc 100%);
+        }
+
+        /* Clear fixed header (nav + gradient padding + logo) */
+        .pc-hero {
+            padding-top: max(10rem, calc(env(safe-area-inset-top, 0px) + 7.25rem));
+            padding-bottom: 2rem;
+        }
+
+        @media (max-width: 991px) {
+            .pc-hero {
+                padding-top: max(8rem, calc(env(safe-area-inset-top, 0px) + 6.25rem));
+            }
+        }
+
+        @media (max-width: 575px) {
+            .pc-hero {
+                padding-top: max(7.5rem, calc(env(safe-area-inset-top, 0px) + 5.75rem));
+            }
+        }
+
+        .pc-hero-row {
+            align-items: stretch;
+        }
+
+        @media (min-width: 992px) {
+            .pc-hero-row {
+                align-items: center;
+            }
+        }
+
+        .pc-hero h1 {
+            font-size: 2.25rem;
+            font-weight: 500;
+            color: var(--pc-primary-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .pc-hero .lead {
+            color: #5a6b7d;
+            max-width: 42rem;
+        }
+
+        .pc-main-inner {
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pc-layout {
+            align-items: stretch;
+        }
+
+        .pc-inputs-card {
+            min-height: 100%;
+        }
+
+        @media (min-width: 992px) {
+            .pc-breakdown-card {
+                min-height: 100%;
+            }
+        }
+
+        .pc-card {
+            background: #fff;
+            border-radius: var(--pc-radius);
+            box-shadow: var(--pc-card-shadow);
+            border: 1px solid rgba(42, 82, 152, 0.08);
+            overflow: hidden;
+        }
+
+        .pc-card-header {
+            background: linear-gradient(135deg, var(--pc-primary-dark), var(--pc-primary-light));
+            color: #fff;
+            padding: 1.25rem 1.5rem;
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+
+        .pc-card-body {
+            padding: 1.5rem;
+        }
+
+        .pc-summary-card {
+            background: linear-gradient(145deg, #1e3c72 0%, #2a5298 55%, #3498db 100%);
+            color: #fff;
+            border-radius: var(--pc-radius);
+            box-shadow: var(--pc-card-shadow);
+            padding: 1.5rem;
+            height: 100%;
+        }
+
+        .pc-summary-card .pc-stat {
+            text-align: center;
+            padding: 0.65rem 0.75rem;
+        }
+
+        .pc-summary-card .pc-stat-row {
+            margin-left: -0.25rem;
+            margin-right: -0.25rem;
+        }
+
+        .pc-summary-card .pc-stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            opacity: 0.88;
+            margin-bottom: 0.35rem;
+        }
+
+        .pc-summary-card .pc-stat-value {
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .pc-summary-card .pc-stat-value.pc-price {
+            font-size: 1.85rem;
+        }
+
+        .pc-form-label {
+            font-weight: 500;
+            color: var(--pc-primary-mid);
+            font-size: 0.9rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .pc-form-control {
+            border-radius: 10px;
+            border: 1px solid #d9e5f3;
+            padding: 0.65rem 0.85rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .pc-form-control:focus {
+            border-color: var(--pc-accent);
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+        }
+
+        .pc-form-control.is-invalid {
+            border-color: #dc3545;
+        }
+
+        .pc-per-branch-list {
+            max-height: 280px;
+            overflow-y: auto;
+            padding-right: 4px;
+            margin-bottom: 0.35rem;
+        }
+
+        .pc-per-branch-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pc-per-branch-row label {
+            flex: 0 0 7.5rem;
+            margin: 0;
+            font-size: 0.85rem;
+            color: #5a6b7d;
+            font-weight: 500;
+        }
+
+        .pc-per-branch-row .pc-form-control {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* Staff entry mode — card-style radio group */
+        .pc-staff-mode {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        @media (max-width: 575px) {
+            .pc-staff-mode {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pc-staff-mode__option {
+            position: relative;
+            margin: 0;
+            cursor: pointer;
+            font-weight: 400;
+        }
+
+        .pc-staff-mode__input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            margin: 0;
+        }
+
+        .pc-staff-mode__card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
+            min-height: 5.5rem;
+            padding: 1rem 1rem 1rem 1rem;
+            border-radius: 14px;
+            border: 2px solid #e2eaf3;
+            background: linear-gradient(165deg, #ffffff 0%, #f8fbff 100%);
+            box-shadow: 0 2px 8px rgba(30, 60, 114, 0.06);
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease,
+                transform 0.12s ease;
+        }
+
+        .pc-staff-mode__option:hover .pc-staff-mode__card {
+            border-color: rgba(74, 144, 226, 0.45);
+            box-shadow: 0 6px 20px rgba(42, 82, 152, 0.1);
+        }
+
+        .pc-staff-mode__option:active .pc-staff-mode__card {
+            transform: scale(0.985);
+        }
+
+        .pc-staff-mode__input:focus {
+            outline: none;
+        }
+
+        .pc-staff-mode__input:focus-visible + .pc-staff-mode__card {
+            outline: 2px solid var(--pc-accent);
+            outline-offset: 2px;
+        }
+
+        .pc-staff-mode__input:checked + .pc-staff-mode__card {
+            border-color: var(--pc-primary-mid);
+            background: linear-gradient(155deg, rgba(42, 82, 152, 0.06) 0%, rgba(52, 152, 219, 0.08) 100%);
+            box-shadow:
+                0 4px 16px rgba(42, 82, 152, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        .pc-staff-mode__input:checked + .pc-staff-mode__card .pc-staff-mode__icon {
+            background: linear-gradient(135deg, var(--pc-primary-dark), var(--pc-primary-light));
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(30, 60, 114, 0.25);
+        }
+
+        .pc-staff-mode__input:checked + .pc-staff-mode__card .pc-staff-mode__title {
+            color: var(--pc-primary-dark);
+        }
+
+        .pc-staff-mode__input:disabled + .pc-staff-mode__card {
+            opacity: 0.5;
+            cursor: not-allowed;
+            filter: grayscale(0.15);
+        }
+
+        .pc-staff-mode__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 0.65rem;
+            font-size: 1.15rem;
+            color: var(--pc-primary-mid);
+            background: rgba(74, 144, 226, 0.12);
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .pc-staff-mode__title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #3d4f63;
+            line-height: 1.3;
+            margin-bottom: 0.25rem;
+        }
+
+        .pc-staff-mode__desc {
+            font-size: 0.78rem;
+            color: #8898a8;
+            line-height: 1.4;
+        }
+
+        .pc-staff-mode-hint {
+            font-size: 0.8rem;
+            color: #8898a8;
+            margin-top: 0.65rem;
+            padding: 0.5rem 0.65rem;
+            border-radius: 8px;
+            background: rgba(74, 144, 226, 0.08);
+            border: 1px solid rgba(74, 144, 226, 0.15);
+        }
+
+        .pc-staff-mode-hint.d-none {
+            display: none !important;
+        }
+
+        .pc-btn-calc {
+            border-radius: 25px;
+            padding: 0.65rem 1.75rem;
+            font-weight: 500;
+            background: linear-gradient(122deg, #3498db 0%, #2980b9 100%);
+            border: 0;
+            box-shadow: 0 8px 24px rgba(42, 82, 152, 0.25);
+        }
+
+        .pc-btn-calc:hover {
+            background: linear-gradient(122deg, #2980b9 0%, #3498db 100%);
+            color: #fff;
+        }
+
+        .pc-btn-outline {
+            border-radius: 25px;
+            padding: 0.65rem 1.25rem;
+            border: 2px solid var(--pc-primary-mid);
+            color: var(--pc-primary-mid);
+            background: #fff;
+            font-weight: 500;
+        }
+
+        .pc-btn-outline:hover {
+            background: var(--pc-primary-dark);
+            border-color: var(--pc-primary-dark);
+            color: #fff;
+        }
+
+        .pc-breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid #eef2f7;
+            font-size: 0.95rem;
+        }
+
+        .pc-breakdown-row:last-child {
+            border-bottom: none;
+            padding-top: 1rem;
+            margin-top: 0.25rem;
+            border-top: 2px solid rgba(42, 82, 152, 0.15);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--pc-primary-dark);
+        }
+
+        .pc-breakdown-detail {
+            font-size: 0.8rem;
+            color: #8898a8;
+            margin-top: 0.2rem;
+            font-weight: 400;
+        }
+
+        .pc-model-note {
+            font-size: 0.8rem;
+            color: #8898a8;
+            margin-top: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Hidden template for print(); PDF uses a visible clone (see pricing-calculator.js) */
+        .pc-pdf-source {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            width: 190mm;
+            padding: 16mm;
+            background: #fff;
+            color: #222;
+            font-family: 'Rubik', Helvetica, Arial, sans-serif;
+        }
+
+        .pc-pdf-source h2 {
+            font-size: 1.35rem;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Styles for on-screen PDF capture (html2canvas cannot render off-screen nodes reliably) */
+        .pc-pdf-capture-root {
+            box-sizing: border-box;
+            background: #fff !important;
+            color: #222 !important;
+            font-family: Helvetica, Arial, sans-serif !important;
+            line-height: 1.45;
+        }
+
+        .pc-pdf-capture-root h2 {
+            font-size: 1.35rem;
+            color: #1e3c72 !important;
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .pc-pdf-capture-root .pc-pdf-meta {
+            font-size: 0.85rem;
+            color: #666 !important;
+            margin-bottom: 1.25rem;
+        }
+
+        .pc-pdf-capture-root .pc-pdf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .pc-pdf-capture-root .pc-pdf-table td {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #eee;
+            color: #222 !important;
+        }
+
+        .pc-pdf-capture-root .pc-pdf-table td:last-child {
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .pc-pdf-capture-root .pc-pdf-total td {
+            font-weight: 600;
+            font-size: 1.05rem;
+            border-bottom: none;
+            padding-top: 0.75rem;
+        }
+
+        .pc-pdf-capture-root p {
+            color: #666 !important;
+        }
+
+        .pc-pdf-source .pc-pdf-meta {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 1.25rem;
+        }
+
+        .pc-pdf-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .pc-pdf-table td {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pc-pdf-table td:last-child {
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .pc-pdf-total td {
+            font-weight: 600;
+            font-size: 1.05rem;
+            border-bottom: none;
+            padding-top: 0.75rem;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            .pc-print-area,
+            .pc-print-area * {
+                visibility: visible;
+            }
+
+            .pc-print-area {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+
+            .nav-menu,
+            .pc-no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="pc-page">
+
+    <div class="nav-menu fixed-top gradient-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-dark navbar-expand-lg">
+                        <a class="navbar-brand" href="index.html"><img src="images/veritrack final logo.png" class="img-fluid" alt="VeriTrack Systems logo"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbar">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+                                <li class="nav-item"><a class="nav-link" href="index.html?#features">FEATURES</a></li>
+                                <li class="nav-item"><a class="nav-link" href="demo.html">LIVE DEMO</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="pricing-calculator.html">PRICE CALC <span class="sr-only">(current)</span></a></li>
+                                <li class="nav-item"><a class="nav-link" href="index.html?#pricing">PRICING</a></li>
+                                <li class="nav-item"><a class="nav-link" href="index.html?#contact">CONTACT</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container-fluid px-3 px-md-4 pc-hero">
+        <div class="row justify-content-center mb-4 mb-lg-5">
+            <div class="col-12 pc-main-inner">
+                <div class="row pc-hero-row">
+                    <div class="col-lg-7 text-center text-lg-left mb-4 mb-lg-0 pr-lg-4">
+                        <h1 class="mb-3">Enterprise pricing calculator</h1>
+                        <p class="lead mb-0">Estimate your monthly VeriTrack Systems subscription from your number of offices or branches and average staffing per location.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="pc-summary-card">
+                            <div class="row pc-stat-row align-items-center">
+                                <div class="col-6 pc-stat">
+                                    <div class="pc-stat-label">Offices / branches</div>
+                                    <div class="pc-stat-value" id="summary-branches">0</div>
+                                </div>
+                                <div class="col-6 pc-stat">
+                                    <div class="pc-stat-label">Total staff</div>
+                                    <div class="pc-stat-value" id="summary-staff">0</div>
+                                </div>
+                                <div class="col-12 pc-stat mt-3 pt-2" style="border-top: 1px solid rgba(255,255,255,0.2);">
+                                    <div class="pc-stat-label">Final monthly subscription</div>
+                                    <div class="pc-stat-value pc-price" id="summary-price">GHS 0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center pc-layout">
+            <div class="col-12 pc-main-inner">
+                <div class="row align-items-stretch">
+                    <div class="col-lg-5 mb-4 mb-lg-0 d-flex">
+                        <div class="pc-card pc-inputs-card flex-grow-1 d-flex flex-column w-100">
+                            <div class="pc-card-header">Operational inputs</div>
+                            <div class="pc-card-body d-flex flex-column flex-grow-1">
+                                <form id="pricing-calculator-form" class="flex-grow-1 d-flex flex-column" novalidate>
+                                    <div class="form-group">
+                                        <label class="pc-form-label" for="input-branches">Number of offices/ branches</label>
+                                        <input class="form-control pc-form-control" type="number" id="input-branches" name="branches" min="0" max="100000" step="1" value="0" required inputmode="numeric" aria-describedby="help-branches">
+                                        <small id="help-branches" class="form-text text-muted">Count all operational offices or branch locations. Use 0 if not applicable yet.</small>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="pc-form-label d-block mb-2">Staff numbers</span>
+                                        <div class="pc-staff-mode" role="radiogroup" aria-label="How to enter staff numbers">
+                                            <label class="pc-staff-mode__option">
+                                                <input class="pc-staff-mode__input" type="radio" name="staffEntryMode" id="mode-avg" value="avg" checked>
+                                                <span class="pc-staff-mode__card">
+                                                    <span class="pc-staff-mode__icon" aria-hidden="true"><i class="ti-bar-chart-alt"></i></span>
+                                                    <span class="pc-staff-mode__title">Average for all locations</span>
+                                                    <span class="pc-staff-mode__desc">One staff number applied evenly across every office or branch.</span>
+                                                </span>
+                                            </label>
+                                            <label class="pc-staff-mode__option">
+                                                <input class="pc-staff-mode__input" type="radio" name="staffEntryMode" id="mode-per" value="per">
+                                                <span class="pc-staff-mode__card">
+                                                    <span class="pc-staff-mode__icon" aria-hidden="true"><i class="ti-layout-list-thumb"></i></span>
+                                                    <span class="pc-staff-mode__title">Per office or branch</span>
+                                                    <span class="pc-staff-mode__desc">Enter staff separately for each location (up to 50).</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                        <p id="help-per-mode" class="pc-staff-mode-hint d-none mb-0" role="status">More than 50 locations: use <strong>average for all locations</strong> so we can price your subscription.</p>
+                                    </div>
+                                    <div id="staff-group-avg" class="form-group">
+                                        <label class="pc-form-label" for="input-avg-staff">Average staff per branch</label>
+                                        <input class="form-control pc-form-control" type="number" id="input-avg-staff" name="avgStaff" min="0" max="100000" step="1" value="0" inputmode="numeric">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div id="staff-group-per" class="form-group mb-0 d-none">
+                                        <label class="pc-form-label">Staff per office or branch</label>
+                                        <div id="per-branch-staff-list" class="pc-per-branch-list" aria-live="polite"></div>
+                                        <small class="form-text text-muted">Enter the number of staff at each location. Totals feed into the same pricing rules as average mode.</small>
+                                    </div>
+                                    <div class="d-flex flex-wrap align-items-center mt-4 pt-2 pc-no-print">
+                                        <button type="button" class="btn btn-primary pc-btn-calc mr-2 mb-2" id="btn-calculate">Calculate price</button>
+                                        <button type="button" class="btn pc-btn-outline mb-2" id="btn-download-pdf">
+                                            <span class="ti-download mr-1"></span> Download quote (PDF)
+                                        </button>
+                                    </div>
+                                </form>
+                                <p class="pc-model-note mb-0">Baseline reference: GHS 400 covers 4 branches and 20 staff; GHS 100 per office or branch; 5 staff included per location; GHS 10 per additional staff.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 d-flex">
+                        <div class="pc-card pc-breakdown-card flex-grow-1 w-100" id="calculator-results" aria-live="polite">
+                            <div class="pc-card-header">Cost breakdown</div>
+                            <div class="pc-card-body">
+                                <div class="pc-breakdown-row">
+                                    <div>
+                                        Base office / branch cost
+                                        <div class="pc-breakdown-detail">Offices or branches × GHS 100</div>
+                                    </div>
+                                    <span id="line-base-branch">GHS 0</span>
+                                </div>
+                                <div class="pc-breakdown-row">
+                                    <div>
+                                        Additional staff (offices / branches)
+                                        <div class="pc-breakdown-detail" id="line-extra-branch-detail">No additional branch staff beyond included allowance</div>
+                                    </div>
+                                    <span id="line-extra-branch">GHS 0</span>
+                                </div>
+                                <div class="pc-breakdown-row">
+                                    <span>Final monthly subscription</span>
+                                    <span id="line-total">GHS 0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="quote-print-area" class="pc-pdf-source pc-print-area" aria-hidden="true">
+        <h2>VeriTrack Systems — subscription quote</h2>
+        <div class="pc-pdf-meta">Generated <span id="pdf-date"></span></div>
+        <table class="pc-pdf-table">
+            <tr>
+                <td>Offices / branches</td>
+                <td id="pdf-branches">0</td>
+            </tr>
+            <tr>
+                <td>Total staff</td>
+                <td id="pdf-staff">0</td>
+            </tr>
+            <tr>
+                <td>Base office / branch cost</td>
+                <td id="pdf-base-branch">GHS 0</td>
+            </tr>
+            <tr>
+                <td>Additional staff (offices / branches)</td>
+                <td id="pdf-extra-branch">GHS 0</td>
+            </tr>
+            <tr class="pc-pdf-total">
+                <td>Final monthly subscription</td>
+                <td id="pdf-total">GHS 0</td>
+            </tr>
+        </table>
+        <p style="font-size:0.8rem;color:#666;margin-top:1.5rem;">Estimate only. Final pricing is subject to agreement with VeriTrack Systems.</p>
+    </div>
+
+    <div class="light-bg py-5 mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center text-lg-left">
+                    <p class="mb-2"><span class="ti-location-pin mr-2"></span> Accra, Ghana</p>
+                    <p class="mb-2"><span class="ti-email mr-2"></span> <a href="mailto:info@veritrack.cloud">info@veritrack.cloud</a></p>
+                    <p class="mb-0"><span class="ti-headphone-alt mr-2"></span> <a href="tel:+233592548849">233-59-254-8849</a></p>
+                </div>
+                <div class="col-lg-6 text-center text-lg-right">
+                    <a href="https://www.linkedin.com/company/veritrack-systems" class="mr-3"><span class="ti-linkedin"></span></a>
+                    <a href="https://www.facebook.com/profile.php?id=61580288907388" class="mr-3"><span class="ti-facebook"></span></a>
+                    <a href="https://www.instagram.com/veritrack_systems?" class="mr-3"><span class="ti-instagram"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="my-5 text-center">
+        <p class="mb-2"><small>COPYRIGHT © 2025. ALL RIGHTS RESERVED.</small></p>
+        <small>
+            <a href="termsAndConditions.html" class="m-2">TERMS</a>
+            <a href="privacyPolicy.html" class="m-2">PRIVACY</a>
+        </small>
+    </footer>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/pricing-calculator.js"></script>
+</body>
+
+</html>
