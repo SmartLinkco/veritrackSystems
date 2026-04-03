@@ -448,87 +448,89 @@
     }
     run(false);
 
-    if (typeof html2pdf === 'undefined') {
+    var JsPDF = window.jspdf && window.jspdf.jsPDF;
+    if (!JsPDF && typeof window.jsPDF === 'function') {
+      JsPDF = window.jsPDF;
+    }
+    if (!JsPDF) {
       window.print();
       return;
     }
 
-    var source = document.getElementById('quote-print-area');
-    var clone = source.cloneNode(true);
-    clone.removeAttribute('id');
-    clone.removeAttribute('aria-hidden');
-    clone.classList.remove('pc-pdf-source', 'pc-print-area');
-    clone.classList.add('pc-pdf-capture-root');
-
-    clone.style.cssText = [
-      'position:fixed',
-      'left:0',
-      'top:0',
-      'z-index:2147483647',
-      'width:794px',
-      'max-width:calc(100vw - 32px)',
-      'max-height:calc(100vh - 32px)',
-      'overflow:auto',
-      'box-sizing:border-box',
-      'padding:40px 48px',
-      'margin:16px',
-      'background:#ffffff',
-      'color:#222222',
-      '-webkit-font-smoothing:antialiased',
-      'box-shadow:0 0 0 1px rgba(0,0,0,0.06)'
-    ].join(';');
-
-    document.body.appendChild(clone);
-
-    var opt = {
-      margin: [10, 10, 10, 10],
-      filename: 'VeriTrack-Systems-Pricing-Quote.pdf',
-      image: { type: 'jpeg', quality: 0.92 },
-      html2canvas: {
-        scale: 2,
-        useCORS: true,
-        allowTaint: true,
-        backgroundColor: '#ffffff',
-        logging: false,
-        scrollX: 0,
-        scrollY: 0
-      },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-
-    function cleanup() {
-      if (clone.parentNode) {
-        clone.parentNode.removeChild(clone);
-      }
+    function pdfVal(id) {
+      var el = document.getElementById(id);
+      return el ? String(el.textContent || '').trim() : '';
     }
 
-    function runCapture() {
-      if (clone.offsetHeight < 8 || clone.offsetWidth < 8) {
-        cleanup();
-        window.print();
-        return;
-      }
+    var doc = new JsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+    var pageW = doc.internal.pageSize.getWidth();
+    var margin = 18;
+    var rightX = pageW - margin;
+    var y = 20;
+    var lineH = 6.8;
 
-      var p = html2pdf()
-        .set(opt)
-        .from(clone)
-        .save();
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(16);
+    doc.setTextColor(30, 60, 114);
+    doc.text('VeriTrack Systems', margin, y);
+    y += 9;
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(55, 55, 55);
+    doc.text('Subscription pricing quote', margin, y);
+    y += 10;
 
-      if (p && typeof p.then === 'function') {
-        p.then(cleanup).catch(function () {
-          cleanup();
-          window.print();
-        });
-      } else {
-        setTimeout(cleanup, 3000);
-      }
+    doc.setFontSize(9);
+    doc.setTextColor(100, 100, 100);
+    doc.text('Generated ' + pdfVal('pdf-date'), margin, y);
+    y += 11;
+
+    doc.setDrawColor(210, 220, 235);
+    doc.setLineWidth(0.3);
+    doc.line(margin, y, rightX, y);
+    y += 9;
+
+    doc.setFontSize(10);
+    doc.setTextColor(30, 30, 30);
+
+    var tableRows = [
+      ['Offices / branches', pdfVal('pdf-branches')],
+      ['Total staff', pdfVal('pdf-staff')],
+      ['Base office / branch cost', pdfVal('pdf-base-branch')],
+      ['Additional staff (offices / branches)', pdfVal('pdf-extra-branch')],
+      ['Monthly subscription (base)', pdfVal('pdf-monthly-base')],
+      ['Billing period', pdfVal('pdf-billing-period')],
+      ['Savings vs monthly billing', pdfVal('pdf-savings')],
+      ['Effective monthly', pdfVal('pdf-effective')]
+    ];
+
+    for (var i = 0; i < tableRows.length; i++) {
+      doc.setFont('helvetica', 'normal');
+      doc.text(tableRows[i][0], margin, y);
+      doc.text(tableRows[i][1], rightX, y, { align: 'right' });
+      y += lineH;
     }
 
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        setTimeout(runCapture, 80);
-      });
-    });
+    y += 5;
+    doc.line(margin, y, rightX, y);
+    y += 10;
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.setTextColor(30, 60, 114);
+    doc.text('Amount due (selected period)', margin, y);
+    doc.text(pdfVal('pdf-total'), rightX, y, { align: 'right' });
+    y += 12;
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    doc.setTextColor(110, 110, 110);
+    var foot =
+      'Estimate only. Final pricing is subject to agreement with VeriTrack Systems.';
+    var footLines = doc.splitTextToSize(foot, pageW - 2 * margin);
+    doc.text(footLines, margin, y);
+
+    doc.save('VeriTrack-Systems-Pricing-Quote.pdf');
   }
 
   function init() {
