@@ -5,6 +5,9 @@
   var STAFF_PER_BRANCH = 5;
   var STAFF_EXTRA_COST = 10;
   var MAX_PER_BRANCH_LOCATIONS = 50;
+  /** Reference bundle used across marketing and this quote: 4 branches, 20 staff → GHS 400/mo */
+  var BASELINE_BRANCHES = 4;
+  var BASELINE_STAFF_TOTAL = 20;
 
   var form;
   var els = {};
@@ -326,6 +329,38 @@
     return { branches: branches, actualBranchStaff: actualBranchStaff, mode: mode };
   }
 
+  function getBaselineExplainerPlainText() {
+    var b = compute(BASELINE_BRANCHES, BASELINE_STAFF_TOTAL);
+    var included = BASELINE_BRANCHES * STAFF_PER_BRANCH;
+    var lines = [
+      'Each VeriTrack subscription is calculated as follows:',
+      '• GHS ' + COST_PER_BRANCH + ' per office or branch, per month',
+      '• ' + STAFF_PER_BRANCH + ' staff included per location at no extra charge (combined across locations)',
+      '• GHS ' + STAFF_EXTRA_COST + ' per month for each staff member beyond that total allowance',
+      '',
+      'Reference example (baseline bundle):',
+      '  • Offices/branches: ' +
+        BASELINE_BRANCHES +
+        ' × GHS ' +
+        COST_PER_BRANCH +
+        ' = ' +
+        formatGHS(BASELINE_BRANCHES * COST_PER_BRANCH),
+      '  • Included staff allowance: ' +
+        BASELINE_BRANCHES +
+        ' locations × ' +
+        STAFF_PER_BRANCH +
+        ' = ' +
+        included +
+        ' staff included in the base fee',
+      '  • Total staff in this example: ' +
+        BASELINE_STAFF_TOTAL +
+        ' (matches the allowance, so no extra staff charge)',
+      '  • Additional staff charge: 0 × GHS ' + STAFF_EXTRA_COST + ' = GHS 0',
+      '  → Monthly subscription for this reference: ' + formatGHS(b.finalMonthly)
+    ];
+    return lines.join('\n');
+  }
+
   function render(r) {
     var bill = r.billing;
 
@@ -382,6 +417,14 @@
       month: 'long',
       day: 'numeric'
     });
+
+    if (els.pdfCompany) {
+      var cn = els.companyName ? String(els.companyName.value).trim() : '';
+      els.pdfCompany.textContent = cn || '—';
+    }
+    if (els.pdfBaselineExplainer) {
+      els.pdfBaselineExplainer.textContent = getBaselineExplainerPlainText();
+    }
   }
 
   function run(fromInput) {
@@ -462,93 +505,271 @@
       return el ? String(el.textContent || '').trim() : '';
     }
 
+    var inputs = compute(v.branches, v.actualBranchStaff);
+    var bill = computeBillingPeriod(inputs.finalMonthly, getBillingPeriod());
+    var baseline = compute(BASELINE_BRANCHES, BASELINE_STAFF_TOTAL);
+    var companyName = els.companyName ? String(els.companyName.value).trim() : '';
+
     var doc = new JsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
     var pageW = doc.internal.pageSize.getWidth();
+    var pageH = doc.internal.pageSize.getHeight();
     var margin = 18;
     var rightX = pageW - margin;
-    var y = 20;
-    var lineH = 6.8;
+    var contentW = pageW - 2 * margin;
+    var y = 18;
+    var lineH = 5.9;
+    var lineHLoose = 7.2;
+    var wrapSmall = 4.1;
+    var bottomSafe = 22;
+
+    function needPage(h) {
+      if (y + h > pageH - bottomSafe) {
+        doc.addPage();
+        y = margin;
+        return true;
+      }
+      return false;
+    }
+
+    function paragraph(lines, fontSize, colorRgb, loose) {
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(fontSize || 10);
+      if (colorRgb) doc.setTextColor(colorRgb[0], colorRgb[1], colorRgb[2]);
+      else doc.setTextColor(40, 40, 40);
+      var lh = loose ? lineHLoose : lineH;
+      for (var i = 0; i < lines.length; i++) {
+        var block = lines[i];
+        var parts = doc.splitTextToSize(block, contentW);
+        for (var j = 0; j < parts.length; j++) {
+          needPage(lh + 2);
+          doc.text(parts[j], margin, y);
+          y += lh;
+        }
+      }
+    }
 
     doc.setFont('helvetica', 'bold');
-    doc.setFontSize(16);
+    doc.setFontSize(17);
     doc.setTextColor(30, 60, 114);
     doc.text('VeriTrack Systems', margin, y);
-    y += 9;
-    doc.setFontSize(11);
+    y += 8;
+    doc.setFontSize(12);
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(55, 55, 55);
     doc.text('Subscription pricing quote', margin, y);
-    y += 10;
+    y += 7;
 
-    doc.setFontSize(9);
+    doc.setFontSize(10);
+    doc.setTextColor(70, 70, 70);
+    doc.text('Company: ' + (companyName || '—'), margin, y);
+    y += 5;
     doc.setTextColor(100, 100, 100);
     doc.text('Generated ' + pdfVal('pdf-date'), margin, y);
-    y += 11;
+    y += 8;
 
     doc.setDrawColor(210, 220, 235);
     doc.setLineWidth(0.3);
     doc.line(margin, y, rightX, y);
-    y += 9;
+    y += 8;
 
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(12);
+    doc.setTextColor(30, 60, 114);
+    doc.text('1. How your monthly rate is calculated', margin, y);
+    y += 7;
+
+    doc.setFont('helvetica', 'normal');
     doc.setFontSize(10);
-    doc.setTextColor(30, 30, 30);
-
-    var tableRows = [
-      ['Offices / branches', pdfVal('pdf-branches')],
-      ['Total staff', pdfVal('pdf-staff')],
-      ['Base office / branch cost', pdfVal('pdf-base-branch')],
-      ['Additional staff (offices / branches)', pdfVal('pdf-extra-branch')],
-      ['Monthly subscription (base)', pdfVal('pdf-monthly-base')],
-      ['Billing period', pdfVal('pdf-billing-period')],
-      ['Savings vs monthly billing', pdfVal('pdf-savings')],
-      ['Effective monthly', pdfVal('pdf-effective')]
-    ];
-
-    for (var i = 0; i < tableRows.length; i++) {
-      doc.setFont('helvetica', 'normal');
-      doc.text(tableRows[i][0], margin, y);
-      doc.text(tableRows[i][1], rightX, y, { align: 'right' });
-      y += lineH;
-    }
-
-    y += 5;
-    doc.line(margin, y, rightX, y);
-    y += 10;
+    doc.setTextColor(45, 45, 45);
+    paragraph(
+      [
+        'Before your own figures, this is the pricing model (read top to bottom):',
+        '• GHS ' +
+          COST_PER_BRANCH +
+          ' per office or branch, per month.',
+        '• ' +
+          STAFF_PER_BRANCH +
+          ' staff are included per location at no extra charge. Across all locations, the allowance is: (number of offices or branches) × ' +
+          STAFF_PER_BRANCH +
+          ' staff.',
+        '• Each staff member beyond that total allowance is billed at GHS ' + STAFF_EXTRA_COST + ' per month.'
+      ],
+      10,
+      [45, 45, 45],
+      true
+    );
+    y += 2;
+    needPage(24);
 
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(11);
-    doc.setTextColor(30, 60, 114);
-    doc.text('Amount due (selected period)', margin, y);
-    doc.text(pdfVal('pdf-total'), rightX, y, { align: 'right' });
-    y += 12;
+    doc.setTextColor(30, 80, 120);
+    doc.text('Reference example (baseline bundle)', margin, y);
+    y += 6;
 
     doc.setFont('helvetica', 'normal');
-    doc.setFontSize(8);
+    doc.setFontSize(10);
+    doc.setTextColor(45, 45, 45);
+    var baseIncluded = BASELINE_BRANCHES * STAFF_PER_BRANCH;
+    paragraph(
+      [
+        'This is a worked example using the same rules as your quote below — not your bill.',
+        '• Offices/branches: ' +
+          BASELINE_BRANCHES +
+          ' × GHS ' +
+          COST_PER_BRANCH +
+          ' = ' +
+          formatGHS(BASELINE_BRANCHES * COST_PER_BRANCH) +
+          '.',
+        '• Included staff allowance: ' +
+          BASELINE_BRANCHES +
+          ' × ' +
+          STAFF_PER_BRANCH +
+          ' = ' +
+          baseIncluded +
+          ' staff included in the base fee.',
+        '• Total staff in this example: ' +
+          BASELINE_STAFF_TOTAL +
+          ' (so no staff are charged as "additional").',
+        '• Additional staff charge: ' +
+          baseline.extraBranchStaff +
+          ' staff × GHS ' +
+          STAFF_EXTRA_COST +
+          ' = ' +
+          formatGHS(baseline.extraBranchStaffCost) +
+          '.',
+        '→ Monthly subscription for this reference: ' + formatGHS(baseline.finalMonthly) + '.'
+      ],
+      10,
+      [45, 45, 45],
+      true
+    );
+    y += 4;
+
+    needPage(30);
+    doc.setDrawColor(210, 220, 235);
+    doc.line(margin, y, rightX, y);
+    y += 8;
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(12);
+    doc.setTextColor(30, 60, 114);
+    doc.text('2. Your organisation — inputs and calculation', margin, y);
+    y += 7;
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    var modeLabel =
+      v.mode === 'avg' ? 'Average staff per branch (same count at each location)' : 'Staff entered separately per office or branch';
+    paragraph(
+      [
+        'Company name: ' + (companyName || '—'),
+        'Staff entry: ' + modeLabel + '.',
+        '• Offices / branches: ' + v.branches + '.',
+        '• Total staff (all locations): ' + inputs.totalStaff + '.'
+      ],
+      10,
+      [45, 45, 45],
+      true
+    );
+    y += 2;
+
+    needPage(36);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.setTextColor(30, 80, 120);
+    doc.text('Monthly calculation (your scenario)', margin, y);
+    y += 6;
+
+    doc.setFont('helvetica', 'normal');
+    paragraph(
+      [
+        '• Base office / branch cost: ' +
+          v.branches +
+          ' × GHS ' +
+          COST_PER_BRANCH +
+          ' = ' +
+          formatGHS(inputs.baseBranchCost) +
+          '.',
+        '• Included staff allowance: ' +
+          v.branches +
+          ' × ' +
+          STAFF_PER_BRANCH +
+          ' = ' +
+          inputs.coveredStaff +
+          ' staff included in the base fee.',
+        '• Staff beyond the allowance: ' +
+          inputs.extraBranchStaff +
+          ' × GHS ' +
+          STAFF_EXTRA_COST +
+          ' = ' +
+          formatGHS(inputs.extraBranchStaffCost) +
+          '.',
+        '→ Monthly subscription (base, before billing-period discount): ' + formatGHS(inputs.finalMonthly) + '.'
+      ],
+      10,
+      [45, 45, 45],
+      true
+    );
+    y += 4;
+
+    needPage(40);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.setTextColor(30, 80, 120);
+    doc.text('Billing period and amount due', margin, y);
+    y += 6;
+
+    doc.setFont('helvetica', 'normal');
+    paragraph(
+      [
+        '• Selected period: ' + bill.periodName + '. ' + bill.periodDetail,
+        '• Savings vs paying month-by-month for this period: ' + formatGHS(bill.savings) + '.',
+        '• Effective monthly (prepayment spread over ' + bill.monthsCovered + ' month(s)): ' + formatGHS(bill.effectiveMonthly) + '.'
+      ],
+      10,
+      [45, 45, 45],
+      true
+    );
+    y += 6;
+
+    needPage(16);
+    doc.setDrawColor(210, 220, 235);
+    doc.line(margin, y, rightX, y);
+    y += 9;
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(13);
+    doc.setTextColor(30, 60, 114);
+    doc.text('Amount due (selected period)', margin, y);
+    doc.text(formatGHS(bill.prepaidTotal), rightX, y, { align: 'right' });
+    y += 10;
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
     doc.setTextColor(110, 110, 110);
     var foot =
-      'Estimate only. Final pricing is subject to agreement with VeriTrack Systems.';
-    var footLines = doc.splitTextToSize(foot, pageW - 2 * margin);
-    var wrapLine = 3.6;
+      'Estimate only. This quote explains how the figure was derived using the published rules. Final pricing, taxes, and contract terms are subject to agreement with VeriTrack Systems.';
+    var footLines = doc.splitTextToSize(foot, contentW);
     for (var fi = 0; fi < footLines.length; fi++) {
-      doc.text(footLines[fi], margin, y + fi * wrapLine);
-    }
-    y += footLines.length * wrapLine + 6;
-
-    doc.setTextColor(75, 85, 95);
-    var baselineRef =
-      'Baseline reference: GHS 400 covers 4 branches and 20 staff; GHS 100 per office or branch; 5 staff included per location; GHS 10 per additional staff.';
-    var baseLines = doc.splitTextToSize(baselineRef, pageW - 2 * margin);
-    for (var bi = 0; bi < baseLines.length; bi++) {
-      doc.text(baseLines[bi], margin, y + bi * wrapLine);
+      needPage(wrapSmall + 2);
+      doc.text(footLines[fi], margin, y);
+      y += wrapSmall;
     }
 
-    doc.save('VeriTrack-Systems-Pricing-Quote.pdf');
+    var safeFile = 'VeriTrack-Systems-Pricing-Quote';
+    if (companyName) {
+      var slug = companyName.replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').slice(0, 48);
+      if (slug) safeFile = safeFile + '-' + slug;
+    }
+    doc.save(safeFile + '.pdf');
   }
 
   function init() {
     form = document.getElementById('pricing-calculator-form');
     if (!form) return;
 
+    els.companyName = document.getElementById('input-company-name');
     els.branches = document.getElementById('input-branches');
     els.avgStaff = document.getElementById('input-avg-staff');
 
@@ -588,6 +809,17 @@
     els.pdfSavings = document.getElementById('pdf-savings');
     els.pdfEffective = document.getElementById('pdf-effective');
     els.pdfDate = document.getElementById('pdf-date');
+    els.pdfCompany = document.getElementById('pdf-company');
+    els.pdfBaselineExplainer = document.getElementById('pdf-baseline-explainer');
+
+    if (els.companyName) {
+      els.companyName.addEventListener('input', function () {
+        if (els.pdfCompany) {
+          var t = String(els.companyName.value).trim();
+          els.pdfCompany.textContent = t || '—';
+        }
+      });
+    }
 
     form.querySelectorAll('input[name="staffEntryMode"]').forEach(function (radio) {
       radio.addEventListener('change', onStaffModeChange);
