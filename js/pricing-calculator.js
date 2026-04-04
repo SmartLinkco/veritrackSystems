@@ -14,6 +14,7 @@
   var perBranchListEl;
   var staffGroupAvg;
   var staffGroupPer;
+  var staffGroupTotal;
   var helpPerMode;
   var modeAvgRadio;
   var modePerRadio;
@@ -190,6 +191,18 @@
     }
   }
 
+  /** Split a company-wide total into per-branch integers (larger locations get +1 when remainder). */
+  function distributeTotalAcrossBranches(total, branches) {
+    if (branches <= 0) return [];
+    var each = Math.floor(total / branches);
+    var rem = total - each * branches;
+    var seeds = [];
+    for (var di = 0; di < branches; di++) {
+      seeds.push(String(each + (di < rem ? 1 : 0)));
+    }
+    return seeds;
+  }
+
   function updatePerBranchFieldCount(branchCount) {
     var mode = getStaffEntryMode();
     if (mode !== 'per') return;
@@ -219,6 +232,7 @@
       if (modeAvgRadio) modeAvgRadio.checked = true;
       staffGroupAvg.classList.remove('d-none');
       staffGroupPer.classList.add('d-none');
+      if (staffGroupTotal) staffGroupTotal.classList.add('d-none');
     }
   }
 
@@ -227,8 +241,14 @@
     if (mode === 'avg') {
       staffGroupAvg.classList.remove('d-none');
       staffGroupPer.classList.add('d-none');
+      if (staffGroupTotal) staffGroupTotal.classList.add('d-none');
+    } else if (mode === 'total') {
+      staffGroupAvg.classList.add('d-none');
+      staffGroupPer.classList.add('d-none');
+      if (staffGroupTotal) staffGroupTotal.classList.remove('d-none');
     } else {
       staffGroupAvg.classList.add('d-none');
+      if (staffGroupTotal) staffGroupTotal.classList.add('d-none');
       staffGroupPer.classList.remove('d-none');
       updatePerBranchFieldCount(parsePositiveInt(String(els.branches.value).trim(), 0, 100000) || 0);
     }
@@ -256,6 +276,7 @@
 
     showFieldError(els.branches, '');
     showFieldError(els.avgStaff, '');
+    if (els.totalStaff) showFieldError(els.totalStaff, '');
     clearPerBranchErrors();
 
     if (isNaN(branches)) {
@@ -280,6 +301,24 @@
       if (!skipCoerce) {
         els.branches.value = branches;
         els.avgStaff.value = avgStaff;
+      }
+    } else if (mode === 'total') {
+      if (!els.totalStaff) {
+        return null;
+      }
+      var totRaw = String(els.totalStaff.value).trim();
+      if (skipCoerce && totRaw === '') {
+        return null;
+      }
+      var totalStaffNum = parsePositiveInt(totRaw, 0, 100000);
+      if (isNaN(totalStaffNum)) {
+        if (!skipCoerce) showFieldError(els.totalStaff, 'Enter a valid number.');
+        return null;
+      }
+      actualBranchStaff = branches === 0 ? 0 : totalStaffNum;
+      if (!skipCoerce) {
+        els.branches.value = branches;
+        els.totalStaff.value = totalStaffNum;
       }
     } else {
       if (branches > MAX_PER_BRANCH_LOCATIONS) {
@@ -445,28 +484,65 @@
 
     if (mode === 'per') {
       if (branches > MAX_PER_BRANCH_LOCATIONS) {
-        modeAvgRadio.checked = true;
+        if (modeAvgRadio) modeAvgRadio.checked = true;
         syncModeVisibility();
+        run(false);
         return;
       }
+      var totalDirect = parsePositiveInt(String(els.totalStaff.value).trim(), 0, 100000);
       var avg = parsePositiveInt(String(els.avgStaff.value).trim(), 0, 100000);
       if (isNaN(avg)) avg = 0;
-      var seeds = [];
-      for (var i = 0; i < branches; i++) {
-        seeds.push(String(avg));
+
+      if (!isNaN(totalDirect) && totalDirect > 0 && branches > 0) {
+        buildPerBranchInputs(branches, distributeTotalAcrossBranches(totalDirect, branches));
+      } else {
+        var seeds = [];
+        for (var si = 0; si < branches; si++) {
+          seeds.push(String(avg));
+        }
+        buildPerBranchInputs(branches, seeds);
       }
-      buildPerBranchInputs(branches, seeds);
       staffGroupAvg.classList.add('d-none');
+      if (staffGroupTotal) staffGroupTotal.classList.add('d-none');
       staffGroupPer.classList.remove('d-none');
+    } else if (mode === 'total') {
+      var tt = String(els.totalStaff.value).trim();
+      var tNum = parsePositiveInt(tt, 0, 100000);
+      var shouldSeed = tt === '' || (!isNaN(tNum) && tNum === 0);
+      if (shouldSeed && branches > 0) {
+        var av = parsePositiveInt(String(els.avgStaff.value).trim(), 0, 100000);
+        if (!isNaN(av)) {
+          els.totalStaff.value = String(branches * av);
+        }
+        var afterAvg = parsePositiveInt(String(els.totalStaff.value).trim(), 0, 100000);
+        if ((isNaN(afterAvg) || afterAvg === 0) && branches <= MAX_PER_BRANCH_LOCATIONS) {
+          if (perBranchListEl.querySelectorAll('input[data-per-branch]').length === branches) {
+            var sp = sumPerBranchStaff(true);
+            if (!isNaN(sp) && sp > 0) {
+              els.totalStaff.value = String(sp);
+            }
+          }
+        }
+      }
+      staffGroupAvg.classList.add('d-none');
+      staffGroupPer.classList.add('d-none');
+      if (staffGroupTotal) staffGroupTotal.classList.remove('d-none');
     } else {
-      if (branches > 0 && perBranchListEl.querySelectorAll('input[data-per-branch]').length === branches) {
-        var total = sumPerBranchStaff(true);
-        if (!isNaN(total)) {
-          els.avgStaff.value = Math.round(total / branches);
+      if (branches > 0) {
+        var tRaw = String(els.totalStaff.value).trim();
+        var tVal = parsePositiveInt(tRaw, 0, 100000);
+        if (tRaw !== '' && !isNaN(tVal)) {
+          els.avgStaff.value = String(Math.round(tVal / branches));
+        } else if (perBranchListEl.querySelectorAll('input[data-per-branch]').length === branches) {
+          var tot = sumPerBranchStaff(true);
+          if (!isNaN(tot)) {
+            els.avgStaff.value = String(Math.round(tot / branches));
+          }
         }
       }
       staffGroupAvg.classList.remove('d-none');
       staffGroupPer.classList.add('d-none');
+      if (staffGroupTotal) staffGroupTotal.classList.add('d-none');
     }
     run(false);
   }
@@ -660,7 +736,11 @@
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(10);
     var modeLabel =
-      v.mode === 'avg' ? 'Average staff per branch (same count at each location)' : 'Staff entered separately per office or branch';
+      v.mode === 'avg'
+        ? 'Average staff per branch (same count at each location)'
+        : v.mode === 'total'
+          ? 'Total staff entered directly (company-wide headcount)'
+          : 'Staff entered separately per office or branch';
     paragraph(
       [
         'Company name: ' + (companyName || '—'),
@@ -772,10 +852,12 @@
     els.companyName = document.getElementById('input-company-name');
     els.branches = document.getElementById('input-branches');
     els.avgStaff = document.getElementById('input-avg-staff');
+    els.totalStaff = document.getElementById('input-total-staff');
 
     perBranchListEl = document.getElementById('per-branch-staff-list');
     staffGroupAvg = document.getElementById('staff-group-avg');
     staffGroupPer = document.getElementById('staff-group-per');
+    staffGroupTotal = document.getElementById('staff-group-total');
     helpPerMode = document.getElementById('help-per-mode');
     modeAvgRadio = document.getElementById('mode-avg');
     modePerRadio = document.getElementById('mode-per');
