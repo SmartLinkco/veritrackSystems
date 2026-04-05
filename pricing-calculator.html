@@ -780,7 +780,15 @@
                                         <span class="pc-form-label d-block mb-2">Staff numbers</span>
                                         <div class="pc-staff-mode" role="radiogroup" aria-label="How to enter staff numbers">
                                             <label class="pc-staff-mode__option">
-                                                <input class="pc-staff-mode__input" type="radio" name="staffEntryMode" id="mode-avg" value="avg" checked>
+                                                <input class="pc-staff-mode__input" type="radio" name="staffEntryMode" id="mode-total" value="total" checked>
+                                                <span class="pc-staff-mode__card">
+                                                    <span class="pc-staff-mode__icon" aria-hidden="true"><i class="ti-user"></i></span>
+                                                    <span class="pc-staff-mode__title">Total staff (company-wide)</span>
+                                                    <span class="pc-staff-mode__desc">One number for everyone across all offices or branches.</span>
+                                                </span>
+                                            </label>
+                                            <label class="pc-staff-mode__option">
+                                                <input class="pc-staff-mode__input" type="radio" name="staffEntryMode" id="mode-avg" value="avg">
                                                 <span class="pc-staff-mode__card">
                                                     <span class="pc-staff-mode__icon" aria-hidden="true"><i class="ti-bar-chart-alt"></i></span>
                                                     <span class="pc-staff-mode__title">Average for all locations</span>
@@ -793,14 +801,6 @@
                                                     <span class="pc-staff-mode__icon" aria-hidden="true"><i class="ti-layout-list-thumb"></i></span>
                                                     <span class="pc-staff-mode__title">Per office or branch</span>
                                                     <span class="pc-staff-mode__desc">Enter staff separately for each location (up to 50).</span>
-                                                </span>
-                                            </label>
-                                            <label class="pc-staff-mode__option">
-                                                <input class="pc-staff-mode__input" type="radio" name="staffEntryMode" id="mode-total" value="total">
-                                                <span class="pc-staff-mode__card">
-                                                    <span class="pc-staff-mode__icon" aria-hidden="true"><i class="ti-user"></i></span>
-                                                    <span class="pc-staff-mode__title">Total staff (company-wide)</span>
-                                                    <span class="pc-staff-mode__desc">One number for everyone across all offices or branches.</span>
                                                 </span>
                                             </label>
                                         </div>
