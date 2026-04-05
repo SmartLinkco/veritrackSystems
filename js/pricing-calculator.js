@@ -7,6 +7,13 @@
   var BASELINE_BRANCHES = 4;
   var BASELINE_STAFF_TOTAL = 20;
 
+  /** Optional modules (GHS / month unless noted) */
+  var ADDON_LEADERBOARD = 20;
+  var ADDON_SHIFT_ROTATION = 30;
+  var ADDON_AI_TIPS = 30;
+  var ADDON_PAYROLL_SYNC = 50;
+  var ADDON_ADMIN_ALERT_PER_STAFF = 2;
+
   /**
    * Branch pricing by total office/branch count (tier applies to all branches).
    * Tier 1: ≤3 → GHS 200; Tier 2: 4–9 → GHS 150; Tier 3: ≥10 → GHS 120. Five staff included per branch.
@@ -139,6 +146,86 @@
   function getBillingPeriod() {
     var r = form.querySelector('input[name="billingPeriod"]:checked');
     return r ? r.value : 'monthly';
+  }
+
+  function readAddonSelection() {
+    function chk(id) {
+      var el = document.getElementById(id);
+      return !!(el && el.checked);
+    }
+    return {
+      leaderboard: chk('addon-leaderboard'),
+      shift: chk('addon-shift'),
+      ai: chk('addon-ai'),
+      payroll: chk('addon-payroll'),
+      alert: chk('addon-alert')
+    };
+  }
+
+  /**
+   * @returns {{ total: number, detailLines: string[], linesForPdf: string[] }}
+   */
+  function computeAddonMonthly(totalStaff, sel) {
+    var staff = Math.max(0, Math.floor(totalStaff));
+    var fixed = 0;
+    var lines = [];
+    var pdfLines = [];
+    if (sel.leaderboard) {
+      fixed += ADDON_LEADERBOARD;
+      lines.push('Leaderboard & Recognition (' + formatGHS(ADDON_LEADERBOARD) + '/mo)');
+      pdfLines.push('• Leaderboard & Recognition: ' + formatGHS(ADDON_LEADERBOARD) + '/mo.');
+    }
+    if (sel.shift) {
+      fixed += ADDON_SHIFT_ROTATION;
+      lines.push('Shift Rotation (' + formatGHS(ADDON_SHIFT_ROTATION) + '/mo)');
+      pdfLines.push('• Shift Rotation Management: ' + formatGHS(ADDON_SHIFT_ROTATION) + '/mo.');
+    }
+    if (sel.ai) {
+      fixed += ADDON_AI_TIPS;
+      lines.push('AI Productivity Tips (' + formatGHS(ADDON_AI_TIPS) + '/mo)');
+      pdfLines.push('• AI Productivity Tips: ' + formatGHS(ADDON_AI_TIPS) + '/mo.');
+    }
+    if (sel.payroll) {
+      fixed += ADDON_PAYROLL_SYNC;
+      lines.push('Payroll Sync (' + formatGHS(ADDON_PAYROLL_SYNC) + '/mo)');
+      pdfLines.push('• Payroll Sync: ' + formatGHS(ADDON_PAYROLL_SYNC) + '/mo.');
+    }
+    var alertCost = 0;
+    if (sel.alert) {
+      alertCost = staff * ADDON_ADMIN_ALERT_PER_STAFF;
+      lines.push(
+        'Admin real-time alert (' +
+          staff +
+          ' staff × ' +
+          formatGHS(ADDON_ADMIN_ALERT_PER_STAFF) +
+          ')'
+      );
+      pdfLines.push(
+        '• Admin real-time alert on each check-in: ' +
+          staff +
+          ' staff x GHS ' +
+          ADDON_ADMIN_ALERT_PER_STAFF +
+          ' = ' +
+          formatGHS(alertCost) +
+          '/mo.'
+      );
+    }
+    var total = fixed + alertCost;
+    return { total: total, detailLines: lines, linesForPdf: pdfLines, fixed: fixed, alertCost: alertCost };
+  }
+
+  function buildQuote(v) {
+    var core = compute(v.branches, v.actualBranchStaff);
+    var addonInfo = computeAddonMonthly(v.actualBranchStaff, readAddonSelection());
+    var combined = core.finalMonthly + addonInfo.total;
+    var billing = computeBillingPeriod(combined, getBillingPeriod());
+    return Object.assign({}, core, {
+      branches: v.branches,
+      coreMonthly: core.finalMonthly,
+      addonInfo: addonInfo,
+      finalMonthly: combined,
+      billing: billing
+    });
   }
 
   /**
@@ -478,7 +565,14 @@
       'Extra staff (total staff above allowance; one tier for all excess):',
       '• Tier A: 1-20 extra - GHS 10 each / month.',
       '• Tier B: 21-50 extra - GHS 8 each / month.',
-      '• Tier C: 51+ extra - GHS 6 each / month.'
+      '• Tier C: 51+ extra - GHS 6 each / month.',
+      '',
+      'Optional modules (if selected, added to monthly subscription):',
+      '• Leaderboard & Recognition: GHS ' + ADDON_LEADERBOARD + ' / month.',
+      '• Shift Rotation Management: GHS ' + ADDON_SHIFT_ROTATION + ' / month.',
+      '• AI Productivity Tips: GHS ' + ADDON_AI_TIPS + ' / month.',
+      '• Payroll Sync: GHS ' + ADDON_PAYROLL_SYNC + ' / month.',
+      '• Admin real-time alert on each check-in: GHS ' + ADDON_ADMIN_ALERT_PER_STAFF + ' / staff / month.'
     ];
   }
 
@@ -555,7 +649,22 @@
           '/staff'
         : 'No staff beyond included allowance (5 per branch)';
 
+    var ai = r.addonInfo || { total: 0, detailLines: [] };
+    if (els.lineAddons) {
+      els.lineAddons.textContent = formatGHS(ai.total);
+    }
+    if (els.lineAddonsDetail) {
+      els.lineAddonsDetail.textContent =
+        ai.detailLines.length > 0 ? ai.detailLines.join(' · ') : 'None selected';
+    }
+
     els.lineMonthlyBase.textContent = formatGHS(r.finalMonthly);
+    if (els.lineMonthlyBaseDetail) {
+      els.lineMonthlyBaseDetail.textContent =
+        ai.total > 0
+          ? 'Branches & staff plus optional modules; before prepay discount'
+          : 'Branches & staff; before prepay discount';
+    }
     els.lineBillingName.textContent = bill.periodName;
     els.lineBillingDetail.textContent = bill.periodDetail;
     els.lineSavingsAmount.textContent = formatGHS(bill.savings);
@@ -580,6 +689,9 @@
     els.pdfTotal.textContent = formatGHS(bill.prepaidTotal);
     els.pdfBaseBranch.textContent = formatGHS(r.baseBranchCost);
     els.pdfExtraBranch.textContent = formatGHS(r.extraBranchStaffCost);
+    if (els.pdfAddons) {
+      els.pdfAddons.textContent = formatGHS(ai.total);
+    }
     els.pdfMonthlyBase.textContent = formatGHS(r.finalMonthly);
     els.pdfBillingPeriod.textContent = bill.periodName;
     els.pdfSavings.textContent = formatGHS(bill.savings);
@@ -604,10 +716,7 @@
     if (!v) {
       return;
     }
-    var inputs = compute(v.branches, v.actualBranchStaff);
-    var billing = computeBillingPeriod(inputs.finalMonthly, getBillingPeriod());
-    var out = Object.assign({ branches: v.branches, billing: billing }, inputs);
-    render(out);
+    render(buildQuote(v));
   }
 
   function onStaffModeChange() {
@@ -714,8 +823,8 @@
       return el ? String(el.textContent || '').trim() : '';
     }
 
-    var inputs = compute(v.branches, v.actualBranchStaff);
-    var bill = computeBillingPeriod(inputs.finalMonthly, getBillingPeriod());
+    var inputs = buildQuote(v);
+    var bill = inputs.billing;
     var baseline = compute(BASELINE_BRANCHES, BASELINE_STAFF_TOTAL);
     var companyName = els.companyName ? String(els.companyName.value).trim() : '';
 
@@ -888,6 +997,9 @@
     vSpace(2);
     emitSubheading('Extra staff pricing');
     paragraph(rulesPdf.slice(7, 10), fsBody, [35, 38, 44], true, bulletIndent);
+    vSpace(2);
+    emitSubheading('Optional modules');
+    paragraph(rulesPdf.slice(12, 17), fsBody, [35, 38, 44], true, bulletIndent);
     vSpace(3);
 
     emitSubheading('Reference example (baseline)');
@@ -1002,7 +1114,15 @@
       true,
       bulletIndent
     );
-    emitTotalLine('MONTHLY SUBSCRIPTION (base): ' + formatGHS(inputs.finalMonthly));
+    if (inputs.addonInfo && inputs.addonInfo.total > 0) {
+      emitSubheading('Optional modules (your selection)');
+      paragraph(inputs.addonInfo.linesForPdf, fsBody, [35, 38, 44], true, bulletIndent);
+      vSpace(1);
+    } else {
+      paragraph(['• Optional modules: none selected.'], fsBody, [75, 80, 88], true, bulletIndent);
+      vSpace(1);
+    }
+    emitTotalLine('MONTHLY SUBSCRIPTION (total): ' + formatGHS(inputs.finalMonthly));
 
     vSpace(2);
     emitSubheading('Billing period and amount due');
@@ -1082,7 +1202,10 @@
     els.lineBaseBranchDetail = document.getElementById('line-base-branch-detail');
     els.lineExtraBranch = document.getElementById('line-extra-branch');
     els.lineExtraBranchDetail = document.getElementById('line-extra-branch-detail');
+    els.lineAddons = document.getElementById('line-addons');
+    els.lineAddonsDetail = document.getElementById('line-addons-detail');
     els.lineMonthlyBase = document.getElementById('line-monthly-base');
+    els.lineMonthlyBaseDetail = document.getElementById('line-monthly-base-detail');
     els.lineBillingName = document.getElementById('line-billing-name');
     els.lineBillingDetail = document.getElementById('line-billing-detail');
     els.lineSavingsAmount = document.getElementById('line-savings-amount');
@@ -1097,6 +1220,7 @@
     els.pdfTotal = document.getElementById('pdf-total');
     els.pdfBaseBranch = document.getElementById('pdf-base-branch');
     els.pdfExtraBranch = document.getElementById('pdf-extra-branch');
+    els.pdfAddons = document.getElementById('pdf-addons');
     els.pdfMonthlyBase = document.getElementById('pdf-monthly-base');
     els.pdfBillingPeriod = document.getElementById('pdf-billing-period');
     els.pdfSavings = document.getElementById('pdf-savings');
@@ -1135,6 +1259,13 @@
     document.getElementById('btn-download-pdf').addEventListener('click', function (e) {
       e.preventDefault();
       downloadPdf();
+    });
+
+    form.addEventListener('change', function (e) {
+      if (!e.target || !e.target.getAttribute) return;
+      if (e.target.getAttribute('data-addon') === '1') {
+        run(false);
+      }
     });
 
     form.addEventListener('input', function (e) {

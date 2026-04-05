@@ -526,6 +526,54 @@
             line-height: 1.5;
         }
 
+        .pc-addon-section {
+            margin-top: 0.25rem;
+            padding: 1rem 1rem 0.85rem;
+            border-radius: 12px;
+            border: 1px solid #e2eaf3;
+            background: linear-gradient(180deg, #fafcfe 0%, #f4f8fc 100%);
+        }
+
+        .pc-addon-section .pc-form-label {
+            margin-bottom: 0.65rem;
+        }
+
+        .pc-addon-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .pc-addon-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .pc-addon-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .pc-addon-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #3d4f63;
+            line-height: 1.35;
+            margin: 0;
+        }
+
+        .pc-addon-check input {
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .pc-addon-price {
+            font-weight: 600;
+            color: var(--pc-primary-dark);
+            white-space: nowrap;
+        }
+
         /* Hidden template for print(); PDF uses a visible clone (see pricing-calculator.js) */
         .pc-pdf-source {
             position: absolute;
@@ -774,6 +822,42 @@
                                         <small id="help-total-staff" class="form-text text-muted">Headcount counted toward subscription pricing (same rules as other staff entry modes).</small>
                                         <div class="invalid-feedback"></div>
                                     </div>
+                                    <div class="form-group pc-addon-section">
+                                        <span class="pc-form-label d-block">Optional modules</span>
+                                        <p class="small text-muted mb-2">Base subscription covers core attendance and reporting. Tick any extras to add them to your estimate (same rates apply on the quote PDF).</p>
+                                        <ul class="pc-addon-list">
+                                            <li>
+                                                <label class="pc-addon-check mb-0">
+                                                    <input type="checkbox" id="addon-leaderboard" name="addonLeaderboard" value="1" data-addon="1">
+                                                    <span>Leaderboard &amp; Recognition System — <span class="pc-addon-price">+GHS 20/mo</span></span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="pc-addon-check mb-0">
+                                                    <input type="checkbox" id="addon-shift" name="addonShift" value="1" data-addon="1">
+                                                    <span>Shift Rotation Management — <span class="pc-addon-price">+GHS 30/mo</span></span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="pc-addon-check mb-0">
+                                                    <input type="checkbox" id="addon-ai" name="addonAi" value="1" data-addon="1">
+                                                    <span>AI Productivity Tips — <span class="pc-addon-price">+GHS 30/mo</span></span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="pc-addon-check mb-0">
+                                                    <input type="checkbox" id="addon-payroll" name="addonPayroll" value="1" data-addon="1">
+                                                    <span>Payroll Sync — <span class="pc-addon-price">+GHS 50/mo</span></span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="pc-addon-check mb-0">
+                                                    <input type="checkbox" id="addon-alert" name="addonAlert" value="1" data-addon="1">
+                                                    <span>Admin real-time alert on every check-in — <span class="pc-addon-price">+GHS 2/staff/mo</span> (uses total staff above)</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
                                     <div class="form-group">
                                         <span class="pc-form-label d-block mb-2">Billing period</span>
                                         <div class="pc-billing-mode" role="radiogroup" aria-label="Billing period">
@@ -819,7 +903,7 @@
                                         </button>
                                     </div>
                                 </form>
-                                <p class="pc-model-note mb-0">Branch tiers: ≤3 → GHS 200/branch; 4–9 → GHS 150; ≥10 → GHS 120. Five staff per branch included. Extra staff: 1–20 at GHS 10, 21–50 at GHS 8, 51+ at GHS 6 (per extra staff / month).</p>
+                                <p class="pc-model-note mb-0">Branch tiers: ≤3 → GHS 200/branch; 4–9 → GHS 150; ≥10 → GHS 120. Five staff per branch included. Extra staff: 1–20 at GHS 10, 21–50 at GHS 8, 51+ at GHS 6 (per extra staff / month). Optional modules are flat or per-staff as labelled.</p>
                             </div>
                         </div>
                     </div>
@@ -842,11 +926,18 @@
                                     </div>
                                     <span id="line-extra-branch">GHS 0</span>
                                 </div>
+                                <div class="pc-breakdown-row">
+                                    <div>
+                                        Optional modules
+                                        <div class="pc-breakdown-detail" id="line-addons-detail">None selected</div>
+                                    </div>
+                                    <span id="line-addons">GHS 0</span>
+                                </div>
                                 <div class="pc-breakdown-divider">Subscription &amp; billing</div>
                                 <div class="pc-breakdown-row">
                                     <div>
-                                        Monthly subscription (base)
-                                        <div class="pc-breakdown-detail">Before long-term billing discounts</div>
+                                        Monthly subscription (total)
+                                        <div class="pc-breakdown-detail" id="line-monthly-base-detail">Branches &amp; staff; before prepay discount</div>
                                     </div>
                                     <span id="line-monthly-base">GHS 0</span>
                                 </div>
@@ -908,7 +999,11 @@
                 <td id="pdf-extra-branch">GHS 0</td>
             </tr>
             <tr>
-                <td>Monthly subscription (base)</td>
+                <td>Optional modules</td>
+                <td id="pdf-addons">GHS 0</td>
+            </tr>
+            <tr>
+                <td>Monthly subscription (total)</td>
                 <td id="pdf-monthly-base">GHS 0</td>
             </tr>
             <tr>
