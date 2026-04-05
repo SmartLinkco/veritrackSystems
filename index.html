@@ -189,6 +189,56 @@ URI     : https://colorlib.com
             }
         }
 
+        .pricing-section-lead {
+            max-width: 46rem;
+            margin: 0 auto 0.5rem;
+            color: #5a6b7d;
+            font-size: 1.05rem;
+            line-height: 1.55;
+        }
+
+        .pricing-rate-line {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.25rem 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pricing-rate-line .currency {
+            font-size: 1.35rem;
+        }
+
+        .pricing-rate-line .amount {
+            font-size: 2.25rem;
+            font-weight: 700;
+        }
+
+        .pricing-rate-line .period {
+            font-size: 1rem;
+            color: #5a6b7d;
+            font-weight: 500;
+        }
+
+        .pricing-tier-scope {
+            font-size: 0.95rem;
+            color: #5a6b7d;
+            margin: 0 0 1rem;
+            line-height: 1.45;
+        }
+
+        .pricing-prepay-hint {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);
+            border: 1px solid rgba(42, 82, 152, 0.15);
+            border-radius: 12px;
+            padding: 0.85rem 1rem;
+            margin-top: 0.75rem;
+            font-size: 0.88rem;
+            color: #3d4f63;
+            line-height: 1.45;
+        }
+
         .pricing-card {
             background: #ffffff;
             border-radius: 20px;
@@ -1455,7 +1505,8 @@ URI     : https://colorlib.com
         <div class="container">
             <div class="section-title">
                 <small>PRICING</small>
-                <h3>Upgrade to Pro</h3>
+                <h3>Branch-based subscription</h3>
+                <p class="pricing-section-lead text-center">Per-branch rates by scale below. Full breakdown and PDF quote: <a href="pricing-calculator.html">price calculator</a>.</p>
                 <div id="setup-fee-notice" class="alert alert-warning alert-dismissible fade show" role="alert" style="font-size:1.15em; background: linear-gradient(90deg,#ffe082,#ffd54f); color: #6d4c00; border: none; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 28px;">
                     <strong>Special Setup Offer!</strong> Get started with a one-time system setup fee of <span style="color:#aa9938; font-weight:600;">&#8373;500</span>(50% OFF for startups)<br>
                     <span style="margin-left:8px; color:#388e3c; font-weight:500;">+ <span style="background:#fffbe7; border-radius:6px; padding:2px 10px;">30 days FREE trial</span></span>
@@ -1475,34 +1526,23 @@ URI     : https://colorlib.com
                 </script>
             </div>
 
-            <!-- Modern Pricing Cards Container -->
+            <!-- Modern Pricing Cards — rates align with pricing-calculator.html -->
             <div class="modern-pricing-container">
-                <!-- Basic Plan -->
+                <!-- Branch tier 1 -->
                 <div class="pricing-card basic-card">
                     <div class="card-ribbon">
-                        <span>Starter</span>
+                        <span>Tier 1</span>
                     </div>
                     <div class="pricing-header">
-                        <h3 class="plan-name">BASIC</h3>
+                        <h3 class="plan-name">Small operations</h3>
                         <div class="price-section">
-                            <div class="old-price">&#8373;833/m</div>
-                            <div class="current-price">
-                                <span class="currency">&#8373;</span>
-                                <span class="amount">500</span>
-                                <span class="period">/month</span>
+                            <div class="pricing-rate-line">
+                                <span class="currency">GHS</span>
+                                <span class="amount">200</span>
+                                <span class="period">per branch / month</span>
                             </div>
-                            <!-- Yearly Option -->
-                            <div class="yearly-option">
-                                <div class="yearly-badge">Save 17%</div>
-                                <div class="yearly-price">
-                                    <span class="yearly-currency">&#8373;</span>
-                                    <span class="yearly-amount">5,000</span>
-                                    <span class="yearly-period">/year</span>
-                                </div>
-                                <div class="yearly-breakdown">Only &#8373;417/month</div>
-                            </div>
+                            <p class="pricing-tier-scope"><strong>1–3</strong> branches</p>
                         </div>
-                        <p class="plan-description">Perfect for small teams (1-10 users)</p>
                     </div>
                     <div class="features-list">
                         <div class="feature-item">
@@ -1535,39 +1575,28 @@ URI     : https://colorlib.com
                         </div>
                     </div>
                     <div class="pricing-footer">
-                        <a href="#check-In" class="pricing-btn basic-btn" data-plan="basic" data-users="1–10" data-subscription="BASIC ANNUAL (₵5,000)">
-                            <span>Choose Basic Plan</span>
+                        <a href="pricing-calculator.html" class="pricing-btn basic-btn">
+                            <span>Open price calculator</span>
                             <i class="ti-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Professional Plan - Popular -->
+                <!-- Branch tier 2 — Popular -->
                 <div class="pricing-card professional-card popular-card">
                     <div class="card-ribbon popular-ribbon">
-                        <span>Most Popular</span>
+                        <span>Most popular</span>
                     </div>
                     <div class="pricing-header">
-                        <h3 class="plan-name">ENTERPRISE</h3>
+                        <h3 class="plan-name">Growing operations</h3>
                         <div class="price-section">
-                            <div class="old-price">&#8373;3,333/m</div>
-                            <div class="current-price">
-                                <span class="currency">&#8373;</span>
-                                <span class="amount">2,000</span>
-                                <span class="period">/month</span>
+                            <div class="pricing-rate-line">
+                                <span class="currency">GHS</span>
+                                <span class="amount">150</span>
+                                <span class="period">per branch / month</span>
                             </div>
-                            <!-- Yearly Option -->
-                            <div class="yearly-option">
-                                <div class="yearly-badge">Save 17%</div>
-                                <div class="yearly-price">
-                                    <span class="yearly-currency">&#8373;</span>
-                                    <span class="yearly-amount">20,000</span>
-                                    <span class="yearly-period">/year</span>
-                                </div>
-                                <div class="yearly-breakdown">Only &#8373;1,667/month</div>
-                            </div>
+                            <p class="pricing-tier-scope"><strong>4–9</strong> branches</p>
                         </div>
-                        <p class="plan-description">Advanced features for large teams (19-50 users)</p>
                     </div>
                     <div class="features-list">
                         <div class="feature-item">
@@ -1612,39 +1641,28 @@ URI     : https://colorlib.com
                         </div>
                     </div>
                     <div class="pricing-footer">
-                        <a href="#check-In" class="pricing-btn enterprise-btn" data-plan="enterprise" data-users="19–50" data-subscription="ENTERPRISE ANNUAL (₵20,000)">
-                            <span>Choose Enterprise Plan</span>
+                        <a href="pricing-calculator.html" class="pricing-btn enterprise-btn">
+                            <span>Open price calculator</span>
                             <i class="ti-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Enterprise Plan -->
+                <!-- Branch tier 3 -->
                 <div class="pricing-card enterprise-card">
                     <div class="card-ribbon">
-                        <span>Business</span>
+                        <span>Tier 3</span>
                     </div>
                     <div class="pricing-header">
-                        <h3 class="plan-name">PROFESSIONAL</h3>
+                        <h3 class="plan-name">Enterprise operations</h3>
                         <div class="price-section">
-                            <div class="old-price">&#8373;2,000/m</div>
-                            <div class="current-price">
-                                <span class="currency">&#8373;</span>
-                                <span class="amount">1,200</span>
-                                <span class="period">/month</span>
+                            <div class="pricing-rate-line">
+                                <span class="currency">GHS</span>
+                                <span class="amount">120</span>
+                                <span class="period">per branch / month</span>
                             </div>
-                            <!-- Yearly Option -->
-                            <div class="yearly-option popular-yearly">
-                                <div class="yearly-badge popular-badge">Save 17%</div>
-                                <div class="yearly-price">
-                                    <span class="yearly-currency">&#8373;</span>
-                                    <span class="yearly-amount">12,000</span>
-                                    <span class="yearly-period">/year</span>
-                                </div>
-                                <div class="yearly-breakdown">Only &#8373;1,000/month</div>
-                            </div>
+                            <p class="pricing-tier-scope"><strong>10+</strong> branches</p>
                         </div>
-                        <p class="plan-description">Ideal for growing businesses (11-18 users)</p>
                     </div>
                     <div class="features-list">
                         <div class="feature-item">
@@ -1681,40 +1699,26 @@ URI     : https://colorlib.com
                         </div>
                     </div>
                     <div class="pricing-footer">
-                        <a href="#check-In" class="pricing-btn professional-btn" data-plan="professional" data-users="11–18" data-subscription="PROFESSIONAL ANNUAL (₵12,000)">
-                            <span>Choose Professional Plan</span>
+                        <a href="pricing-calculator.html" class="pricing-btn professional-btn">
+                            <span>Open price calculator</span>
                             <i class="ti-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Enterprise Plus Plan -->
+                <!-- Staff allowance & billing scope (full width on large screens) -->
                 <div class="pricing-card enterprise-plus-card">
                     <div class="card-ribbon premium-ribbon">
-                        <span>Premium</span>
+                        <span>Staff &amp; billing</span>
                     </div>
                     <div class="pricing-card-inner">
                         <div class="pricing-header">
-                            <h3 class="plan-name">ENTERPRISE PLUS</h3>
+                            <h3 class="plan-name">Included allowance &amp; options</h3>
                             <div class="price-section">
-                                <div class="old-price">&#8373;8,333/m</div>
-                                <div class="current-price">
-                                    <span class="currency">&#8373;</span>
-                                    <span class="amount">5,000</span>
-                                    <span class="period">/month</span>
-                                </div>
-                                <!-- Yearly Option -->
-                                <div class="yearly-option premium-yearly">
-                                    <div class="yearly-badge premium-badge">Save 17%</div>
-                                    <div class="yearly-price">
-                                        <span class="yearly-currency">&#8373;</span>
-                                        <span class="yearly-amount">50,000</span>
-                                        <span class="yearly-period">/year</span>
-                                    </div>
-                                    <div class="yearly-breakdown">Only &#8373;4,167/month</div>
-                                </div>
+                                <p class="pricing-tier-scope" style="text-align:left;margin-bottom:0;">Five staff per branch included.</p>
+                                <p class="pricing-tier-scope" style="text-align:left;margin-bottom:0;">Extra staff: GHS 10, 8, or 6 / person / month by band.</p>
+                                <p class="pricing-tier-scope" style="text-align:left;">Billing: monthly, quarterly, semi-annual, or annual.</p>
                             </div>
-                            <p class="plan-description">Ultimate solution for enterprises (51+ users)</p>
                         </div>
                         <div class="features-list">
                             <div class="feature-item">
@@ -1763,8 +1767,8 @@ URI     : https://colorlib.com
                             </div>
                         </div>
                         <div class="pricing-footer">
-                            <a href="#check-In" class="pricing-btn enterprise-plus-btn" data-plan="enterprise-plus" data-users="51+" data-subscription="ENTERPRISE PLUS ANNUAL (₵50,000)">
-                                <span>Choose Enterprise Plus</span>
+                            <a href="pricing-calculator.html" class="pricing-btn enterprise-plus-btn">
+                                <span>Open price calculator</span>
                                 <i class="ti-arrow-right"></i>
                             </a>
                         </div>
@@ -2004,13 +2008,13 @@ URI     : https://colorlib.com
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="number_of_users">Number of Users *</label>
+                                            <label for="number_of_users">Branches (pricing tier) *</label>
                                             <select id="number_of_users" class="form-input" name="number-of-users" required>
-                                                <option value="" disabled selected>Select user count</option>
-                                                <option value="1–10">1–10 users</option>
-                                                <option value="11–18">11–18 users</option>
-                                                <option value="19–50">19–50 users</option>
-                                                <option value="51+">51+ users</option>
+                                                <option value="" disabled selected>Select branch scale</option>
+                                                <option value="1–3 branches">1–3 branches (GHS 200 / branch / mo)</option>
+                                                <option value="4–9 branches">4–9 branches (GHS 150 / branch / mo)</option>
+                                                <option value="10+ branches">10+ branches (GHS 120 / branch / mo)</option>
+                                                <option value="Not sure">Not sure — discuss with team</option>
                                             </select>
                                         </div>
                                     </div>
@@ -2059,30 +2063,12 @@ URI     : https://colorlib.com
                                         <div class="form-group">
                                             <label for="budget_range">Subscription Range *</label>
                                             <select id="budget_range" class="form-input" name="budget-range" required>
-                                                <option value="" disabled selected>Select subscription plan</option>
-                                                <!-- Basic Plan Options - ₵500/month -->
-                                                <option value="BASIC MONTHLY (₵500)">BASIC MONTHLY - ₵500/month + 30 days FREE trial</option>
-                                                <option value="BASIC QUARTERLY (₵1,425)">BASIC QUARTERLY - ₵1,425/3 months + 30 days FREE trial</option>
-                                                <option value="BASIC SEMIANNUALLY (₵2,700)">BASIC SEMIANNUALLY - ₵2,700/6 months + 30 days FREE trial</option>
-                                                <option value="BASIC ANNUAL (₵5,000)">BASIC ANNUAL - ₵5,000/year + 30 days FREE trial</option>
-                                                
-                                                <!-- Professional Plan Options - ₵1,200/month -->
-                                                <option value="PROFESSIONAL MONTHLY (₵1,200)">PROFESSIONAL MONTHLY - ₵1,200/month + 30 days FREE trial</option>
-                                                <option value="PROFESSIONAL QUARTERLY (₵3,420)">PROFESSIONAL QUARTERLY - ₵3,420/3 months + 30 days FREE trial</option>
-                                                <option value="PROFESSIONAL SEMIANNUALLY (₵6,480)">PROFESSIONAL SEMIANNUALLY - ₵6,480/6 months + 30 days FREE trial</option>
-                                                <option value="PROFESSIONAL ANNUAL (₵12,000)">PROFESSIONAL ANNUAL - ₵12,000/year + 30 days FREE trial</option>
-                                                
-                                                <!-- Enterprise Plan Options - ₵2,000/month -->
-                                                <option value="ENTERPRISE MONTHLY (₵2,000)">ENTERPRISE MONTHLY - ₵2,000/month + 30 days FREE trial</option>
-                                                <option value="ENTERPRISE QUARTERLY (₵5,700)">ENTERPRISE QUARTERLY - ₵5,700/3 months + 30 days FREE trial</option>
-                                                <option value="ENTERPRISE SEMIANNUALLY (₵10,800)">ENTERPRISE SEMIANNUALLY - ₵10,800/6 months + 30 days FREE trial</option>
-                                                <option value="ENTERPRISE ANNUAL (₵20,000)">ENTERPRISE ANNUAL - ₵20,000/year + 30 days FREE trial</option>
-                                                
-                                                <!-- Enterprise Plus Plan Options - ₵5,000/month -->
-                                                <option value="ENTERPRISE PLUS MONTHLY (₵5,000)">ENTERPRISE PLUS MONTHLY - ₵5,000/month + 30 days FREE trial</option>
-                                                <option value="ENTERPRISE PLUS QUARTERLY (₵14,250)">ENTERPRISE PLUS QUARTERLY - ₵14,250/3 months + 30 days FREE trial</option>
-                                                <option value="ENTERPRISE PLUS SEMIANNUALLY (₵27,000)">ENTERPRISE PLUS SEMIANNUALLY - ₵27,000/6 months + 30 days FREE trial</option>
-                                                <option value="ENTERPRISE PLUS ANNUAL (₵50,000)">ENTERPRISE PLUS ANNUAL - ₵50,000/year + 30 days FREE trial</option>
+                                                <option value="" disabled selected>Select billing preference</option>
+                                                <option value="USAGE-BASED MONTHLY">Usage-based — monthly billing (see price calculator)</option>
+                                                <option value="USAGE-BASED QUARTERLY">Usage-based — quarterly prepay (2.5× monthly)</option>
+                                                <option value="USAGE-BASED SEMI-ANNUAL">Usage-based — semi-annual prepay (5× monthly)</option>
+                                                <option value="USAGE-BASED ANNUAL">Usage-based — annual prepay (10× monthly)</option>
+                                                <option value="QUOTE FROM PRICING CALCULATOR">I used the price calculator — amount in follow-up</option>
                                             </select>
                                         </div>
                                     </div>

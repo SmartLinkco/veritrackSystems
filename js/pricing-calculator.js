@@ -282,7 +282,7 @@
       if (prev[i] !== undefined && prev[i] !== '') {
         inp.value = prev[i];
       } else {
-        inp.value = '0';
+        inp.value = '1';
       }
       row.appendChild(lab);
       row.appendChild(inp);
@@ -308,7 +308,7 @@
     if (branchCount > MAX_PER_BRANCH_LOCATIONS) return;
     var prev = getPerBranchValuesSnapshot();
     while (prev.length < branchCount) {
-      prev.push('0');
+      prev.push('1');
     }
     if (prev.length > branchCount) {
       prev = prev.slice(0, branchCount);
