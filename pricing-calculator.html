@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/themify-icons.css">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/vt-upgrade.css" rel="stylesheet">
 
     <style>
         :root {
@@ -38,24 +39,6 @@
             background: linear-gradient(180deg, #f0f6ff 0%, #f8fbff 40%, #eef4fc 100%);
         }
 
-        /* Clear fixed header (nav + gradient padding + logo) */
-        .pc-hero {
-            padding-top: max(10rem, calc(env(safe-area-inset-top, 0px) + 7.25rem));
-            padding-bottom: 2rem;
-        }
-
-        @media (max-width: 991px) {
-            .pc-hero {
-                padding-top: max(10rem, calc(env(safe-area-inset-top, 0px) + 6.25rem));
-            }
-        }
-
-        @media (max-width: 575px) {
-            .pc-hero {
-                padding-top: max(8.5rem, calc(env(safe-area-inset-top, 0px) + 5.75rem));
-            }
-        }
-
         .pc-hero-row {
             align-items: stretch;
         }
@@ -66,15 +49,15 @@
             }
         }
 
-        .pc-hero h1 {
+        header.bg-gradient.vt-subpage-hero h1 {
             font-size: 2.25rem;
             font-weight: 500;
-            color: var(--pc-primary-dark);
+            color: #fff;
             letter-spacing: -0.5px;
         }
 
-        .pc-hero .lead {
-            color: #5a6b7d;
+        header.bg-gradient.vt-subpage-hero .lead {
+            color: rgba(255, 255, 255, 0.92);
             max-width: 42rem;
         }
 
@@ -698,26 +681,27 @@
     </style>
 </head>
 
-<body class="pc-page">
+<body class="pc-page vt-has-mobile-bar vt-inner-page vt-site-layout" data-spy="scroll" data-target="#navbar" data-offset="30">
 
-    <div class="nav-menu fixed-top gradient-bg">
+    <div class="nav-menu fixed-top">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-dark navbar-expand-lg">
-                        <a class="navbar-brand" href="index.html"><img src="images/veritrack final logo.png" class="img-fluid" alt="VeriTrack Systems logo"></a>
+                        <a class="navbar-brand" href="index.html"><img src="images/veritrack final logo.png" class="img-fluid" alt="logo"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbar">
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
-                                <li class="nav-item"><a class="nav-link" href="index.html?#features">FEATURES</a></li>
-                                <li class="nav-item"><a class="nav-link" href="demo.html">LIVE DEMO</a></li>
-                                <li class="nav-item"><a class="nav-link active" href="pricing-calculator.html">PRICE CALC <span class="sr-only">(current)</span></a></li>
-                                <li class="nav-item"><a class="nav-link" href="index.html?#check-In">SYSTEM REQUEST</a></li>
-                                <li class="nav-item"><a class="nav-link" href="index.html?#team">OUR TEAM</a></li>
-                                <li class="nav-item"><a href="index.html?#check-In" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Free Trial</a></li>
+                            <ul class="navbar-nav ml-auto align-items-lg-center">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="index.html#solutions">Solutions</a></li>
+                                <li class="nav-item"><a class="nav-link" href="platform.html">Platform</a></li>
+                                <li class="nav-item"><a class="nav-link" href="vgba.html">Awards</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="pricing-calculator.html">Pricing <span class="sr-only">(current)</span></a></li>
+                                <li class="nav-item"><a class="nav-link" href="agent.html">Partners</a></li>
+                                <li class="nav-item"><a href="demo.html" class="btn btn-outline-light btn-nav-demo my-2 my-lg-0">Demo</a></li>
+                                <li class="nav-item"><a href="get-started.html" class="btn btn-primary btn-nav-primary my-2 my-lg-0 ml-lg-2">Get started</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -726,29 +710,31 @@
         </div>
     </div>
 
-    <main class="container-fluid px-3 px-md-4 pc-hero">
-        <div class="row justify-content-center mb-4 mb-lg-5">
-            <div class="col-12 pc-main-inner">
-                <div class="row pc-hero-row">
-                    <div class="col-lg-7 text-center text-lg-left mb-4 mb-lg-0 pr-lg-4">
-                        <h1 class="mb-3">Enterprise pricing calculator</h1>
-                        <p class="lead mb-0">Estimate your monthly VeriTrack Systems subscription from your number of offices or branches and staff numbers (average per location, total company-wide, or per branch).</p>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="pc-summary-card">
-                            <div class="row pc-stat-row align-items-center">
-                                <div class="col-6 pc-stat">
-                                    <div class="pc-stat-label">Offices / branches</div>
-                                    <div class="pc-stat-value" id="summary-branches">0</div>
-                                </div>
-                                <div class="col-6 pc-stat">
-                                    <div class="pc-stat-label">Total staff</div>
-                                    <div class="pc-stat-value" id="summary-staff">0</div>
-                                </div>
-                                <div class="col-12 pc-stat mt-3 pt-2" style="border-top: 1px solid rgba(255,255,255,0.2);">
-                                    <div class="pc-stat-label" id="summary-period-label">Amount due (monthly)</div>
-                                    <div class="pc-stat-value pc-price" id="summary-price">GHS 0</div>
-                                    <div id="summary-savings" class="pc-summary-save d-none" role="status"></div>
+    <header class="bg-gradient vt-subpage-hero" id="main">
+        <div class="container-fluid px-3 px-md-4 vt-hero-inner">
+            <div class="row justify-content-center">
+                <div class="col-12 pc-main-inner">
+                    <div class="row pc-hero-row">
+                        <div class="col-lg-7 text-center text-lg-left mb-4 mb-lg-0 pr-lg-4">
+                            <h1 class="mb-3">Enterprise pricing calculator</h1>
+                            <p class="lead mb-0">Estimate your monthly VeriTrack Systems subscription from your number of offices or branches and staff numbers (average per location, total company-wide, or per branch).</p>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="pc-summary-card">
+                                <div class="row pc-stat-row align-items-center">
+                                    <div class="col-6 pc-stat">
+                                        <div class="pc-stat-label">Offices / branches</div>
+                                        <div class="pc-stat-value" id="summary-branches">0</div>
+                                    </div>
+                                    <div class="col-6 pc-stat">
+                                        <div class="pc-stat-label">Total staff</div>
+                                        <div class="pc-stat-value" id="summary-staff">0</div>
+                                    </div>
+                                    <div class="col-12 pc-stat mt-3 pt-2" style="border-top: 1px solid rgba(255,255,255,0.2);">
+                                        <div class="pc-stat-label" id="summary-period-label">Amount due (monthly)</div>
+                                        <div class="pc-stat-value pc-price" id="summary-price">GHS 0</div>
+                                        <div id="summary-savings" class="pc-summary-save d-none" role="status"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -756,7 +742,9 @@
                 </div>
             </div>
         </div>
+    </header>
 
+    <main class="container-fluid px-3 px-md-4" style="padding-top: 2rem; padding-bottom: 3rem;">
         <div class="row justify-content-center pc-layout">
             <div class="col-12 pc-main-inner">
                 <div class="row align-items-stretch">
@@ -1026,30 +1014,43 @@
         <p style="font-size:0.8rem;color:#666;margin-top:1.5rem;">Estimate only. Final pricing is subject to agreement with VeriTrack Systems.</p>
     </div>
 
-    <div class="light-bg py-5 mt-4">
+    <footer class="vt-footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 text-center text-lg-left">
-                    <p class="mb-2"><span class="ti-location-pin mr-2"></span> Accra, Ghana</p>
-                    <p class="mb-2"><span class="ti-email mr-2"></span> <a href="mailto:info@veritrack.cloud">info@veritrack.cloud</a></p>
-                    <p class="mb-0"><span class="ti-headphone-alt mr-2"></span> <a href="tel:+233592548849">233-59-254-8849</a></p>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="images/veritrack final logo.png" class="vt-footer-logo img-fluid" alt="VeriTrack Systems">
+                    <p class="vt-footer-tagline">VeriTrack Systems · Accra, Ghana<br>Workforce attendance &amp; analytics</p>
                 </div>
-                <div class="col-lg-6 text-center text-lg-right">
-                    <a href="https://www.linkedin.com/company/veritrack-systems" class="mr-3"><span class="ti-linkedin"></span></a>
-                    <a href="https://www.facebook.com/profile.php?id=61580288907388" class="mr-3"><span class="ti-facebook"></span></a>
-                    <a href="https://www.instagram.com/veritrack_systems?" class="mr-3"><span class="ti-instagram"></span></a>
+                <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                    <h6>Platform</h6>
+                    <a href="platform.html" class="d-block mb-2">Overview</a>
+                    <a href="index.html#platform" class="d-block mb-2">Three pillars</a>
+                    <a href="demo.html" class="d-block mb-2">Live demo</a>
+                </div>
+                <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                    <h6>Company</h6>
+                    <a href="vgba.html" class="d-block mb-2">VGBA Awards</a>
+                    <a href="agent.html" class="d-block mb-2">Partners</a>
+                    <a href="index.html#team" class="d-block mb-2">Team</a>
+                </div>
+                <div class="col-lg-4">
+                    <h6>Access</h6>
+                    <a href="https://portals.veritrack.cloud" class="d-block mb-2" target="_blank" rel="noopener">Client portals</a>
+                    <a href="https://portals.veritrack.cloud/renewal" class="d-block mb-2" target="_blank" rel="noopener">Renew subscription</a>
+                    <a href="mailto:info@veritrack.cloud" class="d-block mb-2">info@veritrack.cloud</a>
                 </div>
             </div>
+            <div class="vt-footer-bottom">
+                <a href="privacyPolicy.html" class="m-2">Privacy</a>
+                <a href="termsAndConditions.html" class="m-2">Terms</a>
+                <span>© 2026 VeriTrack Systems. All rights reserved.</span>
+            </div>
         </div>
-    </div>
-
-    <footer class="my-5 text-center">
-        <p class="mb-2"><small>COPYRIGHT © 2026. ALL RIGHTS RESERVED.</small></p>
-        <small>
-            <a href="termsAndConditions.html" class="m-2">TERMS</a>
-            <a href="privacyPolicy.html" class="m-2">PRIVACY</a>
-        </small>
     </footer>
+
+    <div class="vt-mobile-demo-bar">
+        <a href="demo.html" class="btn btn-primary">Book a demo</a>
+    </div>
 
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>

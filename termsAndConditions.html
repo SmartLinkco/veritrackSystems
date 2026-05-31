@@ -60,6 +60,7 @@ URI     : https://colorlib.com
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <!-- Main css -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/vt-upgrade.css" rel="stylesheet">
     <style>
         :root {
           --primary-dark: #1e3c72;
@@ -316,25 +317,29 @@ URI     : https://colorlib.com
     <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cmbcz1zad0001oelvity1313j"></script>
 </head>
 
-<body data-spy="scroll" data-target="#navbar" data-offset="30">
+<body data-spy="scroll" data-target="#navbar" data-offset="30" class="vt-has-mobile-bar vt-inner-page vt-site-layout">
 
-    <!-- Nav Menu -->
+    <a href="#main" class="vt-skip-link">Skip to main content</a>
 
-    <div class="nav-menu fixed-top gradient-bg">
+    <div class="nav-menu fixed-top">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-dark navbar-expand-lg">
-                        <a class="navbar-brand" href="index.html"><img src="images/veritrack final logo.png" class="img-fluid" alt="logo"></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                        <a class="navbar-brand" href="index.html"><img src="images/veritrack final logo.png" class="img-fluid" alt="logo"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
                         <div class="collapse navbar-collapse" id="navbar">
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item"> <a class="nav-link" href="index.html">HOME</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="index.html?#features">FEATURES</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="demo.html">LIVE DEMO</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="pricing-calculator.html">PRICE CALC</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="index.html?#check-In">SYSTEM REQUEST</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="index.html?#team">OUR TEAM</a> </li>
-                                <li class="nav-item"><a href="index.html?#check-In" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Free Trial</a></li>
+                            <ul class="navbar-nav ml-auto align-items-lg-center">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="index.html#solutions">Solutions</a></li>
+                                <li class="nav-item"><a class="nav-link" href="platform.html">Platform</a></li>
+                                <li class="nav-item"><a class="nav-link" href="vgba.html">Awards</a></li>
+                                <li class="nav-item"><a class="nav-link" href="pricing-calculator.html">Pricing</a></li>
+                                <li class="nav-item"><a class="nav-link" href="agent.html">Partners</a></li>
+                                <li class="nav-item"><a href="demo.html" class="btn btn-outline-light btn-nav-demo my-2 my-lg-0">Demo</a></li>
+                                <li class="nav-item"><a href="get-started.html" class="btn btn-primary btn-nav-primary my-2 my-lg-0 ml-lg-2">Get started</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -342,8 +347,7 @@ URI     : https://colorlib.com
             </div>
         </div>
     </div>
-    
-    <!-- Fixed Language Selector -->
+
     <div id="languageSelectorContainer" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;">
       <select id="languageSelector" style="padding: 12px 18px; border-radius: 25px; border: 2px solid rgba(30, 60, 114, 0.3); background: rgba(255,255,255,0.95); color: #1e3c72; font-size: 0.95rem; font-weight: 500; cursor: pointer; backdrop-filter: blur(10px); outline: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
         <option value="en" style="background: #fff; color: #1e3c72;">&#127760; English</option>
@@ -356,212 +360,198 @@ URI     : https://colorlib.com
         <option value="ja" style="background: #fff; color: #1e3c72;">&#127471;&#127477; 日本語</option>
       </select>
     </div>
-    
-    <!-- Demo Live Presentation & Pricing Section Start -->
 
-    <!-- Terms & Conditions Interactive Section -->
-    <section class="terms-interaction gradient-bg" style="padding: 60px 0; background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(52, 152, 219, 0.95) 100%); position: relative; overflow: hidden; margin-top: 100px;">
-      <!-- Animated Background Elements -->
-      <div class="floating-elements">
-        <div class="floating-icon" style="position: absolute; top: 20%; left: 10%; animation: float 6s ease-in-out infinite;">
-          <i class="ti-clipboard" style="font-size: 24px; color: rgba(255,255,255,0.2);"></i>
+    <header class="bg-gradient vt-subpage-hero vt-subpage-hero--center" id="main">
+        <div class="container vt-hero-inner">
+            <div class="box-icon mb-3"><span class="ti-clipboard gradient-fill ti-2x"></span></div>
+            <p class="vt-hero-eyebrow">Legal</p>
+            <h1 id="termsTitle">Terms and Conditions</h1>
+            <p class="lead mt-3 mb-0" id="termsSubtitle" style="max-width:40rem; margin-left:auto; margin-right:auto;">Service terms for portals, dashboards, subscriptions, VGBA, and multi-tenant operations</p>
+            <p class="mt-3 mb-0" style="opacity:0.9; font-size:0.95rem;"><span id="lastUpdatedLabel">Last updated:</span> 31 May 2026 · <a href="privacyPolicy.html" class="text-white" style="text-decoration:underline;">Privacy Policy</a> · <a href="agentsTCs.html" class="text-white" style="text-decoration:underline;">Partner Terms</a></p>
         </div>
-        <div class="floating-icon" style="position: absolute; top: 70%; right: 15%; animation: float 8s ease-in-out infinite reverse;">
-          <i class="ti-shield" style="font-size: 28px; color: rgba(255,255,255,0.15);"></i>
-        </div>
-        <div class="floating-icon" style="position: absolute; top: 40%; right: 5%; animation: float 7s ease-in-out infinite;">
-          <i class="ti-star" style="font-size: 20px; color: rgba(255,255,255,0.2);"></i>
-        </div>
-      </div>
+    </header>
 
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="terms-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
-              
-              <!-- Interactive Header -->
-              <div class="terms-header text-center" style="margin-bottom: 30px;">
-                <div class="pulse-icon" style="width: 80px; height: 80px; background: linear-gradient(45deg, #4a90e2, #74b9ff); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; animation: pulse 2s infinite;">
-                  <i class="ti-clipboard" style="font-size: 32px; color: white;"></i>
-                </div>
-                <h3 id="termsTitle" style="color: #fff; font-weight: 600; margin-bottom: 15px; font-size: 1.8rem;">
-                  Terms & Conditions
-                </h3>
-                <p id="termsSubtitle" style="color: #e3e3e3; font-size: 1.1rem; margin-bottom: 0; line-height: 1.6;">
-                  Terms of service for VeriTrack Systems platform
-                </p>
-                <p style="margin-top: 15px; color: #d1c4e9; font-size: 1.1rem;"><span id="lastUpdatedLabel">Last Updated:</span> <span style="color: #fff;">23rd June, 2025</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="terms-section" id="terms" style="background: #f8f9fa; padding: 60px 0; position: relative; overflow: hidden;">
-        <!-- Floating Elements -->
-        <div class="floating-elements">
-            <div class="floating-icon" style="position: absolute; top: 15%; left: 8%; animation: float 7s ease-in-out infinite;">
-                <i class="ti-clipboard" style="font-size: 22px; color: rgba(30, 60, 114, 0.1);"></i>
-            </div>
-            <div class="floating-icon" style="position: absolute; top: 30%; right: 12%; animation: float 6s ease-in-out infinite reverse;">
-                <i class="ti-book" style="font-size: 20px; color: rgba(52, 152, 219, 0.12);"></i>
-            </div>
-            <div class="floating-icon" style="position: absolute; top: 50%; left: 15%; animation: float 8s ease-in-out infinite;">
-                <i class="ti-shield" style="font-size: 24px; color: rgba(30, 60, 114, 0.08);"></i>
-            </div>
-            <div class="floating-icon" style="position: absolute; top: 70%; right: 8%; animation: float 5s ease-in-out infinite reverse;">
-                <i class="ti-check" style="font-size: 18px; color: rgba(52, 152, 219, 0.15);"></i>
-            </div>
-            <div class="floating-icon" style="position: absolute; top: 85%; left: 25%; animation: float 9s ease-in-out infinite;">
-                <i class="ti-info" style="font-size: 16px; color: rgba(30, 60, 114, 0.12);"></i>
-            </div>
-        </div>
+    <div class="vt-page-content">
+    <section class="terms-section" id="terms">
         <div class="container" style="max-width: 900px;">
             <div class="terms-body" style="background: #fff; border-radius: 14px; box-shadow: 0 6px 32px rgba(30,60,114,0.10); padding: 40px 30px; color: #222; font-size: 1.08rem; line-height: 1.7;">
-                <h2 style="color: #1e3c72; font-size: 1.8rem; margin-bottom: 20px;">Terms and Conditions</h2>
-                <p style="margin-bottom: 20px;">Welcome to VeriTrack Systems. These Terms and Conditions ("Terms") govern your use of our attendance tracking platform. By accessing or using the System, you agree to comply with these Terms. If you do not agree, you must not use the System.</p>
-                <p style="margin-bottom: 20px;">These Terms apply to all users of the System, including employees, HR personnel, and administrators. Please read them carefully.</p>
-                <p style="margin-bottom: 20px;">If you have any questions about these Terms, please contact us at <a href="mailto:info@veritrack.com">info@veritrack.com</a>.</p>
-                <ol style="padding-left: 1.3em; margin-bottom: 0;">
-                    <li style="margin-bottom: 18px;">
-                        <strong>Acceptance of Terms</strong><br>
-                        By accessing or using VeriTrack Systems ("the System"), you agree to comply with and be bound by these Terms and Conditions ("Terms"). If you do not agree, you must not use the System.
-                    </li>
-                    <li style="margin-bottom: 18px;">
-                        <strong>Definitions</strong>
-                        <ul style="list-style: disc; margin-left: 1.2em; margin-top: 8px;">
-                            <li><strong>System</strong>: The VeriTrack attendance tracking platform, including web and mobile interfaces.</li>
-                            <li><strong>User</strong>: Any individual or entity using the System (employees, HR personnel, administrators).</li>
-                            <li><strong>Organization</strong>: The company or entity subscribing to VeriTrack for workforce management.</li>
-                            <li><strong>Data</strong>: Any information collected, processed, or stored by the System.</li>
-                        </ul>
-                    </li>
-                    <li style="margin-bottom: 18px;">
-                        <strong>Account Registration &amp; Access</strong><br>
-                        Organizations must provide accurate registration details.<br>
-                        Employees must use their official credentials (assigned Staff ID) to access the System.<br>
-                        Users are responsible for maintaining confidentiality of login details.
-                    </li>
-                    <li style="margin-bottom: 18px;">
-                        <strong>Permitted Use</strong><br>
-                        The System must only be used for legitimate attendance tracking and workforce management.<br>
-                        Users must not:
-                        <ul style="list-style: disc; margin-left: 1.2em; margin-top: 8px;">
-                            <li>Falsify attendance records.</li>
-                            <li>Share login credentials.</li>
-                            <li>Use automated scripts or bots to manipulate data.</li>
-                            <li>Reverse-engineer or modify the System.</li>
-                        </ul>
-                    </li>
-                    <li style="margin-bottom: 18px;">
-                        <strong>Data Collection &amp; Privacy</strong><br>
-                        VeriTrack collects:
-                        <ul style="list-style: disc; margin-left: 1.2em; margin-top: 8px;">
-                            <li>Staff identification (name, ID, department).</li>
-                            <li>Live Photo data (liveliness check for verification).</li>
-                            <li>Location data (GPS during check-in/out).</li>
-                            <li>Device/IP information.</li>
-                        </ul>
-                        See the Privacy Policy for detailed data handling practices.
-                    </li>
-                    <li style="margin-bottom: 18px;">
-                        <strong>Subscription &amp; Payments (For Organizations)</strong><br>
-                        Organizations must pay subscription fees as agreed.<br>
-                        Failure to renew may result in service suspension.<br>
-                        A grace period of 5 days is allowed for overdue payments.
-                    </li>
-                    <li style="margin-bottom: 18px;">
-                        <strong>Termination &amp; Suspension</strong><br>
-                        VeriTrack reserves the right to suspend accounts for:
-                        <ul style="list-style: disc; margin-left: 1.2em; margin-top: 8px;">
-                            <li>Violation of these Terms.</li>
-                            <li>Suspicious activity.</li>
-                            <li>Non-payment (for organizations).</li>
-                        </ul>
-                        Employees removed from an organization’s records will lose access.
-                    </li>
-                    <li style="margin-bottom: 18px;">
-                        <strong>Liability &amp; Disclaimers</strong><br>
-                        VeriTrack is not liable for:
-                        <ul style="list-style: disc; margin-left: 1.2em; margin-top: 8px;">
-                            <li>Errors in attendance data due to user input.</li>
-                            <li>Internet or device failures affecting access.</li>
-                            <li>Unauthorized access due to credential misuse.</li>
-                        </ul>
-                        The System is provided "as is" without warranties of absolute accuracy.
-                    </li>
-                    <li style="margin-bottom: 18px;">
-                        <strong>Governing Law &amp; Disputes</strong><br>
-                        These Terms are governed by the laws of <span style="color: #2a5298;">Ghana, South Africa, Nigeria, Kenya, Rwanda</span>.<br>
-                        Disputes shall first be resolved via negotiation; unresolved disputes may proceed to arbitration.<br>
-                        <br>
-                        <strong>Applicable Data Protection Laws:</strong>
-                        <ul style="list-style: disc; margin-left: 1.2em; margin-top: 8px;">
-                            <li>General African Compliance</li>
-                            <li>South Africa: POPIA (Protection of Personal Information Act) compliance</li>
-                            <li>Nigeria: NDPR (Nigeria Data Protection Regulation)</li>
-                            <li>Kenya: Data Protection Act, 2019</li>
-                            <li>Ghana: Data Protection Act, 2012 (Act 843)</li>
-                            <li>Rwanda: Law No. 058/2021 Relating to the Protection of Personal Data and Privacy</li>
-                        </ul>
-                    </li>
-                    <li style="margin-bottom: 0;">
-                        <strong>Changes to Terms</strong><br>
-                        VeriTrack may update these Terms. Users will be notified of significant changes.
-                    </li>
-                </ol>
-                <p style="margin-top: 20px;">By using the System, you acknowledge that you have read, understood, and agree to these Terms and Conditions. If you do not agree with any part of these Terms, you must not use the System.</p>
+                <h2 style="color: #1e3c72; font-size: 1.8rem; margin-bottom: 12px;">Terms and Conditions of Service</h2>
+                <p style="margin-bottom: 8px;"><strong>VeriTrack Systems</strong> · Accra, Ghana · <a href="https://veritrack.cloud">veritrack.cloud</a></p>
+                <p style="margin-bottom: 20px; font-size: 0.95rem; color: #555;"><em>Effective date: 31 May 2026. These Terms govern use of the VeriTrack website, client portals, admin dashboards, renewal flows, and related services. Independent partner arrangements are governed separately by our <a href="agentsTCs.html">Partner Terms</a>.</em></p>
+
+                <p style="margin-bottom: 20px;">Welcome to VeriTrack Systems (&ldquo;<strong>VeriTrack</strong>,&rdquo; &ldquo;<strong>we</strong>,&rdquo; &ldquo;<strong>us</strong>,&rdquo; or &ldquo;<strong>our</strong>&rdquo;). By accessing our website, requesting a deployment, subscribing as a <strong>Client Organisation</strong>, or using any <strong>VeriTrack Service</strong> as an authorised user, you agree to these Terms and Conditions (&ldquo;<strong>Terms</strong>&rdquo;). If you do not agree, you must not use our services.</p>
+                <p style="margin-bottom: 24px;">Questions: <a href="mailto:info@veritrack.cloud">info@veritrack.cloud</a> · Phone: <a href="tel:+233592548849">+233 59 254 8849</a></p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">1. Definitions</h3>
+                <ul style="list-style: disc; margin-left: 1.2em; margin-bottom: 18px;">
+                    <li><strong>Client Organisation</strong> — A business, institution, or other entity that contracts with VeriTrack for a subscription and receives a branded tenant environment.</li>
+                    <li><strong>End User</strong> — Any person authorised by a Client Organisation to use a portal or dashboard (e.g. staff, students, lecturers, administrators, HR personnel).</li>
+                    <li><strong>Portal</strong> — A dedicated, branded progressive web application (PWA) for attendance check-in/out, typically hosted under <a href="https://portals.veritrack.cloud" target="_blank" rel="noopener">portals.veritrack.cloud</a> or a Client-approved subdomain.</li>
+                    <li><strong>Admin Dashboard</strong> — The web interface used by Client Organisation administrators to view live attendance, manage staff/branches, run reports, and configure operational settings (scope varies by plan and portal type).</li>
+                    <li><strong>Super-Admin / Network Intelligence</strong> — VeriTrack&rsquo;s internal multi-tenant operations layer used to monitor platform health, support clients, and—where permitted—benchmark anonymised or aggregated performance metrics across the client network.</li>
+                    <li><strong>VeriTrack Services</strong> — Portals, dashboards, event check-in modules, student attendance modules, renewal self-service, automated reporting, optional add-ons, website tools, and related support described in your order or statement of work.</li>
+                    <li><strong>VGBA</strong> — The VeriTrack Global Business Awards programme, which recognises eligible Client Organisations based on operational performance data captured through the platform.</li>
+                    <li><strong>Personal Data</strong> — Information relating to an identified or identifiable individual, as defined under applicable data protection law.</li>
+                </ul>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">2. Scope of services</h3>
+                <p>VeriTrack provides a multi-tenant workforce attendance and analytics platform. Depending on your sector and configuration, services may include:</p>
+                <ul style="list-style: disc; margin-left: 1.2em; margin-bottom: 18px;">
+                    <li><strong>Enterprise workforce portals</strong> — Photo-verified check-in/out, staff ID or QR flows, GPS geofencing, optional offline queue and sync, branch-level visibility.</li>
+                    <li><strong>College mode</strong> — Class and course attendance, lecturer assignments, and campus analytics.</li>
+                    <li><strong>Logistics and field operations</strong> — Mobile-first check-in for distributed teams and geofenced sites.</li>
+                    <li><strong>Event and visitor attendance</strong> — Registration and on-site check-in for events (quoted separately where applicable).</li>
+                    <li><strong>Student attendance systems</strong> — Dedicated student register and scanner flows where deployed.</li>
+                    <li><strong>Reporting and optional integrations</strong> — Payroll-ready exports by default; direct payroll connectors and advanced modules available as add-ons.</li>
+                </ul>
+                <p style="margin-bottom: 18px;">Feature availability depends on your subscription tier, portal type, and written configuration. VeriTrack may improve, modify, or retire features with reasonable notice where changes materially affect paid functionality.</p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">3. Roles and responsibilities</h3>
+                <p><strong>3.1 Client Organisations</strong> are responsible for:</p>
+                <ul style="list-style: disc; margin-left: 1.2em; margin-bottom: 12px;">
+                    <li>Accuracy of registration, billing, and branch data supplied during onboarding;</li>
+                    <li>Lawful basis to collect and process End User Personal Data (including employment, education, or event participation);</li>
+                    <li>Issuing and protecting administrator credentials; configuring roles and access appropriately;</li>
+                    <li>Communicating attendance policies to staff and obtaining consents where required by local law;</li>
+                    <li>Reviewing attendance records before payroll or disciplinary decisions.</li>
+                </ul>
+                <p><strong>3.2 End Users</strong> must use assigned credentials only, follow Client Organisation policies, and not falsify attendance, bypass verification controls, or misuse location or photo features.</p>
+                <p style="margin-bottom: 18px;"><strong>3.3 VeriTrack</strong> provides the platform, deployment support, and subscription services described in your agreement. Unless expressly agreed in writing, VeriTrack does not act as the employer, school authority, or payroll processor for your organisation.</p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">4. Account registration, deployment, and access</h3>
+                <ul style="list-style: disc; margin-left: 1.2em; margin-bottom: 18px;">
+                    <li>Deployments begin with a request via <a href="get-started.html">Get started</a>, demo, or direct sales contact. We configure your portal URL, branding, geofenced locations, staff structure, and reporting based on information you provide.</li>
+                    <li>A one-time <strong>system configuration fee</strong> (currently &#8373;500 unless otherwise quoted) and a <strong>30-day subscription trial</strong> may apply to new Client Organisations as stated on our website or order form.</li>
+                    <li>End Users must authenticate with official identifiers (e.g. Staff ID) and any verification steps enabled by the Client (live photo liveness, GPS validation).</li>
+                    <li>You must keep login details confidential. Notify us immediately at <a href="mailto:info@veritrack.cloud">info@veritrack.cloud</a> if you suspect unauthorised access.</li>
+                    <li>We may suspend access for security incidents, non-payment, or breach of these Terms.</li>
+                </ul>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">5. Verification features and acceptable use</h3>
+                <p>VeriTrack is designed to reduce time theft and disputed records through technical controls. Where enabled by the Client:</p>
+                <ul style="list-style: disc; margin-left: 1.2em; margin-bottom: 12px;">
+                    <li><strong>Live photo liveness</strong> — Check-in/out may require a live camera capture validated for liveness (not a static gallery upload).</li>
+                    <li><strong>GPS geofencing</strong> — Location coordinates may be collected to confirm presence within approved sites.</li>
+                    <li><strong>Offline capture</strong> — Records may queue on-device when connectivity is limited and sync when online.</li>
+                    <li><strong>QR and staff-ID flows</strong> — Alternative check-in methods may be configured per branch.</li>
+                </ul>
+                <p><strong>Prohibited conduct</strong> includes, without limitation:</p>
+                <ul style="list-style: disc; margin-left: 1.2em; margin-bottom: 18px;">
+                    <li>Buddy punching, proxy check-ins, spoofed GPS, or use of modified clients to circumvent controls;</li>
+                    <li>Sharing passwords, bulk-exporting data without authorisation, or scraping the platform;</li>
+                    <li>Reverse engineering, unauthorised penetration testing, or introducing malware;</li>
+                    <li>Using the Services for unlawful surveillance or purposes unrelated to workforce, education, or event attendance management;</li>
+                    <li>Uploading offensive, infringing, or unrelated content through any Client-enabled channel.</li>
+                </ul>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">6. Subscriptions, billing, and renewals</h3>
+                <ul style="list-style: disc; margin-left: 1.2em; margin-bottom: 12px;">
+                    <li>Subscription fees are quoted in <strong>Ghana Cedis (GHS)</strong> unless otherwise agreed, based on plan tier, branch count, included staff headcount, and selected billing cycle (monthly, quarterly, semi-annual, or annual).</li>
+                    <li>Standard plans include photo liveness, geofencing, multi-branch support, and automated reports. <strong>Optional add-ons</strong> (e.g. Leaderboard &amp; Recognition, Shift Rotation Management, AI Productivity Tips, Payroll Sync, per-check-in admin alerts) are billed separately as published on our pricing pages.</li>
+                    <li>Payments may be processed through approved providers such as <strong>Paystack</strong>. You agree to provide accurate billing contact and payment authorisation.</li>
+                    <li><strong>Renewal</strong> — Active subscriptions may be renewed via <a href="https://portals.veritrack.cloud/renewal" target="_blank" rel="noopener">portals.veritrack.cloud/renewal</a> or methods we communicate. Failure to pay by the due date may result in restricted access after a <strong>5-day grace period</strong>, unless otherwise stated in your invoice.</li>
+                    <li>Price changes apply to renewal periods with at least <strong>30 days&rsquo;</strong> notice to Client Organisation billing contacts.</li>
+                    <li>Refunds are handled case-by-case for proven billing errors or service failures attributable to VeriTrack; subscription fees for periods already rendered are generally non-refundable unless required by law.</li>
+                </ul>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">7. Data protection and privacy</h3>
+                <p style="margin-bottom: 18px;">Processing of Personal Data is described in our <a href="privacyPolicy.html">Privacy Policy</a>. In summary: attendance and workforce data for Client Organisations is typically stored within the organisation&rsquo;s <strong>controlled Google Workspace</strong> environment with role-restricted access. Client Organisations are generally the <strong>data controller</strong> for employee/student data; VeriTrack acts as a <strong>processor/service provider</strong> according to your deployment and data processing arrangements. End Users with privacy questions should contact their employer or institution first, and may contact us at <a href="mailto:info@veritrack.cloud">info@veritrack.cloud</a>.</p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">8. VGBA (VeriTrack Global Business Awards)</h3>
+                <p style="margin-bottom: 18px;">Participation in VGBA is voluntary and subject to eligibility criteria (including active subscription and minimum data windows) published on <a href="vgba.html">vgba.html</a>. Rankings and awards are derived from operational metrics captured in the platform (such as attendance rate, punctuality, checkout completion, and sync reliability) using methodology we publish or share with enrolled clients. VGBA results are ceremonial and promotional; they do not constitute legal, financial, or employment certification. Clients may opt out of public recognition while remaining subscribed.</p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">9. Referral partners</h3>
+                <p style="margin-bottom: 18px;">Independent partners who introduce Client Organisations are governed by the <a href="agentsTCs.html">VeriTrack Partner Terms and Conditions</a>, not these Terms. Partner commissions, tiers, and conduct rules are set out in that separate agreement.</p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">10. Service levels and support</h3>
+                <p style="margin-bottom: 18px;">We aim to keep portals and dashboards available during business-critical hours. Scheduled maintenance, third-party outages (including cloud, payment, or connectivity providers), and force majeure events may cause temporary interruption. Support channels include <a href="mailto:info@veritrack.cloud">info@veritrack.cloud</a> and agreed onboarding contacts. Response times for non-critical issues depend on plan tier and active partner status where applicable.</p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">11. Intellectual property</h3>
+                <p style="margin-bottom: 18px;">VeriTrack retains all rights in the platform, software, documentation, trademarks, and marketing materials. Client Organisations receive a limited, non-exclusive, non-transferable licence to use the Services for internal business purposes during an active subscription. Client branding supplied for portals remains the Client&rsquo;s property. Aggregated, anonymised analytics may be used by VeriTrack to improve services and network benchmarks where permitted.</p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">12. Confidentiality</h3>
+                <p style="margin-bottom: 18px;">Each party will protect the other&rsquo;s non-public business, technical, and security information with reasonable care and use it only to perform under these Terms. This obligation survives termination except for information that becomes public without breach or is independently developed.</p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">13. Warranties and disclaimers</h3>
+                <p style="margin-bottom: 12px;">VeriTrack warrants that it will provide the Services with reasonable skill and care consistent with industry practice for similar SaaS workforce platforms.</p>
+                <p style="margin-bottom: 18px;"><strong>Except as stated above, the Services are provided &ldquo;as is&rdquo; and &ldquo;as available.&rdquo;</strong> We do not warrant uninterrupted operation, perfect GPS accuracy, or that every check-in will be fraud-proof. Attendance records depend on device integrity, user conduct, and Client configuration. Client Organisations remain responsible for employment, academic, payroll, and regulatory decisions based on platform data.</p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">14. Limitation of liability</h3>
+                <p style="margin-bottom: 12px;">To the fullest extent permitted by applicable law, VeriTrack shall not be liable for indirect, incidental, special, consequential, or punitive damages, or for lost profits, payroll errors, or disciplinary outcomes arising from use or inability to use the Services.</p>
+                <p style="margin-bottom: 18px;">Our aggregate liability arising out of or related to these Terms in any twelve (12) month period shall not exceed the total subscription fees paid by the Client Organisation to VeriTrack in that period, except where liability cannot be limited by law (including death or personal injury caused by negligence, or fraud).</p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">15. Indemnification</h3>
+                <p style="margin-bottom: 18px;">Client Organisations agree to indemnify VeriTrack against claims arising from misuse of the Services by their End Users, breach of these Terms, or unlawful processing instructions. VeriTrack will indemnify Client Organisations against third-party claims that the platform infringes intellectual property rights, subject to prompt notice and cooperation, and excluding claims arising from Client data, combinations, or unauthorised modifications.</p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">16. Term, suspension, and termination</h3>
+                <ul style="list-style: disc; margin-left: 1.2em; margin-bottom: 18px;">
+                    <li>Subscriptions continue for the agreed billing period and renew unless cancelled per your order terms.</li>
+                    <li>Either party may terminate for material breach not cured within 30 days of written notice, or immediately for insolvency, fraud, or illegal use.</li>
+                    <li>We may suspend portals immediately for non-payment after the grace period, security threats, or regulatory requirement.</li>
+                    <li>Upon termination, access ends; export of Client data may be available for a limited period upon request, subject to fees and technical feasibility. Legal retention obligations may require us to retain certain logs.</li>
+                    <li>End Users removed from a Client Organisation&rsquo;s roster lose portal access without separate notice from VeriTrack.</li>
+                </ul>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">17. Force majeure</h3>
+                <p style="margin-bottom: 18px;">Neither party is liable for delay or failure caused by events beyond reasonable control, including natural disasters, government actions, widespread network failures, or critical third-party outages, provided the affected party uses reasonable efforts to resume performance.</p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">18. Governing law and disputes</h3>
+                <p style="margin-bottom: 12px;">These Terms are governed by the laws of the <strong>Republic of Ghana</strong>, without regard to conflict-of-law principles. Courts in Accra, Ghana shall have exclusive jurisdiction, unless the parties agree in writing to arbitration under Ghana Arbitration Centre rules.</p>
+                <p style="margin-bottom: 12px;">Parties will attempt good-faith negotiation for 30 days before formal proceedings.</p>
+                <p style="margin-bottom: 18px;"><strong>Data protection compliance:</strong> Where Client Organisations or End Users are located outside Ghana, both parties will comply with applicable local laws, including where relevant: Ghana Data Protection Act, 2012 (Act 843); South Africa POPIA; Nigeria NDPR; Kenya Data Protection Act, 2019; and Rwanda Law No. 058/2021 on personal data and privacy. Contractual details may be set out in a Data Processing Agreement or order form.</p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">19. Changes to these Terms</h3>
+                <p style="margin-bottom: 18px;">We may update these Terms to reflect legal, technical, or business changes. Material updates will be communicated via email to Client Organisation contacts, in-portal notice, or website publication at least <strong>14 days</strong> before taking effect, except where immediate change is required by law or security. Continued use after the effective date constitutes acceptance.</p>
+
+                <h3 style="color: #2a5298; margin-top: 28px; font-size: 1.25rem;">20. Contact</h3>
+                <p style="margin-bottom: 8px;"><strong>VeriTrack Systems</strong></p>
+                <p style="margin-bottom: 4px;">Email: <a href="mailto:info@veritrack.cloud">info@veritrack.cloud</a></p>
+                <p style="margin-bottom: 4px;">Phone: <a href="tel:+233592548849">+233 59 254 8849</a></p>
+                <p style="margin-bottom: 20px;">Registered operations: Accra, Ghana</p>
+
+                <p style="margin-top: 24px; padding-top: 20px; border-top: 1px solid #e0e6ed; font-size: 0.95rem;">By using VeriTrack Services, you confirm that you have authority to bind your organisation (if applicable) and that you have read, understood, and agree to these Terms and our <a href="privacyPolicy.html">Privacy Policy</a>.</p>
             </div>
         </div>
     </section>
+    </div>
 
-    <div class="light-bg py-5" id="contact">
+    <footer class="vt-footer" id="contact">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 text-center text-lg-left">
-                    <p class="mb-2"> <span class="ti-location-pin mr-2"></span> Accra, Ghana</p>
-                    <div class=" d-block d-sm-inline-block">
-                        <p class="mb-2">
-                            <span class="ti-email mr-2"></span> <a class="mr-4" href="mailto:info@veritrack.cloud">info@veritrack.cloud</a>
-                        </p>
-                    </div>
-                    <div class="d-block d-sm-inline-block">
-                        <p class="mb-0">
-                            <span class="ti-headphone-alt mr-2"></span> <a href="tel:+233592548849">233-59-254-8849</a>
-                        </p>
-                    </div>
-                    <a href="agent.html" class="btn btn-gradient" style="background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%); color: #fff; font-weight: 600; padding: 10px 28px; border-radius: 25px; box-shadow: 0 2px 8px rgba(74,13,143,0.12); margin-top: 18px; display: inline-block; text-decoration: none; transition: background 0.2s, transform 0.15s;">
-                        Become a Partner
-                    </a>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="images/veritrack final logo.png" class="vt-footer-logo img-fluid" alt="VeriTrack Systems">
+                    <p class="vt-footer-tagline">VeriTrack Systems · Accra, Ghana<br>Workforce attendance &amp; analytics</p>
                 </div>
-                <div class="col-lg-6">
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/company/veritrack-systems"><span class="ti-linkedin"></span></a>
-                        <a href="https://www.facebook.com/profile.php?id=61580288907388"><span class="ti-facebook"></span></a>
-                        <a href="https://x.com/Veritracks">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com/veritrack_systems?"><span class="ti-instagram"></span></a>
-                    </div>
+                <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                    <h6>Platform</h6>
+                    <a href="platform.html" class="d-block mb-2">Overview</a>
+                    <a href="index.html#platform" class="d-block mb-2">Three pillars</a>
+                    <a href="demo.html" class="d-block mb-2">Live demo</a>
+                </div>
+                <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                    <h6>Company</h6>
+                    <a href="vgba.html" class="d-block mb-2">VGBA Awards</a>
+                    <a href="agent.html" class="d-block mb-2">Partners</a>
+                    <a href="index.html#team" class="d-block mb-2">Team</a>
+                </div>
+                <div class="col-lg-4">
+                    <h6>Access</h6>
+                    <a href="https://portals.veritrack.cloud" class="d-block mb-2" target="_blank" rel="noopener">Client portals</a>
+                    <a href="https://portals.veritrack.cloud/renewal" class="d-block mb-2" target="_blank" rel="noopener">Renew subscription</a>
+                    <a href="mailto:info@veritrack.cloud" class="d-block mb-2">info@veritrack.cloud</a>
                 </div>
             </div>
-
+            <div class="vt-footer-bottom">
+                <a href="privacyPolicy.html" class="m-2">Privacy</a>
+                <a href="termsAndConditions.html" class="m-2">Terms</a>
+                <span>© 2026 VeriTrack Systems. All rights reserved.</span>
+            </div>
         </div>
-
-    </div>
-    <!-- // end .section -->
-    <footer class="my-5 text-center">
-        <p class="mb-2"><small>COPYRIGHT © 2026. ALL RIGHTS RESERVED.</small></p>
-
-        <small>
-            <a href="#" class="m-2">MANUAL</a>
-            <a href="termsAndConditions.html" class="m-2">TERMS</a>
-            <a href="privacyPolicy.html" class="m-2">PRIVACY</a>
-        </small>
     </footer>
+
+    <div class="vt-mobile-demo-bar">
+        <a href="demo.html" class="btn btn-primary">Book a demo</a>
+    </div>
 
     <!-- jQuery and Bootstrap -->
     <script src="js/jquery-3.2.1.min.js"></script>
