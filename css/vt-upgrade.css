@@ -421,25 +421,116 @@ section.bg-gradient.vt-subpage-hero {
   margin-top: 1rem;
 }
 
-/* VGBA teaser — same gradient as .bg-gradient / Accessible Everywhere */
+/* VGBA teaser — gold frame + blue inner (same gradient as .bg-gradient) */
 .vt-vgba-teaser {
-  background-color: #1e3c72;
-  background-image: linear-gradient(135deg, #1e3c72 0%, #3498db 100%);
-  color: #fff;
-  padding: 4rem 0;
   position: relative;
   overflow: hidden;
   width: calc(100% - 2rem);
   max-width: 1140px;
   margin: 2.5rem auto;
+  padding: 5px;
   border-radius: 20px;
-  box-shadow: 0 16px 48px rgba(30, 60, 114, 0.18);
+  color: #fff;
+  background: linear-gradient(
+    120deg,
+    #7a5c10 0%,
+    #c9a227 22%,
+    #f4e4a6 45%,
+    #e8c547 55%,
+    #c9a227 78%,
+    #8b6914 100%
+  );
+  background-size: 260% 260%;
+  animation:
+    vt-vgba-gold-border 5s linear infinite,
+    vt-vgba-section-glow 2.8s ease-in-out infinite;
+  box-shadow:
+    0 0 22px rgba(201, 162, 39, 0.5),
+    0 0 44px rgba(201, 162, 39, 0.28),
+    0 16px 48px rgba(30, 60, 114, 0.18);
+}
+
+.vt-vgba-teaser.bg-gradient {
+  background-color: transparent;
+  background-image: linear-gradient(
+    120deg,
+    #7a5c10 0%,
+    #c9a227 22%,
+    #f4e4a6 45%,
+    #e8c547 55%,
+    #c9a227 78%,
+    #8b6914 100%
+  );
+  background-size: 260% 260%;
+}
+
+.vt-vgba-teaser::before,
+.vt-vgba-teaser::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 2;
+  background-repeat: no-repeat;
+}
+
+.vt-vgba-teaser::before {
+  background-image:
+    radial-gradient(2px 2px at 4% 8%, rgba(255, 255, 255, 0.95) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 96% 6%, rgba(244, 228, 166, 1) 50%, transparent 51%),
+    radial-gradient(2px 2px at 98% 92%, rgba(255, 255, 255, 0.9) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 2% 88%, rgba(244, 228, 166, 0.95) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 28% 2%, rgba(255, 255, 255, 0.85) 50%, transparent 51%),
+    radial-gradient(2px 2px at 72% 1%, rgba(244, 228, 166, 0.9) 50%, transparent 51%),
+    radial-gradient(1px 1px at 50% 3%, rgba(255, 255, 255, 0.9) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 18% 50%, rgba(255, 255, 255, 0.8) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 82% 48%, rgba(244, 228, 166, 0.9) 50%, transparent 51%),
+    radial-gradient(2px 2px at 42% 96%, rgba(255, 255, 255, 0.95) 50%, transparent 51%),
+    radial-gradient(1px 1px at 58% 97%, rgba(244, 228, 166, 0.88) 50%, transparent 51%);
+  opacity: 0;
+  animation: vt-vgba-glitter 5s ease-in-out infinite;
+}
+
+.vt-vgba-teaser::after {
+  background-image:
+    radial-gradient(1.5px 1.5px at 8% 42%, rgba(255, 255, 255, 0.9) 50%, transparent 51%),
+    radial-gradient(2px 2px at 92% 38%, rgba(244, 228, 166, 1) 50%, transparent 51%),
+    radial-gradient(1px 1px at 35% 12%, rgba(255, 255, 255, 0.85) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 65% 14%, rgba(244, 228, 166, 0.92) 50%, transparent 51%),
+    radial-gradient(1px 1px at 12% 72%, rgba(255, 255, 255, 0.8) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 88% 68%, rgba(255, 255, 255, 0.9) 50%, transparent 51%),
+    radial-gradient(2px 2px at 50% 50%, rgba(244, 228, 166, 0.75) 50%, transparent 51%),
+    radial-gradient(1px 1px at 75% 82%, rgba(255, 255, 255, 0.88) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 25% 78%, rgba(244, 228, 166, 0.9) 50%, transparent 51%);
+  opacity: 0;
+  animation: vt-vgba-glitter 5.5s ease-in-out infinite;
+  animation-delay: 2.35s;
+}
+
+.vt-vgba-teaser > .container {
+  position: relative;
+  z-index: 1;
+  background-color: #1e3c72;
+  background-image: linear-gradient(135deg, #1e3c72 0%, #3498db 100%);
+  border-radius: 16px;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 @media (min-width: 768px) {
   .vt-vgba-teaser {
     width: calc(100% - 3rem);
     border-radius: 24px;
+  }
+
+  .vt-vgba-teaser::before,
+  .vt-vgba-teaser::after {
+    border-radius: 24px;
+  }
+
+  .vt-vgba-teaser > .container {
+    border-radius: 20px;
   }
 }
 .vt-vgba-teaser h2 {
@@ -496,16 +587,190 @@ section.bg-gradient.vt-subpage-hero {
 .vt-vgba-teaser .vt-vgba-flyer-link {
   position: relative;
   z-index: 1;
-  background: linear-gradient(135deg, #1e3c72 0%, #3498db 100%);
+  display: block;
+  line-height: 0;
   border-radius: 20px;
   padding: 4px;
-  box-shadow: 0 10px 40px rgba(30, 60, 114, 0.25);
+  overflow: hidden;
+  background: linear-gradient(
+    120deg,
+    #7a5c10 0%,
+    #c9a227 22%,
+    #f4e4a6 45%,
+    #e8c547 55%,
+    #c9a227 78%,
+    #8b6914 100%
+  );
+  background-size: 260% 260%;
+  animation:
+    vt-vgba-gold-border 5s linear infinite,
+    vt-vgba-gold-glow 2.8s ease-in-out infinite;
+  box-shadow:
+    0 0 18px rgba(201, 162, 39, 0.55),
+    0 0 36px rgba(201, 162, 39, 0.28),
+    0 10px 40px rgba(0, 0, 0, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.vt-vgba-teaser .vt-vgba-flyer-link::before,
+.vt-vgba-teaser .vt-vgba-flyer-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 2;
+  background-repeat: no-repeat;
+}
+
+.vt-vgba-teaser .vt-vgba-flyer-link::before {
+  background-image:
+    radial-gradient(1.5px 1.5px at 14% 22%, rgba(255, 255, 255, 0.95) 50%, transparent 51%),
+    radial-gradient(2px 2px at 86% 16%, rgba(244, 228, 166, 1) 50%, transparent 51%),
+    radial-gradient(1px 1px at 72% 74%, rgba(255, 255, 255, 0.9) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 26% 82%, rgba(255, 255, 255, 0.85) 50%, transparent 51%),
+    radial-gradient(2px 2px at 54% 10%, rgba(244, 228, 166, 0.95) 50%, transparent 51%),
+    radial-gradient(1px 1px at 40% 46%, rgba(255, 255, 255, 0.8) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 94% 52%, rgba(255, 255, 255, 0.9) 50%, transparent 51%),
+    radial-gradient(1px 1px at 6% 56%, rgba(244, 228, 166, 0.9) 50%, transparent 51%),
+    radial-gradient(2px 2px at 64% 36%, rgba(255, 255, 255, 0.95) 50%, transparent 51%);
+  opacity: 0;
+  animation: vt-vgba-glitter 5s ease-in-out infinite;
+}
+
+.vt-vgba-teaser .vt-vgba-flyer-link::after {
+  background-image:
+    radial-gradient(1.5px 1.5px at 20% 64%, rgba(255, 255, 255, 0.9) 50%, transparent 51%),
+    radial-gradient(1px 1px at 80% 70%, rgba(244, 228, 166, 1) 50%, transparent 51%),
+    radial-gradient(2px 2px at 48% 90%, rgba(255, 255, 255, 0.85) 50%, transparent 51%),
+    radial-gradient(1px 1px at 56% 26%, rgba(255, 255, 255, 0.95) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 96% 30%, rgba(244, 228, 166, 0.9) 50%, transparent 51%),
+    radial-gradient(1px 1px at 4% 34%, rgba(255, 255, 255, 0.8) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 33% 18%, rgba(255, 255, 255, 0.88) 50%, transparent 51%),
+    radial-gradient(1px 1px at 68% 58%, rgba(244, 228, 166, 0.92) 50%, transparent 51%);
+  opacity: 0;
+  animation: vt-vgba-glitter 5.5s ease-in-out infinite;
+  animation-delay: 2.35s;
+}
+
+.vt-vgba-teaser .vt-vgba-flyer-link:hover,
+.vt-vgba-teaser .vt-vgba-flyer-link:focus {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 26px rgba(244, 228, 166, 0.9),
+    0 0 48px rgba(201, 162, 39, 0.55),
+    0 0 72px rgba(201, 162, 39, 0.3),
+    0 20px 56px rgba(0, 0, 0, 0.35);
 }
 
 .vt-vgba-teaser .vt-vgba-flyer {
+  position: relative;
+  z-index: 1;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 12px rgba(201, 162, 39, 0.12);
+}
+
+@keyframes vt-vgba-gold-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 260% 50%;
+  }
+}
+
+@keyframes vt-vgba-gold-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 14px rgba(201, 162, 39, 0.5),
+      0 0 28px rgba(201, 162, 39, 0.22),
+      0 10px 40px rgba(0, 0, 0, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 24px rgba(244, 228, 166, 0.85),
+      0 0 44px rgba(201, 162, 39, 0.5),
+      0 0 68px rgba(201, 162, 39, 0.28),
+      0 12px 44px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes vt-vgba-section-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 18px rgba(201, 162, 39, 0.48),
+      0 0 36px rgba(201, 162, 39, 0.24),
+      0 16px 48px rgba(30, 60, 114, 0.18);
+  }
+  50% {
+    box-shadow:
+      0 0 32px rgba(244, 228, 166, 0.8),
+      0 0 56px rgba(201, 162, 39, 0.48),
+      0 0 80px rgba(201, 162, 39, 0.22),
+      0 18px 52px rgba(30, 60, 114, 0.22);
+  }
+}
+
+@keyframes vt-vgba-glitter {
+  0%,
+  34%,
+  100% {
+    opacity: 0;
+  }
+  38% {
+    opacity: 1;
+  }
+  44% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  56% {
+    opacity: 0.15;
+  }
+  62% {
+    opacity: 0;
+  }
+  74% {
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.35;
+  }
+  86% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vt-vgba-teaser {
+    animation: none;
+    background: #c9a227;
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.45);
+  }
+
+  .vt-vgba-teaser.bg-gradient {
+    background-image: none;
+    background-color: #c9a227;
+  }
+
+  .vt-vgba-teaser::before,
+  .vt-vgba-teaser::after,
+  .vt-vgba-teaser .vt-vgba-flyer-link::before,
+  .vt-vgba-teaser .vt-vgba-flyer-link::after {
+    animation: none;
+    opacity: 0;
+  }
+
+  .vt-vgba-teaser .vt-vgba-flyer-link {
+    animation: none;
+    background: #c9a227;
+    box-shadow: 0 0 16px rgba(201, 162, 39, 0.45);
+  }
 }
 /* Awards page — flyer hero; padding/top offset via header.vt-vgba-hero.vt-subpage-hero above */
 .vt-vgba-hero {
