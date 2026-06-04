@@ -267,6 +267,99 @@ section.bg-gradient.vt-subpage-hero {
   font-size: 0.85rem;
   font-weight: 500;
 }
+
+/* DPC certification — Ghana Data Protection Commission */
+.vt-dpc-cert {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+  border: 1px solid #dde5ef;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(30, 60, 114, 0.06);
+  text-align: left;
+}
+
+.vt-dpc-cert--compact {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vt-dpc-cert--featured {
+  max-width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.vt-dpc-cert__media {
+  flex: 0 0 auto;
+}
+
+.vt-dpc-cert__img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 88px;
+  max-width: 120px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.vt-dpc-cert--featured .vt-dpc-cert__img {
+  max-height: 200px;
+  max-width: 280px;
+}
+
+.vt-dpc-cert__body {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+.vt-dpc-cert__eyebrow {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--vt-blue-primary, #2a5298);
+  margin-bottom: 0.35rem;
+}
+
+.vt-dpc-cert__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--vt-blue-heading, #1e3c72);
+  line-height: 1.35;
+}
+
+.vt-dpc-cert__text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #5a6b7d;
+  line-height: 1.55;
+}
+
+.vt-dpc-cert__link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--vt-blue-primary, #2a5298);
+}
+
+.vt-dpc-cert__link:hover {
+  color: var(--vt-blue-deep, #1e3c72);
+}
+
+@media (min-width: 768px) {
+  .vt-dpc-cert--featured .vt-dpc-cert__img {
+    max-height: 240px;
+    max-width: 320px;
+  }
+}
 .vt-metrics-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -960,7 +1053,7 @@ section.bg-gradient.vt-subpage-hero {
 .vt-trusted-brands__track {
   display: flex;
   width: max-content;
-  animation: vt-trusted-brands-scroll 55s linear infinite;
+  animation: vt-trusted-brands-scroll 28s linear infinite;
   will-change: transform;
 }
 

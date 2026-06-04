@@ -345,7 +345,7 @@ Each tab: 50/50 split—copy + capability list + full-width screenshot in Comman
 3. **Categories grid** — 6 award cards with eligibility microcopy
 4. **Methodology** — Interactive weight sliders (read-only display of fixed weights) + FAQ
 5. **Safeguards** — Opt-out, minimum data window, demo tenant exclusion
-6. **Hall of fame** — Masonry grid; empty state: “First ceremony — 2027” with email notify CTA
+6. **Hall of fame** — Masonry grid; empty state: “First ceremony — 2028” with email notify CTA
 7. **Partner / press** — Download kit (ZIP) when assets exist
 
 **Micro-interaction:** Hover category card → badge preview rotates 15° in 3D (CSS `perspective`).

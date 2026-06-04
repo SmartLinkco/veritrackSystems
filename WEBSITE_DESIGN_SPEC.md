@@ -242,7 +242,7 @@ Distinct sub-brand treatment:
 
 - Dark band (`--vt-ops-bg`) or white with gold/neon accent border
 - **Badge:** Circular VGBA mark (to be designed)
-- **Headline:** Coming soon: VGBA 2027 (or current year)
+- **Headline:** Coming soon: VGBA 2028 (or current year)
 - **Countdown** (optional): Days to ceremony — only if date confirmed
 - **CTA:** “Learn about VGBA” → `/vgba.html`
 

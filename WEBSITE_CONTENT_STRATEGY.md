@@ -368,7 +368,7 @@ Align categories with `portal_type` and sectors in the registry:
 
 ### 7.6 Sample homepage teaser copy
 
-> **Coming soon: VGBA 2027**  
+> **Coming soon: VGBA 2028**  
 > The VeriTrack Global Business Awards celebrate organisations that lead in attendance performance—measured across the same live metrics your dashboard already tracks. Ask us how your team qualifies.
 
 ---
