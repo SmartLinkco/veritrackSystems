@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var STAFF_PER_BRANCH = 5;
+  var STAFF_PER_BRANCH = 10;
   var MAX_PER_BRANCH_LOCATIONS = 50;
   /** Reference bundle for explainer/PDF: 4 branches, 20 staff (no excess) */
   var BASELINE_BRANCHES = 4;
@@ -16,7 +16,7 @@
 
   /**
    * Branch pricing by total office/branch count (tier applies to all branches).
-   * Tier 1: ≤3 → GHS 200; Tier 2: 4–9 → GHS 150; Tier 3: ≥10 → GHS 120. Five staff included per branch.
+   * Tier 1: ≤3 → GHS 250; Tier 2: 4–9 → GHS 200; Tier 3: ≥10 → GHS 160. Ten staff included per branch.
    */
   function getBranchTierInfo(branches) {
     var b = Math.max(0, Math.floor(branches));
@@ -25,7 +25,7 @@
         tier: 1,
         label: 'Tier 1 (Small operations)',
         name: 'Small Operations',
-        rate: 200,
+        rate: 250,
         condition: '≤ 3 branches'
       };
     }
@@ -34,7 +34,7 @@
         tier: 2,
         label: 'Tier 2 (Growing operations)',
         name: 'Growing Operations',
-        rate: 150,
+        rate: 200,
         condition: '4–9 branches'
       };
     }
@@ -42,13 +42,13 @@
       tier: 3,
       label: 'Tier 3 (Enterprise operations)',
       name: 'Enterprise Operations',
-      rate: 120,
+      rate: 160,
       condition: '≥ 10 branches'
     };
   }
 
   /**
-   * Excess staff = total staff − (branches × 5). Whole excess count falls in one band; all excess billed at that rate.
+   * Excess staff = total staff − (branches × 10). Whole excess count falls in one band; all excess billed at that rate.
    * Tier A: 1–20 → GHS 10; Tier B: 21–50 → GHS 8; Tier C: 51+ → GHS 6 per staff / month.
    */
   function getExtraStaffTierInfo(extraCount) {
@@ -557,9 +557,9 @@
   function getPricingRulesSummaryLines() {
     return [
       'Branch pricing (one tier applies to all branches):',
-      '• Tier 1 Small: <= 3 branches - GHS 200 / branch / month.',
-      '• Tier 2 Growing: 4-9 branches - GHS 150 / branch / month.',
-      '• Tier 3 Enterprise: >= 10 branches - GHS 120 / branch / month.',
+      '• Tier 1 Small: <= 3 branches - GHS 250 / branch / month.',
+      '• Tier 2 Growing: 4-9 branches - GHS 200 / branch / month.',
+      '• Tier 3 Enterprise: >= 10 branches - GHS 160 / branch / month.',
       '• ' + STAFF_PER_BRANCH + ' staff per branch included; allowance = branches x ' + STAFF_PER_BRANCH + '.',
       '',
       'Extra staff (total staff above allowance; one tier for all excess):',
@@ -634,7 +634,7 @@
             ' × ' +
             formatGHS(r.branchTier.rate) +
             '/branch'
-          : '≤3 branches: GHS 200 each; 4–9: GHS 150; ≥10: GHS 120 (5 staff/branch included)';
+          : '≤3 branches: GHS 250 each; 4–9: GHS 200; ≥10: GHS 160 (10 staff/branch included)';
     }
     els.lineExtraBranch.textContent = formatGHS(r.extraBranchStaffCost);
     els.lineExtraBranchDetail.textContent =
@@ -647,7 +647,7 @@
           ' × ' +
           formatGHS(r.extraStaffTier.rate) +
           '/staff'
-        : 'No staff beyond included allowance (5 per branch)';
+        : 'No staff beyond included allowance (10 per branch)';
 
     var ai = r.addonInfo || { total: 0, detailLines: [] };
     if (els.lineAddons) {
@@ -1041,12 +1041,12 @@
     );
     emitTotalLine('MONTHLY (reference): ' + formatGHS(baseline.finalMonthly));
 
-    emitSubheading('Larger example (12 branches, 100 staff)');
+    emitSubheading('Larger example (12 branches, 150 staff)');
     paragraph(
       [
-        '• Branch cost (Tier 3): 12 x GHS 120 = GHS 1,440.',
-        '• Included 60 staff; 40 extra. Tier B: 40 x GHS 8 = GHS 320.',
-        '• Total monthly: GHS 1,760.'
+        '• Branch cost (Tier 3): 12 x GHS 160 = GHS 1,920.',
+        '• Included 120 staff; 30 extra. Tier B: 30 x GHS 8 = GHS 240.',
+        '• Total monthly: GHS 2,160.'
       ],
       fsBody,
       [35, 38, 44],
