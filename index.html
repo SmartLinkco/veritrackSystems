@@ -1063,7 +1063,7 @@
                     <p class="hero-eyebrow">Workforce intelligence</p>
                     <h1>Attendance you can prove in real time, everywhere.</h1>
                     <p class="hero-subhead mt-3">Photo-verified check-ins. Live dashboards. Your brand, every branch.</p>
-                    <div class="hero-cta-group mt-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start">
+                    <div class="hero-cta-group mt-4 d-flex flex-column flex-sm-row flex-wrap align-items-center justify-content-center justify-content-lg-start">
                         <a href="https://calendly.com/info-veritrack/30min" class="btn btn-primary hero-cta-btn mb-2 mb-sm-0 mr-sm-3" target="_blank" rel="noopener">Book a demo</a>
                         <a href="pricing-calculator.html" class="btn btn-light hero-cta-btn">Calculate your plan</a>
                     </div>
@@ -1072,6 +1072,9 @@
                 <div class="col-lg-7 d-flex justify-content-center justify-content-lg-end">
                     <div class="hero-visual-panel w-100">
                         <img src="images/client company analytics dashboard.jpg" alt="VeriTrack client company analytics dashboard" class="img-fluid hero-visual-panel__img rounded mb-2">
+                        <button type="button" class="vt-hero-tour-chip" data-supademo-tour aria-label="Open interactive product tour">
+                            <i class="ti-control-play" aria-hidden="true"></i> Try the live tour
+                        </button>
                         <div class="px-2 pb-1">
                             <small style="color:var(--vt-ops-muted); font-size:0.75rem;"><span style="color:var(--vt-ops-accent);">●</span> Live platform</small>
                         </div>
@@ -1520,7 +1523,10 @@
             </div>
         </div>
         <div class="container my-4">
-            <div class="d-flex flex-column align-items-center justify-content-center">
+            <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center vt-deploy-cta-group">
+                <button type="button" class="btn btn-outline-primary btn-lg vt-supademo-tour-btn mb-3 mb-sm-0 mr-sm-3" data-supademo-tour>
+                    <i class="ti-control-play" aria-hidden="true"></i> Try the live tour
+                </button>
                 <a href="demo.html" class="btn btn-lg btn-gradient vt-demo-cta-btn">Try live demo</a>
             </div>
         </div>
@@ -1553,6 +1559,11 @@
             <div class="section-title">
                 <small>PRODUCT TOUR</small>
                 <h3>See it in action</h3>
+            </div>
+            <div class="text-center mb-4">
+                <button type="button" class="btn btn-primary vt-supademo-tour-btn" data-supademo-tour>
+                    <i class="ti-control-play" aria-hidden="true"></i> Try the interactive tour
+                </button>
             </div>
 
             <div class="img-gallery owl-carousel owl-theme">
@@ -2046,6 +2057,41 @@
         `;
         document.head.appendChild(style);
     });
+    </script>
+
+    <script src="https://script.supademo.com/supademo.js"></script>
+    <script>
+    (function () {
+        var DEMO_ID = 'cmqjnsjs41somqmx1x1n9xu0y';
+
+        function openTour() {
+            if (window.Supademo && typeof window.Supademo.open === 'function') {
+                window.Supademo.open(DEMO_ID);
+                return true;
+            }
+            return false;
+        }
+
+        window.vtOpenProductTour = function () {
+            if (openTour()) {
+                return;
+            }
+            var attempts = 0;
+            var timer = setInterval(function () {
+                if (openTour() || ++attempts > 30) {
+                    clearInterval(timer);
+                }
+            }, 100);
+        };
+
+        document.addEventListener('click', function (e) {
+            var trigger = e.target.closest('[data-supademo-tour]');
+            if (trigger) {
+                e.preventDefault();
+                window.vtOpenProductTour();
+            }
+        });
+    })();
     </script>
 
 </body>
