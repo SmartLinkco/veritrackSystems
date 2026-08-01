@@ -230,9 +230,9 @@
 
   /**
    * Long-term prepay pricing vs paying the monthly rate each month:
-   * - Quarterly: pay 2.5 months (save ½ month vs 3× monthly)
-   * - Semi-annual: pay 5 months (save 1 month vs 6× monthly)
-   * - Annual: pay 10 months (save 2 months vs 12× monthly)
+   * - Quarterly: pay 2.75 months (save ¼ month vs 3× monthly)
+   * - Semi-annual: pay 5.5 months (save ½ month vs 6× monthly)
+   * - Annual: pay 11 months (save 1 month vs 12× monthly)
    */
   function computeBillingPeriod(monthlyFee, period) {
     var M = monthlyFee;
@@ -244,15 +244,15 @@
     if (key === 'quarterly') {
       months = 3;
       fullRollup = M * 3;
-      prepaid = M * 2.5;
+      prepaid = M * 2.75;
     } else if (key === 'semi') {
       months = 6;
       fullRollup = M * 6;
-      prepaid = M * 5;
+      prepaid = M * 5.5;
     } else if (key === 'annual') {
       months = 12;
       fullRollup = M * 12;
-      prepaid = M * 10;
+      prepaid = M * 11;
     }
 
     var savings = Math.round(fullRollup - prepaid);
@@ -267,17 +267,17 @@
       },
       quarterly: {
         name: 'Quarterly',
-        detail: 'Prepay 3 months at 2.5× monthly (save ½ month vs 3 separate months)',
+        detail: 'Prepay 3 months at 2.75× monthly (save ¼ month vs 3 separate months)',
         summaryLabel: 'Amount due (quarterly)'
       },
       semi: {
         name: 'Semi-annual',
-        detail: 'Prepay 6 months at 5× monthly (save 1 month vs 6 separate months)',
+        detail: 'Prepay 6 months at 5.5× monthly (save ½ month vs 6 separate months)',
         summaryLabel: 'Amount due (semi-annual)'
       },
       annual: {
         name: 'Annual',
-        detail: 'Prepay 12 months at 10× monthly (save 2 months vs 12 separate months)',
+        detail: 'Prepay 12 months at 11× monthly (save 1 month vs 12 separate months)',
         summaryLabel: 'Amount due (annual)'
       }
     };
