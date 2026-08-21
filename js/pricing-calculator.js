@@ -16,7 +16,7 @@
 
   /**
    * Branch pricing by total office/branch count (tier applies to all branches).
-   * Tier 1: ≤3 → GHS 300; Tier 2: 4–9 → GHS 250; Tier 3: ≥10 → GHS 200. Twelve staff included per branch.
+   * Tier 1: ≤3 → GHS 450; Tier 2: 4–9 → GHS 350; Tier 3: ≥10 → GHS 300. Twelve staff included per branch.
    */
   function getBranchTierInfo(branches) {
     var b = Math.max(0, Math.floor(branches));
@@ -25,7 +25,7 @@
         tier: 1,
         label: 'Tier 1 (Small operations)',
         name: 'Small Operations',
-        rate: 300,
+        rate: 450,
         condition: '≤ 3 branches'
       };
     }
@@ -34,7 +34,7 @@
         tier: 2,
         label: 'Tier 2 (Growing operations)',
         name: 'Growing Operations',
-        rate: 250,
+        rate: 350,
         condition: '4–9 branches'
       };
     }
@@ -42,7 +42,7 @@
       tier: 3,
       label: 'Tier 3 (Enterprise operations)',
       name: 'Enterprise Operations',
-      rate: 200,
+      rate: 300,
       condition: '≥ 10 branches'
     };
   }
@@ -229,27 +229,16 @@
   }
 
   /**
-   * Long-term prepay pricing vs paying the monthly rate each month:
-   * - Quarterly: pay 2.75 months (save ¼ month vs 3× monthly)
-   * - Semi-annual: pay 5.5 months (save ½ month vs 6× monthly)
-   * - Annual: pay 11 months (save 1 month vs 12× monthly)
+   * Billing periods: Monthly (standard) or Annual (pay 11 months, save 1 month).
    */
   function computeBillingPeriod(monthlyFee, period) {
     var M = monthlyFee;
-    var key = period || 'monthly';
+    var key = period === 'annual' ? 'annual' : 'monthly';
     var months = 1;
     var fullRollup = M;
     var prepaid = M;
 
-    if (key === 'quarterly') {
-      months = 3;
-      fullRollup = M * 3;
-      prepaid = M * 2.75;
-    } else if (key === 'semi') {
-      months = 6;
-      fullRollup = M * 6;
-      prepaid = M * 5.5;
-    } else if (key === 'annual') {
+    if (key === 'annual') {
       months = 12;
       fullRollup = M * 12;
       prepaid = M * 11;
@@ -265,16 +254,6 @@
         detail: 'Pay each month — standard monthly rate',
         summaryLabel: 'Amount due (monthly)'
       },
-      quarterly: {
-        name: 'Quarterly',
-        detail: 'Prepay 3 months at 2.75× monthly (save ¼ month vs 3 separate months)',
-        summaryLabel: 'Amount due (quarterly)'
-      },
-      semi: {
-        name: 'Semi-annual',
-        detail: 'Prepay 6 months at 5.5× monthly (save ½ month vs 6 separate months)',
-        summaryLabel: 'Amount due (semi-annual)'
-      },
       annual: {
         name: 'Annual',
         detail: 'Prepay 12 months at 11× monthly (save 1 month vs 12 separate months)',
@@ -282,7 +261,7 @@
       }
     };
 
-    var m = meta[key] || meta.monthly;
+    var m = meta[key];
 
     return {
       periodKey: key,
@@ -557,9 +536,9 @@
   function getPricingRulesSummaryLines() {
     return [
       'Branch pricing (one tier applies to all branches):',
-      '• Tier 1 Small: <= 3 branches - GHS 300 / branch / month.',
-      '• Tier 2 Growing: 4-9 branches - GHS 250 / branch / month.',
-      '• Tier 3 Enterprise: >= 10 branches - GHS 200 / branch / month.',
+      '• Tier 1 Small: <= 3 branches - GHS 450 / branch / month.',
+      '• Tier 2 Growing: 4-9 branches - GHS 350 / branch / month.',
+      '• Tier 3 Enterprise: >= 10 branches - GHS 300 / branch / month.',
       '• ' + STAFF_PER_BRANCH + ' staff per branch included; allowance = branches x ' + STAFF_PER_BRANCH + '.',
       '',
       'Extra staff (total staff above allowance; one tier for all excess):',
@@ -634,7 +613,7 @@
             ' × ' +
             formatGHS(r.branchTier.rate) +
             '/branch'
-          : '≤3 branches: GHS 300 each; 4–9: GHS 250; ≥10: GHS 200 (12 staff/branch included)';
+          : '≤3 branches: GHS 450 each; 4–9: GHS 350; ≥10: GHS 300 (12 staff/branch included)';
     }
     els.lineExtraBranch.textContent = formatGHS(r.extraBranchStaffCost);
     els.lineExtraBranchDetail.textContent =
@@ -831,36 +810,74 @@
     var doc = new JsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
     var pageW = doc.internal.pageSize.getWidth();
     var pageH = doc.internal.pageSize.getHeight();
-    var margin = 14;
+    var margin = 16;
     var rightX = pageW - margin;
     var contentW = pageW - 2 * margin;
-    /** Narrower wrap width avoids right-edge clipping with larger type. */
-    var wrapW = Math.max(38, contentW - 5);
-    var bulletIndent = 5;
-    var y = 14;
-    var lineH = 5.1;
-    var lineHLoose = 6.2;
-    var wrapSmall = 4;
-    var bottomSafe = 18;
-    var fsBody = 10;
-    var fsHead = 13;
-    var fsTitle = 17;
-    var fsSub = 11;
-    var fsLead = 10.5;
-    var fsFooter = 8.5;
-    var fsAmount = 13;
+    var wrapW = Math.max(38, contentW - 2);
+    var bulletIndent = 4;
+    var y = 0;
+    var lineH = 5;
+    var lineHLoose = 5.8;
+    var wrapSmall = 3.8;
+    var bottomSafe = 22;
+    var fsBody = 9.5;
+    var fsHead = 12;
+    var fsSub = 10;
+    var fsFooter = 7.5;
+    var fsAmount = 14;
+
+    /* VeriTrack brand palette */
+    var C = {
+      deep: [30, 60, 114],
+      mid: [42, 82, 152],
+      accent: [52, 152, 219],
+      surface: [248, 251, 255],
+      card: [232, 240, 250],
+      text: [26, 35, 50],
+      muted: [90, 106, 122],
+      line: [195, 208, 228],
+      white: [255, 255, 255],
+      save: [26, 127, 76]
+    };
 
     function needPage(h) {
       if (y + h > pageH - bottomSafe) {
         doc.addPage();
-        y = margin;
+        drawPageChrome(false);
         return true;
       }
       return false;
     }
 
     function vSpace(mm) {
-      y += mm == null ? 2.8 : mm;
+      y += mm == null ? 2.5 : mm;
+    }
+
+    function drawPageChrome(isFirst) {
+      if (isFirst) {
+        doc.setFillColor(C.deep[0], C.deep[1], C.deep[2]);
+        doc.rect(0, 0, pageW, 28, 'F');
+        doc.setFillColor(C.accent[0], C.accent[1], C.accent[2]);
+        doc.rect(0, 28, pageW, 1.2, 'F');
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(16);
+        doc.setTextColor(C.white[0], C.white[1], C.white[2]);
+        doc.text(pdfAscii('VeriTrack Systems'), margin, 12);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9.5);
+        doc.setTextColor(200, 220, 245);
+        doc.text(pdfAscii('Subscription pricing quote'), margin, 19.5);
+        doc.setFontSize(8);
+        doc.setTextColor(180, 205, 235);
+        doc.text(pdfAscii(pdfVal('pdf-date') || ''), rightX, 12, { align: 'right' });
+        y = 36;
+      } else {
+        doc.setFillColor(C.deep[0], C.deep[1], C.deep[2]);
+        doc.rect(0, 0, pageW, 8, 'F');
+        doc.setFillColor(C.accent[0], C.accent[1], C.accent[2]);
+        doc.rect(0, 8, pageW, 0.8, 'F');
+        y = 16;
+      }
     }
 
     function paragraph(lines, fontSize, colorRgb, loose, indentMm) {
@@ -868,12 +885,12 @@
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(fontSize != null ? fontSize : fsBody);
       if (colorRgb) doc.setTextColor(colorRgb[0], colorRgb[1], colorRgb[2]);
-      else doc.setTextColor(40, 40, 40);
+      else doc.setTextColor(C.text[0], C.text[1], C.text[2]);
       var lh = loose ? lineHLoose : lineH;
       for (var i = 0; i < lines.length; i++) {
         var block = pdfAscii(lines[i]);
         if (block === '') {
-          y += lh * 0.45;
+          y += lh * 0.4;
           continue;
         }
         var parts = doc.splitTextToSize(block, wrapW - indentMm);
@@ -885,61 +902,45 @@
       }
     }
 
-    function emitSectionTitle(text) {
-      needPage(lineHLoose + 6);
-      vSpace(2);
+    function emitSectionTitle(text, num) {
+      needPage(14);
+      vSpace(3);
+      var label = num ? num + '.  ' + text : text;
+      doc.setFillColor(C.surface[0], C.surface[1], C.surface[2]);
+      doc.roundedRect(margin - 2, y - 4.5, contentW + 4, 9, 1.5, 1.5, 'F');
+      doc.setFillColor(C.accent[0], C.accent[1], C.accent[2]);
+      doc.rect(margin - 2, y - 4.5, 1.6, 9, 'F');
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(fsHead);
-      doc.setTextColor(30, 60, 114);
-      var parts = doc.splitTextToSize(pdfAscii(text), wrapW);
-      for (var si = 0; si < parts.length; si++) {
-        needPage(lineHLoose + 2);
-        doc.text(pdfAscii(parts[si]), margin, y);
-        y += lineHLoose + 0.5;
-      }
+      doc.setTextColor(C.deep[0], C.deep[1], C.deep[2]);
+      doc.text(pdfAscii(label), margin + 3, y + 1.2);
+      y += 8;
       doc.setFont('helvetica', 'normal');
-      vSpace(2);
     }
 
     function emitSubheading(text) {
       needPage(lineHLoose + 4);
-      vSpace(1.2);
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(fsSub);
-      doc.setTextColor(32, 72, 118);
-      doc.text(pdfAscii(text), margin, y);
-      y += lineHLoose + 0.8;
-      doc.setFont('helvetica', 'normal');
-    }
-
-    function emitTotalLine(text) {
       vSpace(1.5);
       doc.setFont('helvetica', 'bold');
-      doc.setFontSize(fsBody + 1.5);
-      doc.setTextColor(20, 50, 100);
-      var parts = doc.splitTextToSize(pdfAscii(text), wrapW - bulletIndent);
-      var tlh = lineHLoose + 0.8;
-      for (var ti = 0; ti < parts.length; ti++) {
-        needPage(tlh + 2);
-        doc.text(pdfAscii(parts[ti]), margin + bulletIndent, y);
-        y += tlh;
-      }
+      doc.setFontSize(fsSub);
+      doc.setTextColor(C.mid[0], C.mid[1], C.mid[2]);
+      doc.text(pdfAscii(text), margin, y);
+      y += lineHLoose;
       doc.setFont('helvetica', 'normal');
-      doc.setFontSize(fsBody);
-      vSpace(1.2);
     }
 
     function emitLabelValue(label, value) {
+      needPage(lineHLoose + 2);
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(fsBody);
-      doc.setTextColor(55, 55, 55);
+      doc.setTextColor(C.muted[0], C.muted[1], C.muted[2]);
       var lab = pdfAscii(label);
       doc.text(lab, margin, y);
       var w = doc.getTextWidth(lab);
       doc.setFont('helvetica', 'normal');
-      doc.setTextColor(35, 35, 35);
+      doc.setTextColor(C.text[0], C.text[1], C.text[2]);
       var valParts = doc.splitTextToSize(pdfAscii(value), wrapW - w - 2);
-      doc.text(valParts[0], margin + w + 1.5, y);
+      doc.text(valParts[0], margin + w + 1.2, y);
       y += lineHLoose;
       for (var vi = 1; vi < valParts.length; vi++) {
         needPage(lineHLoose + 2);
@@ -948,76 +949,157 @@
       }
     }
 
-    function sectionDivider() {
-      needPage(5);
-      vSpace(1);
-      doc.setDrawColor(195, 208, 228);
-      doc.setLineWidth(0.5);
-      doc.line(margin, y, rightX, y);
-      y += 5;
-      doc.setLineWidth(0.3);
+    function emitKvRow(label, value) {
+      needPage(7);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(fsBody);
+      doc.setTextColor(C.muted[0], C.muted[1], C.muted[2]);
+      doc.text(pdfAscii(label), margin, y);
+      doc.setTextColor(C.text[0], C.text[1], C.text[2]);
+      doc.setFont('helvetica', 'bold');
+      doc.text(pdfAscii(value), rightX, y, { align: 'right' });
+      y += lineHLoose;
+      doc.setDrawColor(C.line[0], C.line[1], C.line[2]);
+      doc.setLineWidth(0.2);
+      doc.line(margin, y - 1.5, rightX, y - 1.5);
     }
 
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(fsTitle);
-    doc.setTextColor(30, 60, 114);
-    doc.text(pdfAscii('VeriTrack Systems'), margin, y);
-    y += 8;
-    doc.setFontSize(fsHead);
-    doc.setFont('helvetica', 'normal');
-    doc.setTextColor(55, 55, 55);
-    doc.text(pdfAscii('Subscription pricing quote'), margin, y);
-    y += 7;
+    function emitAmountBox() {
+      needPage(28);
+      vSpace(2);
+      doc.setFillColor(C.deep[0], C.deep[1], C.deep[2]);
+      doc.roundedRect(margin - 2, y, contentW + 4, 22, 2.5, 2.5, 'F');
+      doc.setFillColor(C.accent[0], C.accent[1], C.accent[2]);
+      doc.roundedRect(margin - 2, y, contentW + 4, 1.4, 0.5, 0.5, 'F');
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.5);
+      doc.setTextColor(180, 205, 235);
+      doc.text(pdfAscii(bill.summaryLabel.toUpperCase()), margin + 3, y + 7);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(fsAmount);
+      doc.setTextColor(C.white[0], C.white[1], C.white[2]);
+      doc.text(pdfAscii(formatGHS(bill.prepaidTotal)), margin + 3, y + 15.5);
+      if (bill.savings > 0) {
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8.5);
+        doc.setTextColor(160, 230, 190);
+        doc.text(pdfAscii('You save ' + formatGHS(bill.savings) + ' vs monthly'), rightX - 2, y + 15.5, {
+          align: 'right'
+        });
+      } else {
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8.5);
+        doc.setTextColor(180, 205, 235);
+        doc.text(pdfAscii(bill.periodName + ' billing'), rightX - 2, y + 15.5, { align: 'right' });
+      }
+      y += 26;
+    }
+
+    drawPageChrome(true);
+
+    /* —— 1. Your organisation quote (first) —— */
+    emitSectionTitle('Your organisation quote', '1');
+
+    var modeLabel =
+      v.mode === 'avg'
+        ? 'Average staff per branch'
+        : v.mode === 'total'
+          ? 'Total company-wide staff'
+          : 'Per-branch staff counts';
 
     emitLabelValue('Company: ', companyName || '-');
-    doc.setFontSize(fsBody - 0.5);
-    doc.setTextColor(95, 95, 95);
-    doc.text(pdfAscii('Generated ' + pdfVal('pdf-date')), margin, y);
-    y += lineHLoose + 2;
-    doc.setFontSize(fsBody);
+    emitLabelValue('Staff entry: ', modeLabel);
+    emitLabelValue('Billing period: ', bill.periodName);
 
-    sectionDivider();
+    vSpace(1.5);
+    emitSubheading('Inputs');
+    emitKvRow('Offices / branches', String(v.branches));
+    emitKvRow('Total staff', String(inputs.totalStaff));
+    emitKvRow('Included staff allowance', String(inputs.coveredStaff) + ' (' + STAFF_PER_BRANCH + ' per branch)');
+    emitKvRow('Extra staff', String(inputs.extraBranchStaff));
 
-    emitSectionTitle('1. How your monthly rate is calculated');
+    vSpace(1);
+    emitSubheading('Monthly calculation');
+    emitKvRow(
+      'Branch cost (' + inputs.branchTier.name + ')',
+      v.branches + ' x GHS ' + inputs.branchTier.rate + ' = ' + formatGHS(inputs.baseBranchCost)
+    );
+    emitKvRow(
+      'Extra staff cost',
+      inputs.extraBranchStaff > 0
+        ? inputs.extraBranchStaff +
+            ' x GHS ' +
+            inputs.extraStaffTier.rate +
+            ' = ' +
+            formatGHS(inputs.extraBranchStaffCost)
+        : formatGHS(0)
+    );
+    if (inputs.addonInfo && inputs.addonInfo.total > 0) {
+      emitKvRow('Optional modules', formatGHS(inputs.addonInfo.total));
+      paragraph(inputs.addonInfo.linesForPdf, 8.5, C.muted, false, bulletIndent);
+      vSpace(1);
+    } else {
+      emitKvRow('Optional modules', 'None selected');
+    }
+    emitKvRow('Monthly subscription total', formatGHS(inputs.finalMonthly));
 
-    doc.setFontSize(fsLead);
-    doc.setTextColor(60, 65, 72);
+    vSpace(1);
+    emitSubheading('Billing');
+    paragraph([bill.periodDetail], fsBody, C.muted, true, 0);
+    if (bill.periodKey === 'annual') {
+      emitKvRow('12 x monthly (no discount)', formatGHS(bill.fullRollup));
+      emitKvRow('Annual prepay (11 x monthly)', formatGHS(bill.prepaidTotal));
+      emitKvRow('Effective monthly', formatGHS(bill.effectiveMonthly));
+    } else {
+      emitKvRow('Amount due each month', formatGHS(bill.prepaidTotal));
+    }
+
+    emitAmountBox();
+
+    /* —— 2. Pricing rules —— */
+    emitSectionTitle('How pricing works', '2');
     paragraph(
-      ['Use the rules below first; your specific figures are in section 2.'],
-      fsLead,
-      [60, 65, 72],
+      ['Published rules used to build your quote above. Branch tier is set by total office count.'],
+      fsBody,
+      C.muted,
       true,
       0
     );
-    vSpace(2);
+    vSpace(1);
 
     var rulesPdf = getPricingRulesSummaryLines();
     emitSubheading('Branch pricing');
-    paragraph(rulesPdf.slice(1, 5), fsBody, [35, 38, 44], true, bulletIndent);
-    vSpace(2);
-    emitSubheading('Extra staff pricing');
-    paragraph(rulesPdf.slice(7, 10), fsBody, [35, 38, 44], true, bulletIndent);
-    vSpace(2);
+    paragraph(rulesPdf.slice(1, 5), fsBody, C.text, true, bulletIndent);
+    vSpace(1);
+    emitSubheading('Extra staff');
+    paragraph(rulesPdf.slice(7, 10), fsBody, C.text, true, bulletIndent);
+    vSpace(1);
     emitSubheading('Optional modules');
-    paragraph(rulesPdf.slice(12, 17), fsBody, [35, 38, 44], true, bulletIndent);
-    vSpace(3);
-
-    emitSubheading('Reference example (baseline)');
-    var baseIncludedPdf = BASELINE_BRANCHES * STAFF_PER_BRANCH;
+    paragraph(rulesPdf.slice(12, 17), fsBody, C.text, true, bulletIndent);
+    vSpace(1);
+    emitSubheading('Billing periods');
     paragraph(
-      ['Worked example only (not your invoice).'],
+      [
+        '• Monthly: pay the standard monthly subscription each month.',
+        '• Annual: pay 11 x monthly for 12 months of service (save 1 month).'
+      ],
       fsBody,
-      [75, 80, 88],
+      C.text,
       true,
       bulletIndent
     );
+
+    /* —— 3. Explanatory examples —— */
+    emitSectionTitle('Explanatory examples', '3');
+    paragraph(['Illustrative only — not your invoice.'], fsBody, C.muted, true, 0);
+
+    var baseIncludedPdf = BASELINE_BRANCHES * STAFF_PER_BRANCH;
+    emitSubheading('Reference (4 branches, 20 staff)');
     paragraph(
       [
-        '• Branch tier: ' +
+        '• Tier: ' +
           baseline.branchTier.label +
-          ' (' +
-          baseline.branchTier.condition +
-          ') - ' +
+          ' — ' +
           BASELINE_BRANCHES +
           ' x GHS ' +
           baseline.branchTier.rate +
@@ -1030,141 +1112,62 @@
           STAFF_PER_BRANCH +
           ' = ' +
           baseIncludedPdf +
-          ' staff in base fee.',
-        '• Total staff in example: ' + BASELINE_STAFF_TOTAL + ' (no excess).',
-        '• Additional staff cost: ' + formatGHS(baseline.extraBranchStaffCost) + '.'
+          ' (example uses ' +
+          BASELINE_STAFF_TOTAL +
+          '; no excess).',
+        '• Monthly total: ' + formatGHS(baseline.finalMonthly) + '.'
       ],
       fsBody,
-      [35, 38, 44],
+      C.text,
       true,
       bulletIndent
     );
-    emitTotalLine('MONTHLY (reference): ' + formatGHS(baseline.finalMonthly));
 
     emitSubheading('Larger example (12 branches, 150 staff)');
     paragraph(
       [
-        '• Branch cost (Tier 3): 12 x GHS 200 = GHS 2,400.',
-        '• Included 144 staff; 6 extra. Tier A: 6 x GHS 10 = GHS 60.',
-        '• Total monthly: GHS 2,460.'
+        '• Branch cost (Enterprise): 12 x GHS 300 = GHS 3,600.',
+        '• Included 144 staff; 6 extra at GHS 10 = GHS 60.',
+        '• Monthly total: GHS 3,660.',
+        '• Annual prepay (11 x): GHS 40,260 (save GHS 3,660 vs 12 months).'
       ],
       fsBody,
-      [35, 38, 44],
+      C.text,
       true,
       bulletIndent
     );
-    vSpace(2);
 
-    sectionDivider();
-
-    emitSectionTitle('2. Your organisation - inputs and calculation');
-
-    var modeLabel =
-      v.mode === 'avg'
-        ? 'Average staff per branch (same count at each location)'
-        : v.mode === 'total'
-          ? 'Total staff entered directly (company-wide headcount)'
-          : 'Staff entered separately per office or branch';
-    emitLabelValue('Company name: ', companyName || '-');
-    emitLabelValue('Staff entry mode: ', modeLabel);
-    paragraph(
-      ['• Offices / branches: ' + v.branches + '.', '• Total staff (all locations): ' + inputs.totalStaff + '.'],
-      fsBody,
-      [35, 38, 44],
-      true,
-      bulletIndent
-    );
-    vSpace(2);
-
-    emitSubheading('Monthly calculation (your scenario)');
-    var pdfExtraLine =
-      inputs.extraBranchStaff > 0
-        ? '• Extra staff: ' +
-          inputs.extraBranchStaff +
-          ' (' +
-          inputs.extraStaffTier.rangeLabel +
-          ') at GHS ' +
-          inputs.extraStaffTier.rate +
-          ' each = ' +
-          formatGHS(inputs.extraBranchStaffCost) +
-          '.'
-        : '• Extra staff: none beyond allowance (' + formatGHS(0) + ').';
-    paragraph(
-      [
-        '• Branch cost: ' +
-          inputs.branchTier.label +
-          ' - ' +
-          v.branches +
-          ' x GHS ' +
-          inputs.branchTier.rate +
-          ' = ' +
-          formatGHS(inputs.baseBranchCost) +
-          '.',
-        '• Included staff allowance: ' +
-          v.branches +
-          ' x ' +
-          STAFF_PER_BRANCH +
-          ' = ' +
-          inputs.coveredStaff +
-          ' staff in base fee.',
-        pdfExtraLine
-      ],
-      fsBody,
-      [35, 38, 44],
-      true,
-      bulletIndent
-    );
-    if (inputs.addonInfo && inputs.addonInfo.total > 0) {
-      emitSubheading('Optional modules (your selection)');
-      paragraph(inputs.addonInfo.linesForPdf, fsBody, [35, 38, 44], true, bulletIndent);
-      vSpace(1);
-    } else {
-      paragraph(['• Optional modules: none selected.'], fsBody, [75, 80, 88], true, bulletIndent);
-      vSpace(1);
-    }
-    emitTotalLine('MONTHLY SUBSCRIPTION (total): ' + formatGHS(inputs.finalMonthly));
-
-    vSpace(2);
-    emitSubheading('Billing period and amount due');
-    paragraph(
-      [
-        '• Period: ' + bill.periodName + '. ' + bill.periodDetail,
-        '• Savings vs month-by-month for this period: ' + formatGHS(bill.savings) + '.',
-        '• Effective monthly (spread over ' + bill.monthsCovered + ' month(s)): ' + formatGHS(bill.effectiveMonthly) + '.'
-      ],
-      fsBody,
-      [35, 38, 44],
-      true,
-      bulletIndent
-    );
-    vSpace(3);
-
-    sectionDivider();
-
-    needPage(fsAmount + 10);
-    vSpace(2);
-    doc.setDrawColor(42, 82, 152);
-    doc.setLineWidth(0.55);
+    vSpace(4);
+    needPage(16);
+    doc.setDrawColor(C.line[0], C.line[1], C.line[2]);
+    doc.setLineWidth(0.35);
     doc.line(margin, y, rightX, y);
-    y += 6;
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(fsAmount);
-    doc.setTextColor(30, 60, 114);
-    doc.text(pdfAscii('Amount due (selected period)'), margin + bulletIndent, y);
-    doc.text(pdfAscii(formatGHS(bill.prepaidTotal)), rightX - 1, y, { align: 'right' });
-    y += lineHLoose + 3;
-    doc.setLineWidth(0.3);
-
+    y += 5;
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(fsFooter);
-    doc.setTextColor(110, 110, 110);
+    doc.setTextColor(C.muted[0], C.muted[1], C.muted[2]);
     var foot =
-      'Estimate only. This quote explains how the figure was derived using the published rules. Final pricing, taxes, and contract terms are subject to agreement with VeriTrack Systems.';
+      'Estimate only. Figures follow published VeriTrack Systems pricing rules. Final pricing, taxes, and contract terms are subject to written agreement. Contact info@veritrack.cloud';
     var footLines = doc.splitTextToSize(pdfAscii(foot), wrapW);
     for (var fi = 0; fi < footLines.length; fi++) {
       needPage(wrapSmall + 2);
       doc.text(pdfAscii(footLines[fi]), margin, y);
       y += wrapSmall;
+    }
+
+    /* Page footers */
+    var pageCount = doc.internal.getNumberOfPages();
+    for (var p = 1; p <= pageCount; p++) {
+      doc.setPage(p);
+      doc.setFillColor(C.surface[0], C.surface[1], C.surface[2]);
+      doc.rect(0, pageH - 12, pageW, 12, 'F');
+      doc.setFillColor(C.accent[0], C.accent[1], C.accent[2]);
+      doc.rect(0, pageH - 12, pageW, 0.6, 'F');
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7.5);
+      doc.setTextColor(C.muted[0], C.muted[1], C.muted[2]);
+      doc.text(pdfAscii('veritrack.cloud'), margin, pageH - 5);
+      doc.text(pdfAscii('Page ' + p + ' of ' + pageCount), rightX, pageH - 5, { align: 'right' });
     }
 
     var safeFile = 'VeriTrack-Systems-Pricing-Quote';

@@ -337,7 +337,8 @@
 
         @media (min-width: 576px) {
             .pc-billing-mode {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 28rem;
             }
         }
 
@@ -858,31 +859,15 @@
                                                 </span>
                                             </label>
                                             <label class="pc-billing-mode__option">
-                                                <input class="pc-billing-mode__input" type="radio" name="billingPeriod" id="bill-quarterly" value="quarterly">
-                                                <span class="pc-billing-mode__card">
-                                                    <span class="pc-billing-mode__title">Quarterly</span>
-                                                    <span class="pc-billing-mode__desc">Every 3 months</span>
-                                                    <span class="pc-billing-mode__save">Save ¼ mo</span>
-                                                </span>
-                                            </label>
-                                            <label class="pc-billing-mode__option">
-                                                <input class="pc-billing-mode__input" type="radio" name="billingPeriod" id="bill-semi" value="semi">
-                                                <span class="pc-billing-mode__card">
-                                                    <span class="pc-billing-mode__title">Semi-annual</span>
-                                                    <span class="pc-billing-mode__desc">Every 6 months</span>
-                                                    <span class="pc-billing-mode__save">Save ½ mo</span>
-                                                </span>
-                                            </label>
-                                            <label class="pc-billing-mode__option">
                                                 <input class="pc-billing-mode__input" type="radio" name="billingPeriod" id="bill-annual" value="annual">
                                                 <span class="pc-billing-mode__card">
                                                     <span class="pc-billing-mode__title">Annual</span>
                                                     <span class="pc-billing-mode__desc">12 months prepaid</span>
-                                                    <span class="pc-billing-mode__save">Save 1 mo</span>
+                                                    <span class="pc-billing-mode__save">Save 1 month</span>
                                                 </span>
                                             </label>
                                         </div>
-                                        <small class="form-text text-muted mt-2 d-block">Longer plans are priced below month-by-month totals. Annual billing saves the equivalent of <strong>one month</strong> of the monthly subscription.</small>
+                                        <small class="form-text text-muted mt-2 d-block">Annual billing saves the equivalent of <strong>one month</strong> of the monthly subscription (pay 11× monthly for 12 months).</small>
                                     </div>
                                     <div class="d-flex flex-wrap align-items-center mt-4 pt-2 pc-no-print">
                                         <button type="button" class="btn btn-primary pc-btn-calc mr-2 mb-2" id="btn-calculate">Calculate price</button>
@@ -891,7 +876,7 @@
                                         </button>
                                     </div>
                                 </form>
-                                <p class="pc-model-note mb-0">Branch tiers: ≤3 → GHS 300/branch; 4–9 → GHS 250; ≥10 → GHS 200. Twelve staff per branch included. Extra staff: 1–20 at GHS 10, 21–50 at GHS 8, 51+ at GHS 6 (per extra staff / month). Optional modules are flat or per-staff as labelled.</p>
+                                <p class="pc-model-note mb-0">Branch tiers: ≤3 → GHS 450/branch; 4–9 → GHS 350; ≥10 → GHS 300. Twelve staff per branch included. Extra staff: 1–20 at GHS 10, 21–50 at GHS 8, 51+ at GHS 6 (per extra staff / month). Optional modules are flat or per-staff as labelled.</p>
                             </div>
                         </div>
                     </div>
@@ -903,7 +888,7 @@
                                 <div class="pc-breakdown-row">
                                     <div>
                                         Base office / branch cost
-                                        <div class="pc-breakdown-detail" id="line-base-branch-detail">≤3 branches: GHS 300 each; 4–9: GHS 250; ≥10: GHS 200</div>
+                                        <div class="pc-breakdown-detail" id="line-base-branch-detail">≤3 branches: GHS 450 each; 4–9: GHS 350; ≥10: GHS 300</div>
                                     </div>
                                     <span id="line-base-branch">GHS 0</span>
                                 </div>
