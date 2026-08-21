@@ -802,380 +802,519 @@
       return el ? String(el.textContent || '').trim() : '';
     }
 
+    function planLabel(tier) {
+      if (tier === 1) return 'Starter';
+      if (tier === 2) return 'Growth';
+      return 'Enterprise';
+    }
+
+    function loadImageDataUrl(src) {
+      return new Promise(function (resolve) {
+        var img = new Image();
+        img.onload = function () {
+          try {
+            var canvas = document.createElement('canvas');
+            var maxW = 360;
+            var scale = Math.min(1, maxW / img.width);
+            canvas.width = Math.max(1, Math.round(img.width * scale));
+            canvas.height = Math.max(1, Math.round(img.height * scale));
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            resolve(canvas.toDataURL('image/png'));
+          } catch (err) {
+            resolve(null);
+          }
+        };
+        img.onerror = function () {
+          resolve(null);
+        };
+        img.src = src;
+      });
+    }
+
     var inputs = buildQuote(v);
     var bill = inputs.billing;
     var baseline = compute(BASELINE_BRANCHES, BASELINE_STAFF_TOTAL);
     var companyName = els.companyName ? String(els.companyName.value).trim() : '';
+    var generatedLabel = pdfVal('pdf-date') || new Date().toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    });
+    var quoteId =
+      'VT-Q-' +
+      new Date().toISOString().slice(0, 10).replace(/-/g, '') +
+      '-' +
+      String(v.branches).padStart(2, '0');
 
-    var doc = new JsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
-    var pageW = doc.internal.pageSize.getWidth();
-    var pageH = doc.internal.pageSize.getHeight();
-    var margin = 16;
-    var rightX = pageW - margin;
-    var contentW = pageW - 2 * margin;
-    var wrapW = Math.max(38, contentW - 2);
-    var bulletIndent = 4;
-    var y = 0;
-    var lineH = 5;
-    var lineHLoose = 5.8;
-    var wrapSmall = 3.8;
-    var bottomSafe = 22;
-    var fsBody = 9.5;
-    var fsHead = 12;
-    var fsSub = 10;
-    var fsFooter = 7.5;
-    var fsAmount = 14;
+    loadImageDataUrl('images/veritrack final logo.png').then(function (logoDataUrl) {
+      var doc = new JsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+      var pageW = doc.internal.pageSize.getWidth();
+      var pageH = doc.internal.pageSize.getHeight();
+      var m = 18;
+      var right = pageW - m;
+      var contentW = pageW - 2 * m;
+      var y = m;
+      var bottomSafe = 20;
 
-    /* VeriTrack brand palette */
-    var C = {
-      deep: [30, 60, 114],
-      mid: [42, 82, 152],
-      accent: [52, 152, 219],
-      surface: [248, 251, 255],
-      card: [232, 240, 250],
-      text: [26, 35, 50],
-      muted: [90, 106, 122],
-      line: [195, 208, 228],
-      white: [255, 255, 255],
-      save: [26, 127, 76]
-    };
+      var C = {
+        deep: [30, 60, 114],
+        mid: [42, 82, 152],
+        accent: [52, 152, 219],
+        soft: [248, 251, 255],
+        row: [241, 246, 252],
+        text: [28, 37, 52],
+        muted: [100, 116, 139],
+        line: [214, 224, 236],
+        white: [255, 255, 255],
+        saveBg: [232, 248, 240],
+        save: [22, 122, 74]
+      };
 
-    function needPage(h) {
-      if (y + h > pageH - bottomSafe) {
-        doc.addPage();
-        drawPageChrome(false);
-        return true;
-      }
-      return false;
-    }
-
-    function vSpace(mm) {
-      y += mm == null ? 2.5 : mm;
-    }
-
-    function drawPageChrome(isFirst) {
-      if (isFirst) {
-        doc.setFillColor(C.deep[0], C.deep[1], C.deep[2]);
-        doc.rect(0, 0, pageW, 28, 'F');
-        doc.setFillColor(C.accent[0], C.accent[1], C.accent[2]);
-        doc.rect(0, 28, pageW, 1.2, 'F');
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(16);
-        doc.setTextColor(C.white[0], C.white[1], C.white[2]);
-        doc.text(pdfAscii('VeriTrack Systems'), margin, 12);
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(9.5);
-        doc.setTextColor(200, 220, 245);
-        doc.text(pdfAscii('Subscription pricing quote'), margin, 19.5);
-        doc.setFontSize(8);
-        doc.setTextColor(180, 205, 235);
-        doc.text(pdfAscii(pdfVal('pdf-date') || ''), rightX, 12, { align: 'right' });
-        y = 36;
-      } else {
-        doc.setFillColor(C.deep[0], C.deep[1], C.deep[2]);
-        doc.rect(0, 0, pageW, 8, 'F');
-        doc.setFillColor(C.accent[0], C.accent[1], C.accent[2]);
-        doc.rect(0, 8, pageW, 0.8, 'F');
-        y = 16;
-      }
-    }
-
-    function paragraph(lines, fontSize, colorRgb, loose, indentMm) {
-      indentMm = indentMm == null ? 0 : indentMm;
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(fontSize != null ? fontSize : fsBody);
-      if (colorRgb) doc.setTextColor(colorRgb[0], colorRgb[1], colorRgb[2]);
-      else doc.setTextColor(C.text[0], C.text[1], C.text[2]);
-      var lh = loose ? lineHLoose : lineH;
-      for (var i = 0; i < lines.length; i++) {
-        var block = pdfAscii(lines[i]);
-        if (block === '') {
-          y += lh * 0.4;
-          continue;
+      function need(h) {
+        if (y + h > pageH - bottomSafe) {
+          doc.addPage();
+          y = m;
+          return true;
         }
-        var parts = doc.splitTextToSize(block, wrapW - indentMm);
-        for (var j = 0; j < parts.length; j++) {
-          needPage(lh + 2);
-          doc.text(pdfAscii(parts[j]), margin + indentMm, y);
+        return false;
+      }
+
+      function gap(mm) {
+        y += mm;
+      }
+
+      function setRgb(arr) {
+        doc.setTextColor(arr[0], arr[1], arr[2]);
+      }
+
+      function fillRgb(arr) {
+        doc.setFillColor(arr[0], arr[1], arr[2]);
+      }
+
+      function strokeRgb(arr) {
+        doc.setDrawColor(arr[0], arr[1], arr[2]);
+      }
+
+      function text(str, x, yy, opts) {
+        doc.text(pdfAscii(str), x, yy, opts || {});
+      }
+
+      function drawFooter() {
+        var pages = doc.internal.getNumberOfPages();
+        for (var i = 1; i <= pages; i++) {
+          doc.setPage(i);
+          strokeRgb(C.line);
+          doc.setLineWidth(0.3);
+          doc.line(m, pageH - 14, right, pageH - 14);
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(7.5);
+          setRgb(C.muted);
+          text('veritrack.cloud  ·  info@veritrack.cloud', m, pageH - 8);
+          text('Page ' + i + ' of ' + pages, right, pageH - 8, { align: 'right' });
+        }
+      }
+
+      function sectionLabel(title) {
+        need(12);
+        gap(4);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(8);
+        setRgb(C.accent);
+        text(String(title).toUpperCase(), m, y);
+        gap(2);
+        strokeRgb(C.line);
+        doc.setLineWidth(0.4);
+        doc.line(m, y, right, y);
+        gap(5);
+      }
+
+      function wrapped(str, maxW, size, color, leading) {
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(size || 9);
+        setRgb(color || C.muted);
+        var lines = doc.splitTextToSize(pdfAscii(str), maxW);
+        var lh = leading || 4.4;
+        for (var i = 0; i < lines.length; i++) {
+          need(lh + 1);
+          text(lines[i], m, y);
           y += lh;
         }
       }
-    }
 
-    function emitSectionTitle(text, num) {
-      needPage(14);
-      vSpace(3);
-      var label = num ? num + '.  ' + text : text;
-      doc.setFillColor(C.surface[0], C.surface[1], C.surface[2]);
-      doc.roundedRect(margin - 2, y - 4.5, contentW + 4, 9, 1.5, 1.5, 'F');
-      doc.setFillColor(C.accent[0], C.accent[1], C.accent[2]);
-      doc.rect(margin - 2, y - 4.5, 1.6, 9, 'F');
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(fsHead);
-      doc.setTextColor(C.deep[0], C.deep[1], C.deep[2]);
-      doc.text(pdfAscii(label), margin + 3, y + 1.2);
-      y += 8;
-      doc.setFont('helvetica', 'normal');
-    }
-
-    function emitSubheading(text) {
-      needPage(lineHLoose + 4);
-      vSpace(1.5);
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(fsSub);
-      doc.setTextColor(C.mid[0], C.mid[1], C.mid[2]);
-      doc.text(pdfAscii(text), margin, y);
-      y += lineHLoose;
-      doc.setFont('helvetica', 'normal');
-    }
-
-    function emitLabelValue(label, value) {
-      needPage(lineHLoose + 2);
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(fsBody);
-      doc.setTextColor(C.muted[0], C.muted[1], C.muted[2]);
-      var lab = pdfAscii(label);
-      doc.text(lab, margin, y);
-      var w = doc.getTextWidth(lab);
-      doc.setFont('helvetica', 'normal');
-      doc.setTextColor(C.text[0], C.text[1], C.text[2]);
-      var valParts = doc.splitTextToSize(pdfAscii(value), wrapW - w - 2);
-      doc.text(valParts[0], margin + w + 1.2, y);
-      y += lineHLoose;
-      for (var vi = 1; vi < valParts.length; vi++) {
-        needPage(lineHLoose + 2);
-        doc.text(valParts[vi], margin + bulletIndent, y);
-        y += lineHLoose;
-      }
-    }
-
-    function emitKvRow(label, value) {
-      needPage(7);
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(fsBody);
-      doc.setTextColor(C.muted[0], C.muted[1], C.muted[2]);
-      doc.text(pdfAscii(label), margin, y);
-      doc.setTextColor(C.text[0], C.text[1], C.text[2]);
-      doc.setFont('helvetica', 'bold');
-      doc.text(pdfAscii(value), rightX, y, { align: 'right' });
-      y += lineHLoose;
-      doc.setDrawColor(C.line[0], C.line[1], C.line[2]);
-      doc.setLineWidth(0.2);
-      doc.line(margin, y - 1.5, rightX, y - 1.5);
-    }
-
-    function emitAmountBox() {
-      needPage(28);
-      vSpace(2);
-      doc.setFillColor(C.deep[0], C.deep[1], C.deep[2]);
-      doc.roundedRect(margin - 2, y, contentW + 4, 22, 2.5, 2.5, 'F');
-      doc.setFillColor(C.accent[0], C.accent[1], C.accent[2]);
-      doc.roundedRect(margin - 2, y, contentW + 4, 1.4, 0.5, 0.5, 'F');
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(8.5);
-      doc.setTextColor(180, 205, 235);
-      doc.text(pdfAscii(bill.summaryLabel.toUpperCase()), margin + 3, y + 7);
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(fsAmount);
-      doc.setTextColor(C.white[0], C.white[1], C.white[2]);
-      doc.text(pdfAscii(formatGHS(bill.prepaidTotal)), margin + 3, y + 15.5);
-      if (bill.savings > 0) {
+      function chip(label, value, x, width) {
+        var h = 14;
+        fillRgb(C.soft);
+        strokeRgb(C.line);
+        doc.setLineWidth(0.35);
+        doc.roundedRect(x, y, width, h, 2, 2, 'FD');
         doc.setFont('helvetica', 'normal');
-        doc.setFontSize(8.5);
-        doc.setTextColor(160, 230, 190);
-        doc.text(pdfAscii('You save ' + formatGHS(bill.savings) + ' vs monthly'), rightX - 2, y + 15.5, {
-          align: 'right'
-        });
+        doc.setFontSize(7);
+        setRgb(C.muted);
+        text(label.toUpperCase(), x + 3, y + 4.5);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(9.5);
+        setRgb(C.deep);
+        text(value, x + 3, y + 10.5);
+      }
+
+      function money(n) {
+        return formatGHS(n);
+      }
+
+      function drawLineTable(rows) {
+        var colDesc = m;
+        var colDetail = m + contentW * 0.48;
+        var colAmt = right;
+        var rowH = 8;
+        var headerH = 8;
+
+        need(headerH + rows.length * rowH + 4);
+
+        fillRgb(C.deep);
+        doc.rect(m, y, contentW, headerH, 'F');
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(7.5);
+        setRgb(C.white);
+        text('DESCRIPTION', colDesc + 3, y + 5.2);
+        text('DETAIL', colDetail, y + 5.2);
+        text('AMOUNT', colAmt - 3, y + 5.2, { align: 'right' });
+        y += headerH;
+
+        for (var i = 0; i < rows.length; i++) {
+          var row = rows[i];
+          need(rowH + 2);
+          if (row.emphasis) {
+            fillRgb(C.soft);
+            doc.rect(m, y, contentW, rowH, 'F');
+          } else if (i % 2 === 0) {
+            fillRgb(C.row);
+            doc.rect(m, y, contentW, rowH, 'F');
+          }
+          doc.setFont('helvetica', row.emphasis ? 'bold' : 'normal');
+          doc.setFontSize(row.emphasis ? 9 : 8.5);
+          setRgb(C.text);
+          text(row.desc, colDesc + 3, y + 5.2);
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(8);
+          setRgb(C.muted);
+          text(row.detail || '', colDetail, y + 5.2);
+          doc.setFont('helvetica', row.emphasis ? 'bold' : 'normal');
+          doc.setFontSize(row.emphasis ? 9 : 8.5);
+          setRgb(row.emphasis ? C.deep : C.text);
+          text(row.amount, colAmt - 3, y + 5.2, { align: 'right' });
+          y += rowH;
+        }
+
+        strokeRgb(C.line);
+        doc.setLineWidth(0.35);
+        doc.line(m, y, right, y);
+        gap(3);
+      }
+
+      function tinyTable(headers, bodyRows, colWidths) {
+        var x0 = m;
+        var rowH = 7.2;
+        var totalW = 0;
+        for (var w = 0; w < colWidths.length; w++) totalW += colWidths[w];
+
+        need(rowH * (bodyRows.length + 1) + 4);
+        fillRgb(C.mid);
+        doc.rect(x0, y, totalW, rowH, 'F');
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(7.5);
+        setRgb(C.white);
+        var cx = x0;
+        for (var h = 0; h < headers.length; h++) {
+          text(headers[h], cx + 2.2, y + 4.8);
+          cx += colWidths[h];
+        }
+        y += rowH;
+
+        for (var r = 0; r < bodyRows.length; r++) {
+          need(rowH + 1);
+          if (r % 2 === 0) {
+            fillRgb(C.soft);
+            doc.rect(x0, y, totalW, rowH, 'F');
+          }
+          cx = x0;
+          for (var c = 0; c < bodyRows[r].length; c++) {
+            doc.setFont('helvetica', c === bodyRows[r].length - 1 ? 'bold' : 'normal');
+            doc.setFontSize(8);
+            setRgb(C.text);
+            var alignRight = c === bodyRows[r].length - 1;
+            if (alignRight) {
+              text(bodyRows[r][c], cx + colWidths[c] - 2.2, y + 4.8, { align: 'right' });
+            } else {
+              text(bodyRows[r][c], cx + 2.2, y + 4.8);
+            }
+            cx += colWidths[c];
+          }
+          y += rowH;
+        }
+        strokeRgb(C.line);
+        doc.setLineWidth(0.3);
+        doc.line(x0, y, x0 + totalW, y);
+        gap(3);
+      }
+
+      /* ========== PAGE 1: QUOTE ========== */
+
+      if (logoDataUrl) {
+        try {
+          doc.addImage(logoDataUrl, 'PNG', m, y - 1, 28, 12);
+        } catch (eLogo) {
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(14);
+          setRgb(C.deep);
+          text('VeriTrack Systems', m, y + 6);
+        }
       } else {
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(8.5);
-        doc.setTextColor(180, 205, 235);
-        doc.text(pdfAscii(bill.periodName + ' billing'), rightX - 2, y + 15.5, { align: 'right' });
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(14);
+        setRgb(C.deep);
+        text('VeriTrack Systems', m, y + 6);
       }
-      y += 26;
-    }
 
-    drawPageChrome(true);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(18);
+      setRgb(C.deep);
+      text('QUOTATION', right, y + 4, { align: 'right' });
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      setRgb(C.muted);
+      text(quoteId, right, y + 9.5, { align: 'right' });
+      text(generatedLabel, right, y + 13.5, { align: 'right' });
+      y += 18;
 
-    /* —— 1. Your organisation quote (first) —— */
-    emitSectionTitle('Your organisation quote', '1');
+      fillRgb(C.accent);
+      doc.rect(m, y, contentW, 1.1, 'F');
+      gap(8);
 
-    var modeLabel =
-      v.mode === 'avg'
-        ? 'Average staff per branch'
-        : v.mode === 'total'
-          ? 'Total company-wide staff'
-          : 'Per-branch staff counts';
-
-    emitLabelValue('Company: ', companyName || '-');
-    emitLabelValue('Staff entry: ', modeLabel);
-    emitLabelValue('Billing period: ', bill.periodName);
-
-    vSpace(1.5);
-    emitSubheading('Inputs');
-    emitKvRow('Offices / branches', String(v.branches));
-    emitKvRow('Total staff', String(inputs.totalStaff));
-    emitKvRow('Included staff allowance', String(inputs.coveredStaff) + ' (' + STAFF_PER_BRANCH + ' per branch)');
-    emitKvRow('Extra staff', String(inputs.extraBranchStaff));
-
-    vSpace(1);
-    emitSubheading('Monthly calculation');
-    emitKvRow(
-      'Branch cost (' + inputs.branchTier.name + ')',
-      v.branches + ' x GHS ' + inputs.branchTier.rate + ' = ' + formatGHS(inputs.baseBranchCost)
-    );
-    emitKvRow(
-      'Extra staff cost',
-      inputs.extraBranchStaff > 0
-        ? inputs.extraBranchStaff +
-            ' x GHS ' +
-            inputs.extraStaffTier.rate +
-            ' = ' +
-            formatGHS(inputs.extraBranchStaffCost)
-        : formatGHS(0)
-    );
-    if (inputs.addonInfo && inputs.addonInfo.total > 0) {
-      emitKvRow('Optional modules', formatGHS(inputs.addonInfo.total));
-      paragraph(inputs.addonInfo.linesForPdf, 8.5, C.muted, false, bulletIndent);
-      vSpace(1);
-    } else {
-      emitKvRow('Optional modules', 'None selected');
-    }
-    emitKvRow('Monthly subscription total', formatGHS(inputs.finalMonthly));
-
-    vSpace(1);
-    emitSubheading('Billing');
-    paragraph([bill.periodDetail], fsBody, C.muted, true, 0);
-    if (bill.periodKey === 'annual') {
-      emitKvRow('12 x monthly (no discount)', formatGHS(bill.fullRollup));
-      emitKvRow('Annual prepay (11 x monthly)', formatGHS(bill.prepaidTotal));
-      emitKvRow('Effective monthly', formatGHS(bill.effectiveMonthly));
-    } else {
-      emitKvRow('Amount due each month', formatGHS(bill.prepaidTotal));
-    }
-
-    emitAmountBox();
-
-    /* —— 2. Pricing rules —— */
-    emitSectionTitle('How pricing works', '2');
-    paragraph(
-      ['Published rules used to build your quote above. Branch tier is set by total office count.'],
-      fsBody,
-      C.muted,
-      true,
-      0
-    );
-    vSpace(1);
-
-    var rulesPdf = getPricingRulesSummaryLines();
-    emitSubheading('Branch pricing');
-    paragraph(rulesPdf.slice(1, 5), fsBody, C.text, true, bulletIndent);
-    vSpace(1);
-    emitSubheading('Extra staff');
-    paragraph(rulesPdf.slice(7, 10), fsBody, C.text, true, bulletIndent);
-    vSpace(1);
-    emitSubheading('Optional modules');
-    paragraph(rulesPdf.slice(12, 17), fsBody, C.text, true, bulletIndent);
-    vSpace(1);
-    emitSubheading('Billing periods');
-    paragraph(
-      [
-        '• Monthly: pay the standard monthly subscription each month.',
-        '• Annual: pay 11 x monthly for 12 months of service (save 1 month).'
-      ],
-      fsBody,
-      C.text,
-      true,
-      bulletIndent
-    );
-
-    /* —— 3. Explanatory examples —— */
-    emitSectionTitle('Explanatory examples', '3');
-    paragraph(['Illustrative only — not your invoice.'], fsBody, C.muted, true, 0);
-
-    var baseIncludedPdf = BASELINE_BRANCHES * STAFF_PER_BRANCH;
-    emitSubheading('Reference (4 branches, 20 staff)');
-    paragraph(
-      [
-        '• Tier: ' +
-          baseline.branchTier.label +
-          ' — ' +
-          BASELINE_BRANCHES +
-          ' x GHS ' +
-          baseline.branchTier.rate +
-          ' = ' +
-          formatGHS(baseline.baseBranchCost) +
-          '.',
-        '• Included staff: ' +
-          BASELINE_BRANCHES +
-          ' x ' +
-          STAFF_PER_BRANCH +
-          ' = ' +
-          baseIncludedPdf +
-          ' (example uses ' +
-          BASELINE_STAFF_TOTAL +
-          '; no excess).',
-        '• Monthly total: ' + formatGHS(baseline.finalMonthly) + '.'
-      ],
-      fsBody,
-      C.text,
-      true,
-      bulletIndent
-    );
-
-    emitSubheading('Larger example (12 branches, 150 staff)');
-    paragraph(
-      [
-        '• Branch cost (Enterprise): 12 x GHS 300 = GHS 3,600.',
-        '• Included 144 staff; 6 extra at GHS 10 = GHS 60.',
-        '• Monthly total: GHS 3,660.',
-        '• Annual prepay (11 x): GHS 40,260 (save GHS 3,660 vs 12 months).'
-      ],
-      fsBody,
-      C.text,
-      true,
-      bulletIndent
-    );
-
-    vSpace(4);
-    needPage(16);
-    doc.setDrawColor(C.line[0], C.line[1], C.line[2]);
-    doc.setLineWidth(0.35);
-    doc.line(margin, y, rightX, y);
-    y += 5;
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(fsFooter);
-    doc.setTextColor(C.muted[0], C.muted[1], C.muted[2]);
-    var foot =
-      'Estimate only. Figures follow published VeriTrack Systems pricing rules. Final pricing, taxes, and contract terms are subject to written agreement. Contact info@veritrack.cloud';
-    var footLines = doc.splitTextToSize(pdfAscii(foot), wrapW);
-    for (var fi = 0; fi < footLines.length; fi++) {
-      needPage(wrapSmall + 2);
-      doc.text(pdfAscii(footLines[fi]), margin, y);
-      y += wrapSmall;
-    }
-
-    /* Page footers */
-    var pageCount = doc.internal.getNumberOfPages();
-    for (var p = 1; p <= pageCount; p++) {
-      doc.setPage(p);
-      doc.setFillColor(C.surface[0], C.surface[1], C.surface[2]);
-      doc.rect(0, pageH - 12, pageW, 12, 'F');
-      doc.setFillColor(C.accent[0], C.accent[1], C.accent[2]);
-      doc.rect(0, pageH - 12, pageW, 0.6, 'F');
+      fillRgb(C.soft);
+      doc.roundedRect(m, y, contentW, 22, 2.5, 2.5, 'F');
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(7.5);
-      doc.setTextColor(C.muted[0], C.muted[1], C.muted[2]);
-      doc.text(pdfAscii('veritrack.cloud'), margin, pageH - 5);
-      doc.text(pdfAscii('Page ' + p + ' of ' + pageCount), rightX, pageH - 5, { align: 'right' });
-    }
+      setRgb(C.muted);
+      text('PREPARED FOR', m + 4, y + 6);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(13);
+      setRgb(C.deep);
+      text(companyName || 'Prospect organisation', m + 4, y + 13.5);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      setRgb(C.muted);
+      text('Valid estimate based on published VeriTrack pricing', m + 4, y + 18.5);
+      y += 28;
 
-    var safeFile = 'VeriTrack-Systems-Pricing-Quote';
-    if (companyName) {
-      var slug = companyName.replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').slice(0, 48);
-      if (slug) safeFile = safeFile + '-' + slug;
-    }
-    doc.save(safeFile + '.pdf');
+      var plan = planLabel(inputs.branchTier.tier);
+      var chipW = (contentW - 6) / 3;
+      chip('Plan', plan, m, chipW);
+      chip('Locations', String(v.branches) + ' branches', m + chipW + 3, chipW);
+      chip('Billing', bill.periodName, m + 2 * (chipW + 3), chipW);
+      y += 18;
+
+      sectionLabel('Your calculation');
+
+      var lineRows = [
+        {
+          desc: plan + ' plan - branch subscription',
+          detail: v.branches + ' x GHS ' + inputs.branchTier.rate + '/mo',
+          amount: money(inputs.baseBranchCost)
+        },
+        {
+          desc: 'Extra staff beyond allowance',
+          detail:
+            inputs.extraBranchStaff > 0
+              ? inputs.extraBranchStaff + ' staff x GHS ' + inputs.extraStaffTier.rate
+              : STAFF_PER_BRANCH + ' staff/branch included',
+          amount: money(inputs.extraBranchStaffCost)
+        }
+      ];
+
+      if (inputs.addonInfo && inputs.addonInfo.total > 0) {
+        var addonNames = inputs.addonInfo.detailLines.join('; ');
+        lineRows.push({
+          desc: 'Optional modules',
+          detail: addonNames.length > 42 ? addonNames.slice(0, 40) + '...' : addonNames,
+          amount: money(inputs.addonInfo.total)
+        });
+      } else {
+        lineRows.push({
+          desc: 'Optional modules',
+          detail: 'None selected',
+          amount: money(0)
+        });
+      }
+
+      lineRows.push({
+        desc: 'Monthly subscription',
+        detail: 'Before billing-period discount',
+        amount: money(inputs.finalMonthly),
+        emphasis: true
+      });
+
+      drawLineTable(lineRows);
+
+      need(36);
+      var dueH = bill.savings > 0 ? 34 : 28;
+      fillRgb(C.deep);
+      doc.roundedRect(m, y, contentW, dueH, 3, 3, 'F');
+      fillRgb(C.accent);
+      doc.rect(m, y, 2.2, dueH, 'F');
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      setRgb([186, 210, 240]);
+      text(
+        bill.periodKey === 'annual' ? 'AMOUNT DUE  ·  ANNUAL PREPAY (11 MONTHS)' : 'AMOUNT DUE  ·  MONTHLY',
+        m + 6,
+        y + 8
+      );
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(20);
+      setRgb(C.white);
+      text(money(bill.prepaidTotal), m + 6, y + 19);
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.5);
+      setRgb([186, 210, 240]);
+      if (bill.periodKey === 'annual') {
+        text('Effective ' + money(bill.effectiveMonthly) + ' / month', right - 4, y + 12, { align: 'right' });
+        text('List annual ' + money(bill.fullRollup), right - 4, y + 17.5, { align: 'right' });
+        fillRgb(C.saveBg);
+        doc.roundedRect(right - 52, y + 21, 48, 8, 1.5, 1.5, 'F');
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(8);
+        setRgb(C.save);
+        text('Save ' + money(bill.savings), right - 28, y + 26.5, { align: 'center' });
+        y += 40;
+      } else {
+        text('Billed each month', right - 4, y + 19, { align: 'right' });
+        y += 34;
+      }
+
+      sectionLabel('Quote snapshot');
+      var modeLabel =
+        v.mode === 'avg' ? 'Average per branch' : v.mode === 'total' ? 'Company-wide total' : 'Per-branch entry';
+      tinyTable(
+        ['ITEM', 'VALUE'],
+        [
+          ['Staff counted', String(inputs.totalStaff)],
+          ['Included allowance', String(inputs.coveredStaff) + ' staff'],
+          ['Extra staff', String(inputs.extraBranchStaff)],
+          ['Staff entry mode', modeLabel],
+          ['Branch rate applied', 'GHS ' + inputs.branchTier.rate + ' (' + inputs.branchTier.condition + ')']
+        ],
+        [contentW * 0.45, contentW * 0.55]
+      );
+
+      gap(2);
+      wrapped(
+        'This quotation is an estimate generated from your inputs and VeriTrack published rates. Final commercial terms are confirmed in writing. Questions: info@veritrack.cloud',
+        contentW,
+        8,
+        C.muted,
+        3.8
+      );
+
+      /* ========== PAGE 2: REFERENCE ========== */
+      doc.addPage();
+      y = m;
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(14);
+      setRgb(C.deep);
+      text('Pricing reference', m, y);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.5);
+      setRgb(C.muted);
+      text('How the quote above was derived', right, y, { align: 'right' });
+      gap(4);
+      fillRgb(C.accent);
+      doc.rect(m, y, contentW, 0.9, 'F');
+      gap(8);
+
+      sectionLabel('Branch plans');
+      tinyTable(
+        ['PLAN', 'BRANCHES', 'RATE / BRANCH / MO', 'STAFF INCLUDED'],
+        [
+          ['Starter', '1-3', 'GHS 450', STAFF_PER_BRANCH + ' / branch'],
+          ['Growth', '4-9', 'GHS 350', STAFF_PER_BRANCH + ' / branch'],
+          ['Enterprise', '10+', 'GHS 300', STAFF_PER_BRANCH + ' / branch']
+        ],
+        [contentW * 0.22, contentW * 0.18, contentW * 0.32, contentW * 0.28]
+      );
+
+      sectionLabel('Extra staff (above included allowance)');
+      tinyTable(
+        ['BAND', 'EXTRA STAFF', 'RATE / STAFF / MO'],
+        [
+          ['A', '1-20', 'GHS 10'],
+          ['B', '21-50', 'GHS 8'],
+          ['C', '51+', 'GHS 6']
+        ],
+        [contentW * 0.2, contentW * 0.4, contentW * 0.4]
+      );
+
+      sectionLabel('Optional modules');
+      tinyTable(
+        ['MODULE', 'PRICE'],
+        [
+          ['Leaderboard & Recognition', 'GHS ' + ADDON_LEADERBOARD + ' / mo'],
+          ['Shift Rotation Management', 'GHS ' + ADDON_SHIFT_ROTATION + ' / mo'],
+          ['AI Productivity Tips', 'GHS ' + ADDON_AI_TIPS + ' / mo'],
+          ['Payroll Sync', 'GHS ' + ADDON_PAYROLL_SYNC + ' / mo'],
+          ['Admin real-time check-in alert', 'GHS ' + ADDON_ADMIN_ALERT_PER_STAFF + ' / staff / mo']
+        ],
+        [contentW * 0.62, contentW * 0.38]
+      );
+
+      sectionLabel('Billing periods');
+      tinyTable(
+        ['PERIOD', 'YOU PAY', 'YOU SAVE'],
+        [
+          ['Monthly', '1 x monthly rate', 'Standard'],
+          ['Annual', '11 x monthly rate', '1 month free']
+        ],
+        [contentW * 0.28, contentW * 0.4, contentW * 0.32]
+      );
+
+      sectionLabel('Worked examples (not your invoice)');
+      var baseMonthly = baseline.finalMonthly;
+      tinyTable(
+        ['EXAMPLE', 'SETUP', 'MONTHLY', 'ANNUAL (11x)'],
+        [
+          [
+            'Reference',
+            BASELINE_BRANCHES + ' branches / ' + BASELINE_STAFF_TOTAL + ' staff',
+            money(baseMonthly),
+            money(baseMonthly * 11)
+          ],
+          ['Larger', '12 branches / 150 staff', 'GHS 3,660', 'GHS 40,260']
+        ],
+        [contentW * 0.18, contentW * 0.34, contentW * 0.24, contentW * 0.24]
+      );
+
+      gap(2);
+      wrapped(
+        'Larger example detail: Enterprise rate GHS 300 x 12 branches = GHS 3,600; 6 extra staff x GHS 10 = GHS 60; monthly GHS 3,660.',
+        contentW,
+        8,
+        C.muted,
+        3.8
+      );
+
+      drawFooter();
+
+      var safeFile = 'VeriTrack-Systems-Pricing-Quote';
+      if (companyName) {
+        var slug = companyName.replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').slice(0, 48);
+        if (slug) safeFile = safeFile + '-' + slug;
+      }
+      doc.save(safeFile + '.pdf');
+    });
   }
 
   function init() {
