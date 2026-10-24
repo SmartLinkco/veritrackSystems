@@ -155,7 +155,7 @@ export default function PlatformPage() {
             <h2 id="platform-cta" className="text-[clamp(2rem,3.4vw,3rem)] font-light leading-[1.05] tracking-[-0.035em]">See all three layers on your own data.</h2>
             <p className="mt-4 text-lg text-ink-muted">Or watch them work together first: registration, check-in, dashboard and report in sixty seconds.</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/demo" className="btn btn-primary btn-arrow">Book a live walkthrough</Link>
+              <Link href="/demo#book" className="btn btn-primary btn-arrow">Book a live walkthrough</Link>
               <Link href="/contact?intent=deploy" className="btn btn-ghost">Start a deployment</Link>
             </div>
           </div>

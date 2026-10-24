@@ -36,7 +36,15 @@ export default async function CompanyPage() {
         <ul data-reveal-stagger className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
           {team.map((m) => (
             <li key={m.name}>
-              <Image src={m.photo} alt={m.name} width={400} height={400} sizes="(min-width: 1024px) 220px, 45vw" className="aspect-square w-full rounded-2xl object-cover" />
+              {m.photo ? (
+                <Image src={m.photo} alt={m.name} width={400} height={400} sizes="(min-width: 1024px) 220px, 45vw" className="aspect-square w-full rounded-2xl object-cover" />
+              ) : (
+                <div role="img" aria-label={`${m.name} (photo coming soon)`} className="flex aspect-square w-full items-center justify-center rounded-2xl bg-brand-100">
+                  <span aria-hidden className="font-display text-[clamp(2rem,4vw,3rem)] font-light tracking-[-0.03em] text-brand-600">
+                    {m.name.split(" ").filter((_, i, a) => i === 0 || i === a.length - 1).map((w) => w[0]).join("")}
+                  </span>
+                </div>
+              )}
               <p className="mt-4 font-semibold leading-snug">{m.name}</p>
               <p className="text-[0.9375rem] text-ink-muted">{m.role}</p>
             </li>

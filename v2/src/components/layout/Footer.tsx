@@ -59,7 +59,7 @@ export function Footer() {
           </p>
           <div data-reveal style={{ "--i": 1 } as React.CSSProperties} className="flex flex-col items-start gap-6 lg:col-span-5 lg:col-start-8 lg:items-end lg:justify-end">
             <Link href="/contact?intent=deploy" className="btn btn-primary btn-arrow">Request a portal</Link>
-            <Link href="/demo" className="text-link">Book a walkthrough</Link>
+            <Link href="/demo#book" className="text-link">Book a walkthrough</Link>
           </div>
         </div>
 

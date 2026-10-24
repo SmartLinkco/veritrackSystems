@@ -66,7 +66,8 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${sora.variable} ${sourceSans.variable}`} suppressHydrationWarning>
+    // data-scroll-behavior lets Next jump to the top on navigation despite html { scroll-behavior: smooth }.
+    <html lang="en" data-scroll-behavior="smooth" className={`${sora.variable} ${sourceSans.variable}`} suppressHydrationWarning>
       <head>
         {/* Entrance states apply only when scripting works. */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />

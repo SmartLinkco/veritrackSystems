@@ -28,10 +28,10 @@ const specimens = [
 ];
 
 const stages = [
-  { label: "Ten minutes", detail: "Send your branches, sector and admin contacts." },
-  { label: "Thirty minutes", detail: "A call to confirm locations, shifts and dashboard scope." },
-  { label: "A few days", detail: "We set up your portal, pin each branch and run test check-ins." },
-  { label: `${30}-day trial`, detail: "Staff go live with an onboarding pack and a support line." },
+  { label: "Ten minutes", detail: "Tell us your branches, shifts and who should see the reports." },
+  { label: "Thirty minutes", detail: "One call to confirm locations and what your dashboard tracks." },
+  { label: "A few days", detail: "We build your branded portal, pin every branch and test it with you." },
+  { label: `${30}-day trial`, detail: "Staff go live on their own phones. You judge it on real data before you pay." },
 ];
 
 const sectorWords: Record<string, { before: string; word: string }> = {
@@ -48,8 +48,8 @@ const sectorPhoto = (slug: string) => worldCredits.find((c) => c.key === slug)?.
 const story: StoryStep[] = [
   {
     key: "verify",
-    title: "Verified at the door",
-    body: <p>Staff check in from their own phone with a live photo. Liveness stops a held-up picture or a colleague signing in for someone else.</p>,
+    title: "Only the real person can check in",
+    body: <p>Staff check in on their own phone with a live photo. Liveness detection rejects a held-up picture, so nobody can sign in for an absent colleague.</p>,
     cta: { href: "/platform#verify", label: "The staff portal" },
     media: (
       <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] sm:aspect-[5/4]">
@@ -63,8 +63,8 @@ const story: StoryStep[] = [
   },
   {
     key: "geofence",
-    title: "Inside the 50 m ring",
-    body: <p>A check-in only counts when the face, the place and the time agree. Drag the photo pin outside the ring to see a refusal.</p>,
+    title: "Only at the branch, only on time",
+    body: <p>A check-in counts only when the face, the place and the time agree. Try it: drag the photo pin outside the 50 m ring and watch it get refused.</p>,
     media: (
       <div className="flex aspect-[4/5] items-center justify-center rounded-[1.5rem] bg-frame p-4 sm:aspect-[5/4] sm:p-10">
         <GeofenceRecord />
@@ -73,8 +73,8 @@ const story: StoryStep[] = [
   },
   {
     key: "monitor",
-    title: "The admin sees it live",
-    body: <p>Every branch, every check-in, as it lands: attendance rate, late arrivals and incomplete checkouts on one dashboard.</p>,
+    title: "You see every branch without visiting",
+    body: <p>Who is in, who is late and who left without checking out, for every branch, as it happens. No more calling round each morning.</p>,
     cta: { href: "/platform#monitor", label: "The admin dashboard" },
     media: (
       <div className="rounded-[1.5rem] bg-brand-100 p-4 sm:p-8">
@@ -88,8 +88,8 @@ const story: StoryStep[] = [
   },
   {
     key: "report",
-    title: "Reports write themselves",
-    body: <p>Weekly and monthly summaries per staff member, emailed automatically: days present, days absent and hours, ready for payroll.</p>,
+    title: "Payroll gets numbers it can trust",
+    body: <p>Days present, days absent and hours worked per person, emailed every week and month. Pay for the hours that were worked, with the evidence behind each one.</p>,
     cta: { href: "/pricing", label: "See the plans" },
     media: (
       <div className="flex aspect-[4/5] items-end justify-center gap-4 overflow-hidden rounded-[1.5rem] bg-command-surface px-6 pt-10 sm:aspect-[5/4]">
@@ -109,18 +109,26 @@ export default async function HomePage() {
       <section aria-labelledby="hero-heading" className="bleed on-frame relative -mt-18 flex min-h-[max(40rem,100svh)] flex-col overflow-hidden bg-frame pt-18">
         <BackgroundVideo clip="accra-square" blur priority controlClassName="bottom-6 right-6" />
         <Container className="relative flex flex-1 flex-col justify-center py-16 lg:py-20">
-          <h1 id="hero-heading" {...enter(0)} className="max-w-[12ch] text-[clamp(3rem,1rem+7.4vw,8.25rem)] font-light leading-[0.96] tracking-[-0.045em]">
-            Attendance you can prove.
+          <h1 id="hero-heading" {...enter(0)} className="max-w-[15ch] text-[clamp(2.75rem,1rem+5.6vw,6.75rem)] font-light leading-[0.98] tracking-[-0.045em]">
+            Stop paying for hours nobody worked.
           </h1>
           <div className="mt-12 grid gap-8 lg:mt-16 lg:grid-cols-12">
             <div className="lg:col-span-7 lg:col-start-4">
               <p {...enter(1)} className="text-muted-frame max-w-[40ch] text-lg sm:text-xl">
-                Photo-verified, GPS-geofenced check-ins for every branch, and live dashboards for the people who run them. Built in Accra.
+                VeriTrack proves who was at work, where and when, with a live photo and GPS at every branch. Payroll, managers and clients finally see the same evidence.
               </p>
               <div {...enter(2)} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-                <Link href="/demo" className="btn btn-primary btn-arrow">Book a walkthrough</Link>
+                <Link href="/demo#book" className="btn btn-primary btn-arrow">Book a walkthrough</Link>
                 <FilmButton id="K8QZyf5AAkM" className="btn-glass">Watch the 60-second demo</FilmButton>
               </div>
+              <ul {...enter(3)} className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[0.9375rem] text-white/80">
+                {["30-day trial", "No hardware to buy", "DPC certified", "Live in days"].map((t) => (
+                  <li key={t} className="flex items-center gap-2">
+                    <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-signal" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </Container>
@@ -139,13 +147,38 @@ export default async function HomePage() {
         </Container>
       </section>
 
+      {/* The problem, in their terms: what the sign-in book is costing them today. */}
+      <section aria-labelledby="problem-heading" className="bleed on-frame relative mt-3 overflow-hidden bg-frame-deep">
+        <BackgroundVideo clip="register" blur />
+        <Container className="relative grid gap-12 py-24 lg:grid-cols-12 lg:items-end lg:py-32">
+          <div className="lg:col-span-6">
+            <p {...reveal(0)} className="text-[0.9375rem] font-semibold text-white/80">The sign-in book</p>
+            <h2 id="problem-heading" {...reveal(1)} className="mt-4 text-[clamp(2.25rem,4.6vw,4.25rem)] font-light leading-[1.04] tracking-[-0.04em]">
+              A register only proves someone held the pen.
+            </h2>
+          </div>
+          <ul className="grid gap-5 lg:col-span-5 lg:col-start-8">
+            {[
+              ["Colleagues sign in for each other", "and you pay for a shift nobody worked."],
+              ["Late arrivals get written down as on time", "because nobody checks the clock against the book."],
+              ["Managers spend mornings chasing records", "instead of running the branch."],
+              ["Every dispute is your word against theirs", "with clients, with staff, with payroll."],
+            ].map(([lead, rest], i) => (
+              <li key={lead} {...reveal(i + 1)} className="border-t border-white/20 pt-4 text-lg">
+                <strong className="font-semibold text-white">{lead}</strong> <span className="text-white/75">{rest}</span>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
       {/* How it works: the record, step by step, with the media swapping as you scroll. */}
       <Panel aria-labelledby="how-heading" className="py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
-            <p {...reveal(0)} className="text-[0.9375rem] font-semibold text-brand-600">How VeriTrack works</p>
+            <p {...reveal(0)} className="text-[0.9375rem] font-semibold text-brand-600">How VeriTrack fixes it</p>
             <h2 id="how-heading" {...reveal(1)} className="mt-4 text-[clamp(2.25rem,4.4vw,4rem)] font-light leading-[1.05] tracking-[-0.035em]">
-              One check-in becomes <span className="text-brand-500">proof</span>, a live dashboard and a payroll-ready report.
+              Every check-in becomes <span className="text-brand-500">evidence</span> you can pay against.
             </h2>
           </div>
           <div className="mt-16 border-t border-border pt-4">
@@ -159,10 +192,10 @@ export default async function HomePage() {
         <BackgroundVideo clip="laptop" blur />
         <Container className="relative flex min-h-[min(46rem,90svh)] flex-col justify-center py-24">
           <h2 id="film-heading" {...reveal(0)} className="max-w-[16ch] text-[clamp(2.5rem,5.4vw,5rem)] font-light leading-[1.02] tracking-[-0.04em]">
-            From registration to payroll in sixty seconds.
+            See the whole thing in sixty seconds.
           </h2>
           <p {...reveal(1)} className="text-muted-frame mt-6 max-w-[44ch] text-lg sm:text-xl">
-            Watch a staff member get registered, check in at a branch, and land in the weekly report.
+            A new staff member is registered, checks in at a branch, and lands in the weekly report. No sales call needed to watch it.
           </p>
           <div {...reveal(2)} className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
             <FilmButton id="K8QZyf5AAkM" className="btn-primary">Watch the full demo</FilmButton>
@@ -175,14 +208,14 @@ export default async function HomePage() {
       <Panel aria-labelledby="proof-heading" className="py-24 lg:py-28">
         <Container className="grid gap-12 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-6">
-            <h2 id="proof-heading" {...reveal(0)} className="text-display font-light tracking-[-0.035em]">Live across Ghana</h2>
+            <h2 id="proof-heading" {...reveal(0)} className="text-display font-light tracking-[-0.035em]">Already running across Ghana</h2>
             <p {...reveal(1)} className="mt-8 max-w-[34ch] font-display text-[clamp(1.5rem,2.5vw,2.25rem)] font-light leading-[1.22] tracking-[-0.02em]">
               <strong className="whitespace-nowrap font-medium text-brand-600">{branches.value}+ branches</strong> across{" "}
               <strong className="whitespace-nowrap font-medium text-brand-600">{sectorsCovered.value}+ sectors</strong> run on VeriTrack, with more than{" "}
               <strong className="whitespace-nowrap font-medium text-brand-600">{checkins.value.toLocaleString("en-GB")} check-ins</strong> verified.
             </p>
             <p {...reveal(2)} className="mt-6 max-w-[44ch] text-lg text-ink-muted">
-              Each green point on the map is a geofenced branch. A check-in only counts when the face, the place and the time all agree.
+              Each green point is a branch where attendance is now verified, not assumed. VeriTrack is approved and certified by Ghana&apos;s Data Protection Commission, and your data stays in your organisation&apos;s own Google Workspace.
             </p>
           </div>
           <figure {...reveal(2)} className="lg:col-span-5 lg:col-start-8">
@@ -199,10 +232,10 @@ export default async function HomePage() {
         <Container>
           <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
             <h2 id="films-heading" {...reveal(0)} className="text-[clamp(2.25rem,3.6vw,3.25rem)] font-light leading-[1.05] tracking-[-0.035em] lg:col-span-7">
-              The question every manager asks, in your sector
+              The question you are already asking
             </h2>
             <p {...reveal(1)} className="max-w-[40ch] text-lg text-ink-muted lg:col-span-4 lg:col-start-9">
-              Short films on how VeriTrack answers it for guards, teachers, field reps and branch staff.
+              Were the guards on post? Did the class start? Did the rep visit the outlet? Each film shows how VeriTrack answers it with proof.
             </p>
           </div>
           <FilmGallery ids={sectorFilms} className="mt-14 lg:grid-cols-4 lg:gap-6" />
@@ -213,9 +246,9 @@ export default async function HomePage() {
       <Panel aria-labelledby="specimens-heading" className="py-24 lg:py-28">
         <Container className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <h2 id="specimens-heading" {...reveal(0)} className="text-[clamp(2.25rem,3.2vw,2.75rem)] font-light leading-[1.05] tracking-[-0.035em]">The dashboard, in pieces</h2>
+            <h2 id="specimens-heading" {...reveal(0)} className="text-[clamp(2.25rem,3.2vw,2.75rem)] font-light leading-[1.05] tracking-[-0.035em]">Reports nobody has to build</h2>
             <p {...reveal(1)} className="mt-6 max-w-[30ch] text-lg text-ink-muted">
-              Captured from the live super-admin view. Nobody on your team has to build these.
+              Real captures from the live dashboard. Attendance, lateness and arrival times per branch, ready every morning without a spreadsheet.
             </p>
             <Link href="/platform" className="btn btn-navy btn-arrow mt-8" {...reveal(2)}>See the whole platform</Link>
           </div>
@@ -272,10 +305,10 @@ export default async function HomePage() {
       <Panel aria-labelledby="deploy-heading" className="py-24 lg:py-28">
         <Container className="grid gap-12 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-4">
-            <h2 id="deploy-heading" {...reveal(0)} className="text-[clamp(2.25rem,3.6vw,3.25rem)] font-light leading-[1.05] tracking-[-0.035em]">Live in days, not months</h2>
-            <p {...reveal(1)} className="mt-6 max-w-[34ch] text-lg text-ink-muted">Four steps from the first message to staff checking in, with a trial before you pay.</p>
+            <h2 id="deploy-heading" {...reveal(0)} className="text-[clamp(2.25rem,3.6vw,3.25rem)] font-light leading-[1.05] tracking-[-0.035em]">Live in days, judged on your own data</h2>
+            <p {...reveal(1)} className="mt-6 max-w-[34ch] text-lg text-ink-muted">No hardware, no long project. A one-time GHS 500 setup, then a 30-day trial so you see the results before you commit.</p>
             <div {...reveal(2)} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-              <Link href="/contact?intent=deploy" className="btn btn-navy btn-arrow">Start the first step</Link>
+              <Link href="/contact?intent=deploy" className="btn btn-navy btn-arrow">Request your portal</Link>
             </div>
           </div>
           <div className="lg:col-span-8">
@@ -356,9 +389,9 @@ export default async function HomePage() {
         <BackgroundVideo clip="office-checkin" blur />
         <Container className="relative grid min-h-[max(40rem,88svh)] gap-12 py-20 lg:grid-cols-12 lg:items-center">
           <div className="self-end lg:col-span-6 lg:pb-6">
-            <h2 id="start-heading" {...reveal(0)} className="text-display-xl font-light leading-[0.95] tracking-[-0.045em]">Start this week.</h2>
+            <h2 id="start-heading" {...reveal(0)} className="max-w-[14ch] text-[clamp(2.5rem,1rem+4.6vw,5.5rem)] font-light leading-[0.98] tracking-[-0.045em]">Know who showed up, starting this week.</h2>
             <p {...reveal(1)} className="text-muted-frame mt-6 max-w-[38ch] text-lg">
-              We reply within 24 hours, then confirm your branches and shifts on a 30-minute call. Your portal is usually live within days.
+              Every week on paper is another payroll run on trust. We reply within 24 hours, confirm your branches on a 30-minute call, and your portal is usually live within days.
             </p>
           </div>
           <div {...reveal(2)} className="flex lg:col-span-5 lg:col-start-8 lg:justify-end">

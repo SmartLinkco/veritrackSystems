@@ -24,8 +24,8 @@ export const sectors: Sector[] = [
     slug: "pharmacy",
     name: "Pharmacy & healthcare",
     short: "Multi-branch, audit-ready.",
-    pitch: "Multi-branch registers, department filters, subscription-aware admin alerts, and audit-friendly attendance logs.",
-    heroAngle: "Every branch, every shift, on one audit trail.",
+    pitch: "Know which pharmacist was on duty at every branch and every hour, with a photo-verified attendance log ready for any audit.",
+    heroAngle: "Every shift covered. Every branch audit-ready.",
     painPoints: [
       "Paper registers at each branch that head office never sees until month-end",
       "No proof a pharmacist was actually on site for the hours claimed",
@@ -46,8 +46,8 @@ export const sectors: Sector[] = [
     slug: "education",
     name: "Education & colleges",
     short: "Staff, classes, campus analytics.",
-    pitch: "General staff attendance plus class and course sessions, lecturer assignments, and campus-level analytics.",
-    heroAngle: "Class and staff attendance on one campus view.",
+    pitch: "Staff and lesson attendance with photo and location proof, plus class sessions, lecturer assignments and campus-wide analytics.",
+    heroAngle: "Know the teacher was in the classroom, not just on the register.",
     painPoints: [
       "Lecturer attendance tracked separately from class registers",
       "Sign-in sheets that are easy to fill in for someone else",
@@ -68,8 +68,8 @@ export const sectors: Sector[] = [
     slug: "logistics",
     name: "Logistics & field teams",
     short: "Geofenced sites. Offline sync.",
-    pitch: "Mobile-first check-in for drivers and warehouse staff; geofenced sites; offline sync when connectivity drops.",
-    heroAngle: "Field attendance that still works when the signal doesn't.",
+    pitch: "Drivers, reps and warehouse staff check in at geofenced sites from their own phones. Offline check-ins sync as soon as the signal returns.",
+    heroAngle: "Prove every field visit, even where the signal drops.",
     painPoints: [
       "Drivers and riders checking in from wherever they happen to be",
       "Warehouses and depots with patchy connectivity",
@@ -90,8 +90,8 @@ export const sectors: Sector[] = [
     slug: "corporate",
     name: "Corporate & multi-branch HQ",
     short: "Executive view. Payroll-ready exports.",
-    pitch: "Executive dashboards, performance trends, automated reports, and optional payroll-ready exports.",
-    heroAngle: "One roll-up for every entity, branch, and department.",
+    pitch: "One live view of attendance across every entity, branch and department, with reports ready before payroll asks for them.",
+    heroAngle: "See who showed up at every branch, without calling each one.",
     painPoints: [
       "Each subsidiary or branch running its own attendance process",
       "HR rebuilding the same report every month for payroll",
@@ -134,8 +134,8 @@ export const sectors: Sector[] = [
     slug: "events",
     name: "Events & conferences",
     short: "Delegate check-in, same engine.",
-    pitch: "Dedicated check-in flows for delegates, extending VeriTrack beyond daily staff attendance.",
-    heroAngle: "The same verification engine, pointed at your delegates.",
+    pitch: "Registration and on-site check-in for delegates, so you know who attended each session, on the same platform as your staff attendance.",
+    heroAngle: "Know who actually attended, not just who registered.",
     painPoints: [
       "Queues at registration desks with printed lists",
       "No reliable count of who actually attended each session",
@@ -201,6 +201,8 @@ export const performanceWeights = [
 ] as const;
 
 export const faqs = [
+  { q: "What does it cost?", a: "From GHS 300 per branch per month, with 12 staff included per branch. There is a one-time GHS 500 setup, then a 30-day trial before your subscription starts." },
+  { q: "Do we need to buy hardware?", a: "No. Staff check in from their own phones through your branded portal, so there are no biometric devices or turnstiles to buy, install or repair." },
   { q: "How does photo verification work?", a: "At check-in/out the portal can require a live selfie validated for liveness (not a gallery upload), combined with staff ID and location checks." },
   { q: "Does VeriTrack work offline?", a: "Yes. Portals queue check-ins when offline and sync when connectivity returns, subject to your configured rules." },
   { q: "Can we manage many branches?", a: "Yes. Dashboards aggregate by branch with map views; pricing scales by branch count." },
@@ -234,12 +236,13 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export const team = [
+// photo: null shows an initials tile until a portrait is added to public/team.
+export const team: { name: string; role: string; photo: string | null }[] = [
   { name: "Stephen Gyan Bimpong", role: "Founder & CEO", photo: "/team/stephen.jpg" },
   { name: "Felix Kwesi Selassie", role: "Chief Operating Officer", photo: "/team/felix.jpg" },
   { name: "Godfred Tenkorang", role: "Chief Technology Officer", photo: "/team/godfred.jpg" },
-  { name: "Godwin Kanyo", role: "Business Development Manager", photo: "/team/godwin.jpg" },
   { name: "Emmanuella B. Owusu", role: "Marketing Lead", photo: "/team/emmanuella.jpg" },
+  { name: "Muhammad Tawfiq Labib Ladan", role: "Software Engineer", photo: null },
 ];
 
 export const deploySteps = [
