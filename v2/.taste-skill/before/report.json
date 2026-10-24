@@ -1,0 +1,4315 @@
+{
+ "url": "http://localhost:3456/",
+ "at": "2026-10-24T06:43:18.391Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 10,
+   "filled": [
+    0.46,
+    0.89,
+    0.89,
+    0.8,
+    0.53,
+    1,
+    0.57,
+    0.79,
+    0.66,
+    0.61
+   ],
+   "motion": {
+    "elements": 13,
+    "css": 2,
+    "transitions": 11,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 8729,
+     "screens": 9.7,
+     "words": 964,
+     "img": 11,
+     "video": 0,
+     "canvas": 0,
+     "svg": 8,
+     "sections": 11,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 6,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Fproduct%2Fsuper-admin.jpg&w=750&q=7",
+      "image?url=%2Fproduct%2Fportal-checkin.png&w=256&",
+      "image?url=%2Fproduct%2Fportal-checkin.png&w=256&",
+      "image?url=%2Fproduct%2Fdashboard.jpg&w=828&q=75",
+      "image?url=%2Fproduct%2Fperformance.jpg&w=828&q=7",
+      "image?url=%2Fawards%2Fvgba.jpg&w=750&q=75"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [
+      "✓"
+     ],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Workforce attendance you can prove, in real time, at every location.",
+     "words": 11,
+     "chars": 68,
+     "lines": 5,
+     "size": 68,
+     "vw": 4.7,
+     "font": "Sora",
+     "weight": 600,
+     "tracking": -0.02,
+     "leading": 1.05,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.38,
+     "top": 198,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Workforce attendance you can prove, in real time, at every location.",
+     "words": 11,
+     "lines": 5,
+     "size": 68,
+     "font": "Sora"
+    },
+    "headings": [
+     {
+      "text": "Workforce attendance you can prove, in real time, at every location.",
+      "words": 11,
+      "chars": 68,
+      "lines": 5,
+      "size": 68,
+      "vw": 4.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 198,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "15+",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.12,
+      "top": 1039,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "60+",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.12,
+      "top": 1039,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "3,000+",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.12,
+      "top": 1039,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "5+",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.12,
+      "top": 1039,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "From a phone at the door to a score across the network.",
+      "words": 12,
+      "chars": 55,
+      "lines": 2,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 1298,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Edge capture",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 30,
+      "vw": 2.1,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 1737,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Branch truth",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 30,
+      "vw": 2.1,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 2350,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Network intelligence",
+      "words": 2,
+      "chars": 20,
+      "lines": 1,
+      "size": 30,
+      "vw": 2.1,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 2997,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "One platform. Three layers of control.",
+      "words": 6,
+      "chars": 38,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 3629,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Built for how your sector actually works.",
+      "words": 7,
+      "chars": 41,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 4179,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "We already rank attendance performance. Here's exactly how.",
+      "words": 8,
+      "chars": 59,
+      "lines": 3,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.34,
+      "top": 4832,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "87",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 60,
+      "vw": 4.2,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.05,
+      "top": 4906,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Coming soon: VGBA 2028",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.41,
+      "top": 5431,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "What our customers say",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 5961,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Pay per branch. Scale as you grow.",
+      "words": 7,
+      "chars": 34,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 6597,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "GHS 450",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": true,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.23,
+      "top": 6890,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "GHS 350",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": true,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.23,
+      "top": 6890,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "GHS 300",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": true,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.23,
+      "top": 6890,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Deploy your VeriTrack portal",
+      "words": 4,
+      "chars": 28,
+      "lines": 2,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 7319,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Questions buyers ask first",
+      "words": 4,
+      "chars": 26,
+      "lines": 2,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 7874,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 21,
+     "maxLines": 5,
+     "over2Lines": 2,
+     "statements": 7,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Source Sans 3",
+       "share": 0.78,
+       "mono": false
+      },
+      {
+       "family": "Sora",
+       "share": 0.11,
+       "mono": false
+      },
+      {
+       "family": "JetBrains Mono",
+       "share": 0.11,
+       "mono": true
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      24,
+      30,
+      36,
+      60,
+      68
+     ],
+     "sizeCount": 14,
+     "notLoaded": [],
+     "body": {
+      "font": "Source Sans 3",
+      "size": 18,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.4
+     },
+     "measureChars": 85,
+     "max": {
+      "size": 68,
+      "vw": 4.7,
+      "font": "Sora",
+      "text": "Workforce attendance you can prove, in r"
+     },
+     "monoShare": 0.11,
+     "monoProseShare": 0.11,
+     "monoFamilies": [
+      "JetBrains Mono"
+     ],
+     "monoSamples": [
+      "Workforce intelligence platform",
+      "Super Admin · Live attendance",
+      "Photo ✓ · GPS within 50m ✓",
+      "15+",
+      "60+",
+      "3,000+"
+     ],
+     "microLabels": 28,
+     "microLabelShare": 0.049,
+     "microSamples": [
+      "Workforce intelligence platform",
+      "Super Admin · Live attendance",
+      "How it works",
+      "Verify",
+      "Monitor",
+      "Improve"
+     ],
+     "upperShare": 0.06,
+     "centerShare": 0.01,
+     "smallText": 14
+    },
+    "eyebrows": [
+     {
+      "text": "Workforce intelligence platform",
+      "above": "Workforce attendance you can prove, in r",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 161
+     },
+     {
+      "text": "Organisations onboarded",
+      "above": "15+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 1015
+     },
+     {
+      "text": "Branches geofenced",
+      "above": "60+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 1015
+     },
+     {
+      "text": "Verified check-ins",
+      "above": "3,000+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 1015
+     },
+     {
+      "text": "Sectors served",
+      "above": "5+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 1015
+     },
+     {
+      "text": "How it works",
+      "above": "From a phone at the door to a score acro",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 1265
+     },
+     {
+      "text": "Verify",
+      "above": "Edge capture",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 1708
+     },
+     {
+      "text": "Monitor",
+      "above": "Branch truth",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 2321
+     },
+     {
+      "text": "Improve",
+      "above": "Network intelligence",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 2968
+     },
+     {
+      "text": "Platform",
+      "above": "One platform. Three layers of control.",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 3596
+     },
+     {
+      "text": "Solutions",
+      "above": "Built for how your sector actually works",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 4146
+     },
+     {
+      "text": "Performance Score",
+      "above": "We already rank attendance performance. ",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 4799
+     },
+     {
+      "text": "VeriTrack Global Business Awards",
+      "above": "Coming soon: VGBA 2028",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 5398
+     },
+     {
+      "text": "Customers",
+      "above": "What our customers say",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 5929
+     },
+     {
+      "text": "Pricing",
+      "above": "Pay per branch. Scale as you grow.",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 6565
+     },
+     {
+      "text": "Small operations",
+      "above": "GHS 450",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 6842
+     },
+     {
+      "text": "Growing operations",
+      "above": "GHS 350",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 6842
+     },
+     {
+      "text": "Enterprise operations",
+      "above": "GHS 300",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 6842
+     },
+     {
+      "text": "Get started",
+      "above": "Deploy your VeriTrack portal",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 7287
+     },
+     {
+      "text": "FAQ",
+      "above": "Questions buyers ask first",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 7841
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 14,
+      "top": 7308
+     },
+     {
+      "text": "02",
+      "size": 14,
+      "top": 7308
+     },
+     {
+      "text": "03",
+      "size": 14,
+      "top": 7483
+     },
+     {
+      "text": "04",
+      "size": 14,
+      "top": 7483
+     }
+    ],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#070b12",
+       "top": 1169,
+       "hsl": {
+        "h": 218,
+        "s": 0.44,
+        "l": 0.05
+       }
+      },
+      {
+       "color": "#f4f7fc",
+       "top": 4050,
+       "hsl": {
+        "h": 218,
+        "s": 0.57,
+        "l": 0.97
+       }
+      },
+      {
+       "color": "#111827",
+       "top": 7233,
+       "hsl": {
+        "h": 221,
+        "s": 0.39,
+        "l": 0.11
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#5c6678",
+       "share": 0.34
+      },
+      {
+       "color": "#94a3b8",
+       "share": 0.27
+      },
+      {
+       "color": "#0b1220",
+       "share": 0.17
+      },
+      {
+       "color": "#f1f5f9",
+       "share": 0.13
+      },
+      {
+       "color": "#2563b8",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#1b4d8c"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 23,
+     "inHero": 9,
+     "radius": 10,
+     "height": 46,
+     "withShadow": 5,
+     "withGradient": 5,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Demo",
+      "Get started",
+      "Book a live walkthrough",
+      "Estimate your plan",
+      "Pharmacy"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 9,
+     "shadowOverlay": 4,
+     "shadowSamples": [
+      "a.btn.btn-primary → rgba(11, 18, 32, 0.12) 0px 1px 2px 0px, rgba(255, 255, 255, 0.12) 0px 1px 0px 0p",
+      "figure.overflow-hidden.rounded-2xl → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+      "div.rounded-[2.25rem].border → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+      "div.absolute.-top-5 → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0"
+     ],
+     "gradients": 1,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.pointer-events-none.absolute → radial-gradient(closest-side, rgba(27, 77, 140, 0.14), rgba(0, 0, 0, 0))"
+     ],
+     "gradientText": 0,
+     "hairlines": 11,
+     "hairlineSamples": [
+      "div.flex.items-center 601px",
+      "section.border-y.border-border 1440px",
+      "div.flex.items-center 670px",
+      "div.flex.items-center 670px",
+      "div.divide-y.divide-border 779px"
+     ],
+     "outlinedBoxes": 27,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 27,
+     "boxRadius": 16,
+     "squareMedia": 0,
+     "roundedMedia": 5,
+     "mediaRadius": 16,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 6111
+      },
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 6757
+      },
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 7282
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.16
+     }
+    ],
+    "nav": {
+     "links": 9,
+     "fixed": true,
+     "height": 81,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "sora",
+     "source sans 3",
+     "source sans 3 fallback",
+     "jetbrains mono",
+     "jetbrains mono fallback"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 8729,
+    "margins": {
+     "left": 112,
+     "right": 133
+    },
+    "sections": [
+     {
+      "sel": "section.grain.relative",
+      "tag": "section",
+      "top": 1,
+      "height": 925,
+      "words": 74,
+      "media": 2,
+      "middle": 88,
+      "heading": {
+       "text": "Workforce attendance you can prove, in real time, ",
+       "size": 68,
+       "tag": "h1"
+      },
+      "left": 112,
+      "right": 89,
+      "textLeft": 112,
+      "textRight": 121,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.border-y.border-border",
+      "tag": "section",
+      "top": 926,
+      "height": 244,
+      "words": 33,
+      "media": 0,
+      "middle": 92,
+      "heading": {
+       "text": "15",
+       "size": 36,
+       "tag": "dd"
+      },
+      "left": 112,
+      "right": 198,
+      "textLeft": 112,
+      "textRight": 198,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 1169,
+      "height": 2331,
+      "words": 157,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "From a phone at the door to a score across the net",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 112,
+      "right": 113,
+      "textLeft": 112,
+      "textRight": 589,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 3500,
+      "height": 550,
+      "words": 51,
+      "media": 0,
+      "middle": 144,
+      "heading": {
+       "text": "One platform. Three layers of control.",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 112,
+      "right": 167,
+      "textLeft": 112,
+      "textRight": 167,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 4050,
+      "height": 632,
+      "words": 106,
+      "media": 0,
+      "middle": 96,
+      "heading": {
+       "text": "Built for how your sector actually works.",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 112,
+      "right": 146,
+      "textLeft": 112,
+      "textRight": 146,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 4682,
+      "height": 568,
+      "words": 85,
+      "media": 1,
+      "middle": 91,
+      "heading": {
+       "text": "87",
+       "size": 60,
+       "tag": "span"
+      },
+      "left": 112,
+      "right": 145,
+      "textLeft": 112,
+      "textRight": 145,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.theme-command.relative",
+      "tag": "section",
+      "top": 5250,
+      "height": 583,
+      "words": 48,
+      "media": 1,
+      "middle": 49,
+      "heading": {
+       "text": "Coming soon: VGBA",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 113,
+      "right": 147,
+      "textLeft": 744,
+      "textRight": 147,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 5833,
+      "height": 636,
+      "words": 110,
+      "media": 0,
+      "middle": 86,
+      "heading": {
+       "text": "What our customers say",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 112,
+      "right": 149,
+      "textLeft": 112,
+      "textRight": 149,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 6469,
+      "height": 685,
+      "words": 99,
+      "media": 0,
+      "middle": 108,
+      "heading": {
+       "text": "Pay per branch. Scale as you grow.",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 112,
+      "right": 133,
+      "textLeft": 112,
+      "textRight": 133,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.theme-command.py-20",
+      "tag": "section",
+      "top": 7153,
+      "height": 592,
+      "words": 86,
+      "media": 0,
+      "middle": 78,
+      "heading": {
+       "text": "Deploy your VeriTrack portal",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 161,
+      "right": 235,
+      "textLeft": 161,
+      "textRight": 235,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 7745,
+      "height": 538,
+      "words": 147,
+      "media": 0,
+      "middle": 169,
+      "heading": {
+       "text": "Questions buyers ask first",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 112,
+      "right": 137,
+      "textLeft": 112,
+      "textRight": 137,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.theme-command.border-t",
+      "tag": "footer",
+      "top": 8283,
+      "height": 446,
+      "words": 83,
+      "media": 0,
+      "middle": 88,
+      "heading": {
+       "text": "Platform",
+       "size": 12,
+       "tag": "h2"
+      },
+      "left": 112,
+      "right": 112,
+      "textLeft": 112,
+      "textRight": 112,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Workforce attendance you can prove, in real time, at every location.",
+      "size": 68,
+      "top": 198,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 112,
+      "n": 14
+     },
+     {
+      "x": 549,
+      "n": 5
+     },
+     {
+      "x": 161,
+      "n": 2
+     },
+     {
+      "x": 744,
+      "n": 2
+     },
+     {
+      "x": 684,
+      "n": 1
+     },
+     {
+      "x": 1112,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 25,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.11,
+    "voidBox": {
+     "x": 660,
+     "y": 120,
+     "w": 780,
+     "h": 180
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.56,
+    0.74,
+    0.61,
+    0.86,
+    0.53,
+    0.79,
+    1,
+    0.62,
+    0.69,
+    0.87,
+    0.77,
+    0.84
+   ],
+   "motion": {
+    "elements": 7,
+    "css": 2,
+    "transitions": 5,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 11593,
+     "screens": 11.3,
+     "words": 942,
+     "img": 11,
+     "video": 0,
+     "canvas": 0,
+     "svg": 8,
+     "sections": 11,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 6,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Fproduct%2Fsuper-admin.jpg&w=750&q=7",
+      "image?url=%2Fproduct%2Fportal-checkin.png&w=256&",
+      "image?url=%2Fproduct%2Fportal-checkin.png&w=256&",
+      "image?url=%2Fproduct%2Fdashboard.jpg&w=750&q=75",
+      "image?url=%2Fproduct%2Fperformance.jpg&w=750&q=7",
+      "image?url=%2Fawards%2Fvgba.jpg&w=828&q=75"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [
+      "✓"
+     ],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Workforce attendance you can prove, in real time, at every location.",
+     "words": 11,
+     "chars": 68,
+     "lines": 3,
+     "size": 53.2,
+     "vw": 6.9,
+     "font": "Sora",
+     "weight": 600,
+     "tracking": -0.02,
+     "leading": 1.05,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.94,
+     "top": 182,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Workforce attendance you can prove, in real time, at every location.",
+     "words": 11,
+     "lines": 3,
+     "size": 53.2,
+     "font": "Sora"
+    },
+    "headings": [
+     {
+      "text": "Workforce attendance you can prove, in real time, at every location.",
+      "words": 11,
+      "chars": 68,
+      "lines": 3,
+      "size": 53.2,
+      "vw": 6.9,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 182,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "15+",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.21,
+      "top": 1431,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "60+",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.21,
+      "top": 1431,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "3,000+",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.21,
+      "top": 1431,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "5+",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.21,
+      "top": 1431,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "From a phone at the door to a score across the network.",
+      "words": 12,
+      "chars": 55,
+      "lines": 2,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 1657,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Edge capture",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 1901,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Branch truth",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 2632,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Network intelligence",
+      "words": 2,
+      "chars": 20,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 3343,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "One platform. Three layers of control.",
+      "words": 6,
+      "chars": 38,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 4220,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Built for how your sector actually works.",
+      "words": 7,
+      "chars": 41,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 4827,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "We already rank attendance performance. Here's exactly how.",
+      "words": 8,
+      "chars": 59,
+      "lines": 2,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 5888,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "87",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 60,
+      "vw": 7.8,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.09,
+      "top": 6303,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Coming soon: VGBA 2028",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 7306,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "What our customers say",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 7784,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Pay per branch. Scale as you grow.",
+      "words": 7,
+      "chars": 34,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 8555,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "GHS 450",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": true,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.22,
+      "top": 8934,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "GHS 350",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": true,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.22,
+      "top": 8934,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "GHS 300",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": true,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.22,
+      "top": 8934,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Deploy your VeriTrack portal",
+      "words": 4,
+      "chars": 28,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 9383,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Questions buyers ask first",
+      "words": 4,
+      "chars": 26,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 10266,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 21,
+     "maxLines": 3,
+     "over2Lines": 1,
+     "statements": 7,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Source Sans 3",
+       "share": 0.79,
+       "mono": false
+      },
+      {
+       "family": "Sora",
+       "share": 0.11,
+       "mono": false
+      },
+      {
+       "family": "JetBrains Mono",
+       "share": 0.1,
+       "mono": true
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      24,
+      30,
+      36,
+      53,
+      60
+     ],
+     "sizeCount": 14,
+     "notLoaded": [],
+     "body": {
+      "font": "Source Sans 3",
+      "size": 18,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.4
+     },
+     "measureChars": 80,
+     "max": {
+      "size": 60,
+      "vw": 7.8,
+      "font": "JetBrains Mono",
+      "text": "87"
+     },
+     "monoShare": 0.1,
+     "monoProseShare": 0.1,
+     "monoFamilies": [
+      "JetBrains Mono"
+     ],
+     "monoSamples": [
+      "Workforce intelligence platform",
+      "Super Admin · Live attendance",
+      "Photo ✓ · GPS within 50m ✓",
+      "15+",
+      "60+",
+      "3,000+"
+     ],
+     "microLabels": 27,
+     "microLabelShare": 0.048,
+     "microSamples": [
+      "Workforce intelligence platform",
+      "Super Admin · Live attendance",
+      "How it works",
+      "Verify",
+      "Monitor",
+      "Improve"
+     ],
+     "upperShare": 0.05,
+     "centerShare": 0.01,
+     "smallText": 13
+    },
+    "eyebrows": [
+     {
+      "text": "Workforce intelligence platform",
+      "above": "Workforce attendance you can prove, in r",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 145
+     },
+     {
+      "text": "Organisations onboarded",
+      "above": "15+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 1407
+     },
+     {
+      "text": "Branches geofenced",
+      "above": "60+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 1407
+     },
+     {
+      "text": "Verified check-ins",
+      "above": "3,000+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 1407
+     },
+     {
+      "text": "Sectors served",
+      "above": "5+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 1407
+     },
+     {
+      "text": "How it works",
+      "above": "From a phone at the door to a score acro",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 1624
+     },
+     {
+      "text": "Verify",
+      "above": "Edge capture",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 1873
+     },
+     {
+      "text": "Monitor",
+      "above": "Branch truth",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 2603
+     },
+     {
+      "text": "Improve",
+      "above": "Network intelligence",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 3314
+     },
+     {
+      "text": "Platform",
+      "above": "One platform. Three layers of control.",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 4187
+     },
+     {
+      "text": "Solutions",
+      "above": "Built for how your sector actually works",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 4794
+     },
+     {
+      "text": "Performance Score",
+      "above": "We already rank attendance performance. ",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 5855
+     },
+     {
+      "text": "VeriTrack Global Business Awards",
+      "above": "Coming soon: VGBA 2028",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 7273
+     },
+     {
+      "text": "Customers",
+      "above": "What our customers say",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 7752
+     },
+     {
+      "text": "Pricing",
+      "above": "Pay per branch. Scale as you grow.",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 8522
+     },
+     {
+      "text": "Small operations",
+      "above": "GHS 450",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 8886
+     },
+     {
+      "text": "Growing operations",
+      "above": "GHS 350",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 8886
+     },
+     {
+      "text": "Enterprise operations",
+      "above": "GHS 300",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 8886
+     },
+     {
+      "text": "Get started",
+      "above": "Deploy your VeriTrack portal",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 9350
+     },
+     {
+      "text": "FAQ",
+      "above": "Questions buyers ask first",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 10234
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 14,
+      "top": 9701
+     },
+     {
+      "text": "02",
+      "size": 14,
+      "top": 9701
+     },
+     {
+      "text": "03",
+      "size": 14,
+      "top": 9876
+     },
+     {
+      "text": "04",
+      "size": 14,
+      "top": 9876
+     }
+    ],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#111827",
+       "top": 704,
+       "hsl": {
+        "h": 221,
+        "s": 0.39,
+        "l": 0.11
+       }
+      },
+      {
+       "color": "#f4f7fc",
+       "top": 1212,
+       "hsl": {
+        "h": 218,
+        "s": 0.57,
+        "l": 0.97
+       }
+      },
+      {
+       "color": "#070b12",
+       "top": 1528,
+       "hsl": {
+        "h": 218,
+        "s": 0.44,
+        "l": 0.05
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#5c6678",
+       "share": 0.34
+      },
+      {
+       "color": "#94a3b8",
+       "share": 0.27
+      },
+      {
+       "color": "#0b1220",
+       "share": 0.16
+      },
+      {
+       "color": "#f1f5f9",
+       "share": 0.13
+      },
+      {
+       "color": "#2563b8",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#1b4d8c"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 21,
+     "inHero": 7,
+     "radius": 10,
+     "height": 46,
+     "withShadow": 4,
+     "withGradient": 4,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a live walkthrough",
+      "Estimate your plan",
+      "Pharmacy",
+      "Education",
+      "Logistics"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 12,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "a.btn.btn-primary → rgba(11, 18, 32, 0.12) 0px 1px 2px 0px, rgba(255, 255, 255, 0.12) 0px 1px 0px 0p",
+      "figure.overflow-hidden.rounded-2xl → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+      "div.rounded-[2.25rem].border → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+      "div.absolute.-top-5 → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0"
+     ],
+     "gradients": 1,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.pointer-events-none.absolute → radial-gradient(closest-side, rgba(27, 77, 140, 0.14), rgba(0, 0, 0, 0))"
+     ],
+     "gradientText": 0,
+     "hairlines": 13,
+     "hairlineSamples": [
+      "div.flex.items-center 638px",
+      "section.border-y.border-border 768px",
+      "div.flex.items-center 662px",
+      "div.flex.items-center 662px",
+      "div.divide-y.divide-border 720px"
+     ],
+     "outlinedBoxes": 26,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 26,
+     "boxRadius": 16,
+     "squareMedia": 0,
+     "roundedMedia": 4,
+     "mediaRadius": 16,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 7934
+      },
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 8785
+      },
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 9675
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.23
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 81,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "sora",
+     "source sans 3",
+     "source sans 3 fallback",
+     "jetbrains mono",
+     "jetbrains mono fallback"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 11593,
+    "margins": {
+     "left": 24,
+     "right": 36
+    },
+    "sections": [
+     {
+      "sel": "section.grain.relative",
+      "tag": "section",
+      "top": 1,
+      "height": 1211,
+      "words": 74,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "Workforce attendance you can prove, in real time, ",
+       "size": 53,
+       "tag": "h1"
+      },
+      "left": 24,
+      "right": 65,
+      "textLeft": 24,
+      "textRight": 81,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.border-y.border-border",
+      "tag": "section",
+      "top": 1212,
+      "height": 316,
+      "words": 33,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "15",
+       "size": 36,
+       "tag": "dd"
+      },
+      "left": 24,
+      "right": 94,
+      "textLeft": 24,
+      "textRight": 94,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 1528,
+      "height": 2564,
+      "words": 157,
+      "media": 3,
+      "middle": 0,
+      "heading": {
+       "text": "From a phone at the door to a score across the net",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 25,
+      "textLeft": 24,
+      "textRight": 36,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 4091,
+      "height": 607,
+      "words": 51,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "One platform. Three layers of control.",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 65,
+      "textLeft": 24,
+      "textRight": 65,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 4698,
+      "height": 1061,
+      "words": 106,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Built for how your sector actually works.",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 40,
+      "textLeft": 24,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 5759,
+      "height": 888,
+      "words": 85,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "We already rank attendance performance. Here's exa",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 39,
+      "textLeft": 24,
+      "textRight": 39,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.theme-command.relative",
+      "tag": "section",
+      "top": 6647,
+      "height": 1008,
+      "words": 48,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 24,
+      "right": 25,
+      "textLeft": 24,
+      "textRight": 27,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 7656,
+      "height": 771,
+      "words": 110,
+      "media": 0,
+      "middle": 70,
+      "heading": {
+       "text": "What our customers say",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 54,
+      "textLeft": 24,
+      "textRight": 54,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 8426,
+      "height": 795,
+      "words": 99,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Pay per branch. Scale as you grow.",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 63,
+      "textLeft": 24,
+      "textRight": 63,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.theme-command.py-20",
+      "tag": "section",
+      "top": 9221,
+      "height": 917,
+      "words": 86,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Deploy your VeriTrack portal",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 73,
+      "right": 98,
+      "textLeft": 73,
+      "textRight": 98,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 10138,
+      "height": 737,
+      "words": 147,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Questions buyers ask first",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 48,
+      "textLeft": 24,
+      "textRight": 48,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.theme-command.border-t",
+      "tag": "footer",
+      "top": 10874,
+      "height": 719,
+      "words": 83,
+      "media": 0,
+      "middle": 17,
+      "heading": {
+       "text": "Platform",
+       "size": 12,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 49,
+      "textLeft": 24,
+      "textRight": 49,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Workforce attendance you can prove, in real time, at every location.",
+      "size": 53,
+      "top": 182,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 24,
+      "n": 21
+     },
+     {
+      "x": 73,
+      "n": 2
+     },
+     {
+      "x": 57,
+      "n": 1
+     },
+     {
+      "x": 392,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 25,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.48,
+    0.91,
+    0.69,
+    0.68,
+    0.79,
+    0.33,
+    0.56,
+    0.46,
+    0.99,
+    0.99,
+    0.71,
+    0.48
+   ],
+   "motion": {
+    "elements": 7,
+    "css": 2,
+    "transitions": 5,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 14769,
+     "screens": 17.5,
+     "words": 942,
+     "img": 11,
+     "video": 0,
+     "canvas": 0,
+     "svg": 8,
+     "sections": 11,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 5,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Fproduct%2Fsuper-admin.jpg&w=384&q=7",
+      "image?url=%2Fproduct%2Fportal-checkin.png&w=256&",
+      "image?url=%2Fproduct%2Fdashboard.jpg&w=640&q=75",
+      "image?url=%2Fproduct%2Fperformance.jpg&w=640&q=7",
+      "image?url=%2Fawards%2Fvgba.jpg&w=640&q=75"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [
+      "✓"
+     ],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Workforce attendance you can prove, in real time, at every location.",
+     "words": 11,
+     "chars": 68,
+     "lines": 5,
+     "size": 40,
+     "vw": 10.3,
+     "font": "Sora",
+     "weight": 600,
+     "tracking": -0.02,
+     "leading": 1.05,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.92,
+     "top": 182,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Workforce attendance you can prove, in real time, at every location.",
+     "words": 11,
+     "lines": 5,
+     "size": 40,
+     "font": "Sora"
+    },
+    "headings": [
+     {
+      "text": "Workforce attendance you can prove, in real time, at every location.",
+      "words": 11,
+      "chars": 68,
+      "lines": 5,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 182,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Trusted across Ghana's operations economy",
+      "words": 5,
+      "chars": 41,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.33,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1265,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "15+",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 1487,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "60+",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.43,
+      "top": 1487,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "3,000+",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 1579,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "5+",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.43,
+      "top": 1579,
+      "tag": "dd",
+      "kind": "statement"
+     },
+     {
+      "text": "From a phone at the door to a score across the network.",
+      "words": 12,
+      "chars": 55,
+      "lines": 3,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1785,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Edge capture",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.33,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 2086,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Branch truth",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.33,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 2933,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Network intelligence",
+      "words": 2,
+      "chars": 20,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.33,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 3525,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "One platform. Three layers of control.",
+      "words": 6,
+      "chars": 38,
+      "lines": 2,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 4282,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Built for how your sector actually works.",
+      "words": 7,
+      "chars": 41,
+      "lines": 2,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 5346,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "We already rank attendance performance. Here's exactly how.",
+      "words": 8,
+      "chars": 59,
+      "lines": 4,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 6933,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "87",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 60,
+      "vw": 15.4,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.18,
+      "top": 7470,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Coming soon: VGBA 2028",
+      "words": 4,
+      "chars": 22,
+      "lines": 2,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 8495,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "What our customers say",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 9088,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Pay per branch. Scale as you grow.",
+      "words": 7,
+      "chars": 34,
+      "lines": 2,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 10226,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Starter",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.33,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 10597,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "GHS 450",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 36,
+      "vw": 9.2,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": true,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 10677,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Growth",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.33,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 10941,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "GHS 350",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 36,
+      "vw": 9.2,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": true,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 11021,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Enterprise",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.33,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 11285,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "GHS 300",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 36,
+      "vw": 9.2,
+      "font": "JetBrains Mono",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": true,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 11365,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Deploy your VeriTrack portal",
+      "words": 4,
+      "chars": 28,
+      "lines": 2,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.75,
+      "top": 11782,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Questions buyers ask first",
+      "words": 4,
+      "chars": 26,
+      "lines": 2,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Sora",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 13103,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 25,
+     "maxLines": 5,
+     "over2Lines": 3,
+     "statements": 7,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Source Sans 3",
+       "share": 0.79,
+       "mono": false
+      },
+      {
+       "family": "Sora",
+       "share": 0.11,
+       "mono": false
+      },
+      {
+       "family": "JetBrains Mono",
+       "share": 0.1,
+       "mono": true
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      24,
+      30,
+      36,
+      40,
+      60
+     ],
+     "sizeCount": 14,
+     "notLoaded": [],
+     "body": {
+      "font": "Source Sans 3",
+      "size": 18,
+      "leading": 1.56,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.8
+     },
+     "measureChars": 40,
+     "max": {
+      "size": 60,
+      "vw": 15.4,
+      "font": "JetBrains Mono",
+      "text": "87"
+     },
+     "monoShare": 0.1,
+     "monoProseShare": 0.1,
+     "monoFamilies": [
+      "JetBrains Mono"
+     ],
+     "monoSamples": [
+      "Workforce intelligence platform",
+      "Super Admin · Live attendance",
+      "Photo ✓ · GPS within 50m ✓",
+      "15+",
+      "60+",
+      "3,000+"
+     ],
+     "microLabels": 27,
+     "microLabelShare": 0.048,
+     "microSamples": [
+      "Workforce intelligence platform",
+      "Super Admin · Live attendance",
+      "How it works",
+      "Verify",
+      "Monitor",
+      "Improve"
+     ],
+     "upperShare": 0.05,
+     "centerShare": 0.01,
+     "smallText": 13
+    },
+    "eyebrows": [
+     {
+      "text": "Workforce intelligence platform",
+      "above": "Workforce attendance you can prove, in r",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 145
+     },
+     {
+      "text": "Organisations onboarded",
+      "above": "15+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 1463
+     },
+     {
+      "text": "Branches geofenced",
+      "above": "60+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 1463
+     },
+     {
+      "text": "Verified check-ins",
+      "above": "3,000+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 1555
+     },
+     {
+      "text": "Sectors served",
+      "above": "5+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 1555
+     },
+     {
+      "text": "How it works",
+      "above": "From a phone at the door to a score acro",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 1752
+     },
+     {
+      "text": "Platform",
+      "above": "One platform. Three layers of control.",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 4249
+     },
+     {
+      "text": "Solutions",
+      "above": "Built for how your sector actually works",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 5313
+     },
+     {
+      "text": "Performance Score",
+      "above": "We already rank attendance performance. ",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 6900
+     },
+     {
+      "text": "VeriTrack Global Business Awards",
+      "above": "Coming soon: VGBA 2028",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 8462
+     },
+     {
+      "text": "Customers",
+      "above": "What our customers say",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 9055
+     },
+     {
+      "text": "Pricing",
+      "above": "Pay per branch. Scale as you grow.",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 10194
+     },
+     {
+      "text": "Tier 1 · 1–3 branches",
+      "above": "Starter",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 12,
+      "top": 10573
+     },
+     {
+      "text": "Tier 2 · 4–9 branches",
+      "above": "Growth",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 12,
+      "top": 10917
+     },
+     {
+      "text": "Tier 3 · 10+ branches",
+      "above": "Enterprise",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 12,
+      "top": 11261
+     },
+     {
+      "text": "Get started",
+      "above": "Deploy your VeriTrack portal",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 11749
+     },
+     {
+      "text": "FAQ",
+      "above": "Questions buyers ask first",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 13,
+      "top": 13070
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 14,
+      "top": 12268
+     },
+     {
+      "text": "02",
+      "size": 14,
+      "top": 12419
+     },
+     {
+      "text": "03",
+      "size": 14,
+      "top": 12594
+     },
+     {
+      "text": "04",
+      "size": 14,
+      "top": 12745
+     }
+    ],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f4f7fc",
+       "top": 1208,
+       "hsl": {
+        "h": 218,
+        "s": 0.57,
+        "l": 0.97
+       }
+      },
+      {
+       "color": "#070b12",
+       "top": 1672,
+       "hsl": {
+        "h": 218,
+        "s": 0.44,
+        "l": 0.05
+       }
+      },
+      {
+       "color": "#111827",
+       "top": 7371,
+       "hsl": {
+        "h": 221,
+        "s": 0.39,
+        "l": 0.11
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 10544,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#5c6678",
+       "share": 0.34
+      },
+      {
+       "color": "#94a3b8",
+       "share": 0.27
+      },
+      {
+       "color": "#0b1220",
+       "share": 0.16
+      },
+      {
+       "color": "#f1f5f9",
+       "share": 0.13
+      },
+      {
+       "color": "#2563b8",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#1b4d8c"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 21,
+     "inHero": 7,
+     "radius": 10,
+     "height": 46,
+     "withShadow": 4,
+     "withGradient": 4,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a live walkthrough",
+      "Estimate your plan",
+      "Pharmacy",
+      "Education",
+      "Logistics"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 12,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "a.btn.btn-primary → rgba(11, 18, 32, 0.12) 0px 1px 2px 0px, rgba(255, 255, 255, 0.12) 0px 1px 0px 0p",
+      "figure.overflow-hidden.rounded-2xl → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+      "div.rounded-[2.25rem].border → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+      "div.absolute.-top-5 → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0"
+     ],
+     "gradients": 5,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.pointer-events-none.absolute → radial-gradient(closest-side, rgba(27, 77, 140, 0.14), rgba(0, 0, 0, 0))",
+      "a.btn.btn-primary → linear-gradient(135deg, rgb(27, 77, 140), rgb(47, 111, 214))",
+      "a.btn.btn-primary → linear-gradient(135deg, rgb(27, 77, 140), rgb(47, 111, 214))",
+      "a.btn.mt-7 → linear-gradient(135deg, rgb(27, 77, 140), rgb(47, 111, 214))"
+     ],
+     "gradientText": 0,
+     "hairlines": 13,
+     "hairlineSamples": [
+      "div.flex.items-center 356px",
+      "section.border-y.border-border 390px",
+      "div.flex.items-center 300px",
+      "div.flex.items-center 300px",
+      "div.divide-y.divide-border 358px"
+     ],
+     "outlinedBoxes": 25,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 25,
+     "boxRadius": 16,
+     "squareMedia": 0,
+     "roundedMedia": 4,
+     "mediaRadius": 16,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 12242
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 81,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "sora",
+     "source sans 3",
+     "source sans 3 fallback",
+     "jetbrains mono",
+     "jetbrains mono fallback"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 14769,
+    "margins": {
+     "left": 16,
+     "right": 18
+    },
+    "sections": [
+     {
+      "sel": "section.grain.relative",
+      "tag": "section",
+      "top": 1,
+      "height": 1207,
+      "words": 74,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "Workforce attendance you can prove, in real time, ",
+       "size": 40,
+       "tag": "h1"
+      },
+      "left": 16,
+      "right": 17,
+      "textLeft": 16,
+      "textRight": 24,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.border-y.border-border",
+      "tag": "section",
+      "top": 1208,
+      "height": 464,
+      "words": 33,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "15",
+       "size": 30,
+       "tag": "dd"
+      },
+      "left": 16,
+      "right": 57,
+      "textLeft": 16,
+      "textRight": 57,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 1672,
+      "height": 2496,
+      "words": 157,
+      "media": 3,
+      "middle": 0,
+      "heading": {
+       "text": "From a phone at the door to a score across the net",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 17,
+      "textLeft": 16,
+      "textRight": 23,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 4169,
+      "height": 1064,
+      "words": 51,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "One platform. Three layers of control.",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 77,
+      "textLeft": 16,
+      "textRight": 77,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 5233,
+      "height": 1587,
+      "words": 106,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Built for how your sector actually works.",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 45,
+      "textLeft": 16,
+      "textRight": 45,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 6820,
+      "height": 1274,
+      "words": 85,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "We already rank attendance performance. Here's exa",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 18,
+      "textLeft": 16,
+      "textRight": 18,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.theme-command.relative",
+      "tag": "section",
+      "top": 8094,
+      "height": 881,
+      "words": 48,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Coming soon: VGBA",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 17,
+      "textLeft": 16,
+      "textRight": 18,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 8975,
+      "height": 1139,
+      "words": 110,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "What our customers say",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 19,
+      "textLeft": 16,
+      "textRight": 19,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 10114,
+      "height": 1523,
+      "words": 99,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "GHS 450",
+       "size": 36,
+       "tag": "span"
+      },
+      "left": 16,
+      "right": 27,
+      "textLeft": 16,
+      "textRight": 27,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.theme-command.py-20",
+      "tag": "section",
+      "top": 11636,
+      "height": 1354,
+      "words": 86,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Deploy your VeriTrack portal",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 49,
+      "right": 57,
+      "textLeft": 49,
+      "textRight": 57,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-20.sm:py-24",
+      "tag": "section",
+      "top": 12990,
+      "height": 795,
+      "words": 105,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Questions buyers ask first",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 21,
+      "textLeft": 16,
+      "textRight": 21,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.theme-command.border-t",
+      "tag": "footer",
+      "top": 13785,
+      "height": 984,
+      "words": 83,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Platform",
+       "size": 12,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 19,
+      "textLeft": 16,
+      "textRight": 19,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Workforce attendance you can prove, in real time, at every location.",
+      "size": 40,
+      "top": 182,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 16,
+      "n": 21
+     },
+     {
+      "x": 41,
+      "n": 3
+     },
+     {
+      "x": 109,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 25,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 1440,
+   "message": "2 headline(s) wrap past two lines at 1440px: \"Workforce attendance you can prove, in real time\" → 5 lines (11 words, 68px); \"We already rank attendance performance. Here's e\" → 3 lines (8 words, 36px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less."
+  },
+  {
+   "level": "WARN",
+   "id": "hero-words",
+   "width": 1440,
+   "message": "Hero headline is 11 words (\"Workforce attendance you can prove, in real time, at every l\"). Gallery median is 5.",
+   "fix": "Say the one thing. Move the rest to the supporting line.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "20 eyebrow/kicker label(s) above headings: \"Workforce intelligence platform\" above \"Workforce attendance you can prove, in r\"; \"Organisations onboarded\" above \"15+\"; \"Branches geofenced\" above \"60+\"; \"Verified check-ins\" above \"3,000+\"; \"Sectors served\" above \"5+\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "mono",
+   "width": 1440,
+   "message": "Monospace type outside code: JetBrains Mono — e.g. \"Workforce intelligence platform\", \"Super Admin · Live attendance\", \"Photo ✓ · GPS within 50m ✓\", \"15+\"",
+   "fix": "Set it in the text face. Monospace is for literal code inside <pre>/<code> only.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "numbering",
+   "width": 1440,
+   "message": "Decorative index numbers: \"01\", \"02\", \"03\", \"04\"",
+   "fix": "Remove them. If order truly matters, write it into the words (\"First, …\") or use a real <ol>.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "28 tiny uppercase letter-spaced labels (e.g. \"Workforce intelligence platform\", \"Super Admin · Live attendance\", \"How it works\", \"Verify\").",
+   "fix": "Use sentence-case text at a readable size, or delete the label.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "emoji",
+   "width": 1440,
+   "message": "Emoji in the page: ✓",
+   "fix": "Remove. Use words or real imagery.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient",
+   "width": 1440,
+   "message": "1 gradient fill(s): div.pointer-events-none.absolute → radial-gradient(closest-side, rgba(27, 77, 140, 0.14), rgba(0, 0, 0, 0))",
+   "fix": "Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 1440,
+   "message": "9 box-shadow(s) on elements at rest: a.btn.btn-primary → rgba(11, 18, 32, 0.12) 0px 1px 2px 0px, rgba(255, 255, 255, 0.12) 0px 1px 0px 0p | figure.overflow-hidden.rounded-2xl → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0 | div.rounded-[2.25rem].border → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "button-fx",
+   "width": 1440,
+   "message": "Buttons with gradient fill and shadow/glow.",
+   "fix": "Flat fill, one colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "11 thin rule(s)/divider line(s): div.flex.items-center 601px | section.border-y.border-border 1440px | div.flex.items-center 670px | div.flex.items-center 670px",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "27 boxes drawn with a 1px outline.",
+   "fix": "Define a surface by its fill (one tone step from the page) or leave the content unboxed.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "card-rows",
+   "width": 1440,
+   "message": "3 rows of identical boxed cards.",
+   "fix": "Vary the composition; not every section is a card grid.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "font-count",
+   "width": 1440,
+   "message": "3 typefaces in use (Source Sans 3, Sora, JetBrains Mono).",
+   "fix": "Two at most.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "14 different font sizes (11, 12, 13, 14, 15, 16, 17, 18, 20, 24, 30, 36, 60, 68).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "grey-body",
+   "width": 1440,
+   "message": "The running text is a soft grey on its ground (5.4:1).",
+   "fix": "Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "FAIL",
+   "id": "small-text",
+   "width": 1440,
+   "message": "14 text blocks under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The margins differ: 112px on the left, 133px on the right, at 1440px.",
+   "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page."
+  },
+  {
+   "level": "WARN",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Little motion: 13 element(s) moved while the page loaded and scrolled.",
+   "fix": "Give every section an entrance for its parts (not one fade of the whole block) and add one moving picture: a looping clip or a slow move on a photograph."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 768,
+   "message": "1 headline(s) wrap past two lines at 768px: \"Workforce attendance you can prove, in real time\" → 3 lines (11 words, 53.2px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 32px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "3 headline(s) wrap past two lines at 390px: \"Workforce attendance you can prove, in real time\" → 5 lines (11 words, 40px); \"From a phone at the door to a score across the n\" → 3 lines (12 words, 30px); \"We already rank attendance performance. Here's e\" → 4 lines (8 words, 30px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/mygyan/Downloads/Code Arena/veritrackSystems/v2/.taste-skill/before/desktop-fold.jpg",
+   "pages": [
+    "/Users/mygyan/Downloads/Code Arena/veritrackSystems/v2/.taste-skill/before/desktop-page-01.jpg",
+    "/Users/mygyan/Downloads/Code Arena/veritrackSystems/v2/.taste-skill/before/desktop-page-02.jpg",
+    "/Users/mygyan/Downloads/Code Arena/veritrackSystems/v2/.taste-skill/before/desktop-page-03.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/mygyan/Downloads/Code Arena/veritrackSystems/v2/.taste-skill/before/tablet-fold.jpg",
+   "pages": [
+    "/Users/mygyan/Downloads/Code Arena/veritrackSystems/v2/.taste-skill/before/tablet-page-01.jpg",
+    "/Users/mygyan/Downloads/Code Arena/veritrackSystems/v2/.taste-skill/before/tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/mygyan/Downloads/Code Arena/veritrackSystems/v2/.taste-skill/before/mobile-fold.jpg",
+   "pages": [
+    "/Users/mygyan/Downloads/Code Arena/veritrackSystems/v2/.taste-skill/before/mobile-page-01.jpg",
+    "/Users/mygyan/Downloads/Code Arena/veritrackSystems/v2/.taste-skill/before/mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}
