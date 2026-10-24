@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     "Ghana attendance software",
+    "West Africa attendance software",
+    "Africa workforce attendance",
+    "staff attendance software",
     "pharmacy staff attendance",
     "college attendance system",
     "geofenced check-in",
@@ -52,6 +55,7 @@ const jsonLd = {
       email: siteConfig.contact.email,
       telephone: "+233592548849",
       address: { "@type": "PostalAddress", addressLocality: "Accra", addressCountry: "GH" },
+      areaServed: ["Ghana", "West Africa", "Africa", "Worldwide"],
       sameAs: Object.values(siteConfig.social),
     },
     {

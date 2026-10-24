@@ -204,6 +204,7 @@ export const performanceWeights = [
 
 export const faqs = [
   { q: "What does it cost?", a: `From GHS 300 per branch per month, with 12 staff included per branch. There is a one-time GHS 500 setup, then a ${TRIAL_DAYS}-day trial before your subscription starts.` },
+  { q: "Do you work outside Ghana?", a: "Yes. VeriTrack runs in the cloud and works on any smartphone with GPS, so we can deploy for teams in any country. Our team in Accra onboards you remotely, and outside Ghana we quote in your local currency or US dollars." },
   { q: "Do we need to buy hardware?", a: "No. Staff check in from their own phones through your branded portal, so there are no biometric devices or turnstiles to buy, install or repair." },
   { q: "How does photo verification work?", a: "At check-in/out the portal can require a live selfie validated for liveness (not a gallery upload), combined with staff ID and location checks." },
   { q: "Does VeriTrack work offline?", a: "Yes. Portals queue check-ins when offline and sync when connectivity returns, subject to your configured rules." },

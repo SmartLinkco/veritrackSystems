@@ -16,7 +16,7 @@ export function sectorMetadata(slug: SectorSlug): Metadata {
   const s = getSector(slug);
   return {
     title: `${s.name} attendance`,
-    description: `${s.pitch} Photo-verified, geofenced attendance for ${s.name.toLowerCase()} in Ghana.`,
+    description: `${s.pitch} Photo-verified, geofenced attendance for ${s.name.toLowerCase()} in Ghana, across Africa and beyond.`,
     alternates: { canonical: `/solutions/${slug}` },
   };
 }

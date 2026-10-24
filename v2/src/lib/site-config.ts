@@ -5,7 +5,7 @@ export const siteConfig = {
   name: "VeriTrack Systems",
   tagline: "Trusted workforce intelligence for organisations that need proof, not paperwork.",
   description:
-    "VeriTrack Systems provides photo-verified staff attendance, live admin dashboards, and cross-branch analytics for pharmacies, colleges, logistics, and corporate teams across Ghana. Deploy in days. Performance recognised annually through VGBA.",
+    "VeriTrack Systems provides photo-verified staff attendance, live admin dashboards, and cross-branch analytics for pharmacies, schools, logistics, security and corporate teams. Built in Accra, proven across Ghana, and ready for teams across West Africa, Africa and beyond. Deploy in days. Performance recognised annually through VGBA.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://veritrack.cloud",
   renewalUrl: "https://portals.veritrack.cloud/renewal",
   calUrl: process.env.NEXT_PUBLIC_CAL_URL ?? "https://calendly.com/info-veritrack/30min",

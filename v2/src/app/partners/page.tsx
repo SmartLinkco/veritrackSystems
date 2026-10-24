@@ -32,7 +32,7 @@ export default function PartnersPage() {
       </PageHero>
 
       <Section aria-labelledby="benefits-heading">
-        <SectionHeading id="benefits-heading" eyebrow="Why partner" title="Trusted referrals across Ghana" />
+        <SectionHeading id="benefits-heading" eyebrow="Why partner" title="Trusted referrals across Africa" />
         <ul data-reveal-stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((b) => (
             <li key={b.title} className="card p-6">

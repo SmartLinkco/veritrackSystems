@@ -212,14 +212,14 @@ export default async function HomePage() {
       <Panel aria-labelledby="proof-heading" className="py-24 lg:py-28">
         <Container className="grid gap-12 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-6">
-            <h2 id="proof-heading" {...reveal(0)} className="text-display font-light tracking-[-0.035em]">Already running across Ghana</h2>
+            <h2 id="proof-heading" {...reveal(0)} className="text-display font-light tracking-[-0.035em]">Proven in Ghana. Built for Africa and beyond.</h2>
             <p {...reveal(1)} className="mt-8 max-w-[34ch] font-display text-[clamp(1.5rem,2.5vw,2.25rem)] font-light leading-[1.22] tracking-[-0.02em]">
               <strong className="whitespace-nowrap font-medium text-brand-600">{branches.value}+ branches</strong> across{" "}
               <strong className="whitespace-nowrap font-medium text-brand-600">{sectorsCovered.value}+ sectors</strong> run on VeriTrack, with more than{" "}
               <strong className="whitespace-nowrap font-medium text-brand-600">{checkins.value.toLocaleString("en-GB")} check-ins</strong> verified.
             </p>
             <p {...reveal(2)} className="mt-6 max-w-[44ch] text-lg text-ink-muted">
-              Each green point is a branch where attendance is now verified, not assumed. VeriTrack is approved and certified by Ghana&apos;s Data Protection Commission.
+              Each green point is a branch where attendance is now verified, not assumed. VeriTrack is certified by Ghana&apos;s Data Protection Commission, and because it runs on any phone, a branch in Lagos, Abidjan, Nairobi or London is set up exactly like one in Accra.
             </p>
           </div>
           <figure {...reveal(2)} className="lg:col-span-5 lg:col-start-8">
@@ -297,7 +297,7 @@ export default async function HomePage() {
                     )}
                     {w.word}
                   </Link>
-                  {i < sectors.length - 1 ? ", " : " across Ghana."}
+                  {i < sectors.length - 1 ? ", " : ", from Accra to wherever your teams work."}
                 </span>
               );
             })}

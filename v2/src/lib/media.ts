@@ -53,7 +53,7 @@ export const films: Record<FilmId, Film> = {
   K6jzxsHeqlI: {
     id: "K6jzxsHeqlI",
     title: "Who really showed up today?",
-    hook: "Staff attendance for multi-branch businesses in Ghana.",
+    hook: "Staff attendance for multi-branch businesses.",
     audience: "Multi-branch businesses",
     poster: "/media/films/K6jzxsHeqlI.jpg",
   },

@@ -10,7 +10,7 @@ import { getSiteMetrics } from "@/lib/site-metrics";
 
 export const metadata: Metadata = {
   title: "Company & team",
-  description: "VeriTrack Systems is an Accra-based workforce intelligence company building verified attendance for organisations across Ghana.",
+  description: "VeriTrack Systems is an Accra-based workforce intelligence company building verified attendance for organisations across Ghana, West Africa, Africa and beyond.",
   alternates: { canonical: "/company" },
 };
 
@@ -56,7 +56,7 @@ export default async function CompanyPage() {
       <Section tone="elevated" aria-labelledby="where-heading">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
-            <SectionHeading id="where-heading" eyebrow="Where we are" title="Built in Accra, Ghana" lead="Every client portal runs on our secure infrastructure and is supported by our team in Accra." />
+            <SectionHeading id="where-heading" eyebrow="Where we are" title="Built in Accra, for Africa and the world" lead="Our team is in Accra, and every client portal runs on our secure cloud infrastructure, so we can deploy for organisations wherever their staff carry a phone." />
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/contact" className="btn btn-primary">Contact us</Link>
               <Link href="/legal/privacy#dpc-certification" className="btn btn-ghost">DPC certification</Link>

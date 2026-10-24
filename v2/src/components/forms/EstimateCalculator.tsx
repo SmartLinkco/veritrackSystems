@@ -154,7 +154,7 @@ export function EstimateCalculator() {
             <button type="button" onClick={() => window.print()} className="btn btn-ghost sm:col-span-2">Print or save as PDF</button>
           </div>
         </section>
-        <p className="mt-4 text-sm text-ink-muted">Estimates are indicative. Your quote is confirmed after the discovery call. Prices in Ghana cedis.</p>
+        <p className="mt-4 text-sm text-ink-muted">Estimates are indicative. Your quote is confirmed after the discovery call. Prices in Ghana cedis. Outside Ghana, we quote in your local currency or US dollars.</p>
       </div>
     </div>
   );

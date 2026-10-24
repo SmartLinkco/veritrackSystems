@@ -54,7 +54,7 @@ export function Footer() {
       <Container className="relative pt-20 pb-10 sm:pt-28">
         <div className="grid gap-12 lg:grid-cols-12">
           <p data-reveal className="font-display text-[clamp(2.25rem,4.6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.035em] lg:col-span-6">
-            Proof of presence for every branch, campus and client site in Ghana.
+            Proof of presence for every branch, campus and client site, from Accra to anywhere.
           </p>
           <div data-reveal style={{ "--i": 1 } as React.CSSProperties} className="flex flex-col items-start gap-6 lg:col-span-5 lg:col-start-8 lg:items-end lg:justify-end">
             <Link href="/contact?intent=deploy" className="btn btn-primary btn-arrow">Request a portal</Link>
