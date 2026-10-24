@@ -233,7 +233,6 @@ export function ContactWizard() {
               </ul>
               <div className="mt-6 flex flex-wrap gap-3">
                 <a href={siteConfig.renewalUrl} className="btn btn-primary">Renew subscription ↗</a>
-                <a href={siteConfig.portalsUrl} className="btn btn-ghost">Client portals ↗</a>
               </div>
             </>
           )}

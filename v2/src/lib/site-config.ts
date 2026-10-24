@@ -7,7 +7,6 @@ export const siteConfig = {
   description:
     "VeriTrack Systems provides photo-verified staff attendance, live admin dashboards, and cross-branch analytics for pharmacies, colleges, logistics, and corporate teams across Ghana. Deploy in days. Performance recognised annually through VGBA.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://veritrack.cloud",
-  portalsUrl: "https://portals.veritrack.cloud",
   renewalUrl: "https://portals.veritrack.cloud/renewal",
   calUrl: process.env.NEXT_PUBLIC_CAL_URL ?? "https://calendly.com/info-veritrack/30min",
   demoFormUrl:

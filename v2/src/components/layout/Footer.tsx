@@ -33,7 +33,6 @@ const columns: { title: string; links: FooterLink[] }[] = [
   {
     title: "Access",
     links: [
-      { href: siteConfig.portalsUrl, label: "Client portals", external: true },
       { href: siteConfig.renewalUrl, label: "Renew subscription", external: true },
       { href: "/contact", label: "Contact" },
       { href: `mailto:${siteConfig.contact.email}`, label: siteConfig.contact.email, external: true },
@@ -112,7 +111,6 @@ export function Footer() {
               <a key={s.label} href={s.href} target="_blank" rel="noopener" className="hover:text-white">{s.label}</a>
             ))}
           </div>
-          <a href={siteConfig.portalsUrl} className="btn btn-primary btn-sm self-start" target="_blank" rel="noopener">Sign in to your portal</a>
         </div>
         <p className="mt-8 max-w-4xl text-[0.8125rem] leading-relaxed text-white/70">
           Photographs of Ghana: {worldCredits.map((c, i) => (
