@@ -119,7 +119,9 @@ export default async function HomePage() {
                 VeriTrack proves who was at work, where and when, with a live photo and GPS at every branch. Payroll, managers and clients finally see the same evidence.
               </p>
               <div {...enter(2)} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-                <Link href="/demo#book" className="btn btn-primary btn-arrow">Book a walkthrough</Link>
+                {/* Below lg the header has no room for "Request a portal", so it leads here and the walkthrough steps back to glass. */}
+                <Link href="/contact?intent=deploy" className="btn btn-primary btn-arrow lg:hidden">Request a portal</Link>
+                <Link href="/demo#book" className="btn btn-glass btn-arrow lg:bg-signal lg:text-ink lg:hover:bg-signal-deep">Book a walkthrough</Link>
                 <FilmButton id="K8QZyf5AAkM" className="btn-glass">Watch the 60-second demo</FilmButton>
               </div>
               <ul {...enter(3)} className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[0.9375rem] text-white/80">
@@ -133,7 +135,8 @@ export default async function HomePage() {
             </div>
           </div>
         </Container>
-        <Container className="relative pb-8">
+        {/* Extra bottom room on mobile keeps the Pause control clear of the figures; from lg up they stop short of it. */}
+        <Container className="relative pb-20 lg:pb-8">
           <dl {...enter(3)} className="grid grid-cols-3 gap-4 border-t border-white/20 pt-6 text-white sm:max-w-2xl">
             {[sectorsCovered, branches, checkins].map((m) => (
               <div key={m.label}>
