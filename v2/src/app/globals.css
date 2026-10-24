@@ -318,3 +318,18 @@ a.card:active { transform: translateY(-1px); transition-duration: 0.1s; }
 .faq-plus::before, .faq-plus::after { content: ""; position: absolute; left: 0; top: 6.5px; width: 16px; height: 3px; border-radius: 2px; background: currentColor; transition: transform 0.2s var(--ease-out); }
 .faq-plus::after { transform: rotate(90deg); }
 .faq-tile[open] .faq-plus::after { transform: rotate(0deg); }
+
+/* Client logo marquee: the track holds two identical groups and slides left by one of them, so the loop has no seam.
+   Edges fade out so logos drift in and out rather than being cut off. */
+.logo-marquee {
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+.logo-marquee-track { animation: logo-marquee 45s linear infinite; }
+.logo-marquee:hover .logo-marquee-track { animation-play-state: paused; }
+@keyframes logo-marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee { mask-image: none; }
+  .logo-marquee-track { animation: none; width: auto; }
+  .logo-marquee-group { flex-wrap: wrap; justify-content: center; row-gap: 2rem; padding-right: 0; }
+  .logo-marquee-copy { display: none; }
+}

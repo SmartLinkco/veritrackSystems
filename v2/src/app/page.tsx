@@ -8,6 +8,7 @@ import { FirstStep } from "@/components/home/FirstStep";
 import { TourButton } from "@/components/product/TourButton";
 import { CommandFrame, PhoneFrame } from "@/components/product/CommandFrame";
 import { BackgroundVideo } from "@/components/media/BackgroundVideo";
+import { ClientLogos } from "@/components/home/ClientLogos";
 import { FilmButton, FilmGallery } from "@/components/media/Films";
 import { PinnedStory, type StoryStep } from "@/components/marketing/PinnedStory";
 import { StageTracker } from "@/components/marketing/StageTracker";
@@ -228,6 +229,10 @@ export default async function HomePage() {
             </div>
             <figcaption className="mt-5 text-center text-[0.9375rem] text-ink-muted">The super-admin map, Greater Accra, May 2026.</figcaption>
           </figure>
+        </Container>
+        <Container className="mt-16 lg:mt-20">
+          <p {...reveal(0)} className="text-center text-[0.9375rem] font-semibold text-ink-muted">Trusted by pharmacies, schools, assemblies and businesses</p>
+          <ClientLogos className="mt-8" />
         </Container>
       </Panel>
 

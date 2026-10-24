@@ -274,3 +274,26 @@ export const awardSafeguards = [
   "Clients may opt out of public ranking while remaining in private benchmarks.",
   "VeriTrack staff and demo tenants are excluded.",
 ];
+
+// Client logos for the homepage marquee, hosted on Cloudinary (same files as the legacy site's trusted-brands strip).
+// width/height are each file’s real size at the 160px height requested, so the row reserves space before the logos load.
+// trim crops away a plain border, for logos saved with a lot of empty space around them.
+const cloudinary = (path: string, trim = false) => `https://res.cloudinary.com/dgp5xrels/image/upload/${trim ? "e_trim/" : ""}f_auto,q_auto,h_160,c_fit/${path}`;
+export const clientLogos: { name: string; src: string; width: number; height: number }[] = [
+  { name: "Pharma Trust Limited", src: cloudinary("v1775920967/WhatsApp_Image_2026-04-11_at_10.34.04_ihufjx.jpg"), width: 160, height: 160 },
+  { name: "Ga East Municipal Assembly", src: cloudinary("v1771200666/GA-EAST_LOGO_jo489n.jpg"), width: 160, height: 160 },
+  { name: "Phersons Pharmacy Ltd", src: cloudinary("v1779295780/pherson_s_logo_sbx7nl.png"), width: 226, height: 160 },
+  { name: "Pharma Trust Professional College", src: cloudinary("v1778738384/ppc-logo_cemrx0.png"), width: 177, height: 160 },
+  { name: "Phinies", src: cloudinary("v1768689246/cropped_logo_phinies_obyotv.png"), width: 453, height: 160 },
+  { name: "Dedarrys Consult", src: cloudinary("v1755217616/Screenshot_2025-08-15_002254-removebg-preview_vjb7kf.png"), width: 186, height: 160 },
+  { name: "XTENDED", src: cloudinary("v1753432192/xtended_web_s4bluf.png"), width: 139, height: 160 },
+  { name: "DFE", src: cloudinary("v1752847081/DFE_logo_j6odmr.png"), width: 150, height: 160 },
+  { name: "Partner school crest", src: cloudinary("v1761097488/download__5_-removebg-preview_iyo0a8.png"), width: 160, height: 160 },
+  { name: "FinanceGuard", src: cloudinary("v1765720387/financeGuard_thnxzq.png"), width: 160, height: 160 },
+  { name: "Westfield Montessori School", src: cloudinary("v1770585429/westfield_logo_uebjpq.jpg"), width: 162, height: 160 },
+  { name: "J.A. Biney & Co. Ltd", src: cloudinary("v1785499878/J.A_Biney_Co_Logo_i9fvdq.png"), width: 302, height: 160 },
+  { name: "Star Gas", src: cloudinary("v1784642196/star_gas_logo_lkk8yy.png"), width: 220, height: 160 },
+  { name: "Prime Pak Canning Ltd", src: cloudinary("v1783021767/primepakcanningltd_logo_titctp.jpg", true), width: 336, height: 160 },
+  { name: "Kamak Paperless", src: cloudinary("v1782337178/kamak-logo_sajipq.webp"), width: 444, height: 160 },
+  { name: "University Practice Senior High School", src: cloudinary("v1767029021/University_Practice_qy7fhc.png"), width: 179, height: 160 },
+];
