@@ -56,7 +56,7 @@ const story: StoryStep[] = [
       <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] sm:aspect-[5/4]">
         <BackgroundVideo clip="selfie-checkin" scrim="dark" />
         <PhoneFrame
-          image={{ src: "/product/portal-checkin.png", alt: "Staff phone showing Check-In Confirmed at Demo Office with a late-arrival remark", width: 828, height: 1792 }}
+          image={{ src: "/product/staff-portal.png", alt: "VeriTrack staff portal on a phone: Staff ID field, Check-In and Check-Out buttons, and the before-you-begin checklist", width: 828, height: 1792 }}
           className="absolute bottom-[-18%] right-[8%] w-[38%] max-w-[15rem]"
         />
       </div>

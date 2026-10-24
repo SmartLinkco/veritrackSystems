@@ -164,7 +164,7 @@ export const pillars = [
     summary: "Live photo + GPS. Any phone. Works offline.",
     body: "Staff check in and out from any phone: live photo with liveness detection, GPS validation, an optional offline queue, and instant confirmations. No hardware turnstiles required.",
     capabilities: ["Live photo with liveness detection", "GPS geofence validation (typically within 50m)", "Offline queue with sync", "Instant check-in confirmations", "Portals in multiple languages"],
-    image: { src: "/product/portal-alert.png", alt: "Check-in confirmation on a staff member's phone", width: 828, height: 1792 },
+    image: { src: "/product/staff-portal.png", alt: "VeriTrack staff portal on a phone: Staff ID field, Check-In and Check-Out buttons, and the before-you-begin checklist", width: 828, height: 1792 },
   },
   {
     id: "monitor",

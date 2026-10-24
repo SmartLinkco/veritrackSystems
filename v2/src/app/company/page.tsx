@@ -34,10 +34,11 @@ export default async function CompanyPage() {
       <Section aria-labelledby="team-heading">
         <SectionHeading id="team-heading" eyebrow="Leadership" title="The team" />
         <ul data-reveal-stagger className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
-          {team.map((m) => (
-            <li key={m.name}>
+          {team.map((m, i) => (
+            // The founder gets the first row to themselves on mobile; the other four fill two even rows.
+            <li key={m.name} className={i === 0 ? "col-span-2 mx-auto w-[72%] text-center sm:col-span-1 sm:mx-0 sm:w-auto sm:text-left" : undefined}>
               {m.photo ? (
-                <Image src={m.photo} alt={m.name} width={400} height={400} sizes="(min-width: 1024px) 220px, 45vw" className="aspect-square w-full rounded-2xl object-cover" />
+                <Image src={m.photo} alt={m.name} width={400} height={400} sizes={i === 0 ? "(min-width: 1024px) 220px, (min-width: 640px) 30vw, 70vw" : "(min-width: 1024px) 220px, 45vw"} className="aspect-square w-full rounded-2xl object-cover" />
               ) : (
                 <div role="img" aria-label={`${m.name} (photo coming soon)`} className="flex aspect-square w-full items-center justify-center rounded-2xl bg-brand-100">
                   <span aria-hidden className="font-display text-[clamp(2rem,4vw,3rem)] font-light tracking-[-0.03em] text-brand-600">
