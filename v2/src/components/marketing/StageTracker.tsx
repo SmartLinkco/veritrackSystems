@@ -14,8 +14,8 @@ export function StageTracker({ stages, className }: { stages: Stage[]; className
             <span
               aria-hidden
               className={clsx(
-                "relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border-t-[3px] bg-white",
-                done ? "border-brand-600" : "border-border bg-white/60",
+                "relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-xl",
+                done ? "bg-white" : "bg-white/60",
               )}
             >
               {done && (

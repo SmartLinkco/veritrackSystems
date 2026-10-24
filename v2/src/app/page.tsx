@@ -15,6 +15,7 @@ import { faqs, performanceWeights, sectors, testimonials } from "@/lib/content";
 import { films, sectorFilms } from "@/lib/media";
 import { siteConfig, worldCredits } from "@/lib/site-config";
 import { getSiteMetrics } from "@/lib/site-metrics";
+import { TRIAL_DAYS } from "@/lib/pricing";
 
 const reveal = (i: number) => ({ "data-reveal": "", style: { "--i": i } as React.CSSProperties });
 const enter = (i: number) => ({ "data-enter": "", style: { "--i": i } as React.CSSProperties });
@@ -31,7 +32,7 @@ const stages = [
   { label: "Ten minutes", detail: "Tell us your branches, shifts and who should see the reports." },
   { label: "Thirty minutes", detail: "One call to confirm locations and what your dashboard tracks." },
   { label: "A few days", detail: "We build your branded portal, pin every branch and test it with you." },
-  { label: `${30}-day trial`, detail: "Staff go live on their own phones. You judge it on real data before you pay." },
+  { label: `${TRIAL_DAYS}-day trial`, detail: "Staff go live on their own phones. You judge it on real data before you pay." },
 ];
 
 const sectorWords: Record<string, { before: string; word: string }> = {
@@ -92,9 +93,9 @@ const story: StoryStep[] = [
     body: <p>Days present, days absent and hours worked per person, emailed every week and month. Pay for the hours that were worked, with the evidence behind each one.</p>,
     cta: { href: "/pricing", label: "See the plans" },
     media: (
-      <div className="flex aspect-[4/5] items-end justify-center gap-4 overflow-hidden rounded-[1.5rem] bg-command-surface px-6 pt-10 sm:aspect-[5/4]">
-        <PhoneFrame image={{ src: "/product/admin-weekly.png", alt: "Weekly Attendance Summary email with days present, days absent and total hours per staff member", width: 828, height: 1792 }} className="-mb-24 w-[42%] max-w-[15rem]" />
-        <PhoneFrame image={{ src: "/product/admin-monthly.png", alt: "Monthly Attendance Summary email", width: 828, height: 1792 }} className="-mb-40 hidden w-[42%] max-w-[15rem] sm:block" />
+      <div className="flex items-start justify-center gap-5 rounded-[1.5rem] bg-command-surface px-6 py-8 sm:py-10">
+        <PhoneFrame image={{ src: "/product/admin-weekly.png", alt: "Weekly Attendance Summary email with days present, days absent and total hours per staff member", width: 828, height: 1792 }} className="w-[62%] max-w-[15rem] sm:w-[42%]" />
+        <PhoneFrame image={{ src: "/product/admin-monthly.png", alt: "Monthly Attendance Summary email", width: 828, height: 1792 }} className="mt-10 hidden w-[42%] max-w-[15rem] sm:block" />
       </div>
     ),
   },
@@ -122,7 +123,7 @@ export default async function HomePage() {
                 <FilmButton id="K8QZyf5AAkM" className="btn-glass">Watch the 60-second demo</FilmButton>
               </div>
               <ul {...enter(3)} className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[0.9375rem] text-white/80">
-                {["30-day trial", "No hardware to buy", "DPC certified", "Live in days"].map((t) => (
+                {[`${TRIAL_DAYS}-day trial`, "No hardware to buy", "DPC certified", "Live in days"].map((t) => (
                   <li key={t} className="flex items-center gap-2">
                     <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-signal" />
                     {t}
@@ -306,7 +307,7 @@ export default async function HomePage() {
         <Container className="grid gap-12 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-4">
             <h2 id="deploy-heading" {...reveal(0)} className="text-[clamp(2.25rem,3.6vw,3.25rem)] font-light leading-[1.05] tracking-[-0.035em]">Live in days, judged on your own data</h2>
-            <p {...reveal(1)} className="mt-6 max-w-[34ch] text-lg text-ink-muted">No hardware, no long project. A one-time GHS 500 setup, then a 30-day trial so you see the results before you commit.</p>
+            <p {...reveal(1)} className="mt-6 max-w-[34ch] text-lg text-ink-muted">No hardware, no long project. A one-time GHS 500 setup, then a {TRIAL_DAYS}-day trial so you see the results before you commit.</p>
             <div {...reveal(2)} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
               <Link href="/contact?intent=deploy" className="btn btn-navy btn-arrow">Request your portal</Link>
             </div>

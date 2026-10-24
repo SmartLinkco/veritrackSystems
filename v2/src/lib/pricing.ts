@@ -4,7 +4,7 @@
 export const STAFF_PER_BRANCH = 12;
 export const MAX_BRANCHES = 100000;
 export const SETUP_FEE_GHS = 500;
-export const TRIAL_DAYS = 30;
+export const TRIAL_DAYS = 14;
 
 export type TierKey = "starter" | "growth" | "enterprise";
 

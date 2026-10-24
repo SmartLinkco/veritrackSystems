@@ -8,6 +8,7 @@ import {
   ADDONS,
   MAX_BRANCHES,
   STAFF_PER_BRANCH,
+  TRIAL_DAYS,
   estimate,
   formatGHS,
   type AddonKey,
@@ -145,7 +146,7 @@ export function EstimateCalculator() {
             <div className="border-t border-command-border pt-4">
               <Line label="Monthly subscription" detail="Before any annual saving" value={e.monthlyGhs} strong />
             </div>
-            <Line label="One-time setup" detail="30-day trial on subscription" value={e.setupGhs} />
+            <Line label="One-time setup" detail={`${TRIAL_DAYS}-day trial on subscription`} value={e.setupGhs} />
           </dl>
           <div className="grid gap-3 border-t border-command-border p-6 sm:grid-cols-2 sm:p-8">
             <Link href={contactHref} className="btn btn-primary">Send to our team</Link>

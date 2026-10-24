@@ -1,6 +1,8 @@
 // Marketing copy, ported from WEBSITE_CONTENT_STRATEGY.md §6–7 and the live site.
 // Keep claims here verifiable; see the strategy doc's content principles.
 
+import { TRIAL_DAYS } from "./pricing";
+
 export type SectorSlug = "pharmacy" | "education" | "logistics" | "corporate" | "security" | "events";
 
 export type Sector = {
@@ -201,7 +203,7 @@ export const performanceWeights = [
 ] as const;
 
 export const faqs = [
-  { q: "What does it cost?", a: "From GHS 300 per branch per month, with 12 staff included per branch. There is a one-time GHS 500 setup, then a 30-day trial before your subscription starts." },
+  { q: "What does it cost?", a: `From GHS 300 per branch per month, with 12 staff included per branch. There is a one-time GHS 500 setup, then a ${TRIAL_DAYS}-day trial before your subscription starts.` },
   { q: "Do we need to buy hardware?", a: "No. Staff check in from their own phones through your branded portal, so there are no biometric devices or turnstiles to buy, install or repair." },
   { q: "How does photo verification work?", a: "At check-in/out the portal can require a live selfie validated for liveness (not a gallery upload), combined with staff ID and location checks." },
   { q: "Does VeriTrack work offline?", a: "Yes. Portals queue check-ins when offline and sync when connectivity returns, subject to your configured rules." },
@@ -210,7 +212,7 @@ export const faqs = [
   { q: "Do you integrate with payroll?", a: "Reports are payroll-ready; direct payroll integration is an optional add-on or custom project." },
   { q: "What support is included?", a: "Dedicated support during business hours with defined response targets. Contact us for current SLA details." },
   { q: "What is VGBA?", a: "The VeriTrack Global Business Awards recognise client organisations with outstanding attendance performance across metrics we already track: attendance rate, punctuality, checkout discipline, and data reliability." },
-  { q: "How do I get started?", a: "Submit a deployment request, try the live demo, or book a walkthrough. Setup is a one-time configuration fee plus a 30-day trial on subscription." },
+  { q: "How do I get started?", a: `Submit a deployment request, try the live demo, or book a walkthrough. Setup is a one-time configuration fee plus a ${TRIAL_DAYS}-day trial on subscription.` },
 ];
 
 export type Testimonial = { quote: string; name: string; role: string; sector: "Corporate" | "Logistics" | "Retail" };
@@ -242,7 +244,7 @@ export const team: { name: string; role: string; photo: string | null }[] = [
   { name: "Felix Kwesi Selassie", role: "Chief Operating Officer", photo: "/team/felix.jpg" },
   { name: "Godfred Tenkorang", role: "Chief Technology Officer", photo: "/team/godfred.jpg" },
   { name: "Emmanuella B. Owusu", role: "Marketing Lead", photo: "/team/emmanuella.jpg" },
-  { name: "Muhammad Tawfiq Labib Ladan", role: "Software Engineer", photo: null },
+  { name: "Muhammad Tawfiq Labib Ladan", role: "Software Engineer", photo: "/team/muhammad.jpg" },
 ];
 
 export const deploySteps = [

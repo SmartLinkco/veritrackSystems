@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import clsx from "clsx";
 import { siteConfig } from "@/lib/site-config";
-import { estimate, formatGHS, getBranchTier } from "@/lib/pricing";
+import { TRIAL_DAYS, estimate, formatGHS, getBranchTier } from "@/lib/pricing";
 import { postForm } from "./submit";
 
 const intents = [
@@ -308,7 +308,7 @@ export function ContactWizard() {
             ))}
           </dl>
           <p className="text-sm text-ink-muted">
-            Setup is a one-time configuration fee plus a 30-day trial on subscription. By submitting you agree to our{" "}
+            Setup is a one-time configuration fee plus a {TRIAL_DAYS}-day trial on subscription. By submitting you agree to our{" "}
             <Link href="/legal/terms" className="underline underline-offset-2">terms</Link> and{" "}
             <Link href="/legal/privacy" className="underline underline-offset-2">privacy policy</Link>.
           </p>
