@@ -143,7 +143,7 @@ export default function PlatformPage() {
         <div className="card mt-12 flex flex-col gap-6 p-7 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h3 className="text-xl">Security &amp; data protection</h3>
-            <p className="mt-1 max-w-2xl text-ink-muted">Role-restricted access, data held in your organisation&apos;s controlled Google Workspace stack, and registration with Ghana&apos;s Data Protection Commission.</p>
+            <p className="mt-1 max-w-2xl text-ink-muted">Role-restricted access and registration with Ghana&apos;s Data Protection Commission.</p>
           </div>
           <Link href="/legal/privacy#dpc-certification" className="btn btn-ghost shrink-0">Read the privacy policy</Link>
         </div>

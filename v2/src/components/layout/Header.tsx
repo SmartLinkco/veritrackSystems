@@ -210,7 +210,6 @@ export function Header() {
               ))}
             </ul>
             <div className="mt-8 grid gap-3">
-              <Link href="/contact?intent=deploy" className="btn btn-primary">Request a portal</Link>
               <Link href="/demo#book" className="btn btn-ghost">Book a walkthrough</Link>
             </div>
           </motion.nav>

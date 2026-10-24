@@ -219,7 +219,7 @@ export default async function HomePage() {
               <strong className="whitespace-nowrap font-medium text-brand-600">{checkins.value.toLocaleString("en-GB")} check-ins</strong> verified.
             </p>
             <p {...reveal(2)} className="mt-6 max-w-[44ch] text-lg text-ink-muted">
-              Each green point is a branch where attendance is now verified, not assumed. VeriTrack is approved and certified by Ghana&apos;s Data Protection Commission, and your data stays in your organisation&apos;s own Google Workspace.
+              Each green point is a branch where attendance is now verified, not assumed. VeriTrack is approved and certified by Ghana&apos;s Data Protection Commission.
             </p>
           </div>
           <figure {...reveal(2)} className="lg:col-span-5 lg:col-start-8">

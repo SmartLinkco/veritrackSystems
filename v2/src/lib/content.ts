@@ -208,7 +208,7 @@ export const faqs = [
   { q: "How does photo verification work?", a: "At check-in/out the portal can require a live selfie validated for liveness (not a gallery upload), combined with staff ID and location checks." },
   { q: "Does VeriTrack work offline?", a: "Yes. Portals queue check-ins when offline and sync when connectivity returns, subject to your configured rules." },
   { q: "Can we manage many branches?", a: "Yes. Dashboards aggregate by branch with map views; pricing scales by branch count." },
-  { q: "Is data secure?", a: "Attendance data is stored in your organisation's controlled Google Workspace stack; access is role-restricted. VeriTrack is approved and certified by Ghana's Data Protection Commission (DPC). See our privacy policy for details." },
+  { q: "Is data secure?", a: "Yes. Access to attendance data is role-restricted, and VeriTrack is approved and certified by Ghana's Data Protection Commission (DPC). See our privacy policy for details." },
   { q: "Do you integrate with payroll?", a: "Reports are payroll-ready; direct payroll integration is an optional add-on or custom project." },
   { q: "What support is included?", a: "Dedicated support during business hours with defined response targets. Contact us for current SLA details." },
   { q: "What is VGBA?", a: "The VeriTrack Global Business Awards recognise client organisations with outstanding attendance performance across metrics we already track: attendance rate, punctuality, checkout discipline, and data reliability." },
@@ -219,19 +219,19 @@ export type Testimonial = { quote: string; name: string; role: string; sector: "
 
 export const testimonials: Testimonial[] = [
   {
-    quote: "VeriTrack has completely transformed how we manage attendance. The real-time updates and QR code check-ins are a game changer for our HR team.",
+    quote: "Attendance used to be something HR pieced together after the fact. Now we see check-ins as they come in, and staff do it themselves on their phones. It has changed how we run things.",
     name: "Shola Oluwa",
     role: "Managing Director, REXDELIVERY GHANA LTD (17 employees)",
     sector: "Logistics",
   },
   {
-    quote: "The automated reports are a game-changer. I get comprehensive insights without lifting a finger, and my team loves the career tips feature.",
+    quote: "I don’t build attendance reports anymore. They arrive with everything I need already in them.",
     name: "Stephen Darry Oppong",
     role: "CEO, DEDARRYS CONSULT (30 employees)",
     sector: "Corporate",
   },
   {
-    quote: "The dual verification system eliminated our buddy punching problem completely. We estimate we're saving ₵10,000+ annually in prevented time theft alone.",
+    quote: "We had people signing in for each other. Once a check-in needed a photo and the location, that stopped. By our own estimate, that’s over ₵10,000 a year we were paying for time nobody worked.",
     name: "Adelaide Troko",
     role: "Operations Manager, Confidential retail client, Ghana (8 branches, NDA)",
     sector: "Retail",
